@@ -1,0 +1,80 @@
+Alcohol primario + PCC = Aldehido
+Alcohol primario + Cr2O7 2- = Ácido 
+Alcohol secundario + Cr2O7 2- = Cetona 
+Alqueno + O3 (DCM) = Aldehídos y cetonas
+Alqueno + O3 (H2O2) = Ácidos y Cetonas 
+Aldehído + 1 alcohol = Hemiacetal
+Aldehído + xs alcohol = Acetal
+Cetona + 1 alcohol = Hemiacetal 
+Cetona + xs alcohol = Acetal 
+Aldehído + Ag2O/OH- = Ácido 
+Aldehído + xs Grignard = Alcohol secundario 
+Cetona + xs Grignard = Alcohol terciario
+Cetona con Hα + Aldehído/Cetona = Aldol
+Cetona con Hα + Aldehído/Cetona + Δ = Condensado aldólico
+Cetona/Aldehído + H2O = Hidrato geminal
+Aldehído + LiAlH4 = Alcohol primario
+Aldehído + NaBH4 = Alcohol primario
+Cetona + LiAlH4 = Alcohol secundario 
+Cetona + NaBH4 = Alcohol secundario 
+Cetona y Alqueno + NaBH4 = Alcohol secundario
+Cetona y Alqueno + NaBH4/CeCl3.7H2O = Alcohol secundario y alqueno (Luche)
+Cetona/Aldehído + -CN = Cianhidrina
+Cetona/Aldehído + -CN + H2O = Amida --> Ácido 
+Cetona/Aldehído + H2NNH2 = Imina
+Cetona/Aldehído + RNNH2 = Imina
+Cetona/Aldehído + HOCH2CH2OH = Acetal cíclico
+Cetona/Aldehído + Zn(Hg),HCl = Cadena alquílica (Clemmensen)
+Cetona/Aldehído + H2NNH2, OH- = Cadena alquílica (Wolf-Kishner)
+Cetona/Aldehído + iluro de fósforo = Alqueno
+Cetona + peroxiacido = Éster 
+Metilcetona + Br2 + OH- = Ácido + Haloformo
+
+Grignard + CO2 = Ácido 
+Ácido + NaBH4 = X --> No reacción 
+Ácido + LiAlH4 = Alcohol primario 
+Ácido y cetona + LiAlH4 = Alcohol primario y secundario
+Ácido y cetona + BH3.THF = Alcohol primario y Cetona 
+Ácido + DIBAH = Aldehído 
+Ácido + SOCl2 = Cloruro de ácido 
+Ácido + (COCl)2 =Cloruro de ácido 
+Ácido + Alcohol = Éster (Fisher)
+Ácido + CH2N2 = Amida + N2
+Ácido + NH3 = Carboxilato de amonio
+Ácido + Amina = Carboxilato de amonio 
+Ácido + Cloruro de ácido = Anhídrido 
+
+Cloruro de ácido + TTBALiH = Aldehído 
+Cloruro de ácido + Alcohol = Éster 
+Cloruro de ácido + NH3 = Amida primaria 
+Cloruro de ácido + Amina = Amida
+Cloruro de ácido + LiAlH4 = Alcohol primario
+Cloruro de ácido + xs Grignard =  Alcohol terciario 
+Cloruro de ácido + R2CuLi = Cetona
+Cloruro de ácido + H2O = Ácido + HCl 
+
+Anhídrido + Alcohol = Éster 
+Anhídrido + NH3 = Amida primaria
+Anhídrido + Amina = Amida 
+Anhídrido + LiAlH4 = Alcohol primario 
+Anhídrido + TTBALiH = Aldehído 
+Anhídrido + xs Grignard= Alcohol terciario 
+Anhídrido + R2CuLi = Cetona
+Anhídrido + H2O = Ácido + Ácido 
+
+Éster + xs Grignard = Alcohol terciario 
+Éster + DIBAH = Aldehído 
+Éster + LiAlH4 = Alcohol primario 
+Éster + NH3 = Amida primaria
+Éster + H2O = Ácido + Alcohol 
+
+Amida + LiAlH4 = Amina
+Amida + H2O = Ácido + NH3
+Amida + SOCl2 = Nitrilo
+
+Nitrilo +  Grignard = Cetona
+Nitrilo + LiAlH4 = Amina
+Nitrilo + H2O = Ácido 
+
+Éster + xs Alcohol + OH- = Transesterificacion
+Éster + NaOH = Saponificacion
