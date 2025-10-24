@@ -1,23 +1,41 @@
-import { useState } from 'react'
+import { lazy, Suspense } from 'react'
 import type { Reaction } from '@/types/chemistry'
 import RDKitMoleculeViewer from './RDKitMoleculeViewer'
 import MoleculeViewer from './MoleculeViewer'
 import SimpleMoleculeViewer from './SimpleMoleculeViewer'
 import Card from '@/components/ui/Card'
 
+// Lazy load Ketcher to prevent blocking the app on initial load
+const KetcherMoleculeViewer = lazy(() => import('./KetcherMoleculeViewer'))
+
 interface ReactionViewerProps {
   reaction: Reaction
+  viewerType?: 'rdkit' | 'kekule' | 'simple' | 'ketcher'
 }
 
-type ViewerType = 'rdkit' | 'kekule' | 'simple'
-
-function ReactionViewer({ reaction }: ReactionViewerProps) {
-  const [viewerType, setViewerType] = useState<ViewerType>('rdkit')
+function ReactionViewer({ reaction, viewerType = 'rdkit' }: ReactionViewerProps) {
 
   const MolViewer = 
     viewerType === 'rdkit' ? RDKitMoleculeViewer :
     viewerType === 'kekule' ? MoleculeViewer :
+    viewerType === 'ketcher' ? KetcherMoleculeViewer :
     SimpleMoleculeViewer
+  
+  const isKetcher = viewerType === 'ketcher'
+  
+  const renderMolecule = (smiles: string, width: number, height: number, className: string) => {
+    const viewer = <MolViewer smiles={smiles} width={width} height={height} className={className} />
+    
+    if (isKetcher) {
+      return (
+        <Suspense fallback={<div className="flex items-center justify-center" style={{ width, height }}>Loading...</div>}>
+          {viewer}
+        </Suspense>
+      )
+    }
+    
+    return viewer
+  }
 
   return (
     <Card className="reaction-viewer-card max-w-full overflow-hidden relative z-10 shadow-none border-0">
@@ -29,12 +47,12 @@ function ReactionViewer({ reaction }: ReactionViewerProps) {
           <div className="reactants-list space-y-1 sm:space-y-2">
             {reaction.reactants.map((reagent, idx) => (
               <div key={idx} className="reactant-item text-center">
-                <MolViewer 
-                  smiles={reagent.compound.smiles} 
-                  width={window.innerWidth < 360 ? 80 : 140}
-                  height={window.innerWidth < 360 ? 60 : 100}
-                  className="reactant-molecule mx-auto"
-                />
+                {renderMolecule(
+                  reagent.compound.smiles,
+                  window.innerWidth < 360 ? 80 : 140,
+                  window.innerWidth < 360 ? 60 : 100,
+                  "reactant-molecule mx-auto"
+                )}
                 <p className="reactant-name text-xs mt-0.5 sm:mt-1 font-medium truncate px-1">{reagent.compound.name}</p>
                 {reagent.conditions && (
                   <p className="reactant-conditions text-xs text-gray-500 truncate px-1">{reagent.conditions}</p>
@@ -74,12 +92,12 @@ function ReactionViewer({ reaction }: ReactionViewerProps) {
           <div className="products-list space-y-1 sm:space-y-2">
             {reaction.products.map((reagent, idx) => (
               <div key={idx} className="product-item text-center">
-                <MolViewer 
-                  smiles={reagent.compound.smiles} 
-                  width={window.innerWidth < 360 ? 80 : 140}
-                  height={window.innerWidth < 360 ? 60 : 100}
-                  className="product-molecule mx-auto"
-                />
+                {renderMolecule(
+                  reagent.compound.smiles,
+                  window.innerWidth < 360 ? 80 : 140,
+                  window.innerWidth < 360 ? 60 : 100,
+                  "product-molecule mx-auto"
+                )}
                 <p className="product-name text-xs mt-0.5 sm:mt-1 font-medium truncate px-1">{reagent.compound.name}</p>
               </div>
             ))}

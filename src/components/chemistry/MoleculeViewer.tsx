@@ -15,7 +15,6 @@ interface MoleculeViewerProps {
 }
 
 // Track if Kekule is loaded globally
-let kekuleLoaded = false
 let kekuleLoadPromise: Promise<void> | null = null
 
 function MoleculeViewer({ smiles, width = 300, height = 200, className = '' }: MoleculeViewerProps) {
@@ -30,7 +29,6 @@ function MoleculeViewer({ smiles, width = 300, height = 200, className = '' }: M
     const loadKekule = async () => {
       // If Kekule is already loaded, use it
       if (window.Kekule) {
-        kekuleLoaded = true
         return
       }
 
@@ -56,7 +54,6 @@ function MoleculeViewer({ smiles, width = 300, height = 200, className = '' }: M
             const kekuleScript = document.createElement('script')
             kekuleScript.src = 'https://unpkg.com/kekule/dist/kekule.min.js'
             kekuleScript.onload = () => {
-              kekuleLoaded = true
               resolve()
             }
             kekuleScript.onerror = () => reject(new Error('Failed to load Kekule.js'))
@@ -109,30 +106,40 @@ function MoleculeViewer({ smiles, width = 300, height = 200, className = '' }: M
           containerRef.current.innerHTML = ''
         }
 
-        // Parse SMILES - use Kekule's SMILES reader directly
+        // Parse SMILES - Kekule has limited SMILES support
         let mol = null
         console.log('[MoleculeViewer] Kekule.IO:', Kekule.IO)
-        console.log('[MoleculeViewer] Available readers:', Object.keys(Kekule.IO))
         
         try {
-          // Check if SmilesReader exists
-          if (!Kekule.IO.SmilesReader) {
-            console.error('[MoleculeViewer] SmilesReader not found, trying loadFormatData')
-            mol = Kekule.IO.loadFormatData(smiles, 'smi')
-          } else {
-            // Use the SMILES reader explicitly
-            console.log('[MoleculeViewer] Using SmilesReader')
-            const reader = new Kekule.IO.SmilesReader()
-            mol = reader.readData(smiles)
+          // Try multiple approaches to load SMILES
+          if (Kekule.IO && typeof Kekule.IO.loadFormatData === 'function') {
+            console.log('[MoleculeViewer] Trying loadFormatData with "smi" format')
+            try {
+              mol = Kekule.IO.loadFormatData(smiles, 'smi')
+            } catch (e1) {
+              console.warn('[MoleculeViewer] loadFormatData("smi") failed, trying "smiles"')
+              try {
+                mol = Kekule.IO.loadFormatData(smiles, 'smiles')
+              } catch (e2) {
+                console.warn('[MoleculeViewer] Both formats failed')
+              }
+            }
           }
+          
+          // If still no molecule, show a helpful message
+          if (!mol) {
+            console.error('[MoleculeViewer] Could not parse SMILES with Kekule.js')
+            throw new Error('Kekule.js has limited SMILES support. Try switching to RDKit viewer in the Filters modal.')
+          }
+          
           console.log('[MoleculeViewer] Parsed molecule:', mol)
         } catch (e) {
           console.error('[MoleculeViewer] SMILES parsing error:', e)
-          throw new Error(`Unable to parse SMILES: ${smiles}`)
+          throw e
         }
 
         if (!mol) {
-          throw new Error('Failed to parse SMILES notation')
+          throw new Error('Failed to parse SMILES notation. Try RDKit viewer instead.')
         }
 
         if (!mounted || !containerRef.current) return
@@ -200,8 +207,11 @@ function MoleculeViewer({ smiles, width = 300, height = 200, className = '' }: M
       )}
       {error && (
         <div className="kekule-error text-red-500 text-xs p-2 text-center">
-          <div className="error-title font-semibold mb-1">Unable to render</div>
-          <div className="error-smiles text-xs opacity-75">{smiles}</div>
+          <div className="error-title font-semibold mb-1">
+            {error.includes('RDKit') ? 'Limited SMILES Support' : 'Unable to render'}
+          </div>
+          <div className="error-message text-xs mb-1">{error}</div>
+          <div className="error-smiles text-xs opacity-75 font-mono break-all">{smiles}</div>
         </div>
       )}
       <div 

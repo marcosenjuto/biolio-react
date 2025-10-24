@@ -11,7 +11,7 @@ function HomePage() {
         <div className="hero-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="hero-content text-center">
             <h1 className="hero-title text-5xl md:text-6xl font-bold mb-6">
-              Welcome to Biolio
+              Welcome to bioblio
             </h1>
             <p className="hero-subtitle text-xl md:text-2xl mb-8 text-primary-100">
               Explore organic chemistry reactions with molecular visualization

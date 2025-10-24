@@ -2,7 +2,6 @@ import axios from 'axios'
 import type { ChemicalCompound } from '@/types/chemistry'
 
 const PUBCHEM_API = 'https://pubchem.ncbi.nlm.nih.gov/rest/pug'
-const CHEBI_API = 'https://www.ebi.ac.uk/chebi/searchId.do'
 
 /**
  * Search PubChem by compound name and get SMILES

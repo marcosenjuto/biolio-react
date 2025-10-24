@@ -1,5 +1,5 @@
 {
-  "name": "biolio",
+  "name": "bioblio",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -12,6 +12,9 @@
   "dependencies": {
     "axios": "^1.12.2",
     "kekule": "^1.0.3",
+    "ketcher-core": "^3.8.0",
+    "ketcher-react": "^3.8.0",
+    "ketcher-standalone": "^3.8.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.0",

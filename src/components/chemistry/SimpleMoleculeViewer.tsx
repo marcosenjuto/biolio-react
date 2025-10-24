@@ -48,7 +48,6 @@ function SimpleMoleculeViewer({ smiles, width = 300, height = 200, className = '
       ctx.textBaseline = 'middle'
       
       // Wrap text if too long
-      const maxWidth = width - 20
       const words = smiles.match(/.{1,30}/g) || [smiles]
       const lineHeight = 16
       const startY = (height - (words.length * lineHeight)) / 2

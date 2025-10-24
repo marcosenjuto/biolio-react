@@ -7,9 +7,10 @@ interface ExpandableReactionCardProps {
   isExpanded: boolean
   onToggle: () => void
   onClose: () => void
+  viewerType?: 'rdkit' | 'kekule' | 'simple' | 'ketcher'
 }
 
-function ExpandableReactionCard({ reaction, isExpanded, onToggle, onClose }: ExpandableReactionCardProps) {
+function ExpandableReactionCard({ reaction, isExpanded, onToggle, onClose, viewerType = 'rdkit' }: ExpandableReactionCardProps) {
   return (
     <Card hover className="reaction-card cursor-pointer expandable-reaction-card" onClick={!isExpanded ? onToggle : undefined}>
       <div className="reaction-card-header flex items-start justify-between mb-1">
@@ -63,7 +64,7 @@ function ExpandableReactionCard({ reaction, isExpanded, onToggle, onClose }: Exp
         </div>
       ) : (
         <div className="reaction-expanded-viewer mb-3 -mx-1">
-          <ReactionViewer reaction={reaction} />
+          <ReactionViewer reaction={reaction} viewerType={viewerType} />
         </div>
       )}
 
