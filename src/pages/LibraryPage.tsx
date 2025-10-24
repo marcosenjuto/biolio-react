@@ -37,7 +37,7 @@ function LibraryPage() {
 
   const [selectedFunctionalGroup, setSelectedFunctionalGroup] = useState('all')
   const [isFilterOpen, setIsFilterOpen] = useState(false)
-  const [viewerType, setViewerType] = useState<'rdkit' | 'kekule' | 'simple' | 'ketcher'>('rdkit')
+  const [viewerType, setViewerType] = useState<'rdkit' | 'kekule' | 'simple' | 'ketcher' | '3dmol'>('rdkit')
 
   useEffect(() => {
     // Apply filters on mount
@@ -64,6 +64,7 @@ function LibraryPage() {
     <div className="library-page page min-h-screen bg-gray-50">
       <div className="library-container max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4">
         {/* Header */}
+        <div className="spacer-100 h-28"></div>
         <div className="library-header mb-2">
           <h1 className="library-title text-4xl font-bold text-gray-900 mb-2">
             Library
@@ -74,7 +75,6 @@ function LibraryPage() {
         </div>
 
         {/* Filters Section - Always Visible */}
-        <div className="library-filters bg-white rounded-lg shadow-sm mb-4 p-3">
           <FilterPreview
             searchTerm={searchTerm}
             onSearchChange={setSearchTerm}
@@ -85,12 +85,13 @@ function LibraryPage() {
             }
             selectedCategory={selectedCategory}
             selectedFunctionalGroup={selectedFunctionalGroup}
+            viewerType={viewerType}
             onCategoryChange={setSelectedCategory}
             onFunctionalGroupChange={setSelectedFunctionalGroup}
+            onViewerTypeChange={setViewerType}
             reactionCategories={reactionCategories}
             functionalGroups={functionalGroups}
           />
-        </div>
 
         {/* Filter Modal */}
         <FilterPanel

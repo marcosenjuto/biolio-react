@@ -187,19 +187,10 @@ function MoleculeViewer({ smiles, width = 300, height = 200, className = '' }: M
 
   return (
     <div 
-      className={`kekule-molecule-viewer ${className}`}
+      className={`kekule-molecule-viewer ${className} border border-gray-300 rounded-lg bg-white flex items-center justify-center relative p-0 mx-auto`}
       style={{ 
         width: `${width}px`, 
-        height: `${height}px`,
-        border: '1px solid #e5e7eb',
-        borderRadius: '0.375rem',
-        backgroundColor: '#ffffff',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        position: 'relative',
-        padding: '0',
-        margin: '0 auto'
+        height: `${height}px`
       }}
     >
       {isLoading && (

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 // RDKit types declaration
 declare global {
@@ -13,16 +13,23 @@ interface RDKitMoleculeViewerProps {
   width?: number
   height?: number
   className?: string
+  bondLength?: number // Fixed bond length for consistent molecule sizes
 }
 
 // Track if RDKit is loaded globally
 let rdkitModule: any = null
 let rdkitLoadPromise: Promise<any> | null = null
 
-function RDKitMoleculeViewer({ smiles, width = 300, height = 200, className = '' }: RDKitMoleculeViewerProps) {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
+function RDKitMoleculeViewer({ 
+  smiles, 
+  width = 300, 
+  height = 200, 
+  className = '',
+  bondLength = 40 // Consistent bond size (adjust as needed: 30-50)
+}: RDKitMoleculeViewerProps) {
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(true)
+  const [svgContent, setSvgContent] = useState<string>('')
 
   useEffect(() => {
     let mounted = true
@@ -102,8 +109,8 @@ function RDKitMoleculeViewer({ smiles, width = 300, height = 200, className = ''
         const RDKit = await loadRDKit()
         console.log('[RDKit] Module ready:', !!RDKit)
 
-        if (!mounted || !canvasRef.current) {
-          console.log('[RDKit] Component unmounted or canvas not ready')
+        if (!mounted) {
+          console.log('[RDKit] Component unmounted')
           return
         }
 
@@ -130,10 +137,14 @@ function RDKitMoleculeViewer({ smiles, width = 300, height = 200, className = ''
 
         console.log('[RDKit] Molecule parsed successfully')
 
-        // Generate SVG
+        // Generate SVG with consistent bond sizes
         const svg = mol.get_svg_with_highlights(JSON.stringify({
           width: width,
           height: height,
+          bondLineWidth: 2,
+          addAtomIndices: false,
+          addStereoAnnotation: true,
+          fixedBondLength: bondLength, // All bonds will have this size for consistency
         }))
 
         console.log('[RDKit] SVG generated, length:', svg.length)
@@ -141,46 +152,12 @@ function RDKitMoleculeViewer({ smiles, width = 300, height = 200, className = ''
         // Clean up molecule object
         mol.delete()
 
-        if (!mounted || !canvasRef.current) return
+        if (!mounted) return
 
-        // Draw SVG to canvas
-        const canvas = canvasRef.current
-        const ctx = canvas.getContext('2d')
-        
-        if (!ctx) {
-          throw new Error('Could not get canvas context')
-        }
-
-        // Account for device pixel ratio for sharp rendering
-        const dpr = window.devicePixelRatio || 1
-        canvas.width = width * dpr
-        canvas.height = height * dpr
-        ctx.scale(dpr, dpr)
-
-        // Create image from SVG
-        const img = new Image()
-        const svgBlob = new Blob([svg], { type: 'image/svg+xml' })
-        const url = URL.createObjectURL(svgBlob)
-
-        img.onload = () => {
-          console.log('[RDKit] Drawing to canvas')
-          ctx.clearRect(0, 0, width, height)
-          ctx.drawImage(img, 0, 0, width, height)
-          URL.revokeObjectURL(url)
-          
-          if (mounted) {
-            setIsLoading(false)
-            console.log('[RDKit] Render complete!')
-          }
-        }
-
-        img.onerror = (err) => {
-          console.error('[RDKit] Image load error:', err)
-          URL.revokeObjectURL(url)
-          throw new Error('Failed to render SVG')
-        }
-
-        img.src = url
+        // Set SVG content directly
+        setSvgContent(svg)
+        setIsLoading(false)
+        console.log('[RDKit] Render complete!')
 
       } catch (err) {
         console.error('[RDKit] Render error:', err)
@@ -196,7 +173,7 @@ function RDKitMoleculeViewer({ smiles, width = 300, height = 200, className = ''
     return () => {
       mounted = false
     }
-  }, [smiles, width, height])
+  }, [smiles, width, height, bondLength])
 
   return (
     <div 
@@ -204,9 +181,8 @@ function RDKitMoleculeViewer({ smiles, width = 300, height = 200, className = ''
       style={{ 
         width: `${width}px`, 
         height: `${height}px`,
-        border: '1px solid #e5e7eb',
         borderRadius: '0.375rem',
-        backgroundColor: '#ffffff',
+        backgroundColor: 'transparent', // Transparent background
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -224,15 +200,19 @@ function RDKitMoleculeViewer({ smiles, width = 300, height = 200, className = ''
           <div className="error-smiles text-xs opacity-75 font-mono">{smiles}</div>
         </div>
       )}
-      <canvas 
-        ref={canvasRef}
-        className="rdkit-canvas"
-        style={{
-          width: `${width}px`,
-          height: `${height}px`,
-          display: error ? 'none' : 'block'
-        }}
-      />
+      {!error && svgContent && (
+        <div 
+          className="rdkit-svg"
+          dangerouslySetInnerHTML={{ __html: svgContent }}
+          style={{
+            width: `${width}px`,
+            height: `${height}px`,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+        />
+      )}
     </div>
   )
 }

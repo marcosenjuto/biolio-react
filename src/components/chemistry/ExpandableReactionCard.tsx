@@ -7,7 +7,7 @@ interface ExpandableReactionCardProps {
   isExpanded: boolean
   onToggle: () => void
   onClose: () => void
-  viewerType?: 'rdkit' | 'kekule' | 'simple' | 'ketcher'
+  viewerType?: 'rdkit' | 'kekule' | 'simple' | 'ketcher' | '3dmol'
 }
 
 function ExpandableReactionCard({ reaction, isExpanded, onToggle, onClose, viewerType = 'rdkit' }: ExpandableReactionCardProps) {

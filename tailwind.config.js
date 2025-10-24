@@ -11,16 +11,28 @@ export default {
       },
       colors: {
         primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
+          50: '#fef6f8',
+          100: '#fdedf1',
+          200: '#fcdbe5',
+          300: '#f9bad1',
+          400: '#f58fb3',
+          500: '#BA8DE4', // Main primary color
+          600: '#a571cc',
+          700: '#8f5bb4',
+          800: '#7a4d9a',
+          900: '#644080',
+        },
+        secondary: {
+          50: '#f7faf4',
+          100: '#eff5e8',
+          200: '#dfebd1',
+          300: '#cfe1ba',
+          400: '#c1d7a9',
+          500: '#B3CB98', // Main secondary color
+          600: '#9fb986',
+          700: '#8ba774',
+          800: '#778f62',
+          900: '#637750',
         },
       },
       fontFamily: {

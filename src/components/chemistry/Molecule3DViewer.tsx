@@ -20,13 +20,13 @@ interface Molecule3DViewerProps {
 // Global loading promise
 let mol3dLoadPromise: Promise<void> | null = null
 
-function Molecule3DViewer({ 
+function Molecule3DViewer({
   smiles,
   molString,
-  width = 400, 
-  height = 400, 
+  width = 400,
+  height = 400,
   className = '',
-  spin = true,
+  spin = false, // Changed default to false for better UX in lists
   spinSpeed = 0.1
 }: Molecule3DViewerProps) {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -51,21 +51,21 @@ function Molecule3DViewer({
       mol3dLoadPromise = new Promise((resolve, reject) => {
         try {
           console.log('[3DMol] Loading 3Dmol.js')
-          
+
           const script = document.createElement('script')
           script.src = 'https://3Dmol.csb.pitt.edu/build/3Dmol-min.js'
           script.async = true
-          
+
           script.onload = () => {
             console.log('[3DMol] Library loaded')
             resolve()
           }
-          
+
           script.onerror = (err) => {
             console.error('[3DMol] Failed to load:', err)
             reject(new Error('Failed to load 3Dmol.js'))
           }
-          
+
           document.body.appendChild(script)
         } catch (err) {
           reject(err)
@@ -87,11 +87,11 @@ function Molecule3DViewer({
             }
           }
         )
-        
+
         if (!response.ok) {
           throw new Error('Failed to convert SMILES to 3D structure')
         }
-        
+
         const sdfData = await response.text()
         return sdfData
       } catch (err) {
@@ -134,11 +134,12 @@ function Molecule3DViewer({
         }
 
         // Create 3Dmol viewer
-        const config = { 
-          backgroundColor: 'white',
+        // Note: WebGL doesn't support true transparency, using white background
+        const config = {
+          backgroundColor: '0xffffff', // White background (hex format for 3Dmol)
           antialias: true
         }
-        
+
         const viewer = window.$3Dmol.createViewer(containerRef.current, config)
         viewerRef.current = viewer
 
@@ -147,15 +148,17 @@ function Molecule3DViewer({
         viewer.setStyle({}, {
           stick: {
             colorscheme: 'default',
-            radius: 0.15
+            radius: 0.20
           },
           sphere: {
-            scale: 0.25,
+            scale: 0.20,
             colorscheme: 'Jmol'
           }
         })
-        
+
+        // Zoom with 1.5x magnification (closer view)
         viewer.zoomTo()
+        viewer.zoom(1.5) // 1.5x bigger molecules
         viewer.render()
 
         console.log('[3DMol] Molecule rendered')
@@ -164,12 +167,12 @@ function Molecule3DViewer({
         if (spin && mounted) {
           const animate = () => {
             if (!mounted || !viewerRef.current) return
-            
+
             viewer.rotate(spinSpeed, 'y')
             viewer.render()
             animationId = requestAnimationFrame(animate)
           }
-          
+
           animate()
         }
 
@@ -202,16 +205,19 @@ function Molecule3DViewer({
       }
     }
   }, [smiles, molString, spin, spinSpeed])
-
+  
   return (
-    <div 
+    <div
       className={`molecule-3d-viewer ${className}`}
-      style={{ 
-        width: `${width}px`, 
-        height: `${height}px`,
-        border: '1px solid #e5e7eb',
+      style={{
+        width: '100%',
+        height: '100%',
+        minWidth: `${width}px`,
+        minHeight: `${height}px`,
+        maxWidth: `${width}px`,
+        maxHeight: `${height}px`,
         borderRadius: '0.375rem',
-        backgroundColor: '#ffffff',
+        backgroundColor: 'transparent',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -240,6 +246,8 @@ function Molecule3DViewer({
           </div>
         </div>
       )}
+      {/*                 width: '100%',
+          height: '100%', */}
       <div
         ref={containerRef}
         style={{

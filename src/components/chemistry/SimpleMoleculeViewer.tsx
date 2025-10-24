@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { colors } from '@/utils/colors'
 
 interface SimpleMoleculeViewerProps {
   smiles: string
@@ -33,16 +34,16 @@ function SimpleMoleculeViewer({ smiles, width = 300, height = 200, className = '
       ctx.clearRect(0, 0, width, height)
       
       // Set up canvas
-      ctx.fillStyle = '#ffffff'
+      ctx.fillStyle = colors.white
       ctx.fillRect(0, 0, width, height)
       
       // Draw border
-      ctx.strokeStyle = '#e5e7eb'
+      ctx.strokeStyle = colors.gray[200]
       ctx.lineWidth = 1
       ctx.strokeRect(0, 0, width, height)
       
       // Draw SMILES text
-      ctx.fillStyle = '#374151'
+      ctx.fillStyle = colors.gray[700]
       ctx.font = '12px monospace'
       ctx.textAlign = 'center'
       ctx.textBaseline = 'middle'
@@ -58,7 +59,7 @@ function SimpleMoleculeViewer({ smiles, width = 300, height = 200, className = '
       
       // Draw label
       ctx.font = '10px sans-serif'
-      ctx.fillStyle = '#9ca3af'
+      ctx.fillStyle = colors.gray[400]
       ctx.fillText('SMILES notation', width / 2, height - 10)
       
       setError(null)

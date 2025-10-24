@@ -1,4 +1,4 @@
-import { Select, SelectItem } from '@/components/ui/Select'
+import Combobox from '@/components/ui/Combobox'
 import Button from '@/components/ui/Button'
 
 interface FilterPanelProps {
@@ -6,10 +6,10 @@ interface FilterPanelProps {
   onClose: () => void
   selectedCategory: string
   selectedFunctionalGroup: string
-  viewerType: 'rdkit' | 'kekule' | 'simple' | 'ketcher'
+  viewerType: 'rdkit' | 'kekule' | 'simple' | 'ketcher' | '3dmol'
   onCategoryChange: (value: string) => void
   onFunctionalGroupChange: (value: string) => void
-  onViewerTypeChange: (value: 'rdkit' | 'kekule' | 'simple' | 'ketcher') => void
+  onViewerTypeChange: (value: 'rdkit' | 'kekule' | 'simple' | 'ketcher' | '3dmol') => void
   onClearFilters: () => void
   reactionCategories: Array<{ id: string; name: string }>
   functionalGroups: Array<{ id: string; name: string }>
@@ -62,33 +62,14 @@ function FilterPanel({
               <label className="block text-sm font-semibold text-gray-700 mb-3">
                 Reaction Category
               </label>
-              <div className="relative">
-                <Select
-                  value={selectedCategory}
-                  onValueChange={onCategoryChange}
-                  style={{
-                    width: '100%',
-                    backgroundColor: selectedCategory !== 'all' ? '#0ea5e9' : 'white',
-                    color: selectedCategory !== 'all' ? 'white' : '#374151',
-                    borderColor: selectedCategory !== 'all' ? '#0ea5e9' : '#d1d5db'
-                  }}
-                >
-                  {reactionCategories.map((category) => (
-                    <SelectItem key={category.id} value={category.id}>
-                      {category.name}
-                    </SelectItem>
-                  ))}
-                </Select>
-                <svg 
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 pointer-events-none" 
-                  style={{ color: selectedCategory !== 'all' ? 'white' : '#9ca3af' }}
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
+              <Combobox
+                options={reactionCategories.map(cat => ({ value: cat.id, label: cat.name }))}
+                value={selectedCategory}
+                onValueChange={onCategoryChange}
+                placeholder="Select category..."
+                searchPlaceholder="Search categories..."
+                isActive={selectedCategory !== 'all'}
+              />
             </div>
 
             {/* Functional Group Filter */}
@@ -96,33 +77,14 @@ function FilterPanel({
               <label className="block text-sm font-semibold text-gray-700 mb-3">
                 Functional Group
               </label>
-              <div className="relative">
-                <Select
-                  value={selectedFunctionalGroup}
-                  onValueChange={onFunctionalGroupChange}
-                  style={{
-                    width: '100%',
-                    backgroundColor: selectedFunctionalGroup !== 'all' ? '#0ea5e9' : 'white',
-                    color: selectedFunctionalGroup !== 'all' ? 'white' : '#374151',
-                    borderColor: selectedFunctionalGroup !== 'all' ? '#0ea5e9' : '#d1d5db'
-                  }}
-                >
-                  {functionalGroups.map((group) => (
-                    <SelectItem key={group.id} value={group.id}>
-                      {group.name}
-                    </SelectItem>
-                  ))}
-                </Select>
-                <svg 
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 pointer-events-none" 
-                  style={{ color: selectedFunctionalGroup !== 'all' ? 'white' : '#9ca3af' }}
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
+              <Combobox
+                options={functionalGroups.map(group => ({ value: group.id, label: group.name }))}
+                value={selectedFunctionalGroup}
+                onValueChange={onFunctionalGroupChange}
+                placeholder="Select functional group..."
+                searchPlaceholder="Search groups..."
+                isActive={selectedFunctionalGroup !== 'all'}
+              />
             </div>
 
             {/* Viewer Type Selector */}
@@ -130,35 +92,23 @@ function FilterPanel({
               <label className="block text-sm font-semibold text-gray-700 mb-3">
                 Molecule Viewer
               </label>
-              <div className="relative">
-                <Select
-                  value={viewerType}
-                  onValueChange={(value) => onViewerTypeChange(value as 'rdkit' | 'kekule' | 'simple' | 'ketcher')}
-                  style={{
-                    width: '100%',
-                    backgroundColor: 'white',
-                    color: '#374151',
-                    borderColor: '#d1d5db'
-                  }}
-                >
-                  <SelectItem value="rdkit">RDKit (Recommended)</SelectItem>
-                  <SelectItem value="ketcher">Ketcher (Interactive)</SelectItem>
-                  <SelectItem value="kekule">Kekule.js (Limited SMILES)</SelectItem>
-                  <SelectItem value="simple">Simple Canvas</SelectItem>
-                </Select>
-                <svg 
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 pointer-events-none text-gray-400"
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
+              <Combobox
+                options={[
+                  { value: 'rdkit', label: 'RDKit (Recommended)' },
+                  { value: '3dmol', label: '3Dmol.js (3D Interactive)' },
+/*                   { value: 'ketcher', label: 'Ketcher (Editor)' },
+                  { value: 'kekule', label: 'Kekule.js (Limited)' }, */
+                  { value: 'simple', label: 'Simple Canvas' }
+                ]}
+                value={viewerType}
+                onValueChange={(value) => onViewerTypeChange(value as 'rdkit' | 'kekule' | 'simple' | 'ketcher' | '3dmol')}
+                placeholder="Select viewer..."
+                searchPlaceholder="Search viewers..."
+              />
               <p className="text-xs text-gray-500 mt-2">
-                <strong>RDKit:</strong> Best for accurate SMILES rendering.<br/>
-                <strong>Ketcher:</strong> Interactive viewer with full molecule editor.<br/>
-                <strong>Kekule.js:</strong> Limited SMILES support, may fail on complex structures.
+                <strong>RDKit:</strong> Best for accurate 2D SMILES rendering.<br/>
+                <strong>3Dmol.js:</strong> Interactive 3D molecular structures with rotation.<br/>
+                {/* <strong>Ketcher:</strong> Full molecule editor (heavy, use sparingly).<br/> */}
               </p>
             </div>
           </div>

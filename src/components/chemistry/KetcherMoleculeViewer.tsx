@@ -1,9 +1,38 @@
-// Ketcher imports - temporarily disabled until static resources are properly configured
-// import { useState, useRef, useEffect, Component, ErrorInfo, ReactNode } from 'react'
-// import { Editor as KetcherEditor } from 'ketcher-react'
-// import { StandaloneStructServiceProvider } from 'ketcher-standalone'
-// import 'ketcher-react/dist/index.css'
+import { useEffect, useState, lazy, Suspense, useMemo } from 'react'
+import type { Ketcher, StructServiceProvider } from 'ketcher-core'
 import RDKitMoleculeViewer from './RDKitMoleculeViewer'
+
+/**
+ * KetcherMoleculeViewer - Full Ketcher chemical editor component
+ * 
+ * WARNING: Ketcher is a HEAVY editor component designed for editing, not viewing.
+ * - Do NOT use this for displaying multiple molecules (e.g., in a list or grid)
+ * - Use RDKitMoleculeViewer or SimpleMoleculeViewer for viewing multiple molecules
+ * - Only use Ketcher when you need editing capabilities or for single molecule display
+ * 
+ * Having multiple Ketcher instances on the same page will cause:
+ * - Performance degradation
+ * - Initialization conflicts
+ * - High memory usage
+ */
+
+// Lazy load Ketcher components to avoid loading issues
+const KetcherEditor = lazy(() => 
+  import('ketcher-react').then(module => {
+    // Handle both named and default exports
+    const EditorComponent = module.Editor || module.default?.Editor || module.default
+    return { default: EditorComponent }
+  })
+)
+
+// Dynamically import CSS
+const loadKetcherCSS = async () => {
+  try {
+    await import('ketcher-react/dist/index.css')
+  } catch (err) {
+    console.warn('Failed to load Ketcher CSS:', err)
+  }
+}
 
 interface KetcherMoleculeViewerProps {
   smiles: string
@@ -12,135 +41,82 @@ interface KetcherMoleculeViewerProps {
   className?: string
 }
 
-/* Ketcher implementation code - temporarily disabled until static resources are configured
-
-interface ErrorBoundaryState {
-  hasError: boolean
-  error?: Error
-}
-
-// Error boundary wrapper to catch Ketcher initialization errors
-class KetcherErrorBoundary extends Component<
-  { children: ReactNode; smiles: string; width: number; height: number; className: string },
-  ErrorBoundaryState
-> {
-  constructor(props: any) {
-    super(props)
-    this.state = { hasError: false }
-  }
-
-  static getDerivedStateFromError(error: Error): ErrorBoundaryState {
-    console.error('[KetcherErrorBoundary] Caught error:', error)
-    return { hasError: true, error }
-  }
-
-  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.error('[KetcherErrorBoundary] Component error:', error, errorInfo)
-  }
-
-  render() {
-    if (this.state.hasError) {
-      console.log('[KetcherErrorBoundary] Rendering fallback')
-      // Fallback to RDKit viewer when Ketcher fails
-      return (
-        <div className="relative">
-          <div className="absolute top-0 left-0 right-0 bg-yellow-50 border border-yellow-200 text-yellow-800 px-2 py-1 text-xs z-10">
-            Ketcher unavailable - using RDKit viewer
-          </div>
-          <div className="pt-8">
-            <RDKitMoleculeViewer
-              smiles={this.props.smiles}
-              width={this.props.width}
-              height={this.props.height - 32}
-              className={this.props.className}
-            />
-          </div>
-        </div>
-      )
-    }
-
-    return this.props.children
-  }
-}
-
-function KetcherMoleculeViewerInner({ 
-  smiles, 
-  width = 300, 
-  height = 200, 
+function KetcherMoleculeViewer({
+  smiles,
+  width = 600,
+  height = 400,
   className = ''
 }: KetcherMoleculeViewerProps) {
+  const [structServiceProvider, setStructServiceProvider] = useState<StructServiceProvider | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(true)
-  const [isInitialized, setIsInitialized] = useState(false)
-  const ketcherRef = useRef<any>(null)
-  const structServiceProvider = useRef<StandaloneStructServiceProvider | null>(null)
 
-  // Initialize struct service provider safely
-  useEffect(() => {
-    try {
-      console.log('[Ketcher] Initializing struct service provider')
-      structServiceProvider.current = new StandaloneStructServiceProvider()
-      console.log('[Ketcher] Struct service provider initialized')
-    } catch (err) {
-      console.error('[Ketcher] Failed to initialize struct service provider:', err)
-      setError(err instanceof Error ? err.message : 'Failed to initialize')
-      setIsLoading(false)
-    }
-  }, [])
+  // Generate a unique ID for this Ketcher instance
+  const instanceId = useMemo(() => {
+    // Create hash from SMILES + random ID
+    const hash = smiles.split('').reduce((acc, char) => {
+      return ((acc << 5) - acc) + char.charCodeAt(0)
+    }, 0)
+    return `ketcher-${Math.abs(hash)}-${Math.random().toString(36).substr(2, 9)}`
+  }, [smiles])
 
-  // Load molecule after initialization
+  // Initialize struct service provider and CSS
   useEffect(() => {
-    const loadMolecule = async () => {
-      if (!isInitialized || !ketcherRef.current || !smiles) return
-      
+    const initProvider = async () => {
       try {
-        console.log('[Ketcher] Loading SMILES:', smiles)
-        setIsLoading(true)
+        console.log(`[Ketcher ${instanceId}] Initializing standalone service provider`)
         
-        // Wait for Ketcher to be fully ready
-        await new Promise(resolve => setTimeout(resolve, 500))
+        // Load CSS
+        await loadKetcherCSS()
         
-        // Set the molecule
-        await ketcherRef.current.setMolecule(smiles)
-        
+        // Dynamically import StandaloneStructServiceProvider
+        const { StandaloneStructServiceProvider } = await import('ketcher-standalone')
+        const provider = new StandaloneStructServiceProvider()
+        setStructServiceProvider(provider as unknown as StructServiceProvider)
         setIsLoading(false)
-        console.log('[Ketcher] Molecule loaded successfully')
+        console.log(`[Ketcher ${instanceId}] Service provider initialized successfully`)
       } catch (err) {
-        console.error('[Ketcher] Failed to load molecule:', err)
-        setError(err instanceof Error ? err.message : 'Failed to load molecule')
+        console.error(`[Ketcher ${instanceId}] Failed to initialize:`, err)
+        setError(err instanceof Error ? err.message : 'Failed to initialize Ketcher')
         setIsLoading(false)
       }
     }
+    
+    initProvider()
+  }, [instanceId])
 
-    loadMolecule()
-  }, [smiles, isInitialized])
-
-  const handleInit = (ketcher: any) => {
-    try {
-      console.log('[Ketcher] Editor initialized successfully')
-      ketcherRef.current = ketcher
-      setIsInitialized(true)
-      setIsLoading(false)
-    } catch (err) {
-      console.error('[Ketcher] Error in handleInit:', err)
-      setError('Failed to initialize Ketcher editor')
-      setIsLoading(false)
+  const handleInit = async (ketcherInstance: Ketcher) => {
+    console.log(`[Ketcher ${instanceId}] Editor initialized for:`, smiles.substring(0, 20))
+    
+    // Load molecule immediately after initialization
+    if (smiles) {
+      try {
+        console.log(`[Ketcher ${instanceId}] Loading SMILES:`, smiles.substring(0, 30) + '...')
+        // Wait for Ketcher to be fully ready
+        await new Promise(resolve => setTimeout(resolve, 300))
+        await ketcherInstance.setMolecule(smiles)
+        console.log(`[Ketcher ${instanceId}] Molecule loaded successfully`)
+      } catch (err) {
+        console.error(`[Ketcher ${instanceId}] Failed to load molecule:`, err)
+        // Don't set error state, just log
+      }
     }
   }
 
   const handleError = (message: string) => {
-    console.error('[Ketcher] Ketcher error:', message)
-    setError(message)
-    setIsLoading(false)
+    console.error(`[Ketcher ${instanceId}] Error:`, message)
+    // Don't set error for initialization issues, only for critical failures
+    if (message.includes('Failed to initialize')) {
+      setError(message)
+    }
   }
 
-  // If there's an error, show fallback immediately
+  // Show error fallback
   if (error) {
-    console.log('[Ketcher] Showing error fallback')
     return (
       <div className="relative">
-        <div className="absolute top-0 left-0 right-0 bg-red-50 border border-red-200 text-red-800 px-2 py-1 text-xs z-10">
-          Ketcher error: {error}
+        <div className="absolute top-0 left-0 right-0 bg-yellow-50 border border-yellow-200 text-yellow-800 px-2 py-1 text-xs z-10">
+          Ketcher error: {error} - Usando visor alternativo
         </div>
         <div className="pt-8">
           <RDKitMoleculeViewer
@@ -148,82 +124,69 @@ function KetcherMoleculeViewerInner({
             width={width}
             height={height - 32}
             className={className}
+            bondLength={35}
           />
         </div>
       </div>
     )
   }
 
-  // Only render Ketcher if struct service provider is ready
-  if (!structServiceProvider.current) {
-    console.log('[Ketcher] Waiting for struct service provider')
+  // Show loading state
+  if (isLoading || !structServiceProvider) {
     return (
-      <div className="flex items-center justify-center border border-gray-300 rounded-lg" 
-           style={{ width: `${width}px`, height: `${height}px` }}>
-        <div className="text-gray-500 text-sm">Initializing Ketcher...</div>
+      <div 
+        className="flex items-center justify-center border border-gray-300 rounded-lg bg-gray-50"
+        style={{ width: `${width}px`, height: `${height}px` }}
+      >
+        <div className="text-gray-500 text-sm">Cargando editor Ketcher...</div>
       </div>
     )
   }
 
-  console.log('[Ketcher] Rendering Ketcher editor')
   return (
-    <div 
-      className={`ketcher-molecule-viewer ${className}`}
-      style={{ 
-        width: `${width}px`, 
-        height: `${height}px`,
-        border: '1px solid #e5e7eb',
-        borderRadius: '0.375rem',
-        backgroundColor: '#ffffff',
-        overflow: 'hidden',
-        position: 'relative'
+    <div
+      id={instanceId}
+      className={`ketcher-molecule-viewer ketcher-readonly ${className} border border-gray-300 rounded-lg overflow-hidden relative`}
+      style={{
+        width: `${width}px`,
+        height: `${height}px`
       }}
     >
-      {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75 z-50">
-          <div className="text-gray-500 text-sm">Loading Ketcher...</div>
+      <style>{`
+        #${instanceId} .Ketcher-root {
+          /* Hide the toolbar for read-only mode */
+        }
+        #${instanceId} [class*="toolbar"] {
+          display: none !important;
+        }
+        #${instanceId} [class*="TopToolbar"] {
+          display: none !important;
+        }
+        #${instanceId} [class*="LeftToolbar"] {
+          display: none !important;
+        }
+        #${instanceId} [class*="RightToolbar"] {
+          display: none !important;
+        }
+        #${instanceId} .ketcher-canvas-editor {
+          /* Make canvas non-interactive */
+          pointer-events: none;
+        }
+      `}</style>
+      <Suspense fallback={
+        <div className="flex items-center justify-center h-full">
+          <div className="text-gray-500 text-sm">Cargando editor...</div>
         </div>
-      )}
-      <KetcherEditor
-        staticResourcesUrl=""
-        structServiceProvider={structServiceProvider.current as any}
-        errorHandler={handleError}
-        onInit={handleInit}
-      />
-    </div>
-  )
-}
-
-*/ // End of commented Ketcher code
-
-function KetcherMoleculeViewer(props: KetcherMoleculeViewerProps) {
-  console.log('[Ketcher] Rendering KetcherMoleculeViewer wrapper')
-  
-  // Temporary: Always use RDKit fallback until Ketcher is properly configured
-  // Ketcher requires static resources setup that's causing blank pages
-  return (
-    <div className="relative">
-      <div className="absolute top-0 left-0 right-0 bg-blue-50 border border-blue-200 text-blue-800 px-2 py-1 text-xs z-10">
-        Ketcher viewer - Using RDKit fallback (Ketcher configuration pending)
-      </div>
-      <div className="pt-8">
-        <RDKitMoleculeViewer
-          smiles={props.smiles}
-          width={props.width || 300}
-          height={(props.height || 200) - 32}
-          className={props.className || ''}
+      }>
+        <KetcherEditor
+          staticResourcesUrl=""
+          structServiceProvider={structServiceProvider}
+          errorHandler={handleError}
+          onInit={handleInit}
         />
-      </div>
+      </Suspense>
     </div>
   )
-  
-  /* Original Ketcher implementation - commented out until static resources are configured
-  return (
-    <KetcherErrorBoundary smiles={props.smiles} width={props.width || 300} height={props.height || 200} className={props.className || ''}>
-      <KetcherMoleculeViewerInner {...props} />
-    </KetcherErrorBoundary>
-  )
-  */
 }
 
 export default KetcherMoleculeViewer

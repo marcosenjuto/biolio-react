@@ -9,9 +9,29 @@ const __dirname = dirname(__filename)
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  server: {
+    host: '0.0.0.0', // Allow access from network
+    port: 5173,
+    strictPort: false,
+  },
   resolve: {
     alias: {
       '@': resolve(__dirname, './src'),
     },
   },
+  optimizeDeps: {
+    include: [
+      'lodash' // Pre-bundle lodash to avoid module resolution issues
+    ]
+  },
+  build: {
+    commonjsOptions: {
+      include: [/ketcher/, /node_modules/]
+    }
+  },
+  define: {
+    // Define process.env para el browser
+    'process.env': {},
+    'global': 'globalThis'
+  }
 })
