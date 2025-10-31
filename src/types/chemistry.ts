@@ -9,6 +9,7 @@ export interface ChemicalCompound {
   molecularWeight?: number
   pubChemCID?: number
   chebiId?: string
+  sdfData?: string // 3D structure data in SDF format
 }
 
 export interface Reagent {

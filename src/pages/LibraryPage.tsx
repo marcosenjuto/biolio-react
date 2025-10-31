@@ -1,68 +1,59 @@
 import { useEffect, useState } from 'react'
-import { useChemistryStore, reactionCategories } from '@/store/chemistryStore'
+import { useChemistryStore } from '@/store/chemistryStore'
 import ExpandableReactionCard from '@/components/chemistry/ExpandableReactionCard'
-import FilterPanel from '@/components/chemistry/FilterPanel'
-import FilterPreview from '@/components/chemistry/FilterPreview'
+import UnifiedFilters, { REACTION_CATEGORIES } from '@/components/chemistry/UnifiedFilters'
 import Button from '@/components/ui/Button'
-
-// Functional groups list
-const functionalGroups = [
-  { id: 'all', name: 'All Groups' },
-  { id: 'alcohol', name: 'Alcohol' },
-  { id: 'aldehyde', name: 'Aldehyde' },
-  { id: 'ketone', name: 'Ketone' },
-  { id: 'carboxylic-acid', name: 'Carboxylic Acid' },
-  { id: 'ester', name: 'Ester' },
-  { id: 'ether', name: 'Ether' },
-  { id: 'amine', name: 'Amine' },
-  { id: 'amide', name: 'Amide' },
-  { id: 'alkene', name: 'Alkene' },
-  { id: 'alkyne', name: 'Alkyne' },
-  { id: 'aromatic', name: 'Aromatic' },
-  { id: 'halide', name: 'Halide' },
-  { id: 'nitrile', name: 'Nitrile' },
-  { id: 'nitro', name: 'Nitro' },
-]
 
 function LibraryPage() {
   const {
     filteredReactions,
-    selectedReaction,
     searchTerm,
     selectedCategory,
     setSearchTerm,
     setSelectedCategory,
-    setSelectedReaction,
   } = useChemistryStore()
 
   const [selectedFunctionalGroup, setSelectedFunctionalGroup] = useState('all')
-  const [isFilterOpen, setIsFilterOpen] = useState(false)
   const [viewerType, setViewerType] = useState<'rdkit' | 'kekule' | 'simple' | 'ketcher' | '3dmol'>('rdkit')
+  const [expandAll, setExpandAll] = useState(true) // Default to expanded
+  const [expandedReactions, setExpandedReactions] = useState<Set<string>>(new Set())
 
   useEffect(() => {
     // Apply filters on mount
     useChemistryStore.getState().applyFilters()
+    
+    // Initialize all reactions as expanded
+    const allReactionIds = new Set(useChemistryStore.getState().reactions.map(r => r.id))
+    setExpandedReactions(allReactionIds)
   }, [])
 
-  const handleReactionClick = (reactionId: string) => {
-    const reaction = useChemistryStore.getState().getReactionById(reactionId)
-    if (reaction) {
-      // Toggle: if clicking the same reaction, close it
-      if (selectedReaction?.id === reactionId) {
-        setSelectedReaction(null)
-      } else {
-        setSelectedReaction(reaction)
-      }
+  // Update expanded reactions when expandAll changes
+  useEffect(() => {
+    if (expandAll) {
+      // Expand all filtered reactions
+      const allReactionIds = new Set(filteredReactions.map(r => r.id))
+      setExpandedReactions(allReactionIds)
+    } else {
+      // Collapse all
+      setExpandedReactions(new Set())
     }
-  }
+  }, [expandAll, filteredReactions])
 
-  const handleCloseDetail = () => {
-    setSelectedReaction(null)
+  const handleReactionClick = (reactionId: string) => {
+    setExpandedReactions(prev => {
+      const newSet = new Set(prev)
+      if (newSet.has(reactionId)) {
+        newSet.delete(reactionId)
+      } else {
+        newSet.add(reactionId)
+      }
+      return newSet
+    })
   }
 
   return (
     <div className="library-page page min-h-screen bg-gray-50">
-      <div className="library-container max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4">
+      <div className="library-container mx-auto px-3 sm:px-6 lg:px-8 py-4">
         {/* Header */}
         <div className="spacer-100 h-28"></div>
         <div className="library-header mb-2">
@@ -74,29 +65,10 @@ function LibraryPage() {
           </p> */}
         </div>
 
-        {/* Filters Section - Always Visible */}
-          <FilterPreview
-            searchTerm={searchTerm}
-            onSearchChange={setSearchTerm}
-            onFilterClick={() => setIsFilterOpen(true)}
-            activeFiltersCount={
-              (selectedCategory !== 'all' ? 1 : 0) + 
-              (selectedFunctionalGroup !== 'all' ? 1 : 0)
-            }
-            selectedCategory={selectedCategory}
-            selectedFunctionalGroup={selectedFunctionalGroup}
-            viewerType={viewerType}
-            onCategoryChange={setSelectedCategory}
-            onFunctionalGroupChange={setSelectedFunctionalGroup}
-            onViewerTypeChange={setViewerType}
-            reactionCategories={reactionCategories}
-            functionalGroups={functionalGroups}
-          />
-
-        {/* Filter Modal */}
-        <FilterPanel
-          isOpen={isFilterOpen}
-          onClose={() => setIsFilterOpen(false)}
+        {/* Unified Filters - Preview + Collapsible Panel */}
+        <UnifiedFilters
+          searchTerm={searchTerm}
+          onSearchChange={setSearchTerm}
           selectedCategory={selectedCategory}
           selectedFunctionalGroup={selectedFunctionalGroup}
           viewerType={viewerType}
@@ -107,8 +79,8 @@ function LibraryPage() {
             setSelectedCategory('all')
             setSelectedFunctionalGroup('all')
           }}
-          reactionCategories={reactionCategories}
-          functionalGroups={functionalGroups}
+          expandAll={expandAll}
+          onExpandAllChange={setExpandAll}
         />
 
         {/* Results Count */}
@@ -117,7 +89,7 @@ function LibraryPage() {
             Showing <span className="count-number font-semibold">{filteredReactions.length}</span> reaction
             {filteredReactions.length !== 1 ? 's' : ''}
             {searchTerm && ` for "${searchTerm}"`}
-            {selectedCategory !== 'all' && ` in ${reactionCategories.find(c => c.id === selectedCategory)?.name}`}
+            {selectedCategory !== 'all' && ` in ${REACTION_CATEGORIES.find(c => c.id === selectedCategory)?.name}`}
           </p>
         </div>
 
@@ -127,9 +99,8 @@ function LibraryPage() {
             <ExpandableReactionCard
               key={reaction.id}
               reaction={reaction}
-              isExpanded={selectedReaction?.id === reaction.id}
+              isExpanded={expandedReactions.has(reaction.id)}
               onToggle={() => handleReactionClick(reaction.id)}
-              onClose={handleCloseDetail}
               viewerType={viewerType}
             />
           ))}

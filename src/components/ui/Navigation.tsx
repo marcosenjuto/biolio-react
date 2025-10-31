@@ -43,11 +43,11 @@ function Navigation() {
   return (
     <>
       {/* Desktop Sidebar - Left */}
-      <nav className="hidden md:flex fixed left-0 top-0 h-screen w-20 bg-white shadow-lg flex-col items-center py-8 z-50">
+      <nav className="hidden md:flex fixed left-0 top-0 h-screen w-14 bg-white shadow-lg flex-col items-center py-8 z-50">
         {/* Logo */}
         <Link
           to="/"
-          className="text-2xl font-bold text-primary-600 hover:text-primary-700 mb-12"
+          className="text-2xl font-bold text-primary-600 hover:text-primary-700 mb-16"
         >
           B
         </Link>
@@ -58,7 +58,7 @@ function Navigation() {
             <Link
               key={link.path}
               to={link.path}
-              className={`flex flex-col items-center gap-1 px-4 py-3 rounded-lg transition-all ${
+              className={`flex flex-col items-center gap-1 p-2 rounded-lg transition-all ${
                 isActive(link.path)
                   ? 'text-primary-600 bg-primary-50'
                   : 'text-gray-600 hover:text-primary-600 hover:bg-gray-50'

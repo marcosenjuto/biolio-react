@@ -8,6 +8,7 @@ export default {
     extend: {
       screens: {
         'xs': {'max': '360px'},
+        's': {'max': '640px'},
       },
       colors: {
         primary: {

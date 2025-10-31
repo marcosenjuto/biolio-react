@@ -2,10 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+*, ::before, ::after {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: revert;
+    border-color: #e5e7eb;
+}
+
 @layer base {
   body {
     @apply bg-gray-50 text-gray-900;
     font-family: 'Nunito Sans', ui-sans-serif, system-ui, sans-serif;
+  }
+
+  button {
+    border-width: 0;
+    border-style: solid;
+    border-color: #e5e7eb;
   }
 }
 

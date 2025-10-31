@@ -6,14 +6,13 @@ interface ExpandableReactionCardProps {
   reaction: Reaction
   isExpanded: boolean
   onToggle: () => void
-  onClose: () => void
   viewerType?: 'rdkit' | 'kekule' | 'simple' | 'ketcher' | '3dmol'
 }
 
-function ExpandableReactionCard({ reaction, isExpanded, onToggle, onClose, viewerType = 'rdkit' }: ExpandableReactionCardProps) {
+function ExpandableReactionCard({ reaction, isExpanded, onToggle, viewerType = 'rdkit' }: ExpandableReactionCardProps) {
   return (
     <Card hover className="reaction-card cursor-pointer expandable-reaction-card" onClick={!isExpanded ? onToggle : undefined}>
-      <div className="reaction-card-header flex items-start justify-between mb-1">
+      <div className="reaction-card-header p-1 md:p-2 flex s:flex-col items-start justify-between">
         <h3 className="reaction-card-title text-lg font-semibold text-gray-900 leading-tight">
           {reaction.name}
         </h3>
@@ -25,7 +24,7 @@ function ExpandableReactionCard({ reaction, isExpanded, onToggle, onClose, viewe
             <button
               onClick={(e) => {
                 e.stopPropagation()
-                onClose()
+                onToggle()
               }}
               className="close-button text-gray-400 hover:text-gray-600 transition-colors"
               aria-label="Close"
@@ -42,10 +41,10 @@ function ExpandableReactionCard({ reaction, isExpanded, onToggle, onClose, viewe
           )}
         </div>
       </div>
-
-      <p className="reaction-card-description text-sm text-gray-600 mb-3 line-clamp-2">
+{/* 
+      <p className="reaction-card-description text-sm text-gray-600 px-2 line-clamp-2">
         {reaction.description}
-      </p>
+      </p> */}
 
       {/* Reaction Summary or Expanded Viewer */}
       {!isExpanded ? (
@@ -63,7 +62,7 @@ function ExpandableReactionCard({ reaction, isExpanded, onToggle, onClose, viewe
           </div>
         </div>
       ) : (
-        <div className="reaction-expanded-viewer mb-3 -mx-1">
+        <div className="reaction-expanded-viewer ">
           <ReactionViewer reaction={reaction} viewerType={viewerType} />
         </div>
       )}
@@ -89,7 +88,7 @@ function ExpandableReactionCard({ reaction, isExpanded, onToggle, onClose, viewe
 
       {/* Conditions */}
       {reaction.conditions && reaction.conditions.length > 0 && (
-        <div className="reaction-card-conditions mt-3 pt-3 border-t border-gray-200">
+        <div className="reaction-card-conditions pt-3 border-t border-gray-200">
           <p className="conditions-text text-xs text-gray-500">
             <span className="conditions-label font-medium">Conditions:</span> {reaction.conditions.slice(0, 2).join(', ')}
             {reaction.conditions.length > 2 && '...'}

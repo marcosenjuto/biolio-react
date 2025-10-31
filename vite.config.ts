@@ -13,16 +13,22 @@ export default defineConfig({
     host: '0.0.0.0', // Allow access from network
     port: 5173,
     strictPort: false,
+    headers: {
+      'Cross-Origin-Opener-Policy': 'same-origin',
+      'Cross-Origin-Embedder-Policy': 'require-corp'
+    }
   },
   resolve: {
     alias: {
       '@': resolve(__dirname, './src'),
     },
   },
+  assetsInclude: ['**/*.wasm'],
   optimizeDeps: {
     include: [
       'lodash' // Pre-bundle lodash to avoid module resolution issues
-    ]
+    ],
+    exclude: ['@rdkit/rdkit']
   },
   build: {
     commonjsOptions: {
