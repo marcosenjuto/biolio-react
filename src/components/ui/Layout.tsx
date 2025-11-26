@@ -12,7 +12,7 @@ function Layout() {
     <div className="min-h-screen flex">
       <Navigation />
       {/* Main content with padding for navigation */}
-      <div className="flex-1 flex flex-col md:ml-20 mb-16 md:mb-0">
+      <div className="flex-1 flex flex-col md:ml-14 mb-12 md:mb-0">
         <main className="flex-1">
           <Outlet />
         </main>

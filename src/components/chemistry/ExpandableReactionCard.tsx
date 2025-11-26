@@ -12,7 +12,7 @@ interface ExpandableReactionCardProps {
 function ExpandableReactionCard({ reaction, isExpanded, onToggle, viewerType = 'rdkit' }: ExpandableReactionCardProps) {
   return (
     <Card hover className="reaction-card cursor-pointer expandable-reaction-card" onClick={!isExpanded ? onToggle : undefined}>
-      <div className="reaction-card-header p-1 md:p-2 flex s:flex-col items-start justify-between">
+      <div className="reaction-card-header p-2 flex s:flex-col items-start justify-between">
         <h3 className="reaction-card-title text-lg font-semibold text-gray-900 leading-tight">
           {reaction.name}
         </h3>
@@ -41,14 +41,14 @@ function ExpandableReactionCard({ reaction, isExpanded, onToggle, viewerType = '
           )}
         </div>
       </div>
-{/* 
+      {/* 
       <p className="reaction-card-description text-sm text-gray-600 px-2 line-clamp-2">
         {reaction.description}
       </p> */}
 
       {/* Reaction Summary or Expanded Viewer */}
       {!isExpanded ? (
-        <div className="reaction-card-summary flex items-center gap-2 text-sm text-gray-700 mb-2">
+        <div className="reaction-card-summary flex items-center gap-2 text-sm text-gray-700 mb-2 mx-2">
           <div className="summary-reactants">
             <span className="reactants-count font-medium">{reaction.reactants.length}</span>
             <span className="reactants-label text-gray-500 ml-1">reactant{reaction.reactants.length !== 1 ? 's' : ''}</span>
@@ -69,7 +69,7 @@ function ExpandableReactionCard({ reaction, isExpanded, onToggle, viewerType = '
 
       {/* Tags */}
       {reaction.tags && reaction.tags.length > 0 && (
-        <div className="reaction-card-tags flex flex-wrap gap-1">
+        <div className="reaction-card-tags p-1 flex flex-wrap gap-1">
           {reaction.tags.slice(0, 4).map((tag) => (
             <span
               key={tag}
@@ -88,7 +88,7 @@ function ExpandableReactionCard({ reaction, isExpanded, onToggle, viewerType = '
 
       {/* Conditions */}
       {reaction.conditions && reaction.conditions.length > 0 && (
-        <div className="reaction-card-conditions pt-3 border-t border-gray-200">
+        <div className="reaction-card-conditions p-1 border-t border-gray-200">
           <p className="conditions-text text-xs text-gray-500">
             <span className="conditions-label font-medium">Conditions:</span> {reaction.conditions.slice(0, 2).join(', ')}
             {reaction.conditions.length > 2 && '...'}

@@ -1,0 +1,80 @@
+<svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <rect x="150" y="150" width="200" height="200" fill="#333" stroke="#555" stroke-width="5" rx="10" />
+  <rect x="175" y="175" width="150" height="150" fill="#222" stroke="#444" stroke-width="3" rx="5" />
+  
+  <g fill="#DAA520">
+    <rect x="160" y="145" width="10" height="10" />
+    <rect x="180" y="145" width="10" height="10" />
+    <rect x="200" y="145" width="10" height="10" />
+    <rect x="220" y="145" width="10" height="10" />
+    <rect x="240" y="145" width="10" height="10" />
+    <rect x="260" y="145" width="10" height="10" />
+    <rect x="280" y="145" width="10" height="10" />
+    <rect x="300" y="145" width="10" height="10" />
+    <rect x="320" y="145" width="10" height="10" />
+    <rect x="340" y="145" width="10" height="10" />
+    <rect x="160" y="345" width="10" height="10" />
+    <rect x="180" y="345" width="10" height="10" />
+    <rect x="200" y="345" width="10" height="10" />
+    <rect x="220" y="345" width="10" height="10" />
+    <rect x="240" y="345" width="10" height="10" />
+    <rect x="260" y="345" width="10" height="10" />
+    <rect x="280" y="345" width="10" height="10" />
+    <rect x="300" y="345" width="10" height="10" />
+    <rect x="320" y="345" width="10" height="10" />
+    <rect x="340" y="345" width="10" height="10" />
+    <rect x="145" y="160" width="10" height="10" />
+    <rect x="145" y="180" width="10" height="10" />
+    <rect x="145" y="200" width="10" height="10" />
+    <rect x="145" y="220" width="10" height="10" />
+    <rect x="145" y="240" width="10" height="10" />
+    <rect x="145" y="260" width="10" height="10" />
+    <rect x="145" y="280" width="10" height="10" />
+    <rect x="145" y="300" width="10" height="10" />
+    <rect x="145" y="320" width="10" height="10" />
+    <rect x="345" y="160" width="10" height="10" />
+    <rect x="345" y="180" width="10" height="10" />
+    <rect x="345" y="200" width="10" height="10" />
+    <rect x="345" y="220" width="10" height="10" />
+    <rect x="345" y="240" width="10" height="10" />
+    <rect x="345" y="260" width="10" height="10" />
+    <rect x="345" y="280" width="10" height="10" />
+    <rect x="345" y="300" width="10" height="10" />
+    <rect x="345" y="320" width="10" height="10" />
+  </g>
+
+  <g stroke="#8B4513" stroke-width="3" fill="none">
+    <path d="M165 355 C165 355, 150 400, 100 450" />
+    <path d="M185 355 C185 355, 180 420, 140 480" />
+    <path d="M250 355 C250 355, 250 450, 250 500" />
+    <path d="M315 355 C315 355, 320 420, 360 480" />
+    <path d="M335 355 C335 355, 350 400, 400 450" />
+  </g>
+
+  <g stroke="#228B22" stroke-width="3" fill="none">
+    <path d="M165 145 C165 145, 150 100, 100 50" />
+    <path d="M185 145 C185 145, 180 80, 140 20" />
+    <path d="M250 145 C250 145, 250 50, 250 0" />
+    <path d="M315 145 C315 145, 320 80, 360 20" />
+    <path d="M335 145 C335 145, 350 100, 400 50" />
+  </g>
+
+  <g stroke="#1E90FF" stroke-width="3" fill="none">
+    <path d="M145 165 C145 165, 100 150, 50 100" />
+    <path d="M145 205 C145 205, 80 200, 20 160" />
+    <path d="M145 250 C145 250, 50 250, 0 250" />
+    <path d="M145 295 C145 295, 80 300, 20 340" />
+    <path d="M145 335 C145 335, 100 350, 50 400" />
+  </g>
+
+  <g stroke="#DC143C" stroke-width="3" fill="none">
+    <path d="M355 165 C355 165, 400 150, 450 100" />
+    <path d="M355 205 C355 205, 420 200, 480 160" />
+    <path d="M355 250 C355 250, 450 250, 500 250" />
+    <path d="M355 295 C355 295, 420 300, 480 340" />
+    <path d="M355 335 C355 335, 400 350, 450 400" />
+  </g>
+  
+  <text x="250" y="480" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#333">BIO-CHIP CONNECT</text>
+
+</svg>

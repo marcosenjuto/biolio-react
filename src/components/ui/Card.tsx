@@ -12,7 +12,7 @@ function Card({ children, className = '', hover = false, onClick }: CardProps) {
   
   return (
     <div 
-      className={`bg-white rounded-lg p-0 md:p-4 ${hoverClasses} ${className}`}
+      className={` rounded-lg p-0 md:p-4 ${hoverClasses} ${className}`}
       onClick={onClick}
     >
       {children}
