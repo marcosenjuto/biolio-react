@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useMemo } from 'react'
 import Button from '@/components/ui/Button'
 import Card from '@/components/ui/Card'
 import Input from '@/components/ui/Input'
@@ -7,15 +7,9 @@ import ReactMarkdown from 'react-markdown'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import remarkGfm from 'remark-gfm'
-
-interface Message {
-  id: string
-  role: 'user' | 'assistant'
-  content: string
-  timestamp: Date
-  molecules?: string[]
-  reactions?: string[]
-}
+import Content from '@/components/ui/Content'
+import { ChatTimestamp } from '@/components/ui/ChatTimestamp'
+import type { ChatMessage, AssistantAction } from '@/types/chat'
 
 interface ChemistryLink {
   type: '3d' | 'reaction'
@@ -23,15 +17,67 @@ interface ChemistryLink {
   data: string
 }
 
+const MESSAGE_PAGE_SIZE = 10
+const MAX_VISIBLE_MESSAGES = 50
+const SCROLL_BOTTOM_THRESHOLD = 4
+
 function AIChatPage() {
-  const [messages, setMessages] = useState<Message[]>([])
+  const [messages, setMessages] = useState<ChatMessage[]>([])
+  const [visibleCount, setVisibleCount] = useState(MESSAGE_PAGE_SIZE)
+  const [isLoadingMore, setIsLoadingMore] = useState(false)
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
+  const messagesContainerRef = useRef<HTMLDivElement>(null)
+  const loadMoreScrollMetaRef = useRef<{ height: number; top: number } | null>(null)
+  const loadingMoreRef = useRef(false)
+  const stickToBottomRef = useRef(true)
+  const programmaticScrollRef = useRef(false)
+  const programmaticScrollRafRef = useRef<number | null>(null)
   const navigate = useNavigate()
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+  const cancelProgrammaticScrollCheck = () => {
+    if (programmaticScrollRafRef.current !== null) {
+      cancelAnimationFrame(programmaticScrollRafRef.current)
+      programmaticScrollRafRef.current = null
+    }
+  }
+
+  const scrollToBottom = (behavior: ScrollBehavior = 'smooth') => {
+    const container = messagesContainerRef.current
+    if (!container) {
+      messagesEndRef.current?.scrollIntoView({ behavior })
+      return
+    }
+
+    cancelProgrammaticScrollCheck()
+    programmaticScrollRef.current = true
+    container.scrollTo({ top: container.scrollHeight, behavior })
+
+    if (behavior === 'smooth') {
+      const monitor = () => {
+        if (!programmaticScrollRef.current) {
+          cancelProgrammaticScrollCheck()
+          return
+        }
+
+        const distanceFromBottom = container.scrollHeight - container.scrollTop - container.clientHeight
+
+        if (distanceFromBottom <= SCROLL_BOTTOM_THRESHOLD) {
+          programmaticScrollRef.current = false
+          stickToBottomRef.current = true
+          cancelProgrammaticScrollCheck()
+          return
+        }
+
+        programmaticScrollRafRef.current = requestAnimationFrame(monitor)
+      }
+
+      programmaticScrollRafRef.current = requestAnimationFrame(monitor)
+    } else {
+      programmaticScrollRef.current = false
+      stickToBottomRef.current = true
+    }
   }
 
   // Load chat history from localStorage on mount
@@ -43,7 +89,8 @@ function AIChatPage() {
         // Convert timestamp strings back to Date objects
         const messagesWithDates = parsed.map((msg: any) => ({
           ...msg,
-          timestamp: new Date(msg.timestamp)
+          timestamp: new Date(msg.timestamp),
+          actions: Array.isArray(msg.actions) ? msg.actions : []
         }))
         setMessages(messagesWithDates)
       } catch (error) {
@@ -52,6 +99,20 @@ function AIChatPage() {
     }
   }, [])
 
+  useEffect(() => {
+    if (messages.length === 0) {
+      setVisibleCount(MESSAGE_PAGE_SIZE)
+      return
+    }
+
+    setVisibleCount(prev => {
+      const limit = Math.min(messages.length, MAX_VISIBLE_MESSAGES)
+      const baseline = Math.max(prev, MESSAGE_PAGE_SIZE)
+      const next = Math.min(limit, baseline)
+      return next === prev ? prev : next
+    })
+  }, [messages.length])
+
   // Save chat history to localStorage whenever messages change
   useEffect(() => {
     if (messages.length > 0) {
@@ -59,9 +120,38 @@ function AIChatPage() {
     }
   }, [messages])
 
+  const visibleMessages = useMemo(() => {
+    const limit = Math.min(messages.length, visibleCount, MAX_VISIBLE_MESSAGES)
+    if (messages.length <= limit) {
+      return messages
+    }
+    return messages.slice(-limit)
+  }, [messages, visibleCount])
+
   useEffect(() => {
-    scrollToBottom()
-  }, [messages])
+    return () => {
+      cancelProgrammaticScrollCheck()
+    }
+  }, [])
+
+  useEffect(() => {
+    if (loadingMoreRef.current) {
+      const container = messagesContainerRef.current
+      const meta = loadMoreScrollMetaRef.current
+      if (container && meta) {
+        const diff = container.scrollHeight - meta.height
+        container.scrollTop = meta.top + diff
+      }
+      loadingMoreRef.current = false
+      loadMoreScrollMetaRef.current = null
+      setIsLoadingMore(false)
+      return
+    }
+
+    if (stickToBottomRef.current) {
+      scrollToBottom(messages.length > 0 ? 'smooth' : 'auto')
+    }
+  }, [visibleMessages, messages.length])
 
   // Parse chemistry entities from AI response
   const parseChemistryLinks = (content: string): ChemistryLink[] => {
@@ -104,20 +194,22 @@ function AIChatPage() {
   const handleSend = async () => {
     if (!input.trim()) return
 
-    const userMessage: Message = {
+    const userMessage: ChatMessage = {
       id: Date.now().toString(),
       role: 'user',
       content: input,
-      timestamp: new Date()
+      timestamp: new Date(),
+      actions: []
     }
 
+    stickToBottomRef.current = true
     setMessages(prev => [...prev, userMessage])
     setInput('')
     setIsLoading(true)
 
     try {
-      // Call local AI model API
-      const response = await fetch('http://localhost:8001/query', {
+      // Call local AI model API using the actions endpoint
+      const response = await fetch('http://localhost:8001/query/actions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -132,13 +224,35 @@ function AIChatPage() {
       }
 
       const data = await response.json()
-      const aiResponse = data.response || data.answer || data.result || 'No response received'
+      const actions = Array.isArray(data.actions) ? (data.actions as AssistantAction[]) : undefined
+      const streamedText = actions
+        ?.filter((action: AssistantAction) => action.type === 'ui.stream_text' && action.component === 'MarkdownText')
+        .map((action: AssistantAction) => {
+          const props = action.props as { text?: string }
+          return props?.text ?? ''
+        })
+        .filter(Boolean)
+        .join('\n\n')
 
-      const assistantMessage: Message = {
+      const aiResponse =
+        data.answer ||
+        streamedText ||
+        data.response ||
+        data.result ||
+        'No response received'
+
+      const assistantMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
         role: 'assistant',
         content: aiResponse,
-        timestamp: new Date()
+        timestamp: new Date(),
+        actions,
+        userFriendlyText: data.user_friendly_text,
+        answer: data.answer,
+        hasVisualizations: data.has_visualizations,
+        toolResults: data.tool_results,
+        iterations: data.iterations,
+        components: data.components
       }
 
       setMessages(prev => [...prev, assistantMessage])
@@ -146,11 +260,12 @@ function AIChatPage() {
       console.error('Error calling AI model:', error)
       
       // Fallback mock response
-      const mockResponse: Message = {
+      const mockResponse: ChatMessage = {
         id: (Date.now() + 1).toString(),
         role: 'assistant',
         content: `I received your question: "${input}"\n\nTo use this feature, make sure you have Ollama running locally with a model installed.\n\nFor chemistry queries, I can help you explore molecules and reactions. For example:\n- "Show me the structure of aspirin (CC(=O)Oc1ccccc1C(=O)O)"\n- "Explain reaction 5 from the library"\n- "What is the Diels-Alder reaction?"`,
-        timestamp: new Date()
+        timestamp: new Date(),
+        actions: []
       }
       
       setMessages(prev => [...prev, mockResponse])
@@ -166,6 +281,66 @@ function AIChatPage() {
     }
   }
 
+  const hasMoreMessages = visibleCount < Math.min(messages.length, MAX_VISIBLE_MESSAGES)
+
+  const loadMoreMessages = () => {
+    if (!hasMoreMessages || loadingMoreRef.current) {
+      return
+    }
+
+    const container = messagesContainerRef.current
+    if (!container) {
+      return
+    }
+
+    loadMoreScrollMetaRef.current = {
+      height: container.scrollHeight,
+      top: container.scrollTop
+    }
+
+    loadingMoreRef.current = true
+    stickToBottomRef.current = false
+    setIsLoadingMore(true)
+    setVisibleCount(prev => {
+      const limit = Math.min(messages.length, MAX_VISIBLE_MESSAGES)
+      return Math.min(limit, prev + MESSAGE_PAGE_SIZE)
+    })
+  }
+
+  const handleScroll = () => {
+    const container = messagesContainerRef.current
+    if (!container) {
+      return
+    }
+
+    const distanceFromBottom = container.scrollHeight - container.scrollTop - container.clientHeight
+    const isNearBottom = distanceFromBottom < 80
+
+    if (programmaticScrollRef.current) {
+      if (isNearBottom) {
+        programmaticScrollRef.current = false
+        stickToBottomRef.current = true
+        cancelProgrammaticScrollCheck()
+      } else if (distanceFromBottom > 120) {
+        // User scrolled away while an automatic scroll was in progress
+        programmaticScrollRef.current = false
+        stickToBottomRef.current = false
+        cancelProgrammaticScrollCheck()
+      }
+      return
+    }
+
+    if (container.scrollTop <= 80 && hasMoreMessages && !loadingMoreRef.current) {
+      loadMoreMessages()
+    }
+
+    if (isNearBottom) {
+      stickToBottomRef.current = true
+    } else if (!loadingMoreRef.current) {
+      stickToBottomRef.current = false
+    }
+  }
+
   const handleViewMolecule = (smiles: string) => {
     // Navigate to molecule viewer with the SMILES
     navigate(`/molecule-viewer?smiles=${encodeURIComponent(smiles)}`)
@@ -177,9 +352,13 @@ function AIChatPage() {
   }
 
   return (
-    <div className="biopilot-chat-container flex flex-col h-[calc(100vh-3rem)] md:h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="biopilot-chat-container flex flex-col max-w-[100vw] h-[calc(100vh-3rem)] md:h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Messages Container */}
-      <div className="biopilot-messages-scroll flex-1 overflow-y-auto px-3 py-6 ">
+      <div
+        ref={messagesContainerRef}
+        className="biopilot-messages-scroll flex-1 max-w-[100vw] overflow-y-auto px-3 py-6"
+        onScroll={handleScroll}
+      >
         {messages.length === 0 ? (
           <>
             {/* Header - Only show when no messages */}
@@ -225,23 +404,59 @@ function AIChatPage() {
               </p>
             </div>
 
-            {messages.map((message) => {
-              const links = message.role === 'assistant' ? parseChemistryLinks(message.content) : []
-              
-              return (
-                <div
-                  key={message.id}
-                  className={`message-wrapper flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
+            {hasMoreMessages && (
+              <div className="flex justify-center py-2">
+                <button
+                  type="button"
+                  onClick={loadMoreMessages}
+                  disabled={isLoadingMore}
+                  className="text-xs text-gray-400 hover:text-gray-600 transition-colors disabled:opacity-50"
                 >
-                  <Card
-                    className={`message-card md:max-w-[70%] p-2 my-2 ${
-                      message.role === 'user'
-                        ? 'user-message bg-primary-100'
-                        : 'assistant-message bg-none bg-transparent'
-                    }`}
-                  >
-                    <div className="message-content space-y-3">
-                        <div className={`message-avatar w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
+                  {isLoadingMore ? 'Loading earlier messages…' : 'Load earlier messages'}
+                </button>
+              </div>
+            )}
+
+            {(() => {
+              const groups: ChatMessage[][] = []
+              let currentGroup: ChatMessage[] = []
+              
+              visibleMessages.forEach((msg) => {
+                if (msg.role === 'user') {
+                  if (currentGroup.length > 0) {
+                    groups.push(currentGroup)
+                  }
+                  currentGroup = [msg]
+                } else {
+                  currentGroup.push(msg)
+                }
+              })
+              if (currentGroup.length > 0) groups.push(currentGroup)
+              
+              return groups.map((group, groupIdx) => (
+                <div key={`group-${groupIdx}`} className="conversation-group relative">
+                  {group.map((message) => {
+                    const links = message.role === 'assistant' ? parseChemistryLinks(message.content) : []
+                    
+                    return (
+                      <div
+                        key={message.id}
+                        className={`message-wrapper max-w-max-w-[-webkit-fill-available] flex ${message.role === 'user' ? 'justify-end sticky top-[-24px] z-10 cursor-pointer' : 'justify-start'}`}
+                        onClick={(e) => {
+                          if (message.role === 'user') {
+                            e.currentTarget.parentElement?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                          }
+                        }}
+                      >
+                        <Card
+                          className={`message-card max-w-[-webkit-fill-available] p-2 py-1 md:p-2 my-2 ${
+                            message.role === 'user'
+                              ? 'user-message bg-primary-100'
+                              : 'assistant-message bg-none bg-transparent'
+                          }`}
+                        >
+                          <div className="message-content space-y-3">
+{/*                         <div className={`message-avatar w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
                           message.role === 'user' ? 'user-avatar bg-primary-700' : 'assistant-avatar bg-gray-100'
                         }`}>
                           {message.role === 'user' ? (
@@ -250,71 +465,82 @@ function AIChatPage() {
                             </svg>
                           ) : (
                             <svg className="avatar-icon w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
-                              <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" />
+                              <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z" />
                               <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z" />
                             </svg>
                           )}
-                        </div>
-                      <div className="message-body flex items-start gap-3">
-                        <div className="message-text-wrapper flex-1 min-w-0">
-                          {/* <div className={`message-text text-m  break-words markdown-content ${ */}
-                          <div className={` break-words markdown-content ${
-                            message.role === 'user' ? 'text-primary-800' : 'text-gray-800'
-                          }`}>
-                            <ReactMarkdown
-                              remarkPlugins={[remarkMath, remarkGfm]}
-                              rehypePlugins={[rehypeKatex]}
-                            >
-                              {message.content}
-                            </ReactMarkdown>
-                          </div>
-                          <p className={`message-timestamp text-xs mt-2 ${
-                            message.role === 'user' ? 'text-primary-800' : 'text-gray-400'
-                          }`}>
-                            {message.timestamp.toLocaleTimeString()}
-                          </p>
-                        </div>
-                      </div>
+                        </div> */}
+                            <div className="message-body flex items-start gap-3">
+                              <div className="message-text-wrapper flex-1  min-w-0">
+                                {message.role === 'assistant' && message.userFriendlyText && message.userFriendlyText !== message.content && (
+                                  <p className="text-xs text-gray-500 italic mb-1">
+                                    {message.userFriendlyText}
+                                  </p>
+                                )}
+                                <div className="flex flex-row flex-wrap items-end justify-between gap-2">
+                                  <div className={`break-words markdown-content max-w-full ${
+                                    message.role === 'user' ? 'text-primary-800' : 'text-gray-800'
+                                  }`}>
+                                    <ReactMarkdown
+                                      remarkPlugins={[remarkMath, remarkGfm]}
+                                      rehypePlugins={[rehypeKatex]}
+                                    >
+                                      {message.content}
+                                    </ReactMarkdown>
+                                  </div>
+                                </div>
+                                {message.role === 'assistant' && message.actions && message.actions.length > 0 && (
+                                  <Content actions={message.actions} />
+                                )}
+                                  <ChatTimestamp 
+                                    timestamp={message.timestamp}
+                                    className={message.role === 'user' ? 'text-primary-800' : 'text-gray-400'}
+                                  />
+                              </div>
+                            </div>
 
-                      {/* Chemistry Links */}
-                      {links.length > 0 && (
-                        <div className="chemistry-links flex flex-wrap gap-2 pt-2 border-t border-gray-200">
-                          {links.map((link, idx) => (
-                            <button
-                              key={idx}
-                              onClick={() => 
-                                link.type === '3d' 
-                                  ? handleViewMolecule(link.data)
-                                  : handleViewReaction(link.data)
-                              }
-                              className={`chemistry-link-button ${link.type === '3d' ? 'molecule-link' : 'reaction-link'} inline-flex items-center gap-1 px-3 py-1 bg-primary-50 hover:bg-primary-100 text-primary-700 text-xs font-medium rounded-full transition-colors`}
-                            >
-                              {link.type === '3d' ? (
-                                <svg className="link-icon molecule-icon w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
-                                </svg>
-                              ) : (
-                                <svg className="link-icon reaction-icon w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                </svg>
-                              )}
-                              <span className="link-label">{link.label}</span>
-                            </button>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  </Card>
+                            {/* Chemistry Links */}
+                            {links.length > 0 && (
+                              <div className="chemistry-links flex flex-wrap gap-2 pt-2 border-t border-gray-200">
+                                {links.map((link, idx) => (
+                                  <button
+                                    key={idx}
+                                    onClick={() => 
+                                      link.type === '3d' 
+                                        ? handleViewMolecule(link.data)
+                                        : handleViewReaction(link.data)
+                                    }
+                                    className={`chemistry-link-button ${link.type === '3d' ? 'molecule-link' : 'reaction-link'} inline-flex items-center gap-1 px-3 py-1 bg-primary-50 hover:bg-primary-100 text-primary-700 text-xs font-medium rounded-full transition-colors`}
+                                  >
+                                    {link.type === '3d' ? (
+                                      <svg className="link-icon molecule-icon w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
+                                      </svg>
+                                    ) : (
+                                      <svg className="link-icon reaction-icon w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                      </svg>
+                                    )}
+                                    <span className="link-label">{link.label}</span>
+                                  </button>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        </Card>
+                      </div>
+                    )
+                  })}
                 </div>
-              )
-            })}
+              ))
+            })()}
 
             {isLoading && (
               <div className="loading-message-wrapper flex justify-start">
                 <Card className="loading-card bg-white border border-gray-200">
                   <div className="loading-content flex items-center gap-3">
                     <div className="loading-spinner w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center">
-                      <svg className="spinner-icon w-5 h-5 text-primary-600 animate-spin" fill="none" viewBox="0 0 24 24">
+                      <svg className="spinner-icon w-5 h-5 text-primary-600 animate-spin" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                       </svg>

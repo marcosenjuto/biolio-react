@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* KaTeX for math rendering */
-@import 'katex/dist/katex.min.css';
-
 *, ::before, ::after {
     box-sizing: border-box;
     border-width: 0;
@@ -144,6 +141,7 @@
 }
 
 .markdown-content ul, .markdown-content ol {
+  word-break: break-word;
   @apply my-1 ml-2;
 }
 

@@ -1,11 +1,13 @@
 import type { Reaction } from '@/types/chemistry'
 import { useState, useEffect, useRef } from 'react'
+import { colors } from '@/utils/colors'
 import RDKitMoleculeViewer from './RDKitMoleculeViewer'
 import MoleculeViewer from './MoleculeViewer'
 import SimpleMoleculeViewer from './SimpleMoleculeViewer'
 import KetcherMoleculeViewer from './KetcherMoleculeViewer'
 import Molecule3DViewer from './Molecule3DViewer'
 import Card from '@/components/ui/Card'
+import ReactionDoubleArrow from '@/assets/icon/reaction-double-arow.svg'
 
 interface ReactionViewerProps {
   reaction: Reaction
@@ -174,19 +176,22 @@ function ReactionViewer({ reaction, viewerType = 'rdkit' }: ReactionViewerProps)
             pointerEvents: 'none',
             backgroundColor: 'transparent', // Transparent background
           }}>
-          <svg
-            className="reaction-arrow w-8 h-4 sm:w-12 sm:h-6 md:w-16 md:h-8 text-gray-600"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M14 5l7 7m0 0l-7 7m7-7H3"
-            />
-          </svg>
+          <div 
+            role="img"
+            aria-label="reaction arrow"
+            className="reaction-arrow xs:w-6 w-8 h-6 sm:w-12 sm:h-8 md:w-16 md:h-10"
+            style={{ 
+              backgroundColor: colors.gray[900],
+              maskImage: `url(${ReactionDoubleArrow})`,
+              WebkitMaskImage: `url(${ReactionDoubleArrow})`,
+              maskSize: 'contain',
+              WebkitMaskSize: 'contain',
+              maskRepeat: 'no-repeat',
+              WebkitMaskRepeat: 'no-repeat',
+              maskPosition: 'center',
+              WebkitMaskPosition: 'center'
+            }}
+          />
           {reaction.conditions && reaction.conditions.length > 0 && (
             <div className="reaction-conditions-label text-xs text-center mt-0.5 sm:mt-1 max-w-[60px] sm:max-w-[70px] md:max-w-[80px]">
               {reaction.conditions.slice(0, 2).map((cond, idx) => (

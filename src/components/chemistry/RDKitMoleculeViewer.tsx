@@ -36,17 +36,17 @@ function RDKitMoleculeViewer({
     let mounted = true
 
     const loadRDKit = async () => {
-      console.log('[RDKit] Starting to load RDKit')
+      // console.log('[RDKit] Starting to load RDKit')
 
       // If RDKit is already loaded, use it
       if (rdkitModule) {
-        console.log('[RDKit] Already loaded')
+        // console.log('[RDKit] Already loaded')
         return rdkitModule
       }
 
       // If loading is in progress, wait for it
       if (rdkitLoadPromise) {
-        console.log('[RDKit] Load in progress, waiting...')
+        // console.log('[RDKit] Load in progress, waiting...')
         return await rdkitLoadPromise
       }
 
@@ -55,17 +55,17 @@ function RDKitMoleculeViewer({
         try {
           // Add RDKit script
           if (!document.querySelector('script[src*="RDKit_minimal"]')) {
-            console.log('[RDKit] Adding script tag')
+            // console.log('[RDKit] Adding script tag')
             const rdkitScript = document.createElement('script')
             rdkitScript.src = 'https://unpkg.com/@rdkit/rdkit/dist/RDKit_minimal.js'
             rdkitScript.async = true
 
             rdkitScript.onload = async () => {
-              console.log('[RDKit] Script loaded, initializing module')
+              // console.log('[RDKit] Script loaded, initializing module')
               try {
                 if (window.initRDKitModule) {
                   rdkitModule = await window.initRDKitModule()
-                  console.log('[RDKit] Module initialized:', rdkitModule)
+                  // console.log('[RDKit] Module initialized:', rdkitModule)
                   resolve(rdkitModule)
                 } else {
                   throw new Error('initRDKitModule not found')
@@ -83,11 +83,11 @@ function RDKitMoleculeViewer({
 
             document.body.appendChild(rdkitScript)
           } else if (window.RDKitModule) {
-            console.log('[RDKit] Using existing module')
+            // console.log('[RDKit] Using existing module')
             rdkitModule = window.RDKitModule
             resolve(rdkitModule)
           } else if (window.initRDKitModule) {
-            console.log('[RDKit] Initializing existing init function')
+            // console.log('[RDKit] Initializing existing init function')
             rdkitModule = await window.initRDKitModule()
             resolve(rdkitModule)
           }
@@ -102,21 +102,21 @@ function RDKitMoleculeViewer({
 
     const renderMolecule = async () => {
       try {
-        console.log('[RDKit] Starting render for SMILES:', smiles)
+        // console.log('[RDKit] Starting render for SMILES:', smiles)
         setIsLoading(true)
         setError(null)
 
         // Load RDKit if needed
         const RDKit = await loadRDKit()
-        console.log('[RDKit] Module ready:', !!RDKit)
+        // console.log('[RDKit] Module ready:', !!RDKit)
 
         if (!mounted) {
-          console.log('[RDKit] Component unmounted')
+          // console.log('[RDKit] Component unmounted')
           return
         }
 
         // Parse SMILES
-        console.log('[RDKit] Parsing SMILES...')
+        // console.log('[RDKit] Parsing SMILES...')
         let mol
         try {
           mol = RDKit.get_mol(smiles)
@@ -136,7 +136,7 @@ function RDKitMoleculeViewer({
           throw new Error(`Invalid molecule structure: ${smiles}`)
         }
 
-        console.log('[RDKit] Molecule parsed successfully')
+        // console.log('[RDKit] Molecule parsed successfully')
 
         // Generate SVG with consistent bond sizes and custom atom colors
         const drawingOptions = {
@@ -165,7 +165,7 @@ function RDKitMoleculeViewer({
 
         const svg = mol.get_svg_with_highlights(JSON.stringify(drawingOptions))
 
-        console.log('[RDKit] SVG generated, length:', svg.length)
+        // console.log('[RDKit] SVG generated, length:', svg.length)
 
         // Clean up molecule object
         mol.delete()
@@ -218,7 +218,7 @@ function RDKitMoleculeViewer({
           const contentWidth = maxX - minX + 20 // Add padding
           const contentHeight = maxY - minY + 20
           setSvgDimensions({ width: contentWidth, height: contentHeight })
-          console.log('[RDKit] Calculated content dimensions:', contentWidth, 'x', contentHeight)
+          // console.log('[RDKit] Calculated content dimensions:', contentWidth, 'x', contentHeight)
           
           // Update the viewBox to match the actual content
           modifiedSvg = modifiedSvg.replace(
@@ -230,7 +230,7 @@ function RDKitMoleculeViewer({
         // Set SVG content directly
         setSvgContent(modifiedSvg)
         setIsLoading(false)
-        console.log('[RDKit] Render complete!')
+        // console.log('[RDKit] Render complete!')
 
       } catch (err) {
         console.error('[RDKit] Render error:', err)

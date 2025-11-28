@@ -12,11 +12,12 @@ interface Molecule3DViewerProps {
   smiles?: string
   molString?: string
   compoundName?: string // Compound name for fetching from PubChem
-  width?: number
-  height?: number
+  width?: number | string
+  height?: number | string
   className?: string
   spin?: boolean
   spinSpeed?: number
+  zoom?: number
   use3DGeneration?: boolean // Use RDKit's real 3D generation instead of PubChem
   onSdfDataFetched?: (sdfData: string) => void // Callback to save SDF data
 }
@@ -33,6 +34,7 @@ function Molecule3DViewer({
   className = '',
   spin = false, // Changed default to false for better UX in lists
   spinSpeed = 0.1,
+  zoom = 1.2,
   use3DGeneration = true, // Use RDKit's real 3D generation
   onSdfDataFetched
 }: Molecule3DViewerProps) {
@@ -56,27 +58,78 @@ function Molecule3DViewer({
       }
 
       mol3dLoadPromise = new Promise((resolve, reject) => {
-        try {
-          console.log('[3DMol] Loading 3Dmol.js')
-
+        const tryLoadFromCDN = (cdnUrl: string, retryWithNext?: () => void) => {
+          console.log('[3DMol] Trying to load from:', cdnUrl)
+          
           const script = document.createElement('script')
-          script.src = 'https://3Dmol.csb.pitt.edu/build/3Dmol-min.js'
+          script.src = cdnUrl
           script.async = true
+          script.crossOrigin = 'anonymous'
+
+          let timeoutId: NodeJS.Timeout
 
           script.onload = () => {
-            console.log('[3DMol] Library loaded')
-            resolve()
+            clearTimeout(timeoutId)
+            console.log('[3DMol] Script loaded from:', cdnUrl)
+            
+            // Wait for global to be available
+            const checkReady = () => {
+              if (window.$3Dmol) {
+                console.log('[3DMol] Library ready')
+                resolve()
+              } else {
+                setTimeout(checkReady, 50)
+              }
+            }
+            checkReady()
           }
 
-          script.onerror = (err) => {
-            console.error('[3DMol] Failed to load:', err)
-            reject(new Error('Failed to load 3Dmol.js'))
+          script.onerror = () => {
+            clearTimeout(timeoutId)
+            console.error('[3DMol] Failed to load from:', cdnUrl)
+            script.remove()
+            
+            if (retryWithNext) {
+              retryWithNext()
+            } else {
+              mol3dLoadPromise = null
+              reject(new Error('Failed to load 3Dmol.js from all CDN sources'))
+            }
           }
 
-          document.body.appendChild(script)
-        } catch (err) {
-          reject(err)
+          // Set timeout for slow loading
+          timeoutId = setTimeout(() => {
+            console.warn('[3DMol] Loading timeout from:', cdnUrl)
+            script.remove()
+            if (retryWithNext) {
+              retryWithNext()
+            } else {
+              mol3dLoadPromise = null
+              reject(new Error('3Dmol.js load timeout'))
+            }
+          }, 15000)
+
+          document.head.appendChild(script)
         }
+
+        // Try multiple CDN sources
+        const cdnSources = [
+          'https://3dmol.org/build/3Dmol-min.js',
+          'https://3dmol.csb.pitt.edu/build/3Dmol-min.js',
+          'https://cdn.jsdelivr.net/npm/3dmol@latest/build/3Dmol-min.js'
+        ]
+
+        let currentIndex = 0
+        const tryNext = () => {
+          if (currentIndex < cdnSources.length - 1) {
+            currentIndex++
+            tryLoadFromCDN(cdnSources[currentIndex], tryNext)
+          } else {
+            tryLoadFromCDN(cdnSources[currentIndex])
+          }
+        }
+
+        tryLoadFromCDN(cdnSources[0], tryNext)
       })
 
       await mol3dLoadPromise
@@ -391,7 +444,7 @@ function Molecule3DViewer({
 
         // Zoom with magnification (closer view)
         viewer.zoomTo()
-        viewer.zoom(1.2) // Slight zoom for better view
+        viewer.zoom(zoom) // Slight zoom for better view
         viewer.render()
 
         console.log('[3DMol] Molecule rendered with real 3D structure')
@@ -443,8 +496,8 @@ function Molecule3DViewer({
     <div
       className={`molecule-3d-viewer ${className}`}
       style={{
-        width: `${width}px`,
-        height: `${height}px`,
+        width: typeof width === 'number' ? `${width}px` : width,
+        height: error ? 'auto' : (typeof height === 'number' ? `${height}px` : height),
         borderRadius: '0.375rem',
         backgroundColor: 'transparent',
         display: 'flex',
@@ -465,10 +518,10 @@ function Molecule3DViewer({
         </div>
       )}
       {error && (
-        <div className="absolute inset-0 flex items-center justify-center bg-white z-10">
-          <div className="text-red-500 text-xs p-4 text-center max-w-xs">
-            <div className="font-semibold mb-2">Unable to render 3D structure</div>
-            <div className="text-xs mb-2">{error}</div>
+        <div className="flex items-center justify-center bg-white z-10 w-full">
+          <div className="text-red-500 text-xs p-2 text-center max-w-xs">
+            <div className="font-semibold mb-1">Unable to render 3D structure</div>
+            <div className="text-xs">{error}</div>
             {smiles && (
               <div className="text-xs opacity-75 font-mono break-all">{smiles}</div>
             )}
@@ -478,8 +531,8 @@ function Molecule3DViewer({
       <div
         ref={containerRef}
         style={{
-          width: `${width}px`,
-          height: `${height}px`,
+          width: typeof width === 'number' ? `${width}px` : width,
+          height: typeof height === 'number' ? `${height}px` : height,
           display: error ? 'none' : 'block'
         }}
       />
