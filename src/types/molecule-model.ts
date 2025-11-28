@@ -1,6 +1,6 @@
 import { Atom } from './atom-model';
 
-export interface UniversalMolecule {
+export interface Molecule {
   // Identifiers
   id: string;
   cid?: number;

@@ -1,5 +1,13 @@
 import { Molecule } from './molecule-model';
 
+// --- Reagent Interface ---
+export interface Reagent {
+  compound: Molecule
+  stoichiometry?: number
+  conditions?: string
+  role?: 'reactant' | 'reagent' | 'solvent' | 'catalyst' | 'product'
+}
+
 // --- Open Reaction Database (ORD) Schema Interfaces ---
 
 export interface ORDIdentifier {
@@ -164,9 +172,12 @@ export interface ORDReaction {
 export interface BioblioReaction {
   // Universal Identifiers
   id: string;
-  name?: string;
-  description?: string; 
+  name: string;
+  description: string; 
+  category: string;
+  tags?: string[];
   smarts?: string;
+
   // Visualization & Mechanism
   trajectory?: string;       // "sn2Trajectory"
   reaction_arrows?: string;  // "sn2Arrows"
@@ -184,8 +195,14 @@ export interface BioblioReaction {
   video_experiment?: string;
   
   // Integration with internal models (Universal reactants/products)
-  mapped_reactants?: Molecule[];
-  mapped_products?: Molecule[];
+  reactants: Reagent[];
+  products: Reagent[];
+  
+  // Helper fields for UI
+  conditions?: string[];
+  temperature?: string;
+  solvent?: string;
+  yield?: number;
 
   // Experimental Samples (ORD Data)
   reactions: ORDReaction[];

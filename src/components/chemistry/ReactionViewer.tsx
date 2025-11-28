@@ -153,12 +153,12 @@ function ReactionViewer({ reaction, viewerType = 'rdkit' }: ReactionViewerProps)
             {reaction.reactants.map((reagent, idx) => (
               <div key={idx} className="reactant-item text-center">
                 {renderMolecule(
-                  reagent.compound.smiles,
+                  reagent.compound.structure.smiles,
                   "reactant-molecule"
                 )}
                 <p className="reactant-name relative text-xs mb-0.5 sm:mb-1 font-medium truncate px-1"
                 style={{
-                }}>{reagent.compound.name}</p>
+                }}>{reagent.compound.names.common[0] || reagent.compound.names.iupac}</p>
                 {reagent.conditions && (
                   <p className="reactant-conditions text-xs text-gray-500 truncate px-1">{reagent.conditions}</p>
                 )}
@@ -208,12 +208,12 @@ function ReactionViewer({ reaction, viewerType = 'rdkit' }: ReactionViewerProps)
             {reaction.products.map((reagent, idx) => (
               <div key={idx} className="product-item text-center">
                 {renderMolecule(
-                  reagent.compound.smiles,
+                  reagent.compound.structure.smiles,
                   "product-molecule"
                 )}
                 <p className="product-name relative text-xs mt-0.5 sm:mt-1 font-medium truncate px-1"
                 style={{
-                }}>{reagent.compound.name}</p>
+                }}>{reagent.compound.names.common[0] || reagent.compound.names.iupac}</p>
               </div>
             ))}
           </div>

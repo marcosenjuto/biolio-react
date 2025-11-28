@@ -1,12 +1,12 @@
 import axios from 'axios'
-import type { ChemicalCompound } from '@/types/chemistry'
+import type { Molecule } from '@/types/chemistry'
 
 const PUBCHEM_API = 'https://pubchem.ncbi.nlm.nih.gov/rest/pug'
 
 /**
  * Search PubChem by compound name and get SMILES
  */
-export async function searchPubChemByName(name: string): Promise<ChemicalCompound | null> {
+export async function searchPubChemByName(name: string): Promise<Molecule | null> {
   try {
     // Get CID by name
     const cidResponse = await axios.get(
@@ -24,13 +24,25 @@ export async function searchPubChemByName(name: string): Promise<ChemicalCompoun
     
     return {
       id: `pubchem_${cid}`,
-      name,
-      formula: props.MolecularFormula,
-      smiles: props.CanonicalSMILES,
-      inchi: props.InChI,
-      inchiKey: props.InChIKey,
-      molecularWeight: props.MolecularWeight,
-      pubChemCID: cid,
+      cid: cid,
+      type: 'small-molecule',
+      names: {
+        iupac: name,
+        common: [name],
+      },
+      structure: {
+        smiles: props.CanonicalSMILES,
+        inchi: props.InChI,
+        inchikey: props.InChIKey,
+        molecularFormula: props.MolecularFormula,
+      },
+      molecular: {
+        weight: props.MolecularWeight,
+        exactMass: 0,
+        monoisotopicMass: 0,
+      },
+      sources: ['pubchem'],
+      lastUpdated: new Date().toISOString(),
     }
   } catch (error) {
     console.error(`Error fetching from PubChem for ${name}:`, error)
@@ -41,7 +53,7 @@ export async function searchPubChemByName(name: string): Promise<ChemicalCompoun
 /**
  * Get compound details from PubChem by CID
  */
-export async function getPubChemByCID(cid: number): Promise<ChemicalCompound | null> {
+export async function getPubChemByCID(cid: number): Promise<Molecule | null> {
   try {
     const response = await axios.get(
       `${PUBCHEM_API}/compound/cid/${cid}/property/MolecularFormula,MolecularWeight,CanonicalSMILES,InChI,InChIKey/JSON`
@@ -51,13 +63,25 @@ export async function getPubChemByCID(cid: number): Promise<ChemicalCompound | n
     
     return {
       id: `pubchem_${cid}`,
-      name: `CID ${cid}`,
-      formula: props.MolecularFormula,
-      smiles: props.CanonicalSMILES,
-      inchi: props.InChI,
-      inchiKey: props.InChIKey,
-      molecularWeight: props.MolecularWeight,
-      pubChemCID: cid,
+      cid: cid,
+      type: 'small-molecule',
+      names: {
+        iupac: `CID ${cid}`,
+        common: [`CID ${cid}`],
+      },
+      structure: {
+        smiles: props.CanonicalSMILES,
+        inchi: props.InChI,
+        inchikey: props.InChIKey,
+        molecularFormula: props.MolecularFormula,
+      },
+      molecular: {
+        weight: props.MolecularWeight,
+        exactMass: 0,
+        monoisotopicMass: 0,
+      },
+      sources: ['pubchem'],
+      lastUpdated: new Date().toISOString(),
     }
   } catch (error) {
     console.error(`Error fetching PubChem CID ${cid}:`, error)

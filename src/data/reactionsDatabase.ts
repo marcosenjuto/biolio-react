@@ -1,11 +1,27 @@
-import type { Reaction, ChemicalCompound, Reagent } from '@/types/chemistry'
+import type { Reaction, Molecule, Reagent } from '@/types/chemistry'
 
 // Helper function to create a simple compound
-function createCompound(name: string, smiles: string): ChemicalCompound {
+function createCompound(name: string, smiles: string): Molecule {
   return {
     id: name.toLowerCase().replace(/\s+/g, '_'),
-    name,
-    smiles,
+    type: 'small-molecule',
+    names: {
+      iupac: name,
+      common: [name],
+    },
+    structure: {
+      smiles,
+      inchi: '',
+      inchikey: '',
+      molecularFormula: '',
+    },
+    molecular: {
+      weight: 0,
+      exactMass: 0,
+      monoisotopicMass: 0,
+    },
+    sources: ['biolio-internal'],
+    lastUpdated: new Date().toISOString(),
   }
 }
 
@@ -17,11 +33,27 @@ function createReagent(name: string, smiles: string, conditions?: string): Reage
   }
 }
 
+interface SimpleReaction {
+  id: string
+  name: string
+  description: string
+  category: string
+  reactants: Reagent[]
+  products: Reagent[]
+  conditions?: string[]
+  smarts?: string
+  temperature?: string
+  solvent?: string
+  yield?: number
+  references?: string[]
+  tags?: string[]
+}
+
 /**
  * Organic Reactions Database
  * Based on the organic chemistry reactions reference
  */
-export const reactionsDatabase: Reaction[] = [
+const rawReactions: SimpleReaction[] = [
   // ========== ALCOHOL OXIDATIONS ==========
   {
     id: 'alcohol_pcc_aldehyde',
@@ -623,6 +655,11 @@ export const reactionsDatabase: Reaction[] = [
     tags: ['haloform', 'oxidation', 'ketone', 'acid'],
   },
 ]
+
+export const reactionsDatabase: Reaction[] = rawReactions.map(r => ({
+  ...r,
+  reactions: []
+}))
 
 // ========== REACTION CATEGORIES ==========
 export const reactionCategories = [

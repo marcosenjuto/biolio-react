@@ -67,8 +67,14 @@ export const useChemistryStore = create<ChemistryState>((set, get) => ({
         r.name.toLowerCase().includes(term) ||
         r.description.toLowerCase().includes(term) ||
         r.tags?.some(tag => tag.toLowerCase().includes(term)) ||
-        r.reactants.some(reagent => reagent.compound.name.toLowerCase().includes(term)) ||
-        r.products.some(reagent => reagent.compound.name.toLowerCase().includes(term))
+        r.reactants.some(reagent => 
+          reagent.compound.names.common.some(n => n.toLowerCase().includes(term)) || 
+          reagent.compound.names.iupac.toLowerCase().includes(term)
+        ) ||
+        r.products.some(reagent => 
+          reagent.compound.names.common.some(n => n.toLowerCase().includes(term)) || 
+          reagent.compound.names.iupac.toLowerCase().includes(term)
+        )
       )
     }
 

@@ -1,38 +1,11 @@
-// Chemistry-related types
-export interface ChemicalCompound {
-  id: string
-  name: string
-  formula?: string
-  smiles: string
-  inchi?: string
-  inchiKey?: string
-  molecularWeight?: number
-  pubChemCID?: number
-  chebiId?: string
-  sdfData?: string // 3D structure data in SDF format
-}
+import { BioblioReaction } from './reaction-model'
 
-export interface Reagent {
-  compound: ChemicalCompound
-  stoichiometry?: number
-  conditions?: string // e.g., "xs", "cat", "1 equiv"
-}
+export * from './atom-model'
+export * from './molecule-model'
+export * from './protein-model'
+export * from './reaction-model'
 
-export interface Reaction {
-  id: string
-  name: string
-  description: string
-  category: string // e.g., "Oxidation", "Reduction", "Addition"
-  reactants: Reagent[]
-  products: Reagent[]
-  conditions?: string[]
-  smarts?: string // SMARTS pattern for the reaction
-  temperature?: string
-  solvent?: string
-  yield?: number
-  references?: string[]
-  tags?: string[]
-}
+export type Reaction = BioblioReaction
 
 export interface ReactionCategory {
   id: string
@@ -42,7 +15,7 @@ export interface ReactionCategory {
 }
 
 export interface ChemicalSearchResult {
-  compound: ChemicalCompound
+  compound: import('./molecule-model').Molecule
   source: 'pubchem' | 'chebi' | 'local'
   relevance?: number
 }
