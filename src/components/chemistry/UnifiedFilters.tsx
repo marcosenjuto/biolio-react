@@ -17,10 +17,10 @@ export const REACTION_CATEGORIES = [
 // Transform JSON data into the format needed for the combobox
 export const FUNCTIONAL_GROUPS = [
   { id: 'all', name: 'All Groups', formula: '' },
-  ...functionalGroupsData.map(group => ({
-    id: group.group_id,
-    name: group.coloquialEn.charAt(0).toUpperCase() + group.coloquialEn.slice(1),
-    formula: group.semidesarrollada
+  ...functionalGroupsData.map((group: any) => ({
+    id: group.id,
+    name: group.name,
+    formula: group.formula
   }))
 ]
 

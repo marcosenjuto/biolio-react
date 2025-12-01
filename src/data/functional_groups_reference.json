@@ -1,14 +1,25 @@
 [
   {
-    "group_id": "alcohols",
-    "molecular_formula": "R-OH",
-    "semidesarrollada": "R-OH",
-    "smiles": "[OH]",
-    "cxsmiles": "*O |$R;;$|",
-    "IUPAC": "hydroxyl",
-    "coloquialEn": "alcohol",
-    "coloquialEs": "alcohol",
+    "id": "alcohols",
+    "name": "Alcohol",
+    "names": {
+      "iupac": "hydroxyl",
+      "common": [
+        "alcohol"
+      ],
+      "commonLocalized": {
+        "es": [
+          "alcohol"
+        ]
+      }
+    },
+    "formula": "R-OH",
+    "smiles": "*O |$R;;$|",
     "description": "Organic compounds containing a hydroxyl group (-OH) bonded to a carbon atom",
+    "classification": {
+      "iupac": "hydroxyl",
+      "common": "alcohol"
+    },
     "samples": [
       {
         "compound_name": "EtOH",
@@ -43,15 +54,26 @@
     ]
   },
   {
-    "group_id": "aldehydes",
-    "molecular_formula": "R-CHO",
-    "semidesarrollada": "R-CHO",
-    "smiles": "[CH]=O",
-    "cxsmiles": "*C=O |$R;;;$|",
-    "IUPAC": "CHO",
-    "coloquialEn": "aldehyde",
-    "coloquialEs": "aldehído",
+    "id": "aldehydes",
+    "name": "Aldehyde",
+    "names": {
+      "iupac": "CHO",
+      "common": [
+        "aldehyde"
+      ],
+      "commonLocalized": {
+        "es": [
+          "aldehído"
+        ]
+      }
+    },
+    "formula": "R-CHO",
+    "smiles": "*C=O |$R;;;$|",
     "description": "Organic compounds containing a formyl group (C=O with H)",
+    "classification": {
+      "iupac": "CHO",
+      "common": "aldehyde"
+    },
     "samples": [
       {
         "compound_name": "3-(4-chlorophenyl)-3-ketopropionaldehyde",
@@ -86,15 +108,26 @@
     ]
   },
   {
-    "group_id": "ketones",
-    "molecular_formula": "R-CO-R'",
-    "semidesarrollada": "R-CO-R'",
-    "smiles": "[C](=O)",
-    "cxsmiles": "*C(*)=O |$R;;;R';;$|",
-    "IUPAC": "carbonyl",
-    "coloquialEn": "ketone",
-    "coloquialEs": "cetona",
+    "id": "ketones",
+    "name": "Ketone",
+    "names": {
+      "iupac": "carbonyl",
+      "common": [
+        "ketone"
+      ],
+      "commonLocalized": {
+        "es": [
+          "cetona"
+        ]
+      }
+    },
+    "formula": "R-CO-R'",
+    "smiles": "*C(*)=O |$R;;;R';;$|",
     "description": "Organic compounds with a carbonyl group bonded to two carbon atoms",
+    "classification": {
+      "iupac": "carbonyl",
+      "common": "ketone"
+    },
     "samples": [
       {
         "compound_name": "3-(4-chlorophenyl)-3-ketopropionaldehyde",
@@ -129,15 +162,26 @@
     ]
   },
   {
-    "group_id": "carboxylic_acids",
-    "molecular_formula": "R-COOH",
-    "semidesarrollada": "R-COOH",
-    "smiles": "C(=O)[OH]",
-    "cxsmiles": "*C(=O)O |$R;;;;$|",
-    "IUPAC": "carboxyl",
-    "coloquialEn": "carboxylic acid",
-    "coloquialEs": "ácido carboxílico",
+    "id": "carboxylic_acids",
+    "name": "Carboxylic acid",
+    "names": {
+      "iupac": "carboxyl",
+      "common": [
+        "carboxylic acid"
+      ],
+      "commonLocalized": {
+        "es": [
+          "ácido carboxílico"
+        ]
+      }
+    },
+    "formula": "R-COOH",
+    "smiles": "*C(=O)O |$R;;;;$|",
     "description": "Organic acids containing a carboxyl group (-COOH)",
+    "classification": {
+      "iupac": "carboxyl",
+      "common": "carboxylic acid"
+    },
     "samples": [
       {
         "compound_name": "N-methyl-N-phenethyl-2-[5-benzyloxy-3-(2-carboxyethyl)indol-1-yl]acetamide",
@@ -172,15 +216,26 @@
     ]
   },
   {
-    "group_id": "esters",
-    "molecular_formula": "R-COO-R'",
-    "semidesarrollada": "R-COO-R'",
-    "smiles": "C(=O)O",
-    "cxsmiles": "*C(=O)O* |$R;;;R'$|",
-    "IUPAC": "ester",
-    "coloquialEn": "ester",
-    "coloquialEs": "éster",
+    "id": "esters",
+    "name": "Ester",
+    "names": {
+      "iupac": "ester",
+      "common": [
+        "ester"
+      ],
+      "commonLocalized": {
+        "es": [
+          "éster"
+        ]
+      }
+    },
+    "formula": "R-COO-R'",
+    "smiles": "*C(=O)O* |$R;;;R'$|",
     "description": "Organic compounds derived from carboxylic acids and alcohols",
+    "classification": {
+      "iupac": "ester",
+      "common": "ester"
+    },
     "samples": [
       {
         "compound_name": "DMF",
@@ -215,15 +270,26 @@
     ]
   },
   {
-    "group_id": "ethers",
-    "molecular_formula": "R-O-R'",
-    "semidesarrollada": "R-O-R'",
-    "smiles": "[O]",
-    "cxsmiles": "*O* |$R;R'$|",
-    "IUPAC": "ether",
-    "coloquialEn": "ether",
-    "coloquialEs": "éter",
+    "id": "ethers",
+    "name": "Ether",
+    "names": {
+      "iupac": "ether",
+      "common": [
+        "ether"
+      ],
+      "commonLocalized": {
+        "es": [
+          "éter"
+        ]
+      }
+    },
+    "formula": "R-O-R'",
+    "smiles": "*O* |$R;R'$|",
     "description": "Organic compounds with an oxygen atom connected to two alkyl or aryl groups",
+    "classification": {
+      "iupac": "ether",
+      "common": "ether"
+    },
     "samples": [
       {
         "compound_name": "DEPC",
@@ -258,15 +324,26 @@
     ]
   },
   {
-    "group_id": "amines",
-    "molecular_formula": "R-NH2",
-    "semidesarrollada": "R-NH2",
-    "smiles": "[NH2]",
-    "cxsmiles": "*N |$R;;$|",
-    "IUPAC": "amino",
-    "coloquialEn": "amine",
-    "coloquialEs": "amina",
+    "id": "amines",
+    "name": "Amine",
+    "names": {
+      "iupac": "amino",
+      "common": [
+        "amine"
+      ],
+      "commonLocalized": {
+        "es": [
+          "amina"
+        ]
+      }
+    },
+    "formula": "R-NH2",
+    "smiles": "*N |$R;;$|",
     "description": "Organic compounds derived from ammonia by replacement of hydrogen atoms",
+    "classification": {
+      "iupac": "amino",
+      "common": "amine"
+    },
     "samples": [
       {
         "compound_name": "N-benzyl-4-(3-indolyl)butanamide",
@@ -301,15 +378,26 @@
     ]
   },
   {
-    "group_id": "amides",
-    "molecular_formula": "R-CO-NH2",
-    "semidesarrollada": "R-CO-NH2",
-    "smiles": "C(=O)[NH2]",
-    "cxsmiles": "*C(=O)N |$R;;;;$|",
-    "IUPAC": "carboxamide",
-    "coloquialEn": "amide",
-    "coloquialEs": "amida",
+    "id": "amides",
+    "name": "Amide",
+    "names": {
+      "iupac": "carboxamide",
+      "common": [
+        "amide"
+      ],
+      "commonLocalized": {
+        "es": [
+          "amida"
+        ]
+      }
+    },
+    "formula": "R-CO-NH2",
+    "smiles": "*C(=O)N |$R;;;;$|",
     "description": "Organic compounds containing a carbonyl group linked to a nitrogen atom",
+    "classification": {
+      "iupac": "carboxamide",
+      "common": "amide"
+    },
     "samples": [
       {
         "compound_name": "N-benzyl-4-(3-indolyl)butanamide",
@@ -344,15 +432,26 @@
     ]
   },
   {
-    "group_id": "nitriles",
-    "molecular_formula": "R-C≡N",
-    "semidesarrollada": "R-C≡N",
-    "smiles": "C#N",
-    "cxsmiles": "*C#N |$R;;$|",
-    "IUPAC": "cyano",
-    "coloquialEn": "nitrile",
-    "coloquialEs": "nitrilo",
+    "id": "nitriles",
+    "name": "Nitrile",
+    "names": {
+      "iupac": "cyano",
+      "common": [
+        "nitrile"
+      ],
+      "commonLocalized": {
+        "es": [
+          "nitrilo"
+        ]
+      }
+    },
+    "formula": "R-C≡N",
+    "smiles": "*C#N |$R;;$|",
     "description": "Organic compounds containing a carbon-nitrogen triple bond",
+    "classification": {
+      "iupac": "cyano",
+      "common": "nitrile"
+    },
     "samples": [
       {
         "compound_name": "6-chloropyridine-3-carbonitrile",
@@ -387,15 +486,26 @@
     ]
   },
   {
-    "group_id": "nitro_groups",
-    "molecular_formula": "R-NO2",
-    "semidesarrollada": "R-NO2",
-    "smiles": "[N+](=O)[O-]",
-    "cxsmiles": "*[N+](=O)[O-] |$R;;;;;$|",
-    "IUPAC": "nitro",
-    "coloquialEn": "nitro group",
-    "coloquialEs": "grupo nitro",
+    "id": "nitro_groups",
+    "name": "Nitro group",
+    "names": {
+      "iupac": "nitro",
+      "common": [
+        "nitro group"
+      ],
+      "commonLocalized": {
+        "es": [
+          "grupo nitro"
+        ]
+      }
+    },
+    "formula": "R-NO2",
+    "smiles": "*[N+](=O)[O-] |$R;;;;;$|",
     "description": "Functional group containing nitrogen bonded to two oxygen atoms",
+    "classification": {
+      "iupac": "nitro",
+      "common": "nitro group"
+    },
     "samples": [
       {
         "compound_name": "3-nitrocinnamic acid",
@@ -430,15 +540,26 @@
     ]
   },
   {
-    "group_id": "halides",
-    "molecular_formula": "R-X",
-    "semidesarrollada": "R-X (X=F,Cl,Br,I)",
-    "smiles": "[F,Cl,Br,I]",
-    "cxsmiles": "*[X] |$R;X$|",
-    "IUPAC": "halo",
-    "coloquialEn": "halide",
-    "coloquialEs": "haluro",
+    "id": "halides",
+    "name": "Halide",
+    "names": {
+      "iupac": "halo",
+      "common": [
+        "halide"
+      ],
+      "commonLocalized": {
+        "es": [
+          "haluro"
+        ]
+      }
+    },
+    "formula": "R-X",
+    "smiles": "*[X] |$R;X$|",
     "description": "Organic compounds containing fluorine, chlorine, bromine, or iodine",
+    "classification": {
+      "iupac": "halo",
+      "common": "halide"
+    },
     "samples": [
       {
         "compound_name": "methyl 4-(aminomethyl)-2-hydroxybenzoate hydrochloride",
@@ -473,15 +594,26 @@
     ]
   },
   {
-    "group_id": "aromatic_rings",
-    "molecular_formula": "C6H5-R",
-    "semidesarrollada": "Ph-R",
-    "smiles": "c1ccccc1",
-    "cxsmiles": "c1ccccc1* |$;;;;;;;R$|",
-    "IUPAC": "phenyl",
-    "coloquialEn": "aromatic ring",
-    "coloquialEs": "anillo aromático",
+    "id": "aromatic_rings",
+    "name": "Aromatic ring",
+    "names": {
+      "iupac": "phenyl",
+      "common": [
+        "aromatic ring"
+      ],
+      "commonLocalized": {
+        "es": [
+          "anillo aromático"
+        ]
+      }
+    },
+    "formula": "C6H5-R",
+    "smiles": "c1ccccc1* |$;;;;;;;R$|",
     "description": "Cyclic compounds with delocalized pi electrons (benzene-like)",
+    "classification": {
+      "iupac": "phenyl",
+      "common": "aromatic ring"
+    },
     "samples": [
       {
         "compound_name": "N-benzyl-4-(3-indolyl)butanamide",
@@ -516,15 +648,26 @@
     ]
   },
   {
-    "group_id": "phenols",
-    "molecular_formula": "Ar-OH",
-    "semidesarrollada": "Ph-OH",
-    "smiles": "c(O)",
-    "cxsmiles": "c1ccccc1O |;;;;;;|",
-    "IUPAC": "phenol",
-    "coloquialEn": "phenol",
-    "coloquialEs": "fenol",
+    "id": "phenols",
+    "name": "Phenol",
+    "names": {
+      "iupac": "phenol",
+      "common": [
+        "phenol"
+      ],
+      "commonLocalized": {
+        "es": [
+          "fenol"
+        ]
+      }
+    },
+    "formula": "Ar-OH",
+    "smiles": "c1ccccc1O |;;;;;;|",
     "description": "Aromatic compounds with a hydroxyl group attached to a benzene ring",
+    "classification": {
+      "iupac": "phenol",
+      "common": "phenol"
+    },
     "samples": [
       {
         "compound_name": "DMF",
@@ -559,15 +702,26 @@
     ]
   },
   {
-    "group_id": "sulfides",
-    "molecular_formula": "R-S-R'",
-    "semidesarrollada": "R-S-R'",
-    "smiles": "[S]",
-    "cxsmiles": "*S* |$R;R'$|",
-    "IUPAC": "thioether",
-    "coloquialEn": "sulfide",
-    "coloquialEs": "sulfuro",
+    "id": "sulfides",
+    "name": "Sulfide",
+    "names": {
+      "iupac": "thioether",
+      "common": [
+        "sulfide"
+      ],
+      "commonLocalized": {
+        "es": [
+          "sulfuro"
+        ]
+      }
+    },
+    "formula": "R-S-R'",
+    "smiles": "*S* |$R;R'$|",
     "description": "Organic compounds with a sulfur atom bonded to two carbon atoms",
+    "classification": {
+      "iupac": "thioether",
+      "common": "sulfide"
+    },
     "samples": [
       {
         "compound_name": "1-t-Butyloxycarbonyl-2-(2-methylthioethyl)-4-(2-methylphenyl)piperazine",
@@ -602,15 +756,26 @@
     ]
   },
   {
-    "group_id": "thiols",
-    "molecular_formula": "R-SH",
-    "semidesarrollada": "R-SH",
-    "smiles": "[SH]",
-    "cxsmiles": "*S |$R;;$|",
-    "IUPAC": "sulfanyl",
-    "coloquialEn": "thiol",
-    "coloquialEs": "tiol",
+    "id": "thiols",
+    "name": "Thiol",
+    "names": {
+      "iupac": "sulfanyl",
+      "common": [
+        "thiol"
+      ],
+      "commonLocalized": {
+        "es": [
+          "tiol"
+        ]
+      }
+    },
+    "formula": "R-SH",
+    "smiles": "*S |$R;;$|",
     "description": "Organic compounds containing a sulfhydryl group (-SH)",
+    "classification": {
+      "iupac": "sulfanyl",
+      "common": "thiol"
+    },
     "samples": [
       {
         "compound_name": "2-mercaptothiazolo[5,4-c]pyridine",
@@ -621,15 +786,26 @@
     ]
   },
   {
-    "group_id": "azides",
-    "molecular_formula": "R-N3",
-    "semidesarrollada": "R-N3",
-    "smiles": "[N-]=[N+]=[N-]",
-    "cxsmiles": "*N=[N+]=[N-] |$R;;;;;$|",
-    "IUPAC": "azido",
-    "coloquialEn": "azide",
-    "coloquialEs": "azida",
+    "id": "azides",
+    "name": "Azide",
+    "names": {
+      "iupac": "azido",
+      "common": [
+        "azide"
+      ],
+      "commonLocalized": {
+        "es": [
+          "azida"
+        ]
+      }
+    },
+    "formula": "R-N3",
+    "smiles": "*N=[N+]=[N-] |$R;;;;;$|",
     "description": "Functional group with three nitrogen atoms bonded together",
+    "classification": {
+      "iupac": "azido",
+      "common": "azide"
+    },
     "samples": [
       {
         "compound_name": "phenacyl azide",
@@ -640,15 +816,26 @@
     ]
   },
   {
-    "group_id": "alkenes",
-    "molecular_formula": "C=C",
-    "semidesarrollada": "R-CH=CH-R'",
-    "smiles": "C=C",
-    "cxsmiles": "*C=C* |$R;;;R'$|",
-    "IUPAC": "alkenyl",
-    "coloquialEn": "alkene",
-    "coloquialEs": "alqueno",
+    "id": "alkenes",
+    "name": "Alkene",
+    "names": {
+      "iupac": "alkenyl",
+      "common": [
+        "alkene"
+      ],
+      "commonLocalized": {
+        "es": [
+          "alqueno"
+        ]
+      }
+    },
+    "formula": "C=C",
+    "smiles": "*C=C* |$R;;;R'$|",
     "description": "Hydrocarbons containing carbon-carbon double bonds",
+    "classification": {
+      "iupac": "alkenyl",
+      "common": "alkene"
+    },
     "samples": [
       {
         "compound_name": "DEPC",

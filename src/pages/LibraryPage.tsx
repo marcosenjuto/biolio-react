@@ -3,6 +3,7 @@ import { useChemistryStore } from '@/store/chemistryStore'
 import ExpandableReactionCard from '@/components/chemistry/ExpandableReactionCard'
 import UnifiedFilters, { REACTION_CATEGORIES } from '@/components/chemistry/UnifiedFilters'
 import Button from '@/components/ui/Button'
+import FunctionalGroupsList from '@/components/chemistry/FunctionalGroupsList'
 
 function LibraryPage() {
   const {
@@ -17,6 +18,8 @@ function LibraryPage() {
   const [viewerType, setViewerType] = useState<'rdkit' | 'kekule' | 'simple' | 'ketcher' | '3dmol'>('rdkit')
   const [expandAll, setExpandAll] = useState(true) // Default to expanded
   const [expandedReactions, setExpandedReactions] = useState<Set<string>>(new Set())
+  const [showReactions, setShowReactions] = useState(true)
+  const [showFunctionalGroups, setShowFunctionalGroups] = useState(false)
 
   useEffect(() => {
     // Apply filters on mount
@@ -83,62 +86,108 @@ function LibraryPage() {
           onExpandAllChange={setExpandAll}
         />
 
-        {/* Results Count */}
-        <div className="results-count mb-4">
-          <p className="count-text text-sm text-gray-600">
-            Showing <span className="count-number font-semibold">{filteredReactions.length}</span> reaction
-            {filteredReactions.length !== 1 ? 's' : ''}
-            {searchTerm && ` for "${searchTerm}"`}
-            {selectedCategory !== 'all' && ` in ${REACTION_CATEGORIES.find(c => c.id === selectedCategory)?.name}`}
-          </p>
-        </div>
-
-        {/* Reactions Grid */}
-        <div className="reactions-grid grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {filteredReactions.map((reaction) => (
-            <ExpandableReactionCard
-              key={reaction.id}
-              reaction={reaction}
-              isExpanded={expandedReactions.has(reaction.id)}
-              onToggle={() => handleReactionClick(reaction.id)}
-              viewerType={viewerType}
-            />
-          ))}
-        </div>
-
-        {/* No Results */}
-        {filteredReactions.length === 0 && (
-          <div className="no-results text-center py-12">
-            <svg
-              className="no-results-icon mx-auto h-12 w-12 text-gray-400"
-              fill="none"
-              viewBox="0 0 24 24"
+        {/* Functional Groups Section */}
+        <div className="mb-2">
+          <div 
+            className="flex items-center justify-between cursor-pointer py-2 border-b border-gray-200"
+            onClick={() => setShowFunctionalGroups(!showFunctionalGroups)}
+          >
+            <h2 className="text-xl font-bold text-gray-800">Functional Groups</h2>
+            <svg 
+              className={`w-5 h-5 text-gray-500 transform transition-transform ${showFunctionalGroups ? 'rotate-180' : ''}`} 
+              fill="none" 
+              viewBox="0 0 24 24" 
               stroke="currentColor"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
-            <h3 className="no-results-title mt-2 text-sm font-medium text-gray-900">No reactions found</h3>
-            <p className="no-results-message mt-1 text-sm text-gray-500">
-              Try adjusting your search or filter criteria
-            </p>
-            <div className="no-results-action mt-6">
-              <Button
-                onClick={() => {
-                  setSearchTerm('')
-                  setSelectedCategory('all')
-                }}
-                className="clear-filters-button"
-              >
-                Clear Filters
-              </Button>
-            </div>
           </div>
-        )}
+          
+          <div className={showFunctionalGroups ? 'block' : 'hidden'}>
+            <FunctionalGroupsList className="mb-8" />
+          </div>
+        </div>
+
+        {/* Reactions Section */}
+        <div className="mb-8">
+          <div 
+            className="flex items-center justify-between cursor-pointer py-2 border-b border-gray-200 mb-4"
+            onClick={() => setShowReactions(!showReactions)}
+          >
+            <div className="flex items-center gap-4">
+              <h2 className="text-xl font-bold text-gray-800">Reactions</h2>
+              <span className="text-sm text-gray-500 font-normal">
+                ({filteredReactions.length} reaction{filteredReactions.length !== 1 ? 's' : ''})
+              </span>
+            </div>
+            <svg 
+              className={`w-5 h-5 text-gray-500 transform transition-transform ${showReactions ? 'rotate-180' : ''}`} 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+
+          <div className={showReactions ? 'block' : 'hidden'}>
+              {/* Results Count */}
+              <div className="results-count mb-4">
+                <p className="count-text text-sm text-gray-600">
+                  {searchTerm && `Searching for "${searchTerm}"`}
+                  {searchTerm && selectedCategory !== 'all' && ' in '}
+                  {selectedCategory !== 'all' && `${REACTION_CATEGORIES.find(c => c.id === selectedCategory)?.name}`}
+                </p>
+              </div>
+
+              {/* Reactions Grid */}
+              <div className="reactions-grid grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {filteredReactions.map((reaction) => (
+                  <ExpandableReactionCard
+                    key={reaction.id}
+                    reaction={reaction}
+                    isExpanded={expandedReactions.has(reaction.id)}
+                    onToggle={() => handleReactionClick(reaction.id)}
+                    viewerType={viewerType}
+                  />
+                ))}
+              </div>
+
+              {/* No Results */}
+              {filteredReactions.length === 0 && (
+                <div className="no-results text-center py-12">
+                  <svg
+                    className="no-results-icon mx-auto h-12 w-12 text-gray-400"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <h3 className="no-results-title mt-2 text-sm font-medium text-gray-900">No reactions found</h3>
+                  <p className="no-results-message mt-1 text-sm text-gray-500">
+                    Try adjusting your search or filter criteria
+                  </p>
+                  <div className="no-results-action mt-6">
+                    <Button
+                      onClick={() => {
+                        setSearchTerm('')
+                        setSelectedCategory('all')
+                      }}
+                      className="clear-filters-button"
+                    >
+                      Clear Filters
+                    </Button>
+                  </div>
+                </div>
+              )}
+          </div>
+        </div>
       </div>
     </div>
   )

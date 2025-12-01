@@ -55,19 +55,39 @@ function AIChatPage() {
     container.scrollTo({ top: container.scrollHeight, behavior })
 
     if (behavior === 'smooth') {
+      let lastScrollTop = -1
+      let samePositionCount = 0
+
       const monitor = () => {
         if (!programmaticScrollRef.current) {
           cancelProgrammaticScrollCheck()
           return
         }
 
-        const distanceFromBottom = container.scrollHeight - container.scrollTop - container.clientHeight
+        const currentScrollTop = container.scrollTop
+        const distanceFromBottom = container.scrollHeight - currentScrollTop - container.clientHeight
 
         if (distanceFromBottom <= SCROLL_BOTTOM_THRESHOLD) {
           programmaticScrollRef.current = false
           stickToBottomRef.current = true
           cancelProgrammaticScrollCheck()
           return
+        }
+
+        // Check if scroll has stopped (interrupted or finished but not quite at bottom)
+        if (Math.abs(currentScrollTop - lastScrollTop) < 1) {
+          samePositionCount++
+          if (samePositionCount > 5) { // ~80ms of no movement
+            programmaticScrollRef.current = false
+            // If we stopped and are not at bottom, user probably interrupted.
+            // Don't stick to bottom.
+            stickToBottomRef.current = false
+            cancelProgrammaticScrollCheck()
+            return
+          }
+        } else {
+          samePositionCount = 0
+          lastScrollTop = currentScrollTop
         }
 
         programmaticScrollRafRef.current = requestAnimationFrame(monitor)
@@ -320,11 +340,6 @@ function AIChatPage() {
       if (isNearBottom) {
         programmaticScrollRef.current = false
         stickToBottomRef.current = true
-        cancelProgrammaticScrollCheck()
-      } else if (distanceFromBottom > 120) {
-        // User scrolled away while an automatic scroll was in progress
-        programmaticScrollRef.current = false
-        stickToBottomRef.current = false
         cancelProgrammaticScrollCheck()
       }
       return

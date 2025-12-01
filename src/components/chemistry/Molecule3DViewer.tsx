@@ -42,6 +42,52 @@ function Molecule3DViewer({
   const viewerRef = useRef<any>(null)
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(true)
+  const [measuredDimensions, setMeasuredDimensions] = useState<{ width: number; height: number } | null>(null)
+
+  useEffect(() => {
+    if (typeof width === 'number' && typeof height === 'number') {
+      return
+    }
+
+    let timeoutId: ReturnType<typeof setTimeout>
+
+    const measureDimensions = () => {
+      if (containerRef.current) {
+        const w = containerRef.current.offsetWidth
+        // If height is not fixed, calculate it based on aspect ratio (e.g., 1:1 for 3D)
+        const h = typeof height === 'number' ? height : w // Square for 3D
+        setMeasuredDimensions({ width: w, height: h })
+      }
+    }
+
+    const debouncedMeasure = () => {
+      clearTimeout(timeoutId)
+      timeoutId = setTimeout(measureDimensions, 300)
+    }
+
+    // Initial measurement
+    measureDimensions()
+
+    const resizeObserver = new ResizeObserver(debouncedMeasure)
+    if (containerRef.current) {
+      resizeObserver.observe(containerRef.current)
+    }
+
+    window.addEventListener('resize', debouncedMeasure)
+
+    return () => {
+      clearTimeout(timeoutId)
+      resizeObserver.disconnect()
+      window.removeEventListener('resize', debouncedMeasure)
+    }
+  }, [width, height])
+
+  // Resize viewer when dimensions change
+  useEffect(() => {
+    if (viewerRef.current) {
+      viewerRef.current.resize()
+    }
+  }, [measuredDimensions])
 
   useEffect(() => {
     let mounted = true
@@ -233,7 +279,7 @@ function Molecule3DViewer({
       }
     }
 
-    const convertSMILEStoMOL = async (smilesString: string): Promise<string> => {
+    /* const convertSMILEStoMOL = async (smilesString: string): Promise<string> => {
       try {
         // Clean SMILES string - remove any whitespace
         const cleanSMILES = smilesString.trim()
@@ -372,7 +418,7 @@ function Molecule3DViewer({
         console.error('[3DMol] PubChem fetch error:', err)
         throw err
       }
-    }
+    } */
 
     const renderMolecule = async () => {
       try {
@@ -393,19 +439,26 @@ function Molecule3DViewer({
 
         // Get or convert molecule data
         let moleculeData = molString
+
+        console.log('[3DMol] Debugging fetch decision:', { 
+          molString: !!molString, 
+          compoundName, 
+          smiles, 
+          use3DGeneration 
+        })
         
         // Priority: 1. molString, 2. compoundName (fetch from PubChem), 3. smiles (with RDKit 3D gen or PubChem convert)
-        if (!moleculeData && compoundName) {
+        /* if (!moleculeData && compoundName) {
           console.log('[3DMol] Fetching by compound name:', compoundName)
           moleculeData = await fetchSDFFromPubChem(compoundName)
-        } else if (!moleculeData && smiles) {
+        } else */ if (!moleculeData && smiles) {
           if (use3DGeneration) {
             console.log('[3DMol] Generating real 3D structure with RDKit...')
             moleculeData = await generateReal3DFromSMILES(smiles)
-          } else {
+          } /* else {
             console.log('[3DMol] Converting SMILES to MOL format...')
             moleculeData = await convertSMILEStoMOL(smiles)
-          }
+          } */
         }
 
         if (!moleculeData) {
@@ -497,7 +550,7 @@ function Molecule3DViewer({
       className={`molecule-3d-viewer ${className}`}
       style={{
         width: typeof width === 'number' ? `${width}px` : width,
-        height: error ? 'auto' : (typeof height === 'number' ? `${height}px` : height),
+        height: error ? 'auto' : (typeof height === 'number' ? `${height}px` : (measuredDimensions ? `${measuredDimensions.height}px` : height)),
         borderRadius: '0.375rem',
         backgroundColor: 'transparent',
         display: 'flex',
@@ -532,7 +585,7 @@ function Molecule3DViewer({
         ref={containerRef}
         style={{
           width: typeof width === 'number' ? `${width}px` : width,
-          height: typeof height === 'number' ? `${height}px` : height,
+          height: typeof height === 'number' ? `${height}px` : (measuredDimensions ? `${measuredDimensions.height}px` : height),
           display: error ? 'none' : 'block'
         }}
       />
