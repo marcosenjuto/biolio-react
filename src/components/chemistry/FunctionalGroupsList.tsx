@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import RDKitMoleculeViewer from './RDKitMoleculeViewer'
 import Card from '@/components/ui/Card'
+import functionalGroupsData from '@/data/functional_groups_reference.json'
 
 // Sintaxis CXSMILES para R-groups
+/*
 const rGroupStructures = [
   {
     id: 'alcohol',
@@ -41,21 +43,43 @@ const rGroupStructures = [
     description: 'Amide group (R¹-CO-NH-R²)'
   }
 ]
+*/
+const rGroupStructures = functionalGroupsData
 
 interface FunctionalGroupsListProps {
   className?: string
   onSelectGroup?: (groupId: string) => void
   selectedGroupId?: string
+  searchTerm?: string
 }
 
 export default function FunctionalGroupsList({ 
   className = '', 
   onSelectGroup,
-  selectedGroupId 
+  selectedGroupId,
+  searchTerm = ''
 }: FunctionalGroupsListProps) {
+  const filteredGroups = rGroupStructures.filter(group => {
+    if (!searchTerm) return true
+    const term = searchTerm.toLowerCase()
+    return (
+      group.name.toLowerCase().includes(term) ||
+      (group.description && group.description.toLowerCase().includes(term)) ||
+      (group.formula && group.formula.toLowerCase().includes(term))
+    )
+  })
+
+  if (filteredGroups.length === 0) {
+    return (
+      <div className={`text-center py-8 text-gray-500 ${className}`}>
+        No functional groups match your search.
+      </div>
+    )
+  }
+
   return (
     <div className={`functional-groups-list grid grid-cols-2 xxs:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2 ${className}`}>
-      {rGroupStructures.map((group) => (
+      {filteredGroups.map((group) => (
         <Card 
           key={group.id}
           className={`
@@ -74,7 +98,7 @@ export default function FunctionalGroupsList({
               )}
             </div>
             
-            <div className="molecule-preview rounded-lg border border-gray-200 p-0 mb-3 flex-grow flex items-center justify-center min-w-[120px]">
+            <div className="molecule-preview rounded-lg border border-gray-200 p-0 flex-grow flex items-center justify-center min-w-[120px]">
               <RDKitMoleculeViewer 
                 smiles={group.smiles} 
                 width="100%" 
@@ -84,8 +108,8 @@ export default function FunctionalGroupsList({
             
             <div className="group-info">
               <p className="text-sm text-gray-600 mb-1">{group.description}</p>
-              <code className="text-xs bg-gray-100 text-gray-500 px-1 py-0.5 rounded block truncate" title={group.smiles}>
-                {group.smiles}
+              <code className="text-sm bg-gray-100 text-gray-600 max-w-max px-1 py-0.5 rounded block truncate" title={group.smiles}>
+                {group.formula}
               </code>
             </div>
           </div>

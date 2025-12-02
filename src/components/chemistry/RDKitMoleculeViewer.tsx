@@ -50,7 +50,7 @@ function RDKitMoleculeViewer({
 
         // RDKit works well with standard dimensions (approx 60% width, 40% height of container)
         const calculatedWidth = Math.round(baseWidth * 0.75)
-        const calculatedHeight = Math.round(baseWidth * 0.40)
+        const calculatedHeight = Math.round(baseWidth * 0.50)
 
         setMeasuredDimensions({ width: calculatedWidth, height: calculatedHeight })
       }
@@ -301,10 +301,15 @@ function RDKitMoleculeViewer({
       ref={containerRef}
       className={`rdkit-molecule-viewer ${className}`}
       style={{
-        width: width ? `${width}px` : '100%',
-        height: height ? `${height}px` : (svgDimensions ? `${svgDimensions.height}px` : `${DEFAULT_HEIGHT}px`),
-        maxWidth: width ? `${width}px` : '100%',
-        maxHeight: height ? `${height}px` : '100%',
+        width: typeof width === 'number' ? `${width}px` : (width || '100%'),
+        height: typeof height === 'number' 
+          ? `${height}px` 
+          : (svgDimensions 
+              ? `${svgDimensions.height}px` 
+              : (measuredDimensions 
+                  ? `${measuredDimensions.height}px` 
+                  : (height === 'auto' ? `${DEFAULT_HEIGHT}px` : (height || `${DEFAULT_HEIGHT}px`)))),
+        maxWidth: '100%',
         borderRadius: '0.375rem',
         backgroundColor: 'transparent',
         display: 'flex',

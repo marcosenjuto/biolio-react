@@ -103,8 +103,13 @@ function LibraryPage() {
             </svg>
           </div>
           
-          <div className={showFunctionalGroups ? 'block' : 'hidden'}>
-            <FunctionalGroupsList className="mb-8" />
+          <div className={showFunctionalGroups ? 'block' : 'h-0 overflow-hidden invisible'}>
+            <FunctionalGroupsList 
+              className="mb-8" 
+              searchTerm={searchTerm}
+              selectedGroupId={selectedFunctionalGroup}
+              onSelectGroup={(id) => setSelectedFunctionalGroup(id === selectedFunctionalGroup ? 'all' : id)}
+            />
           </div>
         </div>
 

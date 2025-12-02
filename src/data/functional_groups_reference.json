@@ -2,17 +2,23 @@
   {
     "id": "alcohols",
     "name": "Alcohol",
-    "names": {
-      "iupac": "hydroxyl",
-      "common": [
-        "alcohol"
-      ],
-      "commonLocalized": {
-        "es": [
-          "alcohol"
-        ]
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "hydroxyl"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "alcohol"
+      },
+      {
+        "languageCode": "es",
+        "type": "common",
+        "value": "alcohol"
       }
-    },
+    ],
     "formula": "R-OH",
     "smiles": "*O |$R;;$|",
     "description": "Organic compounds containing a hydroxyl group (-OH) bonded to a carbon atom",
@@ -56,17 +62,23 @@
   {
     "id": "aldehydes",
     "name": "Aldehyde",
-    "names": {
-      "iupac": "CHO",
-      "common": [
-        "aldehyde"
-      ],
-      "commonLocalized": {
-        "es": [
-          "aldehído"
-        ]
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "CHO"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "aldehyde"
+      },
+      {
+        "languageCode": "es",
+        "type": "common",
+        "value": "aldehído"
       }
-    },
+    ],
     "formula": "R-CHO",
     "smiles": "*C=O |$R;;;$|",
     "description": "Organic compounds containing a formyl group (C=O with H)",
@@ -110,19 +122,25 @@
   {
     "id": "ketones",
     "name": "Ketone",
-    "names": {
-      "iupac": "carbonyl",
-      "common": [
-        "ketone"
-      ],
-      "commonLocalized": {
-        "es": [
-          "cetona"
-        ]
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "carbonyl"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "ketone"
+      },
+      {
+        "languageCode": "es",
+        "type": "common",
+        "value": "cetona"
       }
-    },
+    ],
     "formula": "R-CO-R'",
-    "smiles": "*C(*)=O |$R;;;R';;$|",
+    "smiles": "*C(*)=O |$R;;R'$|",
     "description": "Organic compounds with a carbonyl group bonded to two carbon atoms",
     "classification": {
       "iupac": "carbonyl",
@@ -164,17 +182,23 @@
   {
     "id": "carboxylic_acids",
     "name": "Carboxylic acid",
-    "names": {
-      "iupac": "carboxyl",
-      "common": [
-        "carboxylic acid"
-      ],
-      "commonLocalized": {
-        "es": [
-          "ácido carboxílico"
-        ]
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "carboxyl"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "carboxylic acid"
+      },
+      {
+        "languageCode": "es",
+        "type": "common",
+        "value": "ácido carboxílico"
       }
-    },
+    ],
     "formula": "R-COOH",
     "smiles": "*C(=O)O |$R;;;;$|",
     "description": "Organic acids containing a carboxyl group (-COOH)",
@@ -218,19 +242,25 @@
   {
     "id": "esters",
     "name": "Ester",
-    "names": {
-      "iupac": "ester",
-      "common": [
-        "ester"
-      ],
-      "commonLocalized": {
-        "es": [
-          "éster"
-        ]
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "ester"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "ester"
+      },
+      {
+        "languageCode": "es",
+        "type": "common",
+        "value": "éster"
       }
-    },
+    ],
     "formula": "R-COO-R'",
-    "smiles": "*C(=O)O* |$R;;;R'$|",
+    "smiles": "*C(=O)O* |$R;;;;R'$|",
     "description": "Organic compounds derived from carboxylic acids and alcohols",
     "classification": {
       "iupac": "ester",
@@ -272,19 +302,25 @@
   {
     "id": "ethers",
     "name": "Ether",
-    "names": {
-      "iupac": "ether",
-      "common": [
-        "ether"
-      ],
-      "commonLocalized": {
-        "es": [
-          "éter"
-        ]
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "ether"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "ether"
+      },
+      {
+        "languageCode": "es",
+        "type": "common",
+        "value": "éter"
       }
-    },
+    ],
     "formula": "R-O-R'",
-    "smiles": "*O* |$R;R'$|",
+    "smiles": "*O* |$R;;R'$|",
     "description": "Organic compounds with an oxygen atom connected to two alkyl or aryl groups",
     "classification": {
       "iupac": "ether",
@@ -326,18 +362,24 @@
   {
     "id": "amines",
     "name": "Amine",
-    "names": {
-      "iupac": "amino",
-      "common": [
-        "amine"
-      ],
-      "commonLocalized": {
-        "es": [
-          "amina"
-        ]
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "amino"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "amine"
+      },
+      {
+        "languageCode": "es",
+        "type": "common",
+        "value": "amina"
       }
-    },
-    "formula": "R-NH2",
+    ],
+    "formula": "R-NH₂",
     "smiles": "*N |$R;;$|",
     "description": "Organic compounds derived from ammonia by replacement of hydrogen atoms",
     "classification": {
@@ -380,18 +422,24 @@
   {
     "id": "amides",
     "name": "Amide",
-    "names": {
-      "iupac": "carboxamide",
-      "common": [
-        "amide"
-      ],
-      "commonLocalized": {
-        "es": [
-          "amida"
-        ]
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "carboxamide"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "amide"
+      },
+      {
+        "languageCode": "es",
+        "type": "common",
+        "value": "amida"
       }
-    },
-    "formula": "R-CO-NH2",
+    ],
+    "formula": "R-CO-NH₂",
     "smiles": "*C(=O)N |$R;;;;$|",
     "description": "Organic compounds containing a carbonyl group linked to a nitrogen atom",
     "classification": {
@@ -434,17 +482,23 @@
   {
     "id": "nitriles",
     "name": "Nitrile",
-    "names": {
-      "iupac": "cyano",
-      "common": [
-        "nitrile"
-      ],
-      "commonLocalized": {
-        "es": [
-          "nitrilo"
-        ]
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "cyano"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "nitrile"
+      },
+      {
+        "languageCode": "es",
+        "type": "common",
+        "value": "nitrilo"
       }
-    },
+    ],
     "formula": "R-C≡N",
     "smiles": "*C#N |$R;;$|",
     "description": "Organic compounds containing a carbon-nitrogen triple bond",
@@ -488,18 +542,24 @@
   {
     "id": "nitro_groups",
     "name": "Nitro group",
-    "names": {
-      "iupac": "nitro",
-      "common": [
-        "nitro group"
-      ],
-      "commonLocalized": {
-        "es": [
-          "grupo nitro"
-        ]
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "nitro"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "nitro group"
+      },
+      {
+        "languageCode": "es",
+        "type": "common",
+        "value": "grupo nitro"
       }
-    },
-    "formula": "R-NO2",
+    ],
+    "formula": "R-NO₂",
     "smiles": "*[N+](=O)[O-] |$R;;;;;$|",
     "description": "Functional group containing nitrogen bonded to two oxygen atoms",
     "classification": {
@@ -542,19 +602,25 @@
   {
     "id": "halides",
     "name": "Halide",
-    "names": {
-      "iupac": "halo",
-      "common": [
-        "halide"
-      ],
-      "commonLocalized": {
-        "es": [
-          "haluro"
-        ]
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "halo"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "halide"
+      },
+      {
+        "languageCode": "es",
+        "type": "common",
+        "value": "haluro"
       }
-    },
+    ],
     "formula": "R-X",
-    "smiles": "*[X] |$R;X$|",
+    "smiles": "*[*] |$R;X$|",
     "description": "Organic compounds containing fluorine, chlorine, bromine, or iodine",
     "classification": {
       "iupac": "halo",
@@ -596,19 +662,25 @@
   {
     "id": "aromatic_rings",
     "name": "Aromatic ring",
-    "names": {
-      "iupac": "phenyl",
-      "common": [
-        "aromatic ring"
-      ],
-      "commonLocalized": {
-        "es": [
-          "anillo aromático"
-        ]
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "phenyl"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "aromatic ring"
+      },
+      {
+        "languageCode": "es",
+        "type": "common",
+        "value": "anillo aromático"
       }
-    },
-    "formula": "C6H5-R",
-    "smiles": "c1ccccc1* |$;;;;;;;R$|",
+    ],
+    "formula": "C₆H₅-R",
+    "smiles": "c1ccccc1* |$;;;;;;R$|",
     "description": "Cyclic compounds with delocalized pi electrons (benzene-like)",
     "classification": {
       "iupac": "phenyl",
@@ -650,17 +722,23 @@
   {
     "id": "phenols",
     "name": "Phenol",
-    "names": {
-      "iupac": "phenol",
-      "common": [
-        "phenol"
-      ],
-      "commonLocalized": {
-        "es": [
-          "fenol"
-        ]
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "phenol"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "phenol"
+      },
+      {
+        "languageCode": "es",
+        "type": "common",
+        "value": "fenol"
       }
-    },
+    ],
     "formula": "Ar-OH",
     "smiles": "c1ccccc1O |;;;;;;|",
     "description": "Aromatic compounds with a hydroxyl group attached to a benzene ring",
@@ -704,19 +782,25 @@
   {
     "id": "sulfides",
     "name": "Sulfide",
-    "names": {
-      "iupac": "thioether",
-      "common": [
-        "sulfide"
-      ],
-      "commonLocalized": {
-        "es": [
-          "sulfuro"
-        ]
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "thioether"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "sulfide"
+      },
+      {
+        "languageCode": "es",
+        "type": "common",
+        "value": "sulfuro"
       }
-    },
+    ],
     "formula": "R-S-R'",
-    "smiles": "*S* |$R;R'$|",
+    "smiles": "*S* |$R;;R'$|",
     "description": "Organic compounds with a sulfur atom bonded to two carbon atoms",
     "classification": {
       "iupac": "thioether",
@@ -758,17 +842,23 @@
   {
     "id": "thiols",
     "name": "Thiol",
-    "names": {
-      "iupac": "sulfanyl",
-      "common": [
-        "thiol"
-      ],
-      "commonLocalized": {
-        "es": [
-          "tiol"
-        ]
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "sulfanyl"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "thiol"
+      },
+      {
+        "languageCode": "es",
+        "type": "common",
+        "value": "tiol"
       }
-    },
+    ],
     "formula": "R-SH",
     "smiles": "*S |$R;;$|",
     "description": "Organic compounds containing a sulfhydryl group (-SH)",
@@ -788,18 +878,24 @@
   {
     "id": "azides",
     "name": "Azide",
-    "names": {
-      "iupac": "azido",
-      "common": [
-        "azide"
-      ],
-      "commonLocalized": {
-        "es": [
-          "azida"
-        ]
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "azido"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "azide"
+      },
+      {
+        "languageCode": "es",
+        "type": "common",
+        "value": "azida"
       }
-    },
-    "formula": "R-N3",
+    ],
+    "formula": "R-N₃",
     "smiles": "*N=[N+]=[N-] |$R;;;;;$|",
     "description": "Functional group with three nitrogen atoms bonded together",
     "classification": {
@@ -818,17 +914,23 @@
   {
     "id": "alkenes",
     "name": "Alkene",
-    "names": {
-      "iupac": "alkenyl",
-      "common": [
-        "alkene"
-      ],
-      "commonLocalized": {
-        "es": [
-          "alqueno"
-        ]
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "alkenyl"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "alkene"
+      },
+      {
+        "languageCode": "es",
+        "type": "common",
+        "value": "alqueno"
       }
-    },
+    ],
     "formula": "C=C",
     "smiles": "*C=C* |$R;;;R'$|",
     "description": "Hydrocarbons containing carbon-carbon double bonds",
