@@ -11,7 +11,7 @@ interface ExpandableReactionCardProps {
 
 function ExpandableReactionCard({ reaction, isExpanded, onToggle, viewerType = 'rdkit' }: ExpandableReactionCardProps) {
   return (
-    <Card hover className="reaction-card cursor-pointer expandable-reaction-card" onClick={!isExpanded ? onToggle : undefined}>
+    <Card hover className="reaction-card cursor-pointer expandable-reaction-card bg-white" onClick={!isExpanded ? onToggle : undefined}>
       <div className="reaction-card-header p-2 flex s:flex-col items-start justify-between">
         <h3 className="reaction-card-title text-lg font-semibold text-gray-900 leading-tight">
           {reaction.name}

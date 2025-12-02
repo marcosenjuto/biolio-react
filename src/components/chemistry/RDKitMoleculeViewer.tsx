@@ -22,58 +22,56 @@ let rdkitLoadPromise: Promise<any> | null = null
 
 function RDKitMoleculeViewer({
   smiles,
-  width = 300,
-  height = 200,
+  width,
+  height,
   className = '',
-  bondLength = 35 // Consistent bond size (adjust as needed: 30-50)
+  bondLength = 40 // Consistent bond size (adjust as needed: 30-50)
 }: RDKitMoleculeViewerProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [svgContent, setSvgContent] = useState<string>('')
+  const [svgDimensions, setSvgDimensions] = useState<{ width: number; height: number } | null>(null)
   const [measuredDimensions, setMeasuredDimensions] = useState<{ width: number; height: number } | null>(null)
 
-  useEffect(() => {
-    if (typeof width === 'number' && typeof height === 'number') {
-      return
-    }
+  // Default dimensions if nothing else is available
+  const DEFAULT_WIDTH = 300
+  const DEFAULT_HEIGHT = 200
 
-    let timeoutId: ReturnType<typeof setTimeout>
+  // Logic to measure container and apply 60/40 rule
+  useEffect(() => {
+    // If width and height are explicitly provided as numbers, we don't need to measure
+    if (typeof width === 'number' && typeof height === 'number') return
 
     const measureDimensions = () => {
       if (containerRef.current) {
-        const w = containerRef.current.offsetWidth
-        // Apply the scaling logic that was previously in ReactionViewer
-        // RDKit works well with standard dimensions (approx 60% width, 40% height of container)
-        const calculatedWidth = Math.round(w * 0.60)
-        const calculatedHeight = Math.round(w * 0.40)
-        
-        // If height is provided as prop, use it, otherwise use calculated height
-        const h = typeof height === 'number' ? height : calculatedHeight
-        
-        setMeasuredDimensions({ width: calculatedWidth, height: h })
-      }
-    }
+        const baseWidth = containerRef.current.offsetWidth
+        if (baseWidth === 0) return
 
-    const debouncedMeasure = () => {
-      clearTimeout(timeoutId)
-      timeoutId = setTimeout(measureDimensions, 300)
+        // RDKit works well with standard dimensions (approx 60% width, 40% height of container)
+        const calculatedWidth = Math.round(baseWidth * 0.75)
+        const calculatedHeight = Math.round(baseWidth * 0.40)
+
+        setMeasuredDimensions({ width: calculatedWidth, height: calculatedHeight })
+      }
     }
 
     // Initial measurement
     measureDimensions()
 
-    const resizeObserver = new ResizeObserver(debouncedMeasure)
+    const resizeObserver = new ResizeObserver(() => {
+      measureDimensions()
+    })
+
     if (containerRef.current) {
       resizeObserver.observe(containerRef.current)
     }
 
-    window.addEventListener('resize', debouncedMeasure)
+    window.addEventListener('resize', measureDimensions)
 
     return () => {
-      clearTimeout(timeoutId)
       resizeObserver.disconnect()
-      window.removeEventListener('resize', debouncedMeasure)
+      window.removeEventListener('resize', measureDimensions)
     }
   }, [width, height])
 
@@ -184,24 +182,18 @@ function RDKitMoleculeViewer({
         // console.log('[RDKit] Molecule parsed successfully')
 
         // Determine dimensions to use for generation
-        // Use -1 to let RDKit calculate dimensions based on bondLength
-        // This ensures consistent bond sizes across different molecules
-        const renderWidth = -1
-        const renderHeight = -1
-        
-        // Use a slightly larger bond length for the natural size mode to avoid "tiny" molecules
-        // If the prop is the default 35, we bump it up to 50 for better visibility
-        const effectiveBondLength = bondLength === 35 ? 50 : bondLength
+        // Priority: 1. Props (if number), 2. Measured (60/40), 3. Defaults
+        const renderWidth = typeof width === 'number' ? width : (measuredDimensions?.width ?? DEFAULT_WIDTH)
+        const renderHeight = typeof height === 'number' ? height : (measuredDimensions?.height ?? DEFAULT_HEIGHT)
 
         // Generate SVG with consistent bond sizes and custom atom colors
         const drawingOptions = {
-          width: renderWidth,
-          height: renderHeight,
-          bondLineWidth: 2,
-          bondLength: effectiveBondLength,
+          width: Math.round(renderWidth),
+          height: Math.round(renderHeight),
+          bondLineWidth: 3,
           addAtomIndices: false,
           addStereoAnnotation: true,
-          // fixedScale: 0.3, // Use fixed scale instead of fixedBondLength
+          fixedScale: 0.3, // Use fixed scale instead of fixedBondLength
           scaleBondWidth: true,
           useBWAtomPalette: false, // Ensure we use color palette
           backgroundColour: [1.0, 1.0, 1.0, 0.0], // Transparent background (RGBA)
@@ -230,9 +222,58 @@ function RDKitMoleculeViewer({
 
         // Replace black carbon bonds with gray-900
         let modifiedSvg = svg.replace(/#000000/g, '#111827')
-
+        
         // Remove the background rect that makes the SVG larger than needed
         modifiedSvg = modifiedSvg.replace(/<rect\s+style='opacity:1\.0;fill:#FFFFFF;stroke:none'[^>]*><\/rect>/, '')
+        
+        // Calculate actual bounding box from path elements
+        const pathMatches = modifiedSvg.matchAll(/<path[^>]*\sd='([^']+)'/g)
+        let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity
+        
+        for (const match of pathMatches) {
+          const pathData = match[1]
+          // Extract all coordinate pairs from path data
+          const coords = pathData.match(/[\d.]+/g)
+          if (coords) {
+            for (let i = 0; i < coords.length; i += 2) {
+              const x = parseFloat(coords[i])
+              const y = parseFloat(coords[i + 1])
+              if (!isNaN(x) && !isNaN(y)) {
+                minX = Math.min(minX, x)
+                minY = Math.min(minY, y)
+                maxX = Math.max(maxX, x)
+                maxY = Math.max(maxY, y)
+              }
+            }
+          }
+        }
+        
+        // Also check text elements for atom labels
+        const textMatches = modifiedSvg.matchAll(/<text[^>]*\sx='([\d.]+)'[^>]*\sy='([\d.]+)'/g)
+        for (const match of textMatches) {
+          const x = parseFloat(match[1])
+          const y = parseFloat(match[2])
+          if (!isNaN(x) && !isNaN(y)) {
+            // Add padding for text size (approximate)
+            minX = Math.min(minX, x - 10)
+            minY = Math.min(minY, y - 10)
+            maxX = Math.max(maxX, x + 10)
+            maxY = Math.max(maxY, y + 10)
+          }
+        }
+        
+        if (minX !== Infinity && maxX !== -Infinity) {
+          const contentWidth = maxX - minX + 20 // Add padding
+          const contentHeight = maxY - minY + 20
+          setSvgDimensions({ width: contentWidth, height: contentHeight })
+          // console.log('[RDKit] Calculated content dimensions:', contentWidth, 'x', contentHeight)
+          
+          // Update the viewBox to match the actual content
+          modifiedSvg = modifiedSvg.replace(
+            /viewBox='[\d.\s]+'/,
+            `viewBox='${minX - 10} ${minY - 10} ${contentWidth} ${contentHeight}'`
+          )
+        }
 
         // Set SVG content directly
         setSvgContent(modifiedSvg)
@@ -260,10 +301,10 @@ function RDKitMoleculeViewer({
       ref={containerRef}
       className={`rdkit-molecule-viewer ${className}`}
       style={{
-        width: typeof width === 'number' ? `${width}px` : width,
-        height: typeof height === 'number' ? `${height}px` : (measuredDimensions ? `${measuredDimensions.height}px` : height),
-        maxWidth: typeof width === 'number' ? `${width}px` : '100%',
-        maxHeight: typeof height === 'number' ? `${height}px` : '100%',
+        width: width ? `${width}px` : '100%',
+        height: height ? `${height}px` : (svgDimensions ? `${svgDimensions.height}px` : `${DEFAULT_HEIGHT}px`),
+        maxWidth: width ? `${width}px` : '100%',
+        maxHeight: height ? `${height}px` : '100%',
         borderRadius: '0.375rem',
         backgroundColor: 'transparent',
         display: 'flex',
@@ -288,8 +329,8 @@ function RDKitMoleculeViewer({
           className="rdkit-svg"
           dangerouslySetInnerHTML={{ __html: svgContent }}
           style={{
-            width: 'auto',
-            height: 'auto',
+            width: svgDimensions ? `${svgDimensions.width}px` : '100%',
+            height: svgDimensions ? `${svgDimensions.height}px` : '100%',
             maxWidth: '100%',
             maxHeight: '100%',
             display: 'flex',

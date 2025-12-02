@@ -170,7 +170,7 @@ function ReactionViewer({ reaction, viewerType = 'rdkit' }: ReactionViewerProps)
           <h4 className="reactants-title text-xs text-center font-semibold text-gray-700 mt-1 sm:mt-2">Reactants</h4>
           <div className="reactants-list space-y-1 sm:space-y-2">
             {reaction.reactants.map((reagent, idx) => (
-              <div key={idx} className="reactant-item text-center">
+              <div key={idx} className="reactant-item mb-4 text-center">
                 {renderMolecule(
                   reagent.compound.structure.smiles,
                   "reactant-molecule"
@@ -187,7 +187,7 @@ function ReactionViewer({ reaction, viewerType = 'rdkit' }: ReactionViewerProps)
         </div>
 
         {/* Arrow */}
-        <div className="reaction-arrow-section mt-4 flex flex-col items-center justify-center flex-shrink-0 relative z-10"
+        <div className="reaction-arrow-section flex flex-col items-center h-full justify-center flex-shrink-0 relative z-10"
           style={{
             position: 'absolute',
             width: '100%',
@@ -212,7 +212,7 @@ function ReactionViewer({ reaction, viewerType = 'rdkit' }: ReactionViewerProps)
             }}
           />
           {reaction.conditions && reaction.conditions.length > 0 && (
-            <div className="reaction-conditions-label text-xs text-center mt-0.5 sm:mt-1 max-w-[60px] sm:max-w-[70px] md:max-w-[80px]">
+            <div className="reaction-conditions-label text-center max-w-[60px] sm:max-w-[70px] md:max-w-[80px]">
               {reaction.conditions.slice(0, 2).map((cond, idx) => (
                 <div key={idx} className="condition-text text-gray-600 text-[10px] sm:text-xs">{cond}</div>
               ))}
@@ -225,12 +225,12 @@ function ReactionViewer({ reaction, viewerType = 'rdkit' }: ReactionViewerProps)
           <h4 className="products-title text-xs text-center  font-semibold text-gray-700 mt-1 sm:mb-2">Products</h4>
           <div className="products-list space-y-1 sm:space-y-2">
             {reaction.products.map((reagent, idx) => (
-              <div key={idx} className="product-item text-center">
+              <div key={idx} className="product-item mb-4 text-center">
                 {renderMolecule(
                   reagent.compound.structure.smiles,
                   "product-molecule"
                 )}
-                <p className="product-name relative text-xs mt-0.5 sm:mt-1 font-medium truncate px-1"
+                <p className="product-name relative text-xs font-medium truncate px-1"
                 style={{
                 }}>{reagent.compound.names.common[0] || reagent.compound.names.iupac}</p>
               </div>
