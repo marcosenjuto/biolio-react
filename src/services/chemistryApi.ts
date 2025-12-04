@@ -144,7 +144,7 @@ export async function getSMILES(name: string): Promise<string | null> {
   
   // Try PubChem
   const compound = await searchPubChemByName(name)
-  return compound?.smiles || null
+  return compound?.structure?.smiles || null
 }
 
 /**

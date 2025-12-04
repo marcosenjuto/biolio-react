@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import RDKitMoleculeViewer from './RDKitMoleculeViewer'
 import Card from '@/components/ui/Card'
 import functionalGroupsData from '@/data/functional_groups_reference.json'

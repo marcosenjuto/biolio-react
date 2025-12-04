@@ -33,6 +33,8 @@ function RDKitMoleculeViewer({
   const [svgContent, setSvgContent] = useState<string>('')
   const [svgDimensions, setSvgDimensions] = useState<{ width: number; height: number } | null>(null)
   const [measuredDimensions, setMeasuredDimensions] = useState<{ width: number; height: number } | null>(null)
+  const hasPresetSize = typeof width === 'number' || typeof height === 'number'
+  const [hasStableMeasurements, setHasStableMeasurements] = useState<boolean>(hasPresetSize)
 
   // Default dimensions if nothing else is available
   const DEFAULT_WIDTH = 300
@@ -40,8 +42,8 @@ function RDKitMoleculeViewer({
 
   // Logic to measure container and apply 60/40 rule
   useEffect(() => {
-    // If width and height are explicitly provided as numbers, we don't need to measure
-    if (typeof width === 'number' && typeof height === 'number') return
+    // If width or height are explicitly provided as numbers, we don't need to measure
+    if (hasPresetSize) return
 
     const measureDimensions = () => {
       if (containerRef.current) {
@@ -53,6 +55,7 @@ function RDKitMoleculeViewer({
         const calculatedHeight = Math.round(baseWidth * 0.50)
 
         setMeasuredDimensions({ width: calculatedWidth, height: calculatedHeight })
+        setHasStableMeasurements(true)
       }
     }
 
@@ -73,7 +76,7 @@ function RDKitMoleculeViewer({
       resizeObserver.disconnect()
       window.removeEventListener('resize', measureDimensions)
     }
-  }, [width, height])
+  }, [width, height, hasPresetSize])
 
   useEffect(() => {
     let mounted = true
@@ -296,6 +299,16 @@ function RDKitMoleculeViewer({
     }
   }, [smiles, width, height, bondLength, measuredDimensions])
 
+  useEffect(() => {
+    if (hasPresetSize) {
+      setHasStableMeasurements(true)
+    } else if (measuredDimensions) {
+      setHasStableMeasurements(true)
+    }
+  }, [hasPresetSize, measuredDimensions])
+
+  const isDisplayReady = hasStableMeasurements && (!isLoading || !!error || !!svgContent)
+
   return (
     <div
       ref={containerRef}
@@ -317,7 +330,8 @@ function RDKitMoleculeViewer({
         justifyContent: 'center',
         position: 'relative',
         padding: '0',
-        margin: 'auto'
+        margin: 'auto',
+        visibility: isDisplayReady ? 'visible' : 'hidden'
       }}
     >
       {isLoading && (

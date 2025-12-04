@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Combobox from '@/components/ui/Combobox'
 import Button from '@/components/ui/Button'
 import functionalGroupsData from '@/data/functional_groups_reference.json'
+import { useLanguageStore } from '@/store/languageStore'
 
 // Filter options data
 export const REACTION_CATEGORIES = [
@@ -57,9 +58,35 @@ function UnifiedFilters({
   expandAll,
   onExpandAllChange
 }: UnifiedFiltersProps) {
+  const { t } = useLanguageStore()
   const [isPanelOpen, setIsPanelOpen] = useState(false)
   const [isCollapsed, setIsCollapsed] = useState(false)
   const [lastScrollY, setLastScrollY] = useState(0)
+
+  const reactionCategories = [
+    { id: 'all', name: t.filters.allReactions },
+    { id: 'oxidation', name: t.filters.categories.oxidation },
+    { id: 'reduction', name: t.filters.categories.reduction },
+    { id: 'addition', name: t.filters.categories.addition },
+    { id: 'substitution', name: t.filters.categories.substitution },
+    { id: 'condensation', name: t.filters.categories.condensation },
+    { id: 'grignard', name: t.filters.categories.grignard }
+  ]
+
+  const functionalGroups = [
+    { id: 'all', name: t.filters.allGroups, formula: '' },
+    ...functionalGroupsData.map((group: any) => ({
+      id: group.id,
+      name: group.name,
+      formula: group.formula
+    }))
+  ]
+
+  const viewerTypes = [
+    { value: 'rdkit', label: t.filters.viewers.rdkit, description: t.filters.viewers.rdkitDesc },
+    { value: '3dmol', label: t.filters.viewers.threeDmol, description: t.filters.viewers.threeDmolDesc },
+    { value: 'simple', label: t.filters.viewers.formula, description: t.filters.viewers.formulaDesc }
+  ]
 
   // Count active filters
   const activeFiltersCount = 
@@ -120,10 +147,10 @@ function UnifiedFilters({
                 </svg>
                 <input
                   type="text"
-                  placeholder="Search by name, reactant..."
+                  placeholder={t.filters.searchPlaceholder}
                   value={searchTerm}
                   onChange={(e) => onSearchChange(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
                 />
               </div>
             </div>
@@ -137,7 +164,7 @@ function UnifiedFilters({
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
               </svg>
               <span className="hidden sm:inline text-gray-700 font-medium">
-                {isPanelOpen ? 'Hide' : 'Filters'}
+                {isPanelOpen ? t.filters.hide : t.filters.show}
               </span>
               {activeFiltersCount > 0 && (
                 <span className="absolute -top-1 -right-1 bg-primary-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
@@ -149,41 +176,41 @@ function UnifiedFilters({
         </div>
 
         {/* Filter Pills Section */}
-        <div className="overflow-x-auto p-2 scrollbar-hide" style={{ width: '100%' }}>
-          <div className="flex items-center gap-2 pb-1" style={{ width: 'max-content' }}>
+        <div className="overflow-x-auto py-1.5 px-2 scrollbar-hide" style={{ width: '100%' }}>
+          <div className="flex items-center gap-2" style={{ width: 'max-content' }}>
             {/* Category Combobox */}
             <Combobox
-              options={REACTION_CATEGORIES.map(cat => ({ value: cat.id, label: cat.name }))}
+              options={reactionCategories.map(cat => ({ value: cat.id, label: cat.name }))}
               value={selectedCategory}
               onValueChange={onCategoryChange}
-              placeholder="Category"
-              searchPlaceholder="Search categories..."
+              placeholder={t.filters.category}
+              searchPlaceholder={t.filters.searchCategories}
               isActive={selectedCategory !== 'all'}
               className="flex-shrink-0 min-w-[130px]"
             />
 
             {/* Functional Group Combobox */}
             <Combobox
-              options={FUNCTIONAL_GROUPS.map(group => ({ 
+              options={functionalGroups.map(group => ({ 
                 value: group.id, 
                 label: group.name,
                 description: group.formula 
               }))}
               value={selectedFunctionalGroup}
               onValueChange={onFunctionalGroupChange}
-              placeholder="Functional Group"
-              searchPlaceholder="Search groups..."
+              placeholder={t.filters.functionalGroup}
+              searchPlaceholder={t.filters.searchGroups}
               isActive={selectedFunctionalGroup !== 'all'}
               className="flex-shrink-0 min-w-[130px]"
             />
 
             {/* Viewer Type Combobox */}
             <Combobox
-              options={VIEWER_TYPES.map(v => ({ value: v.value, label: v.label }))}
+              options={viewerTypes.map(v => ({ value: v.value, label: v.label }))}
               value={viewerType}
               onValueChange={(value) => onViewerTypeChange(value as typeof viewerType)}
-              placeholder="Viewer"
-              searchPlaceholder="Search viewers..."
+              placeholder={t.filters.viewer}
+              searchPlaceholder={t.filters.searchViewers}
               className="flex-shrink-0 min-w-[100px]"
             />
 
@@ -195,7 +222,7 @@ function UnifiedFilters({
                   ? 'bg-primary-500 text-white border-primary-500'
                   : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
               }`}
-              title={expandAll ? 'Collapse all reactions' : 'Expand all reactions'}
+              title={expandAll ? t.filters.collapseAll : t.filters.expandAll}
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {expandAll ? (
@@ -205,13 +232,13 @@ function UnifiedFilters({
                 )}
               </svg>
               <span className="hidden sm:inline">
-                {expandAll ? 'Collapse' : 'Expand'} All
+                {expandAll ? t.filters.collapseAll : t.filters.expandAll}
               </span>
             </button>
 
             {/* Named Reactions Button */}
             <button className="flex-shrink-0 px-4 py-2 border border-gray-300 rounded-full text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors flex items-center gap-1">
-              Named Reactions
+              {t.filters.namedReactions}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
@@ -233,14 +260,14 @@ function UnifiedFilters({
             {/* Category Filter */}
             <div className="filter-section">
               <label className="block text-sm font-semibold text-gray-700 mb-3">
-                Reaction Category
+                {t.filters.reactionCategory}
               </label>
               <Combobox
-                options={REACTION_CATEGORIES.map(cat => ({ value: cat.id, label: cat.name }))}
+                options={reactionCategories.map(cat => ({ value: cat.id, label: cat.name }))}
                 value={selectedCategory}
                 onValueChange={onCategoryChange}
-                placeholder="Select category..."
-                searchPlaceholder="Search categories..."
+                placeholder={t.filters.selectCategory}
+                searchPlaceholder={t.filters.searchCategories}
                 isActive={selectedCategory !== 'all'}
               />
             </div>
@@ -248,18 +275,18 @@ function UnifiedFilters({
             {/* Functional Group Filter */}
             <div className="filter-section">
               <label className="block text-sm font-semibold text-gray-700 mb-3">
-                Functional Group
+                {t.filters.functionalGroup}
               </label>
               <Combobox
-                options={FUNCTIONAL_GROUPS.map(group => ({ 
+                options={functionalGroups.map(group => ({ 
                   value: group.id, 
                   label: group.name,
                   description: group.formula 
                 }))}
                 value={selectedFunctionalGroup}
                 onValueChange={onFunctionalGroupChange}
-                placeholder="Select functional group..."
-                searchPlaceholder="Search groups..."
+                placeholder={t.filters.selectGroup}
+                searchPlaceholder={t.filters.searchGroups}
                 isActive={selectedFunctionalGroup !== 'all'}
               />
             </div>
@@ -267,17 +294,17 @@ function UnifiedFilters({
             {/* Viewer Type Selector */}
             <div className="filter-section">
               <label className="block text-sm font-semibold text-gray-700 mb-3">
-                Molecule Viewer
+                {t.filters.moleculeViewer}
               </label>
               <Combobox
-                options={VIEWER_TYPES.map(v => ({ value: v.value, label: v.label }))}
+                options={viewerTypes.map(v => ({ value: v.value, label: v.label }))}
                 value={viewerType}
                 onValueChange={(value) => onViewerTypeChange(value as typeof viewerType)}
-                placeholder="Select viewer..."
-                searchPlaceholder="Search viewers..."
+                placeholder={t.filters.selectViewer}
+                searchPlaceholder={t.filters.searchViewers}
               />
               <div className="text-xs text-gray-500 mt-2 space-y-1">
-                {VIEWER_TYPES.map(viewer => (
+                {viewerTypes.map(viewer => (
                   <p key={viewer.value}>
                     <strong>{viewer.label.split(' ')[0]}:</strong> {viewer.description}
                   </p>
@@ -288,10 +315,10 @@ function UnifiedFilters({
             {/* Action Buttons */}
             <div className="flex items-center justify-between pt-4 border-t border-gray-300">
               <Button onClick={handleClearAll} variant="outline">
-                Clear All
+                {t.filters.clearAll}
               </Button>
               <Button onClick={() => setIsPanelOpen(false)} variant="primary">
-                Apply Filters
+                {t.filters.applyFilters}
               </Button>
             </div>
           </div>

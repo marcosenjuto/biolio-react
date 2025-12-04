@@ -89,7 +89,7 @@ function Combobox({
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-full px-2 py-1.5 text-left border rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 flex items-center justify-between ${activeStyle}`}
+        className={`w-full px-2 py-1 text-left border rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 flex items-center justify-between ${activeStyle}`}
       >
         <span className="truncate">
           {selectedOption ? selectedOption.label : placeholder}

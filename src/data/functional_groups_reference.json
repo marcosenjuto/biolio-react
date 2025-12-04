@@ -21,39 +21,149 @@
     ],
     "formula": "R-OH",
     "smiles": "*O |$R;;$|",
-    "description": "Organic compounds containing a hydroxyl group (-OH) bonded to a carbon atom",
+    "description": "Containing a hydroxyl group (-OH) bonded to a carbon atom",
     "classification": {
       "iupac": "hydroxyl",
       "common": "alcohol"
     },
     "samples": [
       {
-        "compound_name": "EtOH",
-        "smiles": "CCO",
+        "id": "f870da4f-1e28-42af-8213-2bd704abf597",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "EtOH"
+          ]
+        },
+        "structure": {
+          "smiles": "CCO",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-2"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 2
       },
       {
-        "compound_name": "ethanol",
-        "smiles": "C(C)O",
+        "id": "679dea89-9fc2-4daa-a421-5edcd49f0811",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "ethanol"
+          ]
+        },
+        "structure": {
+          "smiles": "C(C)O",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-3"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 3
       },
       {
-        "compound_name": "2-Benzyloxymethyl-2-cyclohexylpropan-1,3-diol",
-        "smiles": "C(C1=CC=CC=C1)OCC(CO)(CO)C1CCCCC1",
+        "id": "9085896f-de5d-4dc8-a82c-b589ae323735",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "2-Benzyloxymethyl-2-cyclohexylpropan-1,3-diol"
+          ]
+        },
+        "structure": {
+          "smiles": "C(C1=CC=CC=C1)OCC(CO)(CO)C1CCCCC1",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-8"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 2,
         "reaction_id": 8
       },
       {
-        "compound_name": "methanol",
-        "smiles": "CO",
+        "id": "e7b0ef82-d159-434c-a4ad-4e86a7b5dc3e",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "methanol"
+          ]
+        },
+        "structure": {
+          "smiles": "CO",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-9"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 9
       },
       {
-        "compound_name": "3,5-Dihydroxymethyl-2,6-dimethyl-4-(4-fluorophenyl)-pyridine",
-        "smiles": "OCC=1C(=NC(=C(C1C1=CC=C(C=C1)F)CO)C)C",
+        "id": "95f1957d-085e-4cbd-9589-b006d33e7e66",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "3,5-Dihydroxymethyl-2,6-dimethyl-4-(4-fluorophenyl)-pyridine"
+          ]
+        },
+        "structure": {
+          "smiles": "OCC=1C(=NC(=C(C1C1=CC=C(C=C1)F)CO)C)C",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-11"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 2,
         "reaction_id": 11
       }
@@ -81,39 +191,149 @@
     ],
     "formula": "R-CHO",
     "smiles": "*C=O |$R;;;$|",
-    "description": "Organic compounds containing a formyl group (C=O with H)",
+    "description": "Containing a formyl group (C=O with H)",
     "classification": {
       "iupac": "CHO",
       "common": "aldehyde"
     },
     "samples": [
       {
-        "compound_name": "3-(4-chlorophenyl)-3-ketopropionaldehyde",
-        "smiles": "ClC1=CC=C(C=C1)C(CC=O)=O",
+        "id": "6b058038-fbe0-4373-a6fa-ea8c878a672c",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "3-(4-chlorophenyl)-3-ketopropionaldehyde"
+          ]
+        },
+        "structure": {
+          "smiles": "ClC1=CC=C(C=C1)C(CC=O)=O",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-7"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 7
       },
       {
-        "compound_name": "4-bromobenzaldehyde",
-        "smiles": "BrC1=CC=C(C=O)C=C1",
+        "id": "1df45468-ab71-4478-b4a5-7c88354670ec",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "4-bromobenzaldehyde"
+          ]
+        },
+        "structure": {
+          "smiles": "BrC1=CC=C(C=O)C=C1",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-14"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 14
       },
       {
-        "compound_name": "trifluoroacetic acid",
-        "smiles": "C(C=O)(=O)O",
+        "id": "7892996c-2499-4d39-b05c-b2c2e5222b3b",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "trifluoroacetic acid"
+          ]
+        },
+        "structure": {
+          "smiles": "C(C=O)(=O)O",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-34"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 34
       },
       {
-        "compound_name": "2,2-Di(benzylthiomethyl)pentanal",
-        "smiles": "C(C1=CC=CC=C1)SCC(C=O)(CCC)CSCC1=CC=CC=C1",
+        "id": "f83557af-3403-43c0-80eb-99afaa9d70e6",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "2,2-Di(benzylthiomethyl)pentanal"
+          ]
+        },
+        "structure": {
+          "smiles": "C(C1=CC=CC=C1)SCC(C=O)(CCC)CSCC1=CC=CC=C1",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-39"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 39
       },
       {
-        "compound_name": "2-chloroindole-3-carboxaldehyde",
-        "smiles": "ClC=1NC2=CC=CC=C2C1C=O",
+        "id": "f6da6e5d-3712-4623-abf2-8d6edfc7eb7e",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "2-chloroindole-3-carboxaldehyde"
+          ]
+        },
+        "structure": {
+          "smiles": "ClC=1NC2=CC=CC=C2C1C=O",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-42"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 42
       }
@@ -141,39 +361,149 @@
     ],
     "formula": "R-CO-R'",
     "smiles": "*C(*)=O |$R;;R'$|",
-    "description": "Organic compounds with a carbonyl group bonded to two carbon atoms",
+    "description": "With a carbonyl group bonded to two carbon atoms",
     "classification": {
       "iupac": "carbonyl",
       "common": "ketone"
     },
     "samples": [
       {
-        "compound_name": "3-(4-chlorophenyl)-3-ketopropionaldehyde",
-        "smiles": "ClC1=CC=C(C=C1)C(CC=O)=O",
+        "id": "3760b0d9-e87c-4c6f-bffb-cfafc7a71175",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "3-(4-chlorophenyl)-3-ketopropionaldehyde"
+          ]
+        },
+        "structure": {
+          "smiles": "ClC1=CC=C(C=C1)C(CC=O)=O",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-7"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 7
       },
       {
-        "compound_name": "2-bromo-1-(2,4-dichlorophenyl)-1-propanone",
-        "smiles": "BrC(C(=O)C1=C(C=C(C=C1)Cl)Cl)C",
+        "id": "5d692f7b-9d36-4c37-a4a7-3247683fe068",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "2-bromo-1-(2,4-dichlorophenyl)-1-propanone"
+          ]
+        },
+        "structure": {
+          "smiles": "BrC(C(=O)C1=C(C=C(C=C1)Cl)Cl)C",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-19"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 19
       },
       {
-        "compound_name": "cyclopropyl phenyl ketone",
-        "smiles": "C1(=CC=CC=C1)C(=O)C1CC1",
+        "id": "3270231d-437c-4120-b14e-68f2e2d68490",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "cyclopropyl phenyl ketone"
+          ]
+        },
+        "structure": {
+          "smiles": "C1(=CC=CC=C1)C(=O)C1CC1",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-21"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 21
       },
       {
-        "compound_name": "acetone",
-        "smiles": "CC(=O)C",
+        "id": "e94b060b-b60b-4b14-8ded-003cde790ea1",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "acetone"
+          ]
+        },
+        "structure": {
+          "smiles": "CC(=O)C",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-26"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 26
       },
       {
-        "compound_name": "6-bromo-2-tetralone",
-        "smiles": "BrC=1C=C2CCC(CC2=CC1)=O",
+        "id": "ed8c4629-331f-4307-8d8d-0d2129ad1cd0",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "6-bromo-2-tetralone"
+          ]
+        },
+        "structure": {
+          "smiles": "BrC=1C=C2CCC(CC2=CC1)=O",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-44"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 44
       }
@@ -201,39 +531,149 @@
     ],
     "formula": "R-COOH",
     "smiles": "*C(=O)O |$R;;;;$|",
-    "description": "Organic acids containing a carboxyl group (-COOH)",
+    "description": "Containing a carboxyl group (-COOH)",
     "classification": {
       "iupac": "carboxyl",
       "common": "carboxylic acid"
     },
     "samples": [
       {
-        "compound_name": "N-methyl-N-phenethyl-2-[5-benzyloxy-3-(2-carboxyethyl)indol-1-yl]acetamide",
-        "smiles": "CN(C(CN1C=C(C2=CC(=CC=C12)OCC1=CC=CC=C1)CCC(=O)O)=O)CCC1=CC=CC=C1",
+        "id": "0b102806-5218-4478-b8c6-406c74fae148",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "N-methyl-N-phenethyl-2-[5-benzyloxy-3-(2-carboxyethyl)indol-1-yl]acetamide"
+          ]
+        },
+        "structure": {
+          "smiles": "CN(C(CN1C=C(C2=CC(=CC=C12)OCC1=CC=CC=C1)CCC(=O)O)=O)CCC1=CC=CC=C1",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-3"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 3
       },
       {
-        "compound_name": "2(S)-(Piperidin-2-on-1-yl)-3-methylbutanoic acid",
-        "smiles": "N1(C(CCCC1)=O)[C@H](C(=O)O)C(C)C",
+        "id": "a75e04f2-cae7-4692-88fe-86fbc044c452",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "2(S)-(Piperidin-2-on-1-yl)-3-methylbutanoic acid"
+          ]
+        },
+        "structure": {
+          "smiles": "N1(C(CCCC1)=O)[C@H](C(=O)O)C(C)C",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-9"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 9
       },
       {
-        "compound_name": "3,3-dimethylbutyryl chloride",
-        "smiles": "FC(F)(F)C(=O)O",
+        "id": "7cee7383-f295-4344-8786-327e654ce5d9",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "3,3-dimethylbutyryl chloride"
+          ]
+        },
+        "structure": {
+          "smiles": "FC(F)(F)C(=O)O",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-16"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 16
       },
       {
-        "compound_name": "3-nitrocinnamic acid",
-        "smiles": "[N+](=O)([O-])C=1C=C(C=CC(=O)O)C=CC1",
+        "id": "ba2572dc-f3fe-4f35-ad70-98e563a766ff",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "3-nitrocinnamic acid"
+          ]
+        },
+        "structure": {
+          "smiles": "[N+](=O)([O-])C=1C=C(C=CC(=O)O)C=CC1",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-18"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 18
       },
       {
-        "compound_name": "ammonium acetate",
-        "smiles": "C(C)(=O)[O-]",
+        "id": "97128d5a-8576-42d8-bc18-65ce0d995d8c",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "ammonium acetate"
+          ]
+        },
+        "structure": {
+          "smiles": "C(C)(=O)[O-]",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-21"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 21
       }
@@ -261,39 +701,149 @@
     ],
     "formula": "R-COO-R'",
     "smiles": "*C(=O)O* |$R;;;;R'$|",
-    "description": "Organic compounds derived from carboxylic acids and alcohols",
+    "description": "Derived from carboxylic acids and alcohols",
     "classification": {
       "iupac": "ester",
       "common": "ester"
     },
     "samples": [
       {
-        "compound_name": "DMF",
-        "smiles": "NCC1=CC(=C(C(=O)OC)C=C1)O",
+        "id": "0bdaf5b9-d5c6-46f0-abc0-5702cb9192dd",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "DMF"
+          ]
+        },
+        "structure": {
+          "smiles": "NCC1=CC(=C(C(=O)OC)C=C1)O",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-1"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 1
       },
       {
-        "compound_name": "N-(3-hydroxy-4-methoxycarbonyl-benzyl) -3-(3-indolyl)propanamide",
-        "smiles": "OC=1C=C(CNC(CCC2=CNC3=CC=CC=C23)=O)C=CC1C(=O)OC",
+        "id": "a979ce0f-bc31-4997-a25b-5406edcd1737",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "N-(3-hydroxy-4-methoxycarbonyl-benzyl) -3-(3-indolyl)propanamide"
+          ]
+        },
+        "structure": {
+          "smiles": "OC=1C=C(CNC(CCC2=CNC3=CC=CC=C23)=O)C=CC1C(=O)OC",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-1"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 1
       },
       {
-        "compound_name": "N-methyl-N-phenethyl-2-[5-benzyloxy-3-(2-carbethoxyethyl)indol-1-yl]acetamide",
-        "smiles": "CN(C(CN1C=C(C2=CC(=CC=C12)OCC1=CC=CC=C1)CCC(=O)OCC)=O)CCC1=CC=CC=C1",
+        "id": "4a9874aa-26fd-431c-acb4-c1fddda96a6a",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "N-methyl-N-phenethyl-2-[5-benzyloxy-3-(2-carbethoxyethyl)indol-1-yl]acetamide"
+          ]
+        },
+        "structure": {
+          "smiles": "CN(C(CN1C=C(C2=CC(=CC=C12)OCC1=CC=CC=C1)CCC(=O)OCC)=O)CCC1=CC=CC=C1",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-3"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 3
       },
       {
-        "compound_name": "Diethyl 2-benzyloxymethyl-2-cyclohexylmalonate",
-        "smiles": "C(C1=CC=CC=C1)OCC(C(=O)OCC)(C(=O)OCC)C1CCCCC1",
+        "id": "63d721dc-f1e2-464c-bce8-d514c32840d2",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "Diethyl 2-benzyloxymethyl-2-cyclohexylmalonate"
+          ]
+        },
+        "structure": {
+          "smiles": "C(C1=CC=CC=C1)OCC(C(=O)OCC)(C(=O)OCC)C1CCCCC1",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-8"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 2,
         "reaction_id": 8
       },
       {
-        "compound_name": "Methyl 2(S)-(piperidin-2-on-1-yl)-3-methylbutanoate",
-        "smiles": "N1(C(CCCC1)=O)[C@H](C(=O)OC)C(C)C",
+        "id": "e1b281d4-daa1-4e8a-8935-b28c561c9753",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "Methyl 2(S)-(piperidin-2-on-1-yl)-3-methylbutanoate"
+          ]
+        },
+        "structure": {
+          "smiles": "N1(C(CCCC1)=O)[C@H](C(=O)OC)C(C)C",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-9"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 9
       }
@@ -321,39 +871,149 @@
     ],
     "formula": "R-O-R'",
     "smiles": "*O* |$R;;R'$|",
-    "description": "Organic compounds with an oxygen atom connected to two alkyl or aryl groups",
+    "description": "With an oxygen atom connected to two alkyl or aryl groups",
     "classification": {
       "iupac": "ether",
       "common": "ether"
     },
     "samples": [
       {
-        "compound_name": "DEPC",
-        "smiles": "CCOC(=O)OC(=O)OCC",
+        "id": "d9361aa9-f0b0-42d3-82b4-9def7cb1e74f",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "DEPC"
+          ]
+        },
+        "structure": {
+          "smiles": "CCOC(=O)OC(=O)OCC",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-1"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 3,
         "reaction_id": 1
       },
       {
-        "compound_name": "DMF",
-        "smiles": "NCC1=CC(=C(C(=O)OC)C=C1)O",
+        "id": "214d5f82-d490-455e-951c-0d8c4ddcd761",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "DMF"
+          ]
+        },
+        "structure": {
+          "smiles": "NCC1=CC(=C(C(=O)OC)C=C1)O",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-1"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 1
       },
       {
-        "compound_name": "N-(3-hydroxy-4-methoxycarbonyl-benzyl) -3-(3-indolyl)propanamide",
-        "smiles": "OC=1C=C(CNC(CCC2=CNC3=CC=CC=C23)=O)C=CC1C(=O)OC",
+        "id": "98e576db-abe0-420f-899c-da29010f6b19",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "N-(3-hydroxy-4-methoxycarbonyl-benzyl) -3-(3-indolyl)propanamide"
+          ]
+        },
+        "structure": {
+          "smiles": "OC=1C=C(CNC(CCC2=CNC3=CC=CC=C23)=O)C=CC1C(=O)OC",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-1"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 1
       },
       {
-        "compound_name": "N-methyl-N-phenethyl-2-[5-benzyloxy-3-(2-carbethoxyethyl)indol-1-yl]acetamide",
-        "smiles": "CN(C(CN1C=C(C2=CC(=CC=C12)OCC1=CC=CC=C1)CCC(=O)OCC)=O)CCC1=CC=CC=C1",
+        "id": "3927b720-d234-408b-8fd6-210f51881c1b",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "N-methyl-N-phenethyl-2-[5-benzyloxy-3-(2-carbethoxyethyl)indol-1-yl]acetamide"
+          ]
+        },
+        "structure": {
+          "smiles": "CN(C(CN1C=C(C2=CC(=CC=C12)OCC1=CC=CC=C1)CCC(=O)OCC)=O)CCC1=CC=CC=C1",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-3"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 2,
         "reaction_id": 3
       },
       {
-        "compound_name": "N-methyl-N-phenethyl-2-[5-benzyloxy-3-(2-carboxyethyl)indol-1-yl]acetamide",
-        "smiles": "CN(C(CN1C=C(C2=CC(=CC=C12)OCC1=CC=CC=C1)CCC(=O)O)=O)CCC1=CC=CC=C1",
+        "id": "5a7f1f56-da16-4df4-9aa3-fb46da1c4c1a",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "N-methyl-N-phenethyl-2-[5-benzyloxy-3-(2-carboxyethyl)indol-1-yl]acetamide"
+          ]
+        },
+        "structure": {
+          "smiles": "CN(C(CN1C=C(C2=CC(=CC=C12)OCC1=CC=CC=C1)CCC(=O)O)=O)CCC1=CC=CC=C1",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-3"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 3
       }
@@ -381,39 +1041,149 @@
     ],
     "formula": "R-NH₂",
     "smiles": "*N |$R;;$|",
-    "description": "Organic compounds derived from ammonia by replacement of hydrogen atoms",
+    "description": "Derived from ammonia by replacement of hydrogen atoms",
     "classification": {
       "iupac": "amino",
       "common": "amine"
     },
     "samples": [
       {
-        "compound_name": "N-benzyl-4-(3-indolyl)butanamide",
-        "smiles": "C(C1=CC=CC=C1)NC(CCCC1=CNC2=CC=CC=C12)=O",
+        "id": "cf094840-4c3b-40c1-b217-dad942a21b89",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "N-benzyl-4-(3-indolyl)butanamide"
+          ]
+        },
+        "structure": {
+          "smiles": "C(C1=CC=CC=C1)NC(CCCC1=CNC2=CC=CC=C12)=O",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-1"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 2,
         "reaction_id": 1
       },
       {
-        "compound_name": "triethylamine",
-        "smiles": "C(C)N(CC)CC",
+        "id": "0a777b9e-8ebd-4bb8-a03d-120b49f5d051",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "triethylamine"
+          ]
+        },
+        "structure": {
+          "smiles": "C(C)N(CC)CC",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-1"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 1
       },
       {
-        "compound_name": "DMF",
-        "smiles": "NCC1=CC(=C(C(=O)OC)C=C1)O",
+        "id": "c664a505-d98e-43b9-a082-5e9b6eae232f",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "DMF"
+          ]
+        },
+        "structure": {
+          "smiles": "NCC1=CC(=C(C(=O)OC)C=C1)O",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-1"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 1
       },
       {
-        "compound_name": "N-(3-hydroxy-4-methoxycarbonyl-benzyl) -3-(3-indolyl)propanamide",
-        "smiles": "OC=1C=C(CNC(CCC2=CNC3=CC=CC=C23)=O)C=CC1C(=O)OC",
+        "id": "2f18040d-39d7-4c5d-8a5e-7edfc907912f",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "N-(3-hydroxy-4-methoxycarbonyl-benzyl) -3-(3-indolyl)propanamide"
+          ]
+        },
+        "structure": {
+          "smiles": "OC=1C=C(CNC(CCC2=CNC3=CC=CC=C23)=O)C=CC1C(=O)OC",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-1"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 2,
         "reaction_id": 1
       },
       {
-        "compound_name": "2,5-dimethylaniline",
-        "smiles": "CC1=C(N)C=C(C=C1)C",
+        "id": "9a9ad52f-88c9-400f-8610-40755d5b76ec",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "2,5-dimethylaniline"
+          ]
+        },
+        "structure": {
+          "smiles": "CC1=C(N)C=C(C=C1)C",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-2"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 2
       }
@@ -441,39 +1211,149 @@
     ],
     "formula": "R-CO-NH₂",
     "smiles": "*C(=O)N |$R;;;;$|",
-    "description": "Organic compounds containing a carbonyl group linked to a nitrogen atom",
+    "description": "Containing a carbonyl group linked to a nitrogen atom",
     "classification": {
       "iupac": "carboxamide",
       "common": "amide"
     },
     "samples": [
       {
-        "compound_name": "N-benzyl-4-(3-indolyl)butanamide",
-        "smiles": "C(C1=CC=CC=C1)NC(CCCC1=CNC2=CC=CC=C12)=O",
+        "id": "10473e5d-29e2-42fe-8672-6e5623f35b3e",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "N-benzyl-4-(3-indolyl)butanamide"
+          ]
+        },
+        "structure": {
+          "smiles": "C(C1=CC=CC=C1)NC(CCCC1=CNC2=CC=CC=C12)=O",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-1"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 1
       },
       {
-        "compound_name": "N-(3-hydroxy-4-methoxycarbonyl-benzyl) -3-(3-indolyl)propanamide",
-        "smiles": "OC=1C=C(CNC(CCC2=CNC3=CC=CC=C23)=O)C=CC1C(=O)OC",
+        "id": "01dc5670-232a-457c-a3ca-3b64e94a33c4",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "N-(3-hydroxy-4-methoxycarbonyl-benzyl) -3-(3-indolyl)propanamide"
+          ]
+        },
+        "structure": {
+          "smiles": "OC=1C=C(CNC(CCC2=CNC3=CC=CC=C23)=O)C=CC1C(=O)OC",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-1"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 1
       },
       {
-        "compound_name": "N-methyl-N-phenethyl-2-[5-benzyloxy-3-(2-carbethoxyethyl)indol-1-yl]acetamide",
-        "smiles": "CN(C(CN1C=C(C2=CC(=CC=C12)OCC1=CC=CC=C1)CCC(=O)OCC)=O)CCC1=CC=CC=C1",
+        "id": "a96af1e1-fab6-4547-8697-f476351b91b5",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "N-methyl-N-phenethyl-2-[5-benzyloxy-3-(2-carbethoxyethyl)indol-1-yl]acetamide"
+          ]
+        },
+        "structure": {
+          "smiles": "CN(C(CN1C=C(C2=CC(=CC=C12)OCC1=CC=CC=C1)CCC(=O)OCC)=O)CCC1=CC=CC=C1",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-3"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 3
       },
       {
-        "compound_name": "N-methyl-N-phenethyl-2-[5-benzyloxy-3-(2-carboxyethyl)indol-1-yl]acetamide",
-        "smiles": "CN(C(CN1C=C(C2=CC(=CC=C12)OCC1=CC=CC=C1)CCC(=O)O)=O)CCC1=CC=CC=C1",
+        "id": "572dbb71-abe3-4bf3-aabd-114b9c17bc70",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "N-methyl-N-phenethyl-2-[5-benzyloxy-3-(2-carboxyethyl)indol-1-yl]acetamide"
+          ]
+        },
+        "structure": {
+          "smiles": "CN(C(CN1C=C(C2=CC(=CC=C12)OCC1=CC=CC=C1)CCC(=O)O)=O)CCC1=CC=CC=C1",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-3"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 3
       },
       {
-        "compound_name": "K2CO3",
-        "smiles": "N1[C@@H](C(=O)N)CCC1",
+        "id": "2d8b7edf-2b32-4a51-ae51-35058787158b",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "K2CO3"
+          ]
+        },
+        "structure": {
+          "smiles": "N1[C@@H](C(=O)N)CCC1",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-5"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 5
       }
@@ -501,39 +1381,149 @@
     ],
     "formula": "R-C≡N",
     "smiles": "*C#N |$R;;$|",
-    "description": "Organic compounds containing a carbon-nitrogen triple bond",
+    "description": "Containing a carbon-nitrogen triple bond",
     "classification": {
       "iupac": "cyano",
       "common": "nitrile"
     },
     "samples": [
       {
-        "compound_name": "6-chloropyridine-3-carbonitrile",
-        "smiles": "ClC1=CC=C(C=N1)C#N",
+        "id": "c0fb6b6b-f7a7-48d8-8e77-ebb78d1d0964",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "6-chloropyridine-3-carbonitrile"
+          ]
+        },
+        "structure": {
+          "smiles": "ClC1=CC=C(C=N1)C#N",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-10"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 10
       },
       {
-        "compound_name": "6-(octyloxy)pyridine-3-carbonitrile",
-        "smiles": "C(CCCCCCC)OC1=CC=C(C=N1)C#N",
+        "id": "0b8553ed-6197-4b7b-8a21-bf17c8997c04",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "6-(octyloxy)pyridine-3-carbonitrile"
+          ]
+        },
+        "structure": {
+          "smiles": "C(CCCCCCC)OC1=CC=C(C=N1)C#N",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-10"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 10
       },
       {
-        "compound_name": "Trimethyl orthoacetate",
-        "smiles": "C(C)#N",
+        "id": "e62e401c-d6bc-449b-883d-e782164c08e7",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "Trimethyl orthoacetate"
+          ]
+        },
+        "structure": {
+          "smiles": "C(C)#N",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-12"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 12
       },
       {
-        "compound_name": "methanol",
-        "smiles": "C(#N)[BH3-]",
+        "id": "4967757a-126e-4642-8174-efb743eb7f16",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "methanol"
+          ]
+        },
+        "structure": {
+          "smiles": "C(#N)[BH3-]",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-21"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 21
       },
       {
-        "compound_name": "Cis-3-thiocyanoacrylic acid",
-        "smiles": "S(C#N)\\C=C/C(=O)O",
+        "id": "ec513e04-028a-42dd-9fed-9895746147e7",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "Cis-3-thiocyanoacrylic acid"
+          ]
+        },
+        "structure": {
+          "smiles": "S(C#N)\\C=C/C(=O)O",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-40"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 40
       }
@@ -561,39 +1551,149 @@
     ],
     "formula": "R-NO₂",
     "smiles": "*[N+](=O)[O-] |$R;;;;;$|",
-    "description": "Functional group containing nitrogen bonded to two oxygen atoms",
+    "description": "Containing nitrogen bonded to two oxygen atoms",
     "classification": {
       "iupac": "nitro",
       "common": "nitro group"
     },
     "samples": [
       {
-        "compound_name": "3-nitrocinnamic acid",
-        "smiles": "[N+](=O)([O-])C=1C=C(C=CC(=O)O)C=CC1",
+        "id": "cc5d9279-90f0-4c83-9084-75ac1f6e578e",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "3-nitrocinnamic acid"
+          ]
+        },
+        "structure": {
+          "smiles": "[N+](=O)([O-])C=1C=C(C=CC(=O)O)C=CC1",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-18"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 18
       },
       {
-        "compound_name": "(E)-3-(3-Nitrophenyl)-2-propenoic acid, ethyl ester",
-        "smiles": "[N+](=O)([O-])C=1C=C(C=CC1)/C=C/C(=O)OCC",
+        "id": "75fbca69-678a-439b-9b40-902ca71b7245",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "(E)-3-(3-Nitrophenyl)-2-propenoic acid, ethyl ester"
+          ]
+        },
+        "structure": {
+          "smiles": "[N+](=O)([O-])C=1C=C(C=CC1)/C=C/C(=O)OCC",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-18"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 18
       },
       {
-        "compound_name": "2-nitro-thiophene",
-        "smiles": "[N+](=O)([O-])C=1SC=CC1",
+        "id": "c99a7489-6c94-44ac-bb1c-05c482b0c7d5",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "2-nitro-thiophene"
+          ]
+        },
+        "structure": {
+          "smiles": "[N+](=O)([O-])C=1SC=CC1",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-23"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 23
       },
       {
-        "compound_name": "2-nitro-3-thiophenamine",
-        "smiles": "[N+](=O)([O-])C=1SC=CC1N",
+        "id": "3c5d3229-6a66-4660-a674-08d0e4cc0c3b",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "2-nitro-3-thiophenamine"
+          ]
+        },
+        "structure": {
+          "smiles": "[N+](=O)([O-])C=1SC=CC1N",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-23"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 23
       },
       {
-        "compound_name": "5-(2-nitroethenyl)-1H-indole",
-        "smiles": "[N+](=O)([O-])C=CC=1C=C2C=CNC2=CC1",
+        "id": "91e65e1c-e71c-4b47-907c-644b059b77d2",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "5-(2-nitroethenyl)-1H-indole"
+          ]
+        },
+        "structure": {
+          "smiles": "[N+](=O)([O-])C=CC=1C=C2C=CNC2=CC1",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-55"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 55
       }
@@ -621,39 +1721,149 @@
     ],
     "formula": "R-X",
     "smiles": "*[*] |$R;X$|",
-    "description": "Organic compounds containing fluorine, chlorine, bromine, or iodine",
+    "description": "Containing fluorine, chlorine, bromine, or iodine",
     "classification": {
       "iupac": "halo",
       "common": "halide"
     },
     "samples": [
       {
-        "compound_name": "methyl 4-(aminomethyl)-2-hydroxybenzoate hydrochloride",
-        "smiles": "Cl",
+        "id": "6cf5fcf4-1eec-4f4a-8bf5-0721a18fb19e",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "methyl 4-(aminomethyl)-2-hydroxybenzoate hydrochloride"
+          ]
+        },
+        "structure": {
+          "smiles": "Cl",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-1"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 1
       },
       {
-        "compound_name": "2-methyl bromopropane",
-        "smiles": "CC(CBr)C",
+        "id": "9b853f04-322c-4e04-99b1-4e385944c85f",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "2-methyl bromopropane"
+          ]
+        },
+        "structure": {
+          "smiles": "CC(CBr)C",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-4"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 4
       },
       {
-        "compound_name": "p-fluorobenzylbromide",
-        "smiles": "FC1=CC=C(CBr)C=C1",
+        "id": "a24b9eaa-4cfe-470d-ab4b-ecd76f6dad50",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "p-fluorobenzylbromide"
+          ]
+        },
+        "structure": {
+          "smiles": "FC1=CC=C(CBr)C=C1",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-5"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 2,
         "reaction_id": 5
       },
       {
-        "compound_name": "(R)-prolinamide hydrochloride",
-        "smiles": "Cl",
+        "id": "7cc5fbfc-bb29-4582-a315-3ca699e22e74",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "(R)-prolinamide hydrochloride"
+          ]
+        },
+        "structure": {
+          "smiles": "Cl",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-5"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 5
       },
       {
-        "compound_name": "(R)-Prolinamide hydrochloride",
-        "smiles": "Cl",
+        "id": "b985a62a-d653-48b0-8712-5877e19fabb2",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "(R)-Prolinamide hydrochloride"
+          ]
+        },
+        "structure": {
+          "smiles": "Cl",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-5"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 5
       }
@@ -688,32 +1898,142 @@
     },
     "samples": [
       {
-        "compound_name": "N-benzyl-4-(3-indolyl)butanamide",
-        "smiles": "C(C1=CC=CC=C1)NC(CCCC1=CNC2=CC=CC=C12)=O",
+        "id": "cc9422d5-74bd-41f1-9274-326656888fc3",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "N-benzyl-4-(3-indolyl)butanamide"
+          ]
+        },
+        "structure": {
+          "smiles": "C(C1=CC=CC=C1)NC(CCCC1=CNC2=CC=CC=C12)=O",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-1"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 2,
         "reaction_id": 1
       },
       {
-        "compound_name": "DMF",
-        "smiles": "NCC1=CC(=C(C(=O)OC)C=C1)O",
+        "id": "66509144-2193-4d9e-b05b-d994adf5160c",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "DMF"
+          ]
+        },
+        "structure": {
+          "smiles": "NCC1=CC(=C(C(=O)OC)C=C1)O",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-1"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 1
       },
       {
-        "compound_name": "N-(3-hydroxy-4-methoxycarbonyl-benzyl) -3-(3-indolyl)propanamide",
-        "smiles": "OC=1C=C(CNC(CCC2=CNC3=CC=CC=C23)=O)C=CC1C(=O)OC",
+        "id": "04aa3330-49be-475f-a92f-a56de4b34438",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "N-(3-hydroxy-4-methoxycarbonyl-benzyl) -3-(3-indolyl)propanamide"
+          ]
+        },
+        "structure": {
+          "smiles": "OC=1C=C(CNC(CCC2=CNC3=CC=CC=C23)=O)C=CC1C(=O)OC",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-1"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 2,
         "reaction_id": 1
       },
       {
-        "compound_name": "2,5-dimethylaniline",
-        "smiles": "CC1=C(N)C=C(C=C1)C",
+        "id": "b3e1403b-fa36-48e7-b155-eb4c15b4abbd",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "2,5-dimethylaniline"
+          ]
+        },
+        "structure": {
+          "smiles": "CC1=C(N)C=C(C=C1)C",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-2"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 2
       },
       {
-        "compound_name": "benzotriazole",
-        "smiles": "N1N=NC2=C1C=CC=C2",
+        "id": "0e3aa923-b399-4d58-b9a5-b53de8f900f2",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "benzotriazole"
+          ]
+        },
+        "structure": {
+          "smiles": "N1N=NC2=C1C=CC=C2",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-2"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 2
       }
@@ -748,32 +2068,142 @@
     },
     "samples": [
       {
-        "compound_name": "DMF",
-        "smiles": "NCC1=CC(=C(C(=O)OC)C=C1)O",
+        "id": "e5158c72-ef18-47b6-9cc6-98a30006e975",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "DMF"
+          ]
+        },
+        "structure": {
+          "smiles": "NCC1=CC(=C(C(=O)OC)C=C1)O",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-1"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 1
       },
       {
-        "compound_name": "N-(3-hydroxy-4-methoxycarbonyl-benzyl) -3-(3-indolyl)propanamide",
-        "smiles": "OC=1C=C(CNC(CCC2=CNC3=CC=CC=C23)=O)C=CC1C(=O)OC",
+        "id": "e85a2de4-f521-4494-84ca-9a2ff3716a68",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "N-(3-hydroxy-4-methoxycarbonyl-benzyl) -3-(3-indolyl)propanamide"
+          ]
+        },
+        "structure": {
+          "smiles": "OC=1C=C(CNC(CCC2=CNC3=CC=CC=C23)=O)C=CC1C(=O)OC",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-1"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 1
       },
       {
-        "compound_name": "phenol",
-        "smiles": "C1(=CC=CC=C1)O",
+        "id": "9acd9639-f092-4950-a309-7410d18ce15c",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "phenol"
+          ]
+        },
+        "structure": {
+          "smiles": "C1(=CC=CC=C1)O",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-40"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 40
       },
       {
-        "compound_name": "ethyl N-(2-fluoro-4-chloro-5-hydroxyphenyl)carbamate",
-        "smiles": "FC1=C(C=C(C(=C1)Cl)O)NC(OCC)=O",
+        "id": "737894ca-2a5d-4ad1-b4b3-ca903d41eeea",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "ethyl N-(2-fluoro-4-chloro-5-hydroxyphenyl)carbamate"
+          ]
+        },
+        "structure": {
+          "smiles": "FC1=C(C=C(C(=C1)Cl)O)NC(OCC)=O",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-69"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 69
       },
       {
-        "compound_name": "NaOH",
-        "smiles": "CN(C=1C=C(C=CC1)O)C",
+        "id": "90d169d8-801c-483d-aaff-d1710b0f2e1e",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "NaOH"
+          ]
+        },
+        "structure": {
+          "smiles": "CN(C=1C=C(C=CC1)O)C",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-85"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 85
       }
@@ -801,39 +2231,149 @@
     ],
     "formula": "R-S-R'",
     "smiles": "*S* |$R;;R'$|",
-    "description": "Organic compounds with a sulfur atom bonded to two carbon atoms",
+    "description": "With a sulfur atom bonded to two carbon atoms",
     "classification": {
       "iupac": "thioether",
       "common": "sulfide"
     },
     "samples": [
       {
-        "compound_name": "1-t-Butyloxycarbonyl-2-(2-methylthioethyl)-4-(2-methylphenyl)piperazine",
-        "smiles": "C(C)(C)(C)OC(=O)N1C(CN(CC1)C1=C(C=CC=C1)C)CCSC",
+        "id": "c38416ae-0256-4eff-8bc2-718b69000f20",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "1-t-Butyloxycarbonyl-2-(2-methylthioethyl)-4-(2-methylphenyl)piperazine"
+          ]
+        },
+        "structure": {
+          "smiles": "C(C)(C)(C)OC(=O)N1C(CN(CC1)C1=C(C=CC=C1)C)CCSC",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-20"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 20
       },
       {
-        "compound_name": "p-methoxybenzyl 7-{(Z)-2-(2-tritylaminothiazol-4-yl)-2-methoxyiminoacetamido}-3-chloromethyl-3-cephem-4-carboxylate",
-        "smiles": "C(C1=CC=CC=C1)(C1=CC=CC=C1)(C1=CC=CC=C1)NC=1SC=C(N1)/C(/C(=O)NC1[C@@H]2N(C(=C(CS2)CCl)C(=O)OCC2=CC=C(C=C2)OC)C1=O)=N/OC",
+        "id": "cedb95a9-97dc-4ae7-a2e1-6b950de92db2",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "p-methoxybenzyl 7-{(Z)-2-(2-tritylaminothiazol-4-yl)-2-methoxyiminoacetamido}-3-chloromethyl-3-cephem-4-carboxylate"
+          ]
+        },
+        "structure": {
+          "smiles": "C(C1=CC=CC=C1)(C1=CC=CC=C1)(C1=CC=CC=C1)NC=1SC=C(N1)/C(/C(=O)NC1[C@@H]2N(C(=C(CS2)CCl)C(=O)OCC2=CC=C(C=C2)OC)C1=O)=N/OC",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-27"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 27
       },
       {
-        "compound_name": "p-methoxybenzyl 7-{(Z)-2-(2-tritylaminothiazol-4-yl)-2-methoxyiminoacetamido]-3-(thiazolo[5,4-c]pyridin-2-yl)thiomethyl-3-cephem-4-carboxylate",
-        "smiles": "C(C1=CC=CC=C1)(C1=CC=CC=C1)(C1=CC=CC=C1)NC=1SC=C(N1)/C(/C(=O)NC1[C@@H]2N(C(=C(CS2)CSC=2SC=3C=NC=CC3N2)C(=O)OCC2=CC=C(C=C2)OC)C1=O)=N/OC",
+        "id": "109bfa58-4c7e-4680-a6f2-176d9edfcb80",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "p-methoxybenzyl 7-{(Z)-2-(2-tritylaminothiazol-4-yl)-2-methoxyiminoacetamido]-3-(thiazolo[5,4-c]pyridin-2-yl)thiomethyl-3-cephem-4-carboxylate"
+          ]
+        },
+        "structure": {
+          "smiles": "C(C1=CC=CC=C1)(C1=CC=CC=C1)(C1=CC=CC=C1)NC=1SC=C(N1)/C(/C(=O)NC1[C@@H]2N(C(=C(CS2)CSC=2SC=3C=NC=CC3N2)C(=O)OCC2=CC=C(C=C2)OC)C1=O)=N/OC",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-27"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 2,
         "reaction_id": 27
       },
       {
-        "compound_name": "2,2-di-(benzylthiomethyl)pentan-1-ol",
-        "smiles": "C(C1=CC=CC=C1)SCC(CO)(CCC)CSCC1=CC=CC=C1",
+        "id": "f840d288-6dc9-4277-8039-b88b8510eeec",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "2,2-di-(benzylthiomethyl)pentan-1-ol"
+          ]
+        },
+        "structure": {
+          "smiles": "C(C1=CC=CC=C1)SCC(CO)(CCC)CSCC1=CC=CC=C1",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-39"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 2,
         "reaction_id": 39
       },
       {
-        "compound_name": "2,2-Di(benzylthiomethyl)pentanal",
-        "smiles": "C(C1=CC=CC=C1)SCC(C=O)(CCC)CSCC1=CC=CC=C1",
+        "id": "012df97a-ac88-409a-9549-fed6fae81ac0",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "2,2-Di(benzylthiomethyl)pentanal"
+          ]
+        },
+        "structure": {
+          "smiles": "C(C1=CC=CC=C1)SCC(C=O)(CCC)CSCC1=CC=CC=C1",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-39"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 2,
         "reaction_id": 39
       }
@@ -861,15 +2401,37 @@
     ],
     "formula": "R-SH",
     "smiles": "*S |$R;;$|",
-    "description": "Organic compounds containing a sulfhydryl group (-SH)",
+    "description": "Containing a sulfhydryl group (-SH)",
     "classification": {
       "iupac": "sulfanyl",
       "common": "thiol"
     },
     "samples": [
       {
-        "compound_name": "2-mercaptothiazolo[5,4-c]pyridine",
-        "smiles": "SC=1SC=2C=NC=CC2N1",
+        "id": "8d65583c-cee0-4321-b4d5-0337bb945cf0",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "2-mercaptothiazolo[5,4-c]pyridine"
+          ]
+        },
+        "structure": {
+          "smiles": "SC=1SC=2C=NC=CC2N1",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-27"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 27
       }
@@ -897,15 +2459,37 @@
     ],
     "formula": "R-N₃",
     "smiles": "*N=[N+]=[N-] |$R;;;;;$|",
-    "description": "Functional group with three nitrogen atoms bonded together",
+    "description": "With three nitrogen atoms bonded together",
     "classification": {
       "iupac": "azido",
       "common": "azide"
     },
     "samples": [
       {
-        "compound_name": "phenacyl azide",
-        "smiles": "C(C(=O)C1=CC=CC=C1)N=[N+]=[N-]",
+        "id": "5a634328-4014-47ce-bf5e-cb0af1478d7e",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "phenacyl azide"
+          ]
+        },
+        "structure": {
+          "smiles": "C(C(=O)C1=CC=CC=C1)N=[N+]=[N-]",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-78"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 78
       }
@@ -933,39 +2517,149 @@
     ],
     "formula": "C=C",
     "smiles": "*C=C* |$R;;;R'$|",
-    "description": "Hydrocarbons containing carbon-carbon double bonds",
+    "description": "Containing carbon-carbon double bonds",
     "classification": {
       "iupac": "alkenyl",
       "common": "alkene"
     },
     "samples": [
       {
-        "compound_name": "DEPC",
-        "smiles": "CCOC(=O)OC(=O)OCC",
+        "id": "8570629d-6237-48d6-ab2e-c48d0b99f0bc",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "DEPC"
+          ]
+        },
+        "structure": {
+          "smiles": "CCOC(=O)OC(=O)OCC",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-1"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 2,
         "reaction_id": 1
       },
       {
-        "compound_name": "N-benzyl-4-(3-indolyl)butanamide",
-        "smiles": "C(C1=CC=CC=C1)NC(CCCC1=CNC2=CC=CC=C12)=O",
+        "id": "e20d328d-b763-453e-9a2f-268ee9b9614f",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "N-benzyl-4-(3-indolyl)butanamide"
+          ]
+        },
+        "structure": {
+          "smiles": "C(C1=CC=CC=C1)NC(CCCC1=CNC2=CC=CC=C12)=O",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-1"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 1
       },
       {
-        "compound_name": "DMF",
-        "smiles": "NCC1=CC(=C(C(=O)OC)C=C1)O",
+        "id": "e4ce19be-47c2-4dbc-839d-d93854fa652b",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "DMF"
+          ]
+        },
+        "structure": {
+          "smiles": "NCC1=CC(=C(C(=O)OC)C=C1)O",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-1"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 1,
         "reaction_id": 1
       },
       {
-        "compound_name": "N-(3-hydroxy-4-methoxycarbonyl-benzyl) -3-(3-indolyl)propanamide",
-        "smiles": "OC=1C=C(CNC(CCC2=CNC3=CC=CC=C23)=O)C=CC1C(=O)OC",
+        "id": "8aaa1b40-21a0-4aad-b2df-ca15cfe8ede8",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "N-(3-hydroxy-4-methoxycarbonyl-benzyl) -3-(3-indolyl)propanamide"
+          ]
+        },
+        "structure": {
+          "smiles": "OC=1C=C(CNC(CCC2=CNC3=CC=CC=C23)=O)C=CC1C(=O)OC",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-1"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.649905",
         "count": 2,
         "reaction_id": 1
       },
       {
-        "compound_name": "formaldehyde",
-        "smiles": "C=O",
+        "id": "aa80c8b2-c960-4f5e-a9d7-8bc90fea4e9a",
+        "type": "small-molecule",
+        "names": {
+          "iupac": "",
+          "common": [
+            "formaldehyde"
+          ]
+        },
+        "structure": {
+          "smiles": "C=O",
+          "inchi": "",
+          "inchikey": "",
+          "molecularFormula": ""
+        },
+        "molecular": {
+          "weight": 0,
+          "exactMass": 0,
+          "monoisotopicMass": 0
+        },
+        "sources": [
+          "biolio-extraction",
+          "reaction-2"
+        ],
+        "lastUpdated": "2025-12-02T00:46:10.650902",
         "count": 1,
         "reaction_id": 2
       }

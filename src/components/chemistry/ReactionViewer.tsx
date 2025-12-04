@@ -1,4 +1,5 @@
 import type { Reaction } from '@/types/chemistry'
+import type { Molecule } from '@/types/molecule-model'
 import { useState, useEffect, useRef } from 'react'
 import { colors } from '@/utils/colors'
 import RDKitMoleculeViewer from './RDKitMoleculeViewer'
@@ -7,16 +8,47 @@ import SimpleMoleculeViewer from './SimpleMoleculeViewer'
 import KetcherMoleculeViewer from './KetcherMoleculeViewer'
 import Molecule3DViewer from './Molecule3DViewer'
 import Card from '@/components/ui/Card'
+import Combobox from '@/components/ui/Combobox'
 import ReactionDoubleArrow from '@/assets/icon/reaction-double-arow.svg'
 
 interface ReactionViewerProps {
   reaction: Reaction
   viewerType?: 'rdkit' | 'kekule' | 'simple' | 'ketcher' | '3dmol'
+  isBuilderMode?: boolean
+  availableMolecules?: Molecule[]
+  onReactionChange?: (reaction: Reaction) => void
 }
 
-function ReactionViewer({ reaction, viewerType = 'rdkit' }: ReactionViewerProps) {
+function ReactionViewer({ 
+  reaction, 
+  viewerType = 'rdkit',
+  isBuilderMode = false,
+  availableMolecules = [],
+  onReactionChange
+}: ReactionViewerProps) {
   const reactantsRef = useRef<HTMLDivElement>(null)
   const [containerWidth, setContainerWidth] = useState<number>(160)
+
+  const handleReagentChange = (type: 'reactant' | 'product', index: number, moleculeId: string) => {
+    if (!onReactionChange || !availableMolecules) return
+
+    const selectedMolecule = availableMolecules.find(m => m.id === moleculeId)
+    if (!selectedMolecule) return
+
+    const newReaction = { ...reaction }
+    // Deep copy arrays to avoid mutation
+    if (type === 'reactant') {
+      newReaction.reactants = reaction.reactants.map((r, i) => 
+        i === index ? { ...r, compound: selectedMolecule } : r
+      )
+    } else {
+      newReaction.products = reaction.products.map((p, i) => 
+        i === index ? { ...p, compound: selectedMolecule } : p
+      )
+    }
+    
+    onReactionChange(newReaction)
+  }
 
   const MolViewer =
     viewerType === 'rdkit' ? RDKitMoleculeViewer :
@@ -175,9 +207,25 @@ function ReactionViewer({ reaction, viewerType = 'rdkit' }: ReactionViewerProps)
                   reagent.compound.structure.smiles,
                   "reactant-molecule"
                 )}
-                <p className="reactant-name relative text-xs mb-0.5 sm:mb-1 font-medium truncate px-1"
-                style={{
-                }}>{reagent.compound.names.common[0] || reagent.compound.names.iupac}</p>
+                {isBuilderMode ? (
+                  <div className="mt-1 px-1 min-w-[120px]">
+                    <Combobox
+                      options={availableMolecules.map(m => ({ 
+                        value: m.id, 
+                        label: m.names.common[0] || m.names.iupac,
+                        description: m.structure.molecularFormula
+                      }))}
+                      value={reagent.compound.id}
+                      onValueChange={(val) => handleReagentChange('reactant', idx, val)}
+                      className="w-full text-xs"
+                      placeholder="Select..."
+                    />
+                  </div>
+                ) : (
+                  <p className="reactant-name relative text-xs mb-0.5 sm:mb-1 font-medium truncate px-1"
+                  style={{
+                  }}>{reagent.compound.names.common[0] || reagent.compound.names.iupac}</p>
+                )}
                 {reagent.conditions && (
                   <p className="reactant-conditions text-xs text-gray-500 truncate px-1">{reagent.conditions}</p>
                 )}
@@ -230,9 +278,25 @@ function ReactionViewer({ reaction, viewerType = 'rdkit' }: ReactionViewerProps)
                   reagent.compound.structure.smiles,
                   "product-molecule"
                 )}
-                <p className="product-name relative text-xs font-medium truncate px-1"
-                style={{
-                }}>{reagent.compound.names.common[0] || reagent.compound.names.iupac}</p>
+                {isBuilderMode ? (
+                  <div className="mt-1 px-1 min-w-[120px]">
+                    <Combobox
+                      options={availableMolecules.map(m => ({ 
+                        value: m.id, 
+                        label: m.names.common[0] || m.names.iupac,
+                        description: m.structure.molecularFormula
+                      }))}
+                      value={reagent.compound.id}
+                      onValueChange={(val) => handleReagentChange('product', idx, val)}
+                      className="w-full text-xs"
+                      placeholder="Select..."
+                    />
+                  </div>
+                ) : (
+                  <p className="product-name relative text-xs font-medium truncate px-1"
+                  style={{
+                  }}>{reagent.compound.names.common[0] || reagent.compound.names.iupac}</p>
+                )}
               </div>
             ))}
           </div>

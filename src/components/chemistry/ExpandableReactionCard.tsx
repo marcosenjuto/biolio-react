@@ -1,6 +1,7 @@
 import type { Reaction } from '@/types/chemistry'
 import Card from '@/components/ui/Card'
 import ReactionViewer from './ReactionViewer'
+import { useNavigate } from 'react-router-dom'
 
 interface ExpandableReactionCardProps {
   reaction: Reaction
@@ -10,16 +11,38 @@ interface ExpandableReactionCardProps {
 }
 
 function ExpandableReactionCard({ reaction, isExpanded, onToggle, viewerType = 'rdkit' }: ExpandableReactionCardProps) {
+  const navigate = useNavigate()
+
+  const handleNavigate = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    navigate(`/reaction/${reaction.id}`)
+  }
+
   return (
     <Card hover className="reaction-card cursor-pointer expandable-reaction-card bg-white" onClick={!isExpanded ? onToggle : undefined}>
       <div className="reaction-card-header p-2 flex s:flex-col items-start justify-between">
-        <h3 className="reaction-card-title text-lg font-semibold text-gray-900 leading-tight">
+        <h3 
+          className="reaction-card-title text-lg font-semibold text-gray-900 leading-tight hover:text-primary-600 transition-colors"
+          onClick={handleNavigate}
+        >
           {reaction.name}
         </h3>
         <div className="flex items-center gap-2">
           <span className="reaction-card-category inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-primary-100 text-primary-800 whitespace-nowrap">
             {reaction.category}
           </span>
+          
+          {/* Navigation Chevron */}
+          <button
+            onClick={handleNavigate}
+            className="text-gray-400 hover:text-primary-600 transition-colors p-1"
+            aria-label="View details"
+          >
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
           {isExpanded && (
             <button
               onClick={(e) => {

@@ -3,10 +3,21 @@ import Button from '@/components/ui/Button'
 import Card from '@/components/ui/Card'
 import Input from '@/components/ui/Input'
 import { useNavigate } from 'react-router-dom'
-import Article, { type ArticleLink } from '@/components/article/Article'
+import ReactMarkdown from 'react-markdown'
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
+import remarkGfm from 'remark-gfm'
+import Content from '@/components/ui/Content'
+import { ChatTimestamp } from '@/components/ui/ChatTimestamp'
 import type { ChatMessage, AssistantAction } from '@/types/chat'
 
 import { useLanguageStore } from '@/store/languageStore'
+
+interface ChemistryLink {
+  type: '3d' | 'reaction'
+  label: string
+  data: string
+}
 
 const MESSAGE_PAGE_SIZE = 10
 const MAX_VISIBLE_MESSAGES = 50
@@ -166,8 +177,8 @@ function AIChatPage() {
   }, [visibleMessages, messages.length])
 
   // Parse chemistry entities from AI response
-  const parseChemistryLinks = (content: string): ArticleLink[] => {
-    const links: ArticleLink[] = []
+  const parseChemistryLinks = (content: string): ChemistryLink[] => {
+    const links: ChemistryLink[] = []
     
     // Look for SMILES patterns (simple detection)
     const smilesPattern = /\b([A-Z][a-z]?(\([A-Z][a-z]?\))?[\d\+\-\[\]\(\)=#@\/\\]*)+\b/g
@@ -455,19 +466,72 @@ function AIChatPage() {
                           }
                         }}
                       >
-                        <Article
-                          role={message.role}
-                          content={message.content}
-                          timestamp={message.timestamp}
-                          actions={message.actions}
-                          userFriendlyText={message.userFriendlyText}
-                          links={links}
-                          onSelectLink={(link) =>
-                            link.type === '3d'
-                              ? handleViewMolecule(link.data)
-                              : handleViewReaction(link.data)
-                          }
-                        />
+                        <Card
+                          className={`message-card max-w-[-webkit-fill-available] p-2 py-1 md:p-2 my-2 ${
+                            message.role === 'user'
+                              ? 'user-message bg-primary-100'
+                              : 'assistant-message bg-none bg-transparent'
+                          }`}
+                        >
+                          <div className="message-content space-y-3">
+                            <div className="message-body flex items-start gap-3">
+                              <div className="message-text-wrapper flex-1  min-w-0">
+                                {message.role === 'assistant' && message.userFriendlyText && message.userFriendlyText !== message.content && (
+                                  <p className="text-xs text-gray-500 italic mb-1">
+                                    {message.userFriendlyText}
+                                  </p>
+                                )}
+                                <div className="flex flex-row flex-wrap items-end justify-between gap-2">
+                                  <div className={`break-words markdown-content max-w-full ${
+                                    message.role === 'user' ? 'text-primary-800' : 'text-gray-800'
+                                  }`}>
+                                    <ReactMarkdown
+                                      remarkPlugins={[remarkMath, remarkGfm]}
+                                      rehypePlugins={[rehypeKatex]}
+                                    >
+                                      {message.content}
+                                    </ReactMarkdown>
+                                  </div>
+                                </div>
+                                {message.role === 'assistant' && message.actions && message.actions.length > 0 && (
+                                  <Content actions={message.actions} />
+                                )}
+                                  <ChatTimestamp 
+                                    timestamp={message.timestamp}
+                                    className={message.role === 'user' ? 'text-primary-800' : 'text-gray-400'}
+                                  />
+                              </div>
+                            </div>
+
+                            {/* Chemistry Links */}
+                            {links.length > 0 && (
+                              <div className="chemistry-links flex flex-wrap gap-2 pt-2 border-t border-gray-200">
+                                {links.map((link, idx) => (
+                                  <button
+                                    key={idx}
+                                    onClick={() => 
+                                      link.type === '3d' 
+                                        ? handleViewMolecule(link.data)
+                                        : handleViewReaction(link.data)
+                                    }
+                                    className={`chemistry-link-button ${link.type === '3d' ? 'molecule-link' : 'reaction-link'} inline-flex items-center gap-1 px-3 py-1 bg-primary-50 hover:bg-primary-100 text-primary-700 text-xs font-medium rounded-full transition-colors`}
+                                  >
+                                    {link.type === '3d' ? (
+                                      <svg className="link-icon molecule-icon w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
+                                      </svg>
+                                    ) : (
+                                      <svg className="link-icon reaction-icon w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                      </svg>
+                                    )}
+                                    <span className="link-label">{link.label}</span>
+                                  </button>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        </Card>
                       </div>
                     )
                   })}

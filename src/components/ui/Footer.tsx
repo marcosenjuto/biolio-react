@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
+import { useLanguageStore } from '@/store/languageStore'
 
 function Footer() {
   const currentYear = new Date().getFullYear()
+  const { t } = useLanguageStore()
 
   return (
     <footer className="bg-gray-800 text-white py-8 mt-auto">
@@ -9,7 +11,7 @@ function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <p className="text-sm">
-              © {currentYear} bioblio. All rights reserved.
+              © {currentYear} bioblio. {t.footer.rights}
             </p>
           </div>
           <div className="flex space-x-6">
@@ -17,7 +19,7 @@ function Footer() {
               to="/contact"
               className="hover:text-primary-400 transition-colors"
             >
-              Contact
+              {t.footer.contact}
             </Link>
             <a
               href="https://github.com"
@@ -25,7 +27,7 @@ function Footer() {
               rel="noopener noreferrer"
               className="hover:text-primary-400 transition-colors"
             >
-              GitHub
+              {t.footer.github}
             </a>
             <a
               href="https://linkedin.com"
@@ -33,7 +35,7 @@ function Footer() {
               rel="noopener noreferrer"
               className="hover:text-primary-400 transition-colors"
             >
-              LinkedIn
+              {t.footer.linkedin}
             </a>
             <a
               href="https://twitter.com"
@@ -41,7 +43,7 @@ function Footer() {
               rel="noopener noreferrer"
               className="hover:text-primary-400 transition-colors"
             >
-              Twitter
+              {t.footer.twitter}
             </a>
           </div>
         </div>
