@@ -72,38 +72,37 @@ function ReactionPage() {
 
   if (!reaction) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50">
-        <h1 className="text-2xl font-bold text-gray-800 mb-4">Reaction not found</h1>
-        <Button onClick={() => navigate('/library')}>Back to Library</Button>
+      <div className="reaction-page-missing flex flex-col items-center justify-center min-h-screen bg-gray-50">
+        <h1 className="reaction-missing-title text-2xl font-bold text-gray-800 mb-4">Reaction not found</h1>
+        <Button onClick={() => navigate('/library')} className="reaction-missing-button">Back to Library</Button>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-100 ">
-        <PageHeader
-          title={reaction.name}
-          onBack={() => navigate('/library')}
-          backButtonVariant="secondary"
-          backButtonClassName="text-gray-700 hover:text-primary-700"
-        />
-      <div className="mx-auto flex w-full max-w-4xl flex-col">
+    <div className="reaction-page min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-100">
+      <PageHeader
+        title={reaction.name}
+        onBack={() => navigate('/library')}
+        backButtonVariant="secondary"
+        backButtonClassName="text-gray-700 hover:text-primary-700"
+      />
+      <div className="reaction-page-body mx-auto flex w-full max-w-4xl flex-col">
 
         {/* Reaction Viewer Section */}
-        <div className="rounded-2xl border pt-4">
-          <div className="flex flex-col gap-6 p-2 md:p-6">
-            <div className="w-full overflow-hidden">
+        <div className="reaction-viewer-card rounded-2xl border pt-4">
+          <div className="reaction-viewer-content flex flex-col gap-6 p-2 md:p-6">
+            <div className="reaction-viewer-canvas w-full overflow-hidden">
               <ReactionViewer reaction={reaction} viewerType="rdkit" />
             </div>
-            <div>
-              {/* <h2 className="text-xl font-bold text-gray-900 mb-2">{reaction.name}</h2> */}
-              <p className="text-gray-600">{reaction.description}</p>
-              <div className="flex flex-wrap gap-2 mt-4">
-                <span className="px-2 py-1 bg-primary-50 text-primary-700 text-xs font-medium rounded-full">
+            <div className="reaction-details">
+              <p className="reaction-description text-gray-600">{reaction.description}</p>
+              <div className="reaction-tags flex flex-wrap gap-2 mt-4">
+                <span className="reaction-category-chip px-2 py-1 bg-primary-50 text-primary-700 text-xs font-medium rounded-full">
                   {reaction.category}
                 </span>
                 {reaction.tags?.map(tag => (
-                  <span key={tag} className="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full">
+                  <span key={tag} className="reaction-tag-chip px-2 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full">
                     {tag}
                   </span>
                 ))}
@@ -113,12 +112,10 @@ function ReactionPage() {
         </div>
 
         {/* Article / Chat Section */}
-        <div className="p-2 md:p-4">
+        <div className="reaction-article-panel p-2 md:p-4">
           <Article
             role="static"
-            // title={`About ${reaction.name}`}
             content={buildReactionMarkdown(reaction)}
-            // badges={[reaction.category, ...(reaction.tags || [])]}
           />
         </div>
       </div>

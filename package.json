@@ -12,6 +12,7 @@
   "dependencies": {
     "@rdkit/rdkit": "^2025.3.4-1.0.0",
     "axios": "^1.12.2",
+    "framer-motion": "^11.11.17",
     "kekule": "^1.0.3",
     "ketcher-core": "^3.8.0",
     "ketcher-react": "^3.8.0",

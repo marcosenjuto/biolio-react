@@ -14,14 +14,18 @@ function Layout({ children }: LayoutProps) {
   const showFooter = location.pathname === '/' || location.pathname === '/profile'
 
   return (
-    <div className="min-h-screen flex">
+    <div className="app-layout min-h-screen flex">
       <Navigation />
       {/* Main content with padding for navigation */}
-      <div className="flex-1 flex flex-col md:ml-14 mb-12 md:mb-0">
-        <main className="flex-1">
+      <div className="app-content flex-1 flex flex-col md:ml-14 mb-12 md:mb-0">
+        <main className="app-main flex-1">
           {children || <Outlet />}
         </main>
-        {showFooter && <Footer />}
+        {showFooter && (
+          <div className="app-footer-container">
+            <Footer />
+          </div>
+        )}
       </div>
     </div>
   )

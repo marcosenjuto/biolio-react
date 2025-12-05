@@ -122,7 +122,8 @@ function UnifiedFilters({
       <div 
         className="filter-container bg-white rounded-lg shadow-sm mb-4 p-0 transition-all duration-300 z-50"
         style={{
-          position: 'fixed',
+          position: 'sticky',
+          // top: '-58px',
           top: 0,
           left: 0,
           width: '100vw',
@@ -131,17 +132,18 @@ function UnifiedFilters({
       >
         {/* Search Bar Section */}
         <div
-          className="transition-all duration-300"
+          className="filters-searchbar-section transition-all duration-300"
           style={{
             opacity: isCollapsed ? 0 : 1,
-            maxHeight: isCollapsed ? '0px' : '100px',
+            maxHeight: isCollapsed ? '0px' : '120px',
+            pointerEvents: isCollapsed ? 'none' : 'auto',
             overflow: 'hidden'
           }}
         >
-          <div className="flex items-center gap-2 p-3 pb-1">
+          <div className="filters-searchbar flex items-center gap-2 p-3 pb-1">
             {/* Search Input */}
-            <div className="search-input-wrapper flex-1">
-              <div className="relative">
+            <div className="filters-search-input-wrapper search-input-wrapper flex-1">
+              <div className="relative search-input-shell">
                 <svg className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
@@ -150,7 +152,7 @@ function UnifiedFilters({
                   placeholder={t.filters.searchPlaceholder}
                   value={searchTerm}
                   onChange={(e) => onSearchChange(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                  className="searchbar-input w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
                 />
               </div>
             </div>
@@ -158,7 +160,7 @@ function UnifiedFilters({
             {/* Filter Toggle Button */}
             <button
               onClick={() => setIsPanelOpen(!isPanelOpen)}
-              className="relative px-4 py-2.5 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors flex items-center gap-2 flex-shrink-0"
+              className="filters-toggle-button relative px-4 py-2.5 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors flex items-center gap-2 flex-shrink-0"
             >
               <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
@@ -176,8 +178,8 @@ function UnifiedFilters({
         </div>
 
         {/* Filter Pills Section */}
-        <div className="overflow-x-auto py-1.5 px-2 scrollbar-hide" style={{ width: '100%' }}>
-          <div className="flex items-center gap-2" style={{ width: 'max-content' }}>
+        <div className="filters-pill-scroll overflow-x-auto py-1.5 px-2 scrollbar-hide" style={{ width: '100%' }}>
+          <div className="filters-pill-row flex items-center gap-2" style={{ width: 'max-content' }}>
             {/* Category Combobox */}
             <Combobox
               options={reactionCategories.map(cat => ({ value: cat.id, label: cat.name }))}
@@ -186,7 +188,7 @@ function UnifiedFilters({
               placeholder={t.filters.category}
               searchPlaceholder={t.filters.searchCategories}
               isActive={selectedCategory !== 'all'}
-              className="flex-shrink-0 min-w-[130px]"
+              className="filters-category-combobox flex-shrink-0 min-w-[130px]"
             />
 
             {/* Functional Group Combobox */}
@@ -201,7 +203,7 @@ function UnifiedFilters({
               placeholder={t.filters.functionalGroup}
               searchPlaceholder={t.filters.searchGroups}
               isActive={selectedFunctionalGroup !== 'all'}
-              className="flex-shrink-0 min-w-[130px]"
+              className="filters-functional-group-combobox flex-shrink-0 min-w-[130px]"
             />
 
             {/* Viewer Type Combobox */}
@@ -211,13 +213,13 @@ function UnifiedFilters({
               onValueChange={(value) => onViewerTypeChange(value as typeof viewerType)}
               placeholder={t.filters.viewer}
               searchPlaceholder={t.filters.searchViewers}
-              className="flex-shrink-0 min-w-[100px]"
+              className="filters-viewer-type-combobox flex-shrink-0 min-w-[100px]"
             />
 
             {/* Expand/Collapse All Toggle */}
             <button
               onClick={() => onExpandAllChange(!expandAll)}
-              className={`flex-shrink-0 px-4 py-2 border rounded-full text-sm font-medium transition-colors flex items-center gap-2 ${
+              className={`filters-expand-toggle flex-shrink-0 px-4 py-2 border rounded-full text-sm font-medium transition-colors flex items-center gap-2 ${
                 expandAll
                   ? 'bg-primary-500 text-white border-primary-500'
                   : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
@@ -237,7 +239,7 @@ function UnifiedFilters({
             </button>
 
             {/* Named Reactions Button */}
-            <button className="flex-shrink-0 px-4 py-2 border border-gray-300 rounded-full text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors flex items-center gap-1">
+            <button className="filters-named-reactions-button flex-shrink-0 px-4 py-2 border border-gray-300 rounded-full text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors flex items-center gap-1">
               {t.filters.namedReactions}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -248,7 +250,7 @@ function UnifiedFilters({
 
         {/* Expandable Filter Panel */}
         <div
-          className="transition-all duration-300 overflow-hidden border-t border-gray-200"
+          className="filters-expanded-panel transition-all duration-300 overflow-hidden border-t border-gray-200"
           style={{
             maxHeight: isPanelOpen ? '600px' : '0px',
             position: 'relative',
@@ -256,9 +258,9 @@ function UnifiedFilters({
 
           }}
         >
-          <div className="p-6 space-y-6 bg-gray-50">
+          <div className="filters-expanded-content p-6 space-y-6 bg-gray-50">
             {/* Category Filter */}
-            <div className="filter-section">
+            <div className="filter-section filters-category-section">
               <label className="block text-sm font-semibold text-gray-700 mb-3">
                 {t.filters.reactionCategory}
               </label>
@@ -273,7 +275,7 @@ function UnifiedFilters({
             </div>
 
             {/* Functional Group Filter */}
-            <div className="filter-section">
+            <div className="filter-section filters-functional-group-section">
               <label className="block text-sm font-semibold text-gray-700 mb-3">
                 {t.filters.functionalGroup}
               </label>
@@ -292,7 +294,7 @@ function UnifiedFilters({
             </div>
 
             {/* Viewer Type Selector */}
-            <div className="filter-section">
+            <div className="filter-section filters-viewer-section">
               <label className="block text-sm font-semibold text-gray-700 mb-3">
                 {t.filters.moleculeViewer}
               </label>
@@ -313,7 +315,7 @@ function UnifiedFilters({
             </div>
 
             {/* Action Buttons */}
-            <div className="flex items-center justify-between pt-4 border-t border-gray-300">
+            <div className="filters-action-row flex items-center justify-between pt-4 border-t border-gray-300">
               <Button onClick={handleClearAll} variant="outline">
                 {t.filters.clearAll}
               </Button>

@@ -59,10 +59,29 @@ function LibraryPage() {
 
   return (
     <div className="library-page page min-h-screen bg-gray-50">
-      <div className="library-container absolute  mx-auto px-3 sm:px-6 lg:px-8 py-4">
+      <div className="library-container absolute  mx-auto">
         {/* Header */}
-        <div className="spacer-100 h-28"></div>
-        <div className="library-header mb-2">
+          {/* Unified Filters - Preview + Collapsible Panel */}
+          <UnifiedFilters
+            searchTerm={searchTerm}
+            onSearchChange={setSearchTerm}
+            selectedCategory={selectedCategory}
+            selectedFunctionalGroup={selectedFunctionalGroup}
+            viewerType={viewerType}
+            onCategoryChange={setSelectedCategory}
+            onFunctionalGroupChange={setSelectedFunctionalGroup}
+            onViewerTypeChange={setViewerType}
+            onClearFilters={() => {
+              setSelectedCategory('all')
+              setSelectedFunctionalGroup('all')
+            }}
+            expandAll={expandAll}
+            onExpandAllChange={setExpandAll}
+          />
+
+        {/* <div className="spacer-100 h-28"></div> */}
+
+        <div className="library-header mb-2 px-2">
           <h1 className="library-title text-4xl font-bold text-gray-900 mb-2">
             {t.library.title}
           </h1>
@@ -71,26 +90,8 @@ function LibraryPage() {
           </p> */}
         </div>
 
-        {/* Unified Filters - Preview + Collapsible Panel */}
-        <UnifiedFilters
-          searchTerm={searchTerm}
-          onSearchChange={setSearchTerm}
-          selectedCategory={selectedCategory}
-          selectedFunctionalGroup={selectedFunctionalGroup}
-          viewerType={viewerType}
-          onCategoryChange={setSelectedCategory}
-          onFunctionalGroupChange={setSelectedFunctionalGroup}
-          onViewerTypeChange={setViewerType}
-          onClearFilters={() => {
-            setSelectedCategory('all')
-            setSelectedFunctionalGroup('all')
-          }}
-          expandAll={expandAll}
-          onExpandAllChange={setExpandAll}
-        />
-
         {/* Functional Groups Section */}
-        <div className="mb-2">
+        <div className="mb-2 px-2">
           <div
             className="flex items-center justify-between cursor-pointer py-2 border-b border-gray-200 sticky top-[48px] z-30 bg-gray-50"
             onClick={() => setShowFunctionalGroups(!showFunctionalGroups)}
@@ -117,7 +118,7 @@ function LibraryPage() {
         </div>
 
         {/* Reactions Section */}
-        <div className="mb-8">
+        <div className="mb-8 px-2">
           <div
             className="flex items-center justify-between cursor-pointer py-2 border-b border-gray-200 sticky top-[48px] z-30 bg-gray-50"
             onClick={() => setShowReactions(!showReactions)}

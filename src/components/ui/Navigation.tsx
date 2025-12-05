@@ -1,9 +1,12 @@
 import { Link, useLocation } from 'react-router-dom'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguageStore } from '@/store/languageStore'
 
 function Navigation() {
   const location = useLocation()
   const { t } = useLanguageStore()
+
+  const indicatorTransition = { type: 'spring', stiffness: 420, damping: 32, mass: 0.8 }
 
   // {
   //   path: '/',
@@ -54,52 +57,102 @@ function Navigation() {
   return (
     <>
       {/* Desktop Sidebar - Left */}
-      <nav className="hidden md:flex fixed left-0 top-0 h-screen w-14 bg-white shadow-lg flex-col items-center py-8 z-50">
+      <nav className="app-sidebar navigation-desktop hidden md:flex fixed left-0 top-0 h-screen w-14 bg-white shadow-lg flex-col items-center py-8 z-50">
         {/* Logo */}
         <Link
           to="/"
-          className="text-2xl font-bold text-primary-600 hover:text-primary-700 mb-16"
+          className="navigation-logo text-2xl font-bold text-primary-600 hover:text-primary-700 mb-16"
         >
           B
         </Link>
 
         {/* Navigation Links */}
-        <div className="flex flex-col gap-6 flex-1">
-          {links.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={`flex flex-col items-center gap-1 p-2 rounded-lg transition-all ${
-                isActive(link.path)
-                  ? 'text-primary-600 bg-primary-50'
-                  : 'text-gray-600 hover:text-primary-600 hover:bg-gray-50'
-              }`}
-              title={link.label}
-            >
-              {link.icon}
-              <span className="text-xs font-medium">{link.label}</span>
-            </Link>
-          ))}
+        <div className="navigation-links flex flex-col gap-6 flex-1">
+          {links.map((link) => {
+            const active = isActive(link.path)
+
+            return (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`navigation-link relative flex flex-col items-center gap-1 p-2 rounded-2xl transition-colors ${
+                  active
+                    ? 'text-primary-700'
+                    : 'text-gray-600 hover:text-primary-600'
+                }`}
+                title={link.label}
+                aria-current={active ? 'page' : undefined}
+              >
+                <span className="navigation-link-shell relative flex flex-col items-center gap-1 w-full">
+                  <AnimatePresence>
+                    {active && (
+                      <motion.span
+                        layoutId="nav-active-desktop"
+                        className="absolute inset-0 rounded-2xl bg-primary-50 shadow-[0_10px_30px_rgba(79,70,229,0.18)]"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={indicatorTransition}
+                      />
+                    )}
+                  </AnimatePresence>
+
+                  <motion.span
+                    className="navigation-link-content relative flex flex-col items-center gap-1"
+                    animate={active ? { scale: 1, y: 0 } : { scale: 0.92, y: 2 }}
+                    transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                  >
+                    {link.icon}
+                    <span className="text-xs font-medium">{link.label}</span>
+                  </motion.span>
+                </span>
+              </Link>
+            )
+          })}
         </div>
       </nav>
 
       {/* Mobile Bottom Bar */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t border-gray-200 z-50">
-        <div className="flex justify-around items-center h-12">
-          {links.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={`flex flex-col items-center justify-center gap-0 px-4 py-2 flex-1 transition-colors ${
-                isActive(link.path)
-                  ? 'text-primary-600'
-                  : 'text-gray-600'
-              }`}
-            >
-              {link.icon}
-              <span className="text-xs font-medium">{link.label}</span>
-            </Link>
-          ))}
+      <nav className="navigation-mobile md:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t border-gray-200 z-50">
+        <div className="navigation-mobile-list flex justify-around items-center h-12">
+          {links.map((link) => {
+            const active = isActive(link.path)
+
+            return (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`navigation-mobile-link relative flex flex-col items-center justify-center gap-0 px-4 py-2 flex-1 transition-colors ${
+                  active ? 'text-primary-600' : 'text-gray-600'
+                }`}
+                aria-current={active ? 'page' : undefined}
+              >
+                <span className="navigation-mobile-shell relative flex flex-col items-center gap-0">
+                  <AnimatePresence>
+                    {active && (
+                      <motion.span
+                        layoutId="nav-active-mobile"
+                        className="absolute inset-x-1 inset-y-0 rounded-2xl bg-primary-50"
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                        transition={indicatorTransition}
+                      />
+                    )}
+                  </AnimatePresence>
+
+                  <motion.span
+                    className="navigation-mobile-content relative flex flex-col items-center gap-0"
+                    animate={active ? { scale: 1 } : { scale: 0.94 }}
+                    transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+                  >
+                    {link.icon}
+                    <span className="text-xs font-medium">{link.label}</span>
+                  </motion.span>
+                </span>
+              </Link>
+            )
+          })}
         </div>
       </nav>
     </>

@@ -10,7 +10,7 @@ interface PageHeaderProps {
   backButtonClassName?: string
   backButtonIcon?: ReactNode
   rightSlot?: ReactNode
-  rightSlotWidthClassName?: string
+  // rightSlotWidthClassName?: string
   className?: string
   titleClassName?: string
 }
@@ -24,7 +24,7 @@ function PageHeader({
   backButtonClassName = '',
   backButtonIcon,
   rightSlot,
-  rightSlotWidthClassName = 'w-[140px]',
+  // rightSlotWidthClassName = 'w-[140px]',
   className = '',
   titleClassName = 'text-lg font-semibold text-gray-900'
 }: PageHeaderProps) {

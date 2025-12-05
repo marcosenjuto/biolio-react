@@ -232,7 +232,8 @@ function AIChatPage() {
 
     try {
       // Call local AI model API using the actions endpoint
-      const response = await fetch('http://localhost:8001/query/actions', {
+      const response = await fetch('http://localhost:2024/query/actions', {
+      // const response = await fetch('http://localhost:8001/query/actions', {2024
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

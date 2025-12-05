@@ -221,6 +221,7 @@ function AIChatPage() {
 
     try {
       // Call local AI model API using the actions endpoint
+      // const response = await fetch('http://127.0.0.1:2024:2024/query/actions', {
       const response = await fetch('http://localhost:8001/query/actions', {
         method: 'POST',
         headers: {
@@ -363,7 +364,7 @@ function AIChatPage() {
       {/* Messages Container */}
       <div
         ref={messagesContainerRef}
-        className="biopilot-messages-scroll flex-1 max-w-[100vw] overflow-y-auto px-3 py-6"
+        className="biopilot-messages-scroll flex-1 max-w-[100vw] overflow-y-auto px-3 py-6 pb-0"
         onScroll={handleScroll}
       >
         {messages.length === 0 ? (
@@ -497,7 +498,7 @@ function AIChatPage() {
       </div>
 
       {/* Input Area */}
-      <div className="biopilot-input-area bg-white border-t border-gray-200 px-3 py-3 md:px-6">
+      <div className="biopilot-input-area bg-white border-t border-gray-200 px-3 py-3 md:px-6 flex-shrink-0">
         <div className="input-container max-w-4xl mx-auto">
           <div className="input-controls flex gap-2">
             <Input
