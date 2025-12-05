@@ -19,6 +19,13 @@ function AIChatPage() {
   const [isLoadingMore, setIsLoadingMore] = useState(false)
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const [threadId] = useState<string>(() => {
+    const saved = localStorage.getItem('biolio-chat-thread-id')
+    if (saved) return saved
+    const newId = crypto.randomUUID()
+    localStorage.setItem('biolio-chat-thread-id', newId)
+    return newId
+  })
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const messagesContainerRef = useRef<HTMLDivElement>(null)
   const loadMoreScrollMetaRef = useRef<{ height: number; top: number } | null>(null)
@@ -203,6 +210,93 @@ function AIChatPage() {
     return links
   }
 
+  const processAIResponse = (data: any) => {
+    const actions = Array.isArray(data.actions) ? (data.actions as AssistantAction[]) : undefined
+    const streamedText = actions
+      ?.filter((action: AssistantAction) => action.type === 'ui.stream_text' && action.component === 'MarkdownText')
+      .map((action: AssistantAction) => {
+        const props = action.props as { text?: string }
+        return props?.text ?? ''
+      })
+      .filter(Boolean)
+      .join('\n\n')
+
+    const aiResponse =
+      data.answer ||
+      streamedText ||
+      data.response ||
+      data.result ||
+      'No response received'
+
+    const assistantMessage: ChatMessage = {
+      id: (Date.now() + 1).toString(),
+      role: 'assistant',
+      content: aiResponse,
+      timestamp: new Date(),
+      actions,
+      userFriendlyText: data.user_friendly_text,
+      answer: data.answer,
+      hasVisualizations: data.has_visualizations,
+      toolResults: data.tool_results,
+      iterations: data.iterations,
+      components: data.components
+    }
+
+    setMessages(prev => [...prev, assistantMessage])
+  }
+
+  const handleAction = async (actionType: string, data: any) => {
+    if (actionType === 'user_choice') {
+      const { choice, originalQuery } = data
+      
+      const userMessage: ChatMessage = {
+        id: Date.now().toString(),
+        role: 'user',
+        content: choice,
+        timestamp: new Date(),
+        actions: []
+      }
+      
+      setMessages(prev => [...prev, userMessage])
+      setIsLoading(true)
+      stickToBottomRef.current = true
+
+      try {
+        const response = await fetch('http://localhost:8001/query/respond', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            thread_id: threadId,
+            choice: choice,
+            original_query: originalQuery
+          }),
+        })
+
+        if (!response.ok) {
+            throw new Error('Failed to respond to query')
+        }
+
+        const responseData = await response.json()
+        processAIResponse(responseData)
+
+      } catch (error) {
+          console.error('Error responding to query:', error)
+          const errorMessage: ChatMessage = {
+            id: (Date.now() + 1).toString(),
+            role: 'assistant',
+            content: 'Sorry, I encountered an error processing your selection.',
+            timestamp: new Date(),
+            actions: []
+          }
+          setMessages(prev => [...prev, errorMessage])
+      } finally {
+          setIsLoading(false)
+      }
+    }
+  }
+
   const handleSend = async () => {
     if (!input.trim()) return
 
@@ -237,38 +331,7 @@ function AIChatPage() {
       }
 
       const data = await response.json()
-      const actions = Array.isArray(data.actions) ? (data.actions as AssistantAction[]) : undefined
-      const streamedText = actions
-        ?.filter((action: AssistantAction) => action.type === 'ui.stream_text' && action.component === 'MarkdownText')
-        .map((action: AssistantAction) => {
-          const props = action.props as { text?: string }
-          return props?.text ?? ''
-        })
-        .filter(Boolean)
-        .join('\n\n')
-
-      const aiResponse =
-        data.answer ||
-        streamedText ||
-        data.response ||
-        data.result ||
-        'No response received'
-
-      const assistantMessage: ChatMessage = {
-        id: (Date.now() + 1).toString(),
-        role: 'assistant',
-        content: aiResponse,
-        timestamp: new Date(),
-        actions,
-        userFriendlyText: data.user_friendly_text,
-        answer: data.answer,
-        hasVisualizations: data.has_visualizations,
-        toolResults: data.tool_results,
-        iterations: data.iterations,
-        components: data.components
-      }
-
-      setMessages(prev => [...prev, assistantMessage])
+      processAIResponse(data)
     } catch (error) {
       console.error('Error calling AI model:', error)
       
@@ -360,7 +423,9 @@ function AIChatPage() {
   }
 
   return (
-    <div className="biopilot-chat-container flex flex-col max-w-[100vw] h-[calc(100vh-3rem)] md:h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div 
+      className="biopilot-chat-container flex flex-col h-full max-w-[100vw] bg-gradient-to-br from-blue-50 via-white to-purple-50"
+    >
       {/* Messages Container */}
       <div
         ref={messagesContainerRef}
@@ -449,7 +514,7 @@ function AIChatPage() {
                     return (
                       <div
                         key={message.id}
-                        className={`message-wrapper max-w-max-w-[-webkit-fill-available] flex ${message.role === 'user' ? 'justify-end sticky top-[-24px] z-10 cursor-pointer' : 'justify-start'}`}
+                        className={`message-wrapper flex ${message.role === 'user' ? 'justify-end sticky top-0 z-10 cursor-pointer' : 'justify-start'}`}
                         onClick={(e) => {
                           if (message.role === 'user') {
                             e.currentTarget.parentElement?.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -468,6 +533,7 @@ function AIChatPage() {
                               ? handleViewMolecule(link.data)
                               : handleViewReaction(link.data)
                           }
+                          onAction={handleAction}
                         />
                       </div>
                     )
@@ -498,7 +564,7 @@ function AIChatPage() {
       </div>
 
       {/* Input Area */}
-      <div className="biopilot-input-area bg-white border-t border-gray-200 px-3 py-3 md:px-6 flex-shrink-0">
+      <div className="biopilot-input-area z-10 sticky bottom-[48px] bg-white border-t border-gray-200 p-2 md:p-3 flex-shrink-0">
         <div className="input-container max-w-4xl mx-auto">
           <div className="input-controls flex gap-2">
             <Input

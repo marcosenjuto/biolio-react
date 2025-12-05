@@ -30,6 +30,7 @@ function KeepAlivePage({ activePath, path, component }: KeepAlivePageProps) {
   const scrollPos = useRef(0)
   const isActiveRef = useRef(isActive)
   const prevActiveRef = useRef(isActive)
+  const hasRestoredRef = useRef(false)
 
   // Update ref immediately on render
   isActiveRef.current = isActive
@@ -43,6 +44,7 @@ function KeepAlivePage({ activePath, path, component }: KeepAlivePageProps) {
     if (prevActiveRef.current && !isActive) {
       // Page is becoming inactive, save current scroll position
       scrollPos.current = window.scrollY
+      hasRestoredRef.current = false
     }
     prevActiveRef.current = isActive
   }, [isActive])
@@ -55,14 +57,17 @@ function KeepAlivePage({ activePath, path, component }: KeepAlivePageProps) {
       }
     }
     
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Restore scroll position when becoming active
+  // Restore scroll position when becoming active (only once per activation)
   useLayoutEffect(() => {
-    if (isActive && hasBeenVisited) {
-      window.scrollTo(0, scrollPos.current)
+    if (isActive && hasBeenVisited && !hasRestoredRef.current) {
+      requestAnimationFrame(() => {
+        window.scrollTo(0, scrollPos.current)
+        hasRestoredRef.current = true
+      })
     }
   }, [isActive, hasBeenVisited])
 
@@ -80,6 +85,8 @@ function KeepAlivePage({ activePath, path, component }: KeepAlivePageProps) {
         width: '100%',
         position: isActive ? 'relative' : 'absolute',
         inset: isActive ? undefined : 0,
+        height: isActive ? 'auto' : '0',
+        overflow: isActive ? 'visible' : 'hidden',
         pointerEvents: isActive ? 'auto' : 'none',
         zIndex: isActive ? 1 : 0,
         visibility: isActive ? 'visible' : 'hidden',

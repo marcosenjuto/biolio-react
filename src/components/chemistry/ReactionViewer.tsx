@@ -199,7 +199,7 @@ function ReactionViewer({
       <div className="reaction-scheme flex items-start justify-between sm:gap-2 md:gap-3 sm:my-3 relative z-10">
         {/* Reactants */}
         <div ref={reactantsRef} className="reactants-section flex-1 min-w-0 relative z-10">
-          <h4 className="reactants-title text-xs text-center font-semibold text-gray-700 mt-1 sm:mt-2">Reactants</h4>
+          {/* <h4 className="reactants-title text-xs text-center font-semibold text-gray-700 mt-1 sm:mt-2">Reactants</h4> */}
           <div className="reactants-list space-y-1 sm:space-y-2">
             {reaction.reactants.map((reagent, idx) => (
               <div key={idx} className="reactant-item mb-4 text-center">
@@ -270,7 +270,7 @@ function ReactionViewer({
 
         {/* Products */}
         <div className="products-section flex-1 min-w-0 relative z-10">
-          <h4 className="products-title text-xs text-center  font-semibold text-gray-700 mt-1 sm:mb-2">Products</h4>
+          {/* <h4 className="products-title text-xs text-center  font-semibold text-gray-700 mt-1 sm:mb-2">Products</h4> */}
           <div className="products-list space-y-1 sm:space-y-2">
             {reaction.products.map((reagent, idx) => (
               <div key={idx} className="product-item mb-4 text-center">

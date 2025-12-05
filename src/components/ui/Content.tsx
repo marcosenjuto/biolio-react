@@ -7,9 +7,11 @@ import type { AssistantAction } from '@/types/chat'
 import Molecule3DViewer from '@/components/chemistry/Molecule3DViewer'
 import ReactionViewer from '@/components/chemistry/ReactionViewer'
 import Protein3DViewer from '@/components/chemistry/Protein3DViewer'
+import { UserChoice, type UserChoiceProps } from '@/components/ui/UserChoice'
 
 interface ContentProps {
   actions?: AssistantAction[]
+  onAction?: (actionType: string, data: any) => void
 }
 
 interface AlphaFoldIframeProps {
@@ -98,7 +100,7 @@ const AlphaFoldIframe: React.FC<AlphaFoldIframeProps> = ({ uniprotId, url, heigh
   )
 }
 
-const Content: React.FC<ContentProps> = ({ actions }) => {
+const Content: React.FC<ContentProps> = ({ actions, onAction }) => {
   if (!actions || actions.length === 0) {
     return null
   }
@@ -234,6 +236,17 @@ const Content: React.FC<ContentProps> = ({ actions }) => {
       case 'AlphaFoldViewer':
       case 'AlphaFoldEmbed': {
         return <AlphaFoldIframe {...(action.props as AlphaFoldIframeProps)} />
+      }
+      case 'UserChoice': {
+        const props = (action.props ?? {}) as unknown as UserChoiceProps
+        return (
+          <UserChoice 
+            {...props} 
+            onSelect={(choice, originalQuery) => {
+              onAction?.('user_choice', { choice, originalQuery })
+            }}
+          />
+        )
       }
       default:
         return (

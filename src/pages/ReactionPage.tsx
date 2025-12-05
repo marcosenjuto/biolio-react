@@ -80,7 +80,7 @@ function ReactionPage() {
   }
 
   return (
-    <div className="reaction-page min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-100">
+    <div className="reaction-page bg-gradient-to-b from-gray-50 via-white to-gray-100">
       <PageHeader
         title={reaction.name}
         onBack={() => navigate('/library')}

@@ -15,7 +15,7 @@ function MoleculeViewerDemo() {
   ]
 
   return (
-    <div className="molecule-viewer-demo min-h-screen bg-gray-50 p-6">
+    <div className="molecule-viewer-demo bg-gray-50 p-6">
       <div className="molecule-demo-container max-w-7xl mx-auto">
         <h1 className="molecule-demo-title text-3xl font-bold text-gray-900 mb-6">
           Molecule Viewer Demo

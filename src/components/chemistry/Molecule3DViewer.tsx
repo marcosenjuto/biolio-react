@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
+import { FullscreenMoleculeViewer } from './FullscreenMoleculeViewer'
 
 // 3Dmol.js and RDKit types
 declare global {
@@ -20,6 +22,8 @@ interface Molecule3DViewerProps {
   zoom?: number
   use3DGeneration?: boolean // Use RDKit's real 3D generation instead of PubChem
   onSdfDataFetched?: (sdfData: string) => void // Callback to save SDF data
+  showAtomLabels?: boolean // Show element symbols on atoms (C, O, N, etc.)
+  onNavigateToDetails?: () => void // Navigate to molecule details page
 }
 
 // Global loading promises
@@ -36,16 +40,33 @@ function Molecule3DViewer({
   spinSpeed = 0.1,
   zoom = 1.2,
   use3DGeneration = true, // Use RDKit's real 3D generation
-  onSdfDataFetched
+  onSdfDataFetched,
+  showAtomLabels = true, // Show element symbols on atoms
+  onNavigateToDetails
 }: Molecule3DViewerProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const viewerRef = useRef<any>(null)
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [measuredDimensions, setMeasuredDimensions] = useState<{ width: number; height: number } | null>(null)
+  const [showContextMenu, setShowContextMenu] = useState(false)
+  const [contextMenuPos, setContextMenuPos] = useState({ x: 0, y: 0 })
+  const [isFullscreen, setIsFullscreen] = useState(false)
+  const [localShowLabels, setLocalShowLabels] = useState(showAtomLabels)
+  const longPressTimerRef = useRef<NodeJS.Timeout | null>(null)
+  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' ? window.innerWidth < 768 : false)
 
   useEffect(() => {
-    if (typeof width === 'number' && typeof height === 'number') {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    // checkMobile() // Initial check already done in state initializer
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  useEffect(() => {
+    if (!isFullscreen && typeof width === 'number' && typeof height === 'number') {
       return
     }
 
@@ -80,14 +101,17 @@ function Molecule3DViewer({
       resizeObserver.disconnect()
       window.removeEventListener('resize', debouncedMeasure)
     }
-  }, [width, height])
+  }, [width, height, isFullscreen])
 
   // Resize viewer when dimensions change
   useEffect(() => {
     if (viewerRef.current) {
-      viewerRef.current.resize()
+      // Small delay to ensure layout is stable after fullscreen transition
+      setTimeout(() => {
+        if (viewerRef.current) viewerRef.current.resize()
+      }, 50)
     }
-  }, [measuredDimensions])
+  }, [measuredDimensions, isFullscreen])
 
   useEffect(() => {
     let mounted = true
@@ -495,6 +519,23 @@ function Molecule3DViewer({
           }
         })
 
+        // Add atom labels if requested (only for front-facing atoms)
+        if (localShowLabels) {
+          const atoms = viewer.getModel().selectedAtoms({})
+          atoms.forEach((atom: any) => {
+            viewer.addLabel(atom.elem, {
+              position: atom,
+              fontSize: 16,
+              fontColor: 'white',
+              backgroundColor: 'black',
+              backgroundOpacity: 0,
+              // borderRadius: 3,
+              // borderThickness: 1,
+              alignment: 'center',
+            })
+          })
+        }
+
         // Zoom with magnification (closer view)
         viewer.zoomTo()
         viewer.zoom(zoom) // Slight zoom for better view
@@ -543,54 +584,229 @@ function Molecule3DViewer({
         }
       }
     }
-  }, [smiles, molString, compoundName, spin, spinSpeed, use3DGeneration, onSdfDataFetched])
+  }, [smiles, molString, compoundName, spin, spinSpeed, use3DGeneration, onSdfDataFetched, localShowLabels, zoom, isFullscreen])
+
+  // Gesture handlers
+  const handleContextMenu = (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    console.log('[ContextMenu] Right-click triggered at:', e.clientX, e.clientY)
+    setContextMenuPos({ x: e.clientX, y: e.clientY })
+    setShowContextMenu(true)
+    console.log('[ContextMenu] Menu state set to true')
+  }
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const touch = e.touches[0]
+    console.log('[ContextMenu] Touch start at:', touch.clientX, touch.clientY)
+    longPressTimerRef.current = setTimeout(() => {
+      console.log('[ContextMenu] Long press triggered!')
+      setContextMenuPos({ x: touch.clientX, y: touch.clientY })
+      setShowContextMenu(true)
+      console.log('[ContextMenu] Menu state set to true from long press')
+    }, 500) // 500ms long press
+  }
+
+  const handleTouchEnd = () => {
+    console.log('[ContextMenu] Touch end, clearing timer')
+    if (longPressTimerRef.current) {
+      clearTimeout(longPressTimerRef.current)
+      longPressTimerRef.current = null
+    }
+  }
+
+  const handleTouchMove = () => {
+    console.log('[ContextMenu] Touch move, canceling long press')
+    if (longPressTimerRef.current) {
+      clearTimeout(longPressTimerRef.current)
+      longPressTimerRef.current = null
+    }
+  }
+
+  const closeContextMenu = () => {
+    console.log('[ContextMenu] Closing menu')
+    setShowContextMenu(false)
+  }
+
+  const handleFullscreen = () => {
+    console.log('[ContextMenu] Fullscreen clicked')
+    setIsFullscreen(true)
+    setShowContextMenu(false)
+  }
+
+  const exitFullscreen = () => {
+    console.log('[ContextMenu] Exit fullscreen')
+    setIsFullscreen(false)
+  }
+
+  const toggleLabels = () => {
+    console.log('[ContextMenu] Toggle labels, current:', localShowLabels)
+    setLocalShowLabels(prev => !prev)
+    setShowContextMenu(false)
+  }
+
+  // Log context menu state changes
+  useEffect(() => {
+    console.log('[ContextMenu] Menu visibility changed:', showContextMenu, 'Position:', contextMenuPos)
+  }, [showContextMenu, contextMenuPos])
+
+  // Close context menu on click outside
+  useEffect(() => {
+    if (showContextMenu) {
+      const handleClickOutside = () => closeContextMenu()
+      document.addEventListener('click', handleClickOutside)
+      return () => document.removeEventListener('click', handleClickOutside)
+    }
+  }, [showContextMenu])
+
+  // Handle ESC key to exit fullscreen
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isFullscreen) {
+        exitFullscreen()
+      }
+    }
+    document.addEventListener('keydown', handleEsc)
+    return () => document.removeEventListener('keydown', handleEsc)
+  }, [isFullscreen])
   
-  return (
-    <div
-      className={`molecule-3d-viewer ${className}`}
-      style={{
-        width: typeof width === 'number' ? `${width}px` : width,
-        height: error ? 'auto' : (typeof height === 'number' ? `${height}px` : (measuredDimensions ? `${measuredDimensions.height}px` : height)),
-        borderRadius: '0.375rem',
-        backgroundColor: 'transparent',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        position: 'relative',
-        overflow: 'hidden'
-      }}
-    >
-      {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-90 z-10">
-          <div className="text-gray-400 text-sm">
-            <div className="flex flex-col items-center gap-2">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-400"></div>
-              <div>Loading 3D structure...</div>
+  const viewerContent = (
+    <>
+      <div
+        className={`molecule-3d-viewer ${className}`}
+        style={{
+          width: isFullscreen ? '100%' : (typeof width === 'number' ? `${width}px` : width),
+          height: isFullscreen ? '100%' : (error ? 'auto' : (typeof height === 'number' ? `${height}px` : (measuredDimensions ? `${measuredDimensions.height}px` : height))),
+          borderRadius: isFullscreen ? '0' : '0.375rem',
+          backgroundColor: isFullscreen ? 'white' : 'transparent',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          position: 'relative',
+          overflow: 'hidden'
+        }}
+        onContextMenu={handleContextMenu}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        onTouchMove={handleTouchMove}
+      >
+        {isLoading && (
+          <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-90 z-10">
+            <div className="text-gray-400 text-sm">
+              <div className="flex flex-col items-center gap-2">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-400"></div>
+                <div>Loading 3D structure...</div>
+              </div>
             </div>
           </div>
-        </div>
-      )}
-      {error && (
-        <div className="flex items-center justify-center bg-white z-10 w-full">
-          <div className="text-red-500 text-xs p-2 text-center max-w-xs">
-            <div className="font-semibold mb-1">Unable to render 3D structure</div>
-            <div className="text-xs">{error}</div>
-            {smiles && (
-              <div className="text-xs opacity-75 font-mono break-all">{smiles}</div>
-            )}
+        )}
+        {error && (
+          <div className="flex items-center justify-center bg-white z-10 w-full">
+            <div className="text-red-500 text-xs p-2 text-center max-w-xs">
+              <div className="font-semibold mb-1">Unable to render 3D structure</div>
+              <div className="text-xs">{error}</div>
+              {smiles && (
+                <div className="text-xs opacity-75 font-mono break-all">{smiles}</div>
+              )}
+            </div>
+          </div>
+        )}
+        <div
+          ref={containerRef}
+          style={{
+            width: isFullscreen ? '100%' : (typeof width === 'number' ? `${width}px` : width),
+            height: isFullscreen ? '100%' : (typeof height === 'number' ? `${height}px` : (measuredDimensions ? `${measuredDimensions.height}px` : height)),
+            display: error ? 'none' : 'block'
+          }}
+        />
+      </div>
+
+      {/* Context Menu */}
+      {showContextMenu && createPortal(
+        <>
+          {isMobile && (
+            <div 
+              className="fixed inset-0 bg-black/50 z-[9998]"
+              onClick={closeContextMenu}
+            />
+          )}
+          <div
+            className={`fixed bg-white rounded-lg shadow-2xl border border-gray-200 py-1 min-w-[180px] z-[9999] ${
+              isMobile 
+                ? 'w-[80%] max-w-sm' 
+                : ''
+            }`}
+            style={isMobile ? {
+              left: '50%',
+              top: '50%',
+              transform: 'translate(-50%, -50%)'
+            } : {
+              left: `${contextMenuPos.x}px`,
+              top: `${contextMenuPos.y}px`
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+          <button
+            onClick={handleFullscreen}
+            className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 flex items-center gap-2"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+            </svg>
+            Fullscreen
+          </button>
+          
+          <button
+            onClick={toggleLabels}
+            className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 flex items-center gap-2"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+            </svg>
+            {localShowLabels ? 'Hide' : 'Show'} Atom Labels
+          </button>
+
+          {onNavigateToDetails && (
+            <button
+              onClick={() => {
+                onNavigateToDetails()
+                setShowContextMenu(false)
+              }}
+              className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 flex items-center gap-2"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Molecule Details
+            </button>
+          )}
+
+          <div className="border-t border-gray-200 my-1"></div>
+          
+          <div className="px-4 py-2 text-xs text-gray-500">
+            Visualization Options
           </div>
         </div>
+        </>,
+        document.body
       )}
-      <div
-        ref={containerRef}
-        style={{
-          width: typeof width === 'number' ? `${width}px` : width,
-          height: typeof height === 'number' ? `${height}px` : (measuredDimensions ? `${measuredDimensions.height}px` : height),
-          display: error ? 'none' : 'block'
-        }}
-      />
-    </div>
+    </>
   )
+
+  // Fullscreen wrapper
+  if (isFullscreen) {
+    return (
+      <FullscreenMoleculeViewer 
+        isOpen={true} 
+        onClose={exitFullscreen}
+        compoundName={compoundName}
+      >
+        {viewerContent}
+      </FullscreenMoleculeViewer>
+    )
+  }
+  
+  return viewerContent
 }
 
 export default Molecule3DViewer

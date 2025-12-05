@@ -21,6 +21,7 @@ interface ArticleProps {
   userFriendlyText?: string
   links?: ArticleLink[]
   onSelectLink?: (link: ArticleLink) => void
+  onAction?: (actionType: string, data: any) => void
   className?: string
   title?: string
   badges?: string[]
@@ -34,6 +35,7 @@ function Article({
   userFriendlyText,
   links = [],
   onSelectLink,
+  onAction,
   className = '',
   title,
   badges
@@ -79,7 +81,7 @@ function Article({
                 </ReactMarkdown>
               </div>
             </div>
-            {actions && actions.length > 0 && <Content actions={actions} />}
+            {actions && actions.length > 0 && <Content actions={actions} onAction={onAction} />}
             {timestamp && (
               <ChatTimestamp
                 timestamp={timestamp}

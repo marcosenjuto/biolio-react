@@ -14,7 +14,7 @@ function Layout({ children }: LayoutProps) {
   const showFooter = location.pathname === '/' || location.pathname === '/profile'
 
   return (
-    <div className="app-layout min-h-screen flex">
+    <div className="app-layout min-h-screen flex flex-col">
       <Navigation />
       {/* Main content with padding for navigation */}
       <div className="app-content flex-1 flex flex-col md:ml-14 mb-12 md:mb-0">

@@ -132,7 +132,7 @@ function Navigation() {
                     {active && (
                       <motion.span
                         layoutId="nav-active-mobile"
-                        className="absolute inset-x-1 inset-y-0 rounded-2xl bg-primary-50"
+                        className="absolute  w-20 inset-y-0 rounded-2xl bg-primary-50"
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.9 }}

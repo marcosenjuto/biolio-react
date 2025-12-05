@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Combobox from '@/components/ui/Combobox'
 import Button from '@/components/ui/Button'
 import functionalGroupsData from '@/data/functional_groups_reference.json'
@@ -60,8 +60,9 @@ function UnifiedFilters({
 }: UnifiedFiltersProps) {
   const { t } = useLanguageStore()
   const [isPanelOpen, setIsPanelOpen] = useState(false)
-  const [isCollapsed, setIsCollapsed] = useState(false)
-  const [lastScrollY, setLastScrollY] = useState(0)
+  const [isSearchBarVisible, setIsSearchBarVisible] = useState(true)
+  const lastScrollYRef = useRef(0)
+  const isTransitioningRef = useRef(false)
 
   const reactionCategories = [
     { id: 'all', name: t.filters.allReactions },
@@ -93,23 +94,65 @@ function UnifiedFilters({
     (selectedCategory !== 'all' ? 1 : 0) + 
     (selectedFunctionalGroup !== 'all' ? 1 : 0)
 
-  // Handle scroll to collapse/expand preview
+  // Optimized scroll handler - prevent infinite loops from layout shifts
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY
+    const SCROLL_THRESHOLD = 50
+    const HIDE_AFTER = 100
 
-      if (currentScrollY > lastScrollY && currentScrollY > 50) {
-        setIsCollapsed(true)
-      } else if (currentScrollY < lastScrollY) {
-        setIsCollapsed(false)
+    const handleScroll = () => {
+      // Ignore scroll events during transition
+      if (isTransitioningRef.current) {
+        // console.log('[Scroll] Ignoring - transitioning')
+        return
       }
 
-      setLastScrollY(currentScrollY)
+      const currentScrollY = window.scrollY
+      const scrollDiff = currentScrollY - lastScrollYRef.current
+
+      // Require significant scroll movement
+      if (Math.abs(scrollDiff) < SCROLL_THRESHOLD) {
+        // console.log('[Scroll] Below threshold, ignoring')
+        return
+      }
+
+      const isScrollingDown = scrollDiff > 0
+      const isScrollingUp = scrollDiff < 0
+
+      // Only change state if direction changed and conditions are met
+      if (isScrollingDown && isSearchBarVisible && currentScrollY > HIDE_AFTER) {
+        // console.log('[Scroll] HIDING search bar')
+        isTransitioningRef.current = true
+        setIsSearchBarVisible(false)
+        lastScrollYRef.current = currentScrollY
+        
+        // Reset transition flag after animation completes
+        setTimeout(() => {
+          isTransitioningRef.current = false
+        }, 350) // Slightly longer than CSS transition (300ms)
+        
+      } else if (isScrollingUp && !isSearchBarVisible) {
+        // console.log('[Scroll] SHOWING search bar')
+        isTransitioningRef.current = true
+        setIsSearchBarVisible(true)
+        lastScrollYRef.current = currentScrollY
+        
+        // Reset transition flag after animation completes
+        setTimeout(() => {
+          isTransitioningRef.current = false
+        }, 350)
+        
+      } else {
+        // Update reference for continued scrolling in same direction
+        lastScrollYRef.current = currentScrollY
+      }
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [lastScrollY])
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [isSearchBarVisible])
 
   const handleClearAll = () => {
     onClearFilters()
@@ -120,23 +163,17 @@ function UnifiedFilters({
     <>
       {/* Filter Preview - Sticky at top */}
       <div 
-        className="filter-container bg-white rounded-lg shadow-sm mb-4 p-0 transition-all duration-300 z-50"
+        className="filter-container bg-white rounded-lg shadow-sm mb-4 p-0 sticky top-0 left-0 z-50"
         style={{
-          position: 'sticky',
-          // top: '-58px',
-          top: 0,
-          left: 0,
-          width: '100vw',
-        //   transform: isCollapsed ? 'translateY(-60px)' : 'translateY(0px)'
+          width: '100vw'
         }}
       >
         {/* Search Bar Section */}
-        <div
-          className="filters-searchbar-section transition-all duration-300"
+        <div 
+          className="filters-searchbar-section transition-all duration-300 ease-in-out"
           style={{
-            opacity: isCollapsed ? 0 : 1,
-            maxHeight: isCollapsed ? '0px' : '120px',
-            pointerEvents: isCollapsed ? 'none' : 'auto',
+            maxHeight: isSearchBarVisible ? '200px' : '0px',
+            opacity: isSearchBarVisible ? 1 : 0,
             overflow: 'hidden'
           }}
         >
@@ -250,13 +287,9 @@ function UnifiedFilters({
 
         {/* Expandable Filter Panel */}
         <div
-          className="filters-expanded-panel transition-all duration-300 overflow-hidden border-t border-gray-200"
-          style={{
-            maxHeight: isPanelOpen ? '600px' : '0px',
-            position: 'relative',
-            top: '-60px'
-
-          }}
+          className={`filters-expanded-panel transition-all duration-300 border-t border-gray-200 ${
+            isPanelOpen ? 'max-h-[600px] overflow-auto' : 'max-h-0 overflow-hidden'
+          }`}
         >
           <div className="filters-expanded-content p-6 space-y-6 bg-gray-50">
             {/* Category Filter */}
@@ -326,9 +359,6 @@ function UnifiedFilters({
           </div>
         </div>
       </div>
-
-      {/* Spacer to prevent content from going under fixed header */}
-      {/* <div style={{ height: isPanelOpen ? '700px' : '140px' }} className="transition-all duration-300" /> */}
     </>
   )
 }
