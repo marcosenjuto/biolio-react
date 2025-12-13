@@ -1,0 +1,856 @@
+[
+  {
+    "id": "pubchem_177",
+    "cid": 177,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "acetaldehyde"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "ethanal"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "acetic aldehyde"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CC=O",
+      "inchi": "InChI=1S/C2H4O/c1-2-3/h2H,1H3",
+      "inchikey": "IKHGUXGNUITLKF-UHFFFAOYSA-N",
+      "molecularFormula": "C2H4O"
+    },
+    "molecular": {
+      "weight": 44.05,
+      "exactMass": 44.05,
+      "monoisotopicMass": 44.05
+    },
+    "lastUpdated": "2025-12-13T17:47:39.485479",
+    "cas": "75-07-0"
+  },
+  {
+    "id": "pubchem_1032",
+    "cid": 1032,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "propanoic acid"
+      },
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "propionic acid"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Propanoic acid"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "methylacetic acid"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CCC(=O)O",
+      "inchi": "InChI=1S/C3H6O2/c1-2-3(4)5/h2H2,1H3,(H,4,5)",
+      "inchikey": "XBDQKXXYIPTUBI-UHFFFAOYSA-N",
+      "molecularFormula": "C3H6O2"
+    },
+    "molecular": {
+      "weight": 74.08,
+      "exactMass": 74.08,
+      "monoisotopicMass": 74.08
+    },
+    "lastUpdated": "2025-12-13T17:47:43.029018",
+    "cas": "79-09-4"
+  },
+  {
+    "id": "pubchem_6367",
+    "cid": 6367,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "acetyl chloride"
+      },
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "ACETYL CHLORIDE"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Ethanoyl chloride"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Acetic chloride"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CC(=O)Cl",
+      "inchi": "InChI=1S/C2H3ClO/c1-2(3)4/h1H3",
+      "inchikey": "WETWJCDKMRHUPV-UHFFFAOYSA-N",
+      "molecularFormula": "C2H3ClO"
+    },
+    "molecular": {
+      "weight": 78.5,
+      "exactMass": 78.5,
+      "monoisotopicMass": 78.5
+    },
+    "lastUpdated": "2025-12-13T17:47:46.681336",
+    "cas": "75-36-5"
+  },
+  {
+    "id": "pubchem_8252",
+    "cid": 8252,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "PROPYLENE"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Propene"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "prop-1-ene"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CC=C",
+      "inchi": "InChI=1S/C3H6/c1-3-2/h3H,1H2,2H3",
+      "inchikey": "QQONPFPTGQHPMA-UHFFFAOYSA-N",
+      "molecularFormula": "C3H6"
+    },
+    "molecular": {
+      "weight": 42.08,
+      "exactMass": 42.08,
+      "monoisotopicMass": 42.08
+    },
+    "lastUpdated": "2025-12-13T17:47:50.166919"
+  },
+  {
+    "id": "pubchem_6584",
+    "cid": 6584,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "methyl acetate"
+      },
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "METHYL ACETATE"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Devoton"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Tereton"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CC(=O)OC",
+      "inchi": "InChI=1S/C3H6O2/c1-3(4)5-2/h1-2H3",
+      "inchikey": "KXKVLQRXCPHEJC-UHFFFAOYSA-N",
+      "molecularFormula": "C3H6O2"
+    },
+    "molecular": {
+      "weight": 74.08,
+      "exactMass": 74.08,
+      "monoisotopicMass": 74.08
+    },
+    "lastUpdated": "2025-12-13T17:47:53.868408",
+    "cas": "79-20-9"
+  },
+  {
+    "id": "pubchem_887",
+    "cid": 887,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "methanol"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "methyl alcohol"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "wood alcohol"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CO",
+      "inchi": "InChI=1S/CH4O/c1-2/h2H,1H3",
+      "inchikey": "OKKJLVBELUTLKV-UHFFFAOYSA-N",
+      "molecularFormula": "CH4O"
+    },
+    "molecular": {
+      "weight": 32.042,
+      "exactMass": 32.042,
+      "monoisotopicMass": 32.042
+    },
+    "lastUpdated": "2025-12-13T17:47:57.565370",
+    "cas": "67-56-1"
+  },
+  {
+    "id": "pubchem_1031",
+    "cid": 1031,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "propan-1-ol"
+      },
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "1-propanol"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "propanol"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Propan-1-ol"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CCCO",
+      "inchi": "InChI=1S/C3H8O/c1-2-3-4/h4H,2-3H2,1H3",
+      "inchikey": "BDERNNFJNOPAEC-UHFFFAOYSA-N",
+      "molecularFormula": "C3H8O"
+    },
+    "molecular": {
+      "weight": 60.1,
+      "exactMass": 60.1,
+      "monoisotopicMass": 60.1
+    },
+    "lastUpdated": "2025-12-13T17:48:02.057211"
+  },
+  {
+    "id": "pubchem_6325",
+    "cid": 6325,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "ethene"
+      },
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "ETHYLENE"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Ethene"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Acetene"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "C=C",
+      "inchi": "InChI=1S/C2H4/c1-2/h1-2H2",
+      "inchikey": "VGGSQFUCUMXWEO-UHFFFAOYSA-N",
+      "molecularFormula": "C2H4"
+    },
+    "molecular": {
+      "weight": 28.05,
+      "exactMass": 28.05,
+      "monoisotopicMass": 28.05
+    },
+    "lastUpdated": "2025-12-13T17:48:05.638776"
+  },
+  {
+    "id": "pubchem_712",
+    "cid": 712,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "formaldehyde"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "formalin"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "methanal"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "C=O",
+      "inchi": "InChI=1S/CH2O/c1-2/h1H2",
+      "inchikey": "WSFSSNUMVMOOMR-UHFFFAOYSA-N",
+      "molecularFormula": "CH2O"
+    },
+    "molecular": {
+      "weight": 30.026,
+      "exactMass": 30.026,
+      "monoisotopicMass": 30.026
+    },
+    "lastUpdated": "2025-12-13T17:48:09.194603",
+    "cas": "50-00-0"
+  },
+  {
+    "id": "pubchem_6341",
+    "cid": 6341,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "ethanamine"
+      },
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "ETHYLAMINE"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Ethanamine"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Monoethylamine"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CCN",
+      "inchi": "InChI=1S/C2H7N/c1-2-3/h2-3H2,1H3",
+      "inchikey": "QUSNBJAOOMFDIB-UHFFFAOYSA-N",
+      "molecularFormula": "C2H7N"
+    },
+    "molecular": {
+      "weight": 45.08,
+      "exactMass": 45.08,
+      "monoisotopicMass": 45.08
+    },
+    "lastUpdated": "2025-12-13T17:48:12.686911",
+    "cas": "75-04-7"
+  },
+  {
+    "id": "pubchem_176",
+    "cid": 176,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "acetic acid"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "ethanoic acid"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Acetic acid glacial"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CC(=O)O",
+      "inchi": "InChI=1S/C2H4O2/c1-2(3)4/h1H3,(H,3,4)",
+      "inchikey": "QTBSBXVTEAMEQO-UHFFFAOYSA-N",
+      "molecularFormula": "C2H4O2"
+    },
+    "molecular": {
+      "weight": 60.05,
+      "exactMass": 60.05,
+      "monoisotopicMass": 60.05
+    },
+    "lastUpdated": "2025-12-13T17:48:16.189078",
+    "cas": "64-19-7"
+  },
+  {
+    "id": "pubchem_6582",
+    "cid": 6582,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "N-methylacetamide"
+      },
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "N-METHYLACETAMIDE"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Methylacetamide"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Acetamide, N-methyl-"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CC(=O)NC",
+      "inchi": "InChI=1S/C3H7NO/c1-3(5)4-2/h1-2H3,(H,4,5)",
+      "inchikey": "OHLUUHNLEMFGTQ-UHFFFAOYSA-N",
+      "molecularFormula": "C3H7NO"
+    },
+    "molecular": {
+      "weight": 73.09,
+      "exactMass": 73.09,
+      "monoisotopicMass": 73.09
+    },
+    "lastUpdated": "2025-12-13T17:48:19.792823",
+    "cas": "79-16-3"
+  },
+  {
+    "id": "pubchem_284",
+    "cid": 284,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "formic acid"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Methanoic acid"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Formylic acid"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "C(=O)O",
+      "inchi": "InChI=1S/CH2O2/c2-1-3/h1H,(H,2,3)",
+      "inchikey": "BDAGIHXWWSANSR-UHFFFAOYSA-N",
+      "molecularFormula": "CH2O2"
+    },
+    "molecular": {
+      "weight": 46.025,
+      "exactMass": 46.025,
+      "monoisotopicMass": 46.025
+    },
+    "lastUpdated": "2025-12-13T17:48:23.470954",
+    "cas": "64-18-6"
+  },
+  {
+    "id": "pubchem_702",
+    "cid": 702,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "ethanol"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "ethyl alcohol"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "alcohol"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CCO",
+      "inchi": "InChI=1S/C2H6O/c1-2-3/h3H,2H2,1H3",
+      "inchikey": "LFQSCWFLJHTTHZ-UHFFFAOYSA-N",
+      "molecularFormula": "C2H6O"
+    },
+    "molecular": {
+      "weight": 46.07,
+      "exactMass": 46.07,
+      "monoisotopicMass": 46.07
+    },
+    "lastUpdated": "2025-12-13T17:48:27.460287",
+    "cas": "64-17-5"
+  },
+  {
+    "id": "pubchem_3776",
+    "cid": 3776,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "propan-2-ol"
+      },
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "Isopropyl alcohol"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "isopropanol"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "2-Propanol"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CC(O)C",
+      "inchi": "InChI=1S/C3H8O/c1-3(2)4/h3-4H,1-2H3",
+      "inchikey": "KFZMGEQAYNKOFK-UHFFFAOYSA-N",
+      "molecularFormula": "C3H8O"
+    },
+    "molecular": {
+      "weight": 60.1,
+      "exactMass": 60.1,
+      "monoisotopicMass": 60.1
+    },
+    "lastUpdated": "2025-12-13T17:48:31.276935",
+    "cas": "67-63-0"
+  },
+  {
+    "id": "pubchem_180",
+    "cid": 180,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "propan-2-one"
+      },
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "acetone"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "2-propanone"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "propanone"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CC(=O)C",
+      "inchi": "InChI=1S/C3H6O/c1-3(2)4/h1-2H3",
+      "inchikey": "CSCPPACGZOOCGX-UHFFFAOYSA-N",
+      "molecularFormula": "C3H6O"
+    },
+    "molecular": {
+      "weight": 58.08,
+      "exactMass": 58.08,
+      "monoisotopicMass": 58.08
+    },
+    "lastUpdated": "2025-12-13T17:48:34.932966",
+    "cas": "67-64-1"
+  },
+  {
+    "id": "pubchem_6386",
+    "cid": 6386,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "2-methylpropan-2-ol"
+      },
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "tert-Butanol"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "tert-Butyl alcohol"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "2-Methylpropan-2-ol"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CC(O)(C)C",
+      "inchi": "InChI=1S/C4H10O/c1-4(2,3)5/h5H,1-3H3",
+      "inchikey": "DKGAVHZHDRPRBM-UHFFFAOYSA-N",
+      "molecularFormula": "C4H10O"
+    },
+    "molecular": {
+      "weight": 74.12,
+      "exactMass": 74.12,
+      "monoisotopicMass": 74.12
+    },
+    "lastUpdated": "2025-12-13T17:48:38.637857",
+    "cas": "75-65-0"
+  },
+  {
+    "id": "pubchem_6342",
+    "cid": 6342,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "acetonitrile"
+      },
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "ACETONITRILE"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Methyl cyanide"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Cyanomethane"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CC#N",
+      "inchi": "InChI=1S/C2H3N/c1-2-3/h1H3",
+      "inchikey": "WEVYAHXRMPXWCK-UHFFFAOYSA-N",
+      "molecularFormula": "C2H3N"
+    },
+    "molecular": {
+      "weight": 41.05,
+      "exactMass": 41.05,
+      "monoisotopicMass": 41.05
+    },
+    "lastUpdated": "2025-12-13T17:48:42.259209",
+    "cas": "75-05-8"
+  },
+  {
+    "id": "pubchem_178",
+    "cid": 178,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "acetamide"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Ethanamide"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Acetic acid amide"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CC(=O)N",
+      "inchi": "InChI=1S/C2H5NO/c1-2(3)4/h1H3,(H2,3,4)",
+      "inchikey": "DLFVBJFMPXGRIB-UHFFFAOYSA-N",
+      "molecularFormula": "C2H5NO"
+    },
+    "molecular": {
+      "weight": 59.07,
+      "exactMass": 59.07,
+      "monoisotopicMass": 59.07
+    },
+    "lastUpdated": "2025-12-13T17:48:45.840668",
+    "cas": "60-35-5"
+  },
+  {
+    "id": "pubchem_6585",
+    "cid": 6585,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "ethaneperoxoic acid"
+      },
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "PERACETIC ACID"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Peroxyacetic acid"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Ethaneperoxoic acid"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CC(=O)OO",
+      "inchi": "InChI=1S/C2H4O3/c1-2(3)5-4/h4H,1H3",
+      "inchikey": "KFSLWBXXFJQRDL-UHFFFAOYSA-N",
+      "molecularFormula": "C2H4O3"
+    },
+    "molecular": {
+      "weight": 76.05,
+      "exactMass": 76.05,
+      "monoisotopicMass": 76.05
+    },
+    "lastUpdated": "2025-12-13T17:48:49.452790",
+    "cas": "79-21-0"
+  },
+  {
+    "id": "pubchem_527",
+    "cid": 527,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "Propionaldehyde"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "propanal"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Propanaldehyde"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CCC=O",
+      "inchi": "InChI=1S/C3H6O/c1-2-3-4/h3H,2H2,1H3",
+      "inchikey": "NBBJYMSMWIIQGU-UHFFFAOYSA-N",
+      "molecularFormula": "C3H6O"
+    },
+    "molecular": {
+      "weight": 58.08,
+      "exactMass": 58.08,
+      "monoisotopicMass": 58.08
+    },
+    "lastUpdated": "2025-12-13T17:48:52.918754",
+    "cas": "123-38-6"
+  },
+  {
+    "id": "pubchem_6329",
+    "cid": 6329,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "methanamine"
+      },
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "METHYLAMINE"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Methanamine"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Aminomethane"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CN",
+      "inchi": "InChI=1S/CH5N/c1-2/h2H2,1H3",
+      "inchikey": "BAVYZALUXZFZLV-UHFFFAOYSA-N",
+      "molecularFormula": "CH5N"
+    },
+    "molecular": {
+      "weight": 31.057,
+      "exactMass": 31.057,
+      "monoisotopicMass": 31.057
+    },
+    "lastUpdated": "2025-12-13T17:48:56.500599",
+    "cas": "74-89-5"
+  }
+]

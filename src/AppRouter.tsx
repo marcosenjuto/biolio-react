@@ -8,6 +8,7 @@ import LibraryPage from '@/pages/LibraryPage'
 import ContactPage from '@/pages/ContactPage'
 import AIChatPage from '@/pages/AIChatPage'
 import ReactionPage from '@/pages/ReactionPage'
+import MoleculePage from '@/pages/MoleculePage'
 import Protein3DViewerPage from '@/pages/Protein3DViewerPage'
 import NotFoundPage from '@/pages/NotFoundPage'
 
@@ -102,14 +103,15 @@ function PageManager() {
   const location = useLocation()
   const validPaths = ['/', '/profile', '/library', '/ai-chat', '/protein-viewer', '/contact']
   const isReactionPath = location.pathname.startsWith('/reaction/')
+  const isMoleculePath = location.pathname.startsWith('/molecule/')
   const isKnownPath = validPaths.includes(location.pathname)
   const prevLocationRef = useRef(location.pathname)
   const savedScrollRef = useRef<number>(0)
 
   // Save scroll position before hiding PageManager
   useEffect(() => {
-    const wasVisible = !prevLocationRef.current.startsWith('/reaction/')
-    const willBeHidden = isReactionPath
+    const wasVisible = !prevLocationRef.current.startsWith('/reaction/') && !prevLocationRef.current.startsWith('/molecule/')
+    const willBeHidden = isReactionPath || isMoleculePath
 
     if (wasVisible && willBeHidden) {
       // About to hide PageManager, save current scroll
@@ -122,13 +124,13 @@ function PageManager() {
     }
 
     prevLocationRef.current = location.pathname
-  }, [isReactionPath, location.pathname])
+  }, [isReactionPath, isMoleculePath, location.pathname])
 
   return (
     <div 
       className="page-transition-stack"
       style={{
-        display: isReactionPath ? 'none' : 'block'
+        display: (isReactionPath || isMoleculePath) ? 'none' : 'block'
       }}
     >
       <KeepAlivePage activePath={location.pathname} path="/" component={<HomePage />} />
@@ -138,7 +140,7 @@ function PageManager() {
       <KeepAlivePage activePath={location.pathname} path="/protein-viewer" component={<Protein3DViewerPage />} />
       <KeepAlivePage activePath={location.pathname} path="/contact" component={<ContactPage />} />
 
-      {!isKnownPath && !isReactionPath && (
+      {!isKnownPath && !isReactionPath && !isMoleculePath && (
         <motion.div
           layout
           variants={pageMotionVariants}
@@ -159,6 +161,7 @@ function AppRouter() {
     <Layout>
       <PageManager />
       <Routes>
+        <Route path="/molecule/:id" element={<MoleculePage />} />
         <Route path="/reaction/:id" element={<ReactionPage />} />
         <Route path="*" element={<></>} />
       </Routes>

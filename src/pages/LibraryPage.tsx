@@ -1,14 +1,20 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useChemistryStore } from '@/store/chemistryStore'
+import type { Molecule } from '@/types/molecule-model'
+import moleculesData from '@/data/molecules.json'
 import ExpandableReactionCard from '@/components/chemistry/ExpandableReactionCard'
 import UnifiedFilters from '@/components/chemistry/UnifiedFilters'
 import Button from '@/components/ui/Button'
+import Card from '@/components/ui/Card'
 import FunctionalGroupsList from '@/components/chemistry/FunctionalGroupsList'
+import RDKitMoleculeViewer from '@/components/chemistry/RDKitMoleculeViewer'
 
 import { useLanguageStore } from '@/store/languageStore'
 
 function LibraryPage() {
   const { t } = useLanguageStore()
+  const navigate = useNavigate()
   const {
     filteredReactions,
     searchTerm,
@@ -23,6 +29,55 @@ function LibraryPage() {
   const [expandedReactions, setExpandedReactions] = useState<Set<string>>(new Set())
   const [showReactions, setShowReactions] = useState(true)
   const [showFunctionalGroups, setShowFunctionalGroups] = useState(false)
+  const [showMolecules, setShowMolecules] = useState(false)
+  
+  const allMolecules = moleculesData as Molecule[]
+
+  // Filter molecules based on search term and functional group
+  const filteredMolecules = allMolecules.filter(molecule => {
+    // Search term filter
+    if (searchTerm) {
+      const searchLower = searchTerm.toLowerCase()
+      
+      // Search in names
+      const nameMatch = molecule.names?.some(name => 
+        name.value.toLowerCase().includes(searchLower)
+      )
+      
+      // Search in molecular formula
+      const formulaMatch = molecule.structure?.molecularFormula?.toLowerCase().includes(searchLower)
+      
+      // Search in SMILES
+      const smilesMatch = molecule.structure?.smiles?.toLowerCase().includes(searchLower)
+      
+      // Search in CID
+      const cidMatch = molecule.cid?.toString().includes(searchTerm)
+      
+      if (!nameMatch && !formulaMatch && !smilesMatch && !cidMatch) {
+        return false
+      }
+    }
+    
+    // Functional group filter
+    if (selectedFunctionalGroup !== 'all') {
+      if (!molecule.functionalGroups || molecule.functionalGroups.length === 0) {
+        return false
+      }
+      
+      const hasFunctionalGroup = molecule.functionalGroups.some(fg => {
+        if (typeof fg === 'string') {
+          return fg === selectedFunctionalGroup
+        }
+        return fg.id === selectedFunctionalGroup
+      })
+      
+      if (!hasFunctionalGroup) {
+        return false
+      }
+    }
+    
+    return true
+  })
 
   useEffect(() => {
     // Apply filters on mount
@@ -117,8 +172,96 @@ function LibraryPage() {
           </div>
         </div>
 
+        {/* Molecules Section */}
+        <div className="mb-2 px-2">
+          <div
+            className="flex items-center justify-between cursor-pointer py-2 border-b border-gray-200 sticky top-[48px] z-30 bg-gray-50"
+            onClick={() => setShowMolecules(!showMolecules)}
+          >
+            <div className="flex items-center gap-4">
+              <h2 className="text-xl font-bold text-gray-800">Molecules</h2>
+              <span className="text-sm text-gray-500 font-normal">
+                ({filteredMolecules.length} {filteredMolecules.length !== 1 ? 'molecules' : 'molecule'})
+              </span>
+            </div>
+            <svg
+              className={`w-5 h-5 text-gray-500 transform transition-transform ${showMolecules ? 'rotate-180' : ''}`}
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+
+          <div className={showMolecules ? 'block' : 'hidden'}>
+            {filteredMolecules.length > 0 ? (
+              <div className="molecules-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mt-4">
+                {filteredMolecules.map((molecule) => {
+                const primaryName = molecule.names?.find(n => n.type === 'iupac')?.value || 
+                                   molecule.names?.find(n => n.type === 'common')?.value || 
+                                   molecule.id
+                
+                return (
+                  <Card 
+                    key={molecule.id} 
+                    className="molecule-card cursor-pointer hover:shadow-lg transition-shadow"
+                    onClick={() => navigate(`/molecule/${molecule.id}`)}
+                  >
+                    <div className="p-3">
+                      <div className="molecule-viewer-container  rounded mb-2 flex items-center justify-center" style={{ minHeight: '120px' }}>
+                        <RDKitMoleculeViewer
+                          smiles={molecule.structure?.smiles || ''}
+
+                                      width="100%"
+            height="auto"
+                          bondLength={40}
+                        />
+                      </div>
+                      <h3 className="text-sm font-semibold text-gray-800 truncate" title={primaryName}>
+                        {primaryName}
+                      </h3>
+                      {molecule.structure?.molecularFormula && (
+                        <p className="text-xs text-gray-500 font-mono mt-1">
+                          {molecule.structure.molecularFormula}
+                        </p>
+                      )}
+                      {molecule.molecular?.weight && (
+                        <p className="text-xs text-gray-500 mt-1">
+                          {molecule.molecular.weight.toFixed(2)} g/mol
+                        </p>
+                      )}
+                    </div>
+                  </Card>
+                )
+              })}
+              </div>
+            ) : (
+              <div className="no-results text-center py-12">
+                <svg
+                  className="no-results-icon mx-auto h-12 w-12 text-gray-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                <h3 className="no-results-title mt-2 text-sm font-medium text-gray-900">No molecules found</h3>
+                <p className="no-results-message mt-1 text-sm text-gray-500">
+                  Try adjusting your search or filters
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+
         {/* Reactions Section */}
-        <div className="mb-8 px-2">
+        <div className="mb-2 px-2">
           <div
             className="flex items-center justify-between cursor-pointer py-2 border-b border-gray-200 sticky top-[48px] z-30 bg-gray-50"
             onClick={() => setShowReactions(!showReactions)}

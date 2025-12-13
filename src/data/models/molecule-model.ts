@@ -13,7 +13,7 @@ export interface Molecule {
 
   // Names
   names: Names;
-  functionalGroups: [FunctionalGroup];
+  functionalGroups?: FunctionalGroup[];
   // Structure
   structure: {
     smiles: string;
