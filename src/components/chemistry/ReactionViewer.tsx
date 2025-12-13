@@ -31,7 +31,7 @@ function ReactionViewer({
   // Helper function to extract SMILES from compound (supports both old and new formats)
   const getSmiles = (compound: any): string => {
     if (!compound) return ''
-    // BioblioReaction format: smiles at top level
+    // GenericReactant or BioblioReaction format: smiles at top level
     if (compound.smiles) return compound.smiles
     // Old format: structure.smiles
     if (compound.structure?.smiles) return compound.structure.smiles
@@ -41,7 +41,7 @@ function ReactionViewer({
   // Helper function to extract name from compound (supports both old and new formats)
   const getName = (compound: any): string => {
     if (!compound) return ''
-    // BioblioReaction format: simple name
+    // GenericReactant or BioblioReaction format: simple name
     if (compound.name) return compound.name
     // Old format: names.common[0] or names.iupac
     if (compound.names) {

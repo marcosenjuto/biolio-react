@@ -18,8 +18,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CCCO"
+              "type": "SMARTS",
+              "value": "*O |$R;;$|"
             },
             {
               "type": "NAME",
@@ -28,9 +28,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "primary_alcohol",
+            "id": "generic_alcohols",
+            "type": "generic",
             "name": "Primary Alcohol",
-            "smiles": "CCCO"
+            "smarts": "*O |$R;;$|",
+            "smiles": "*O |$R;;$|",
+            "functionalGroupId": "alcohols",
+            "description": "Containing a hydroxyl group (-OH) bonded to a carbon atom"
           }
         },
         {
@@ -56,8 +60,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CCC=O"
+              "type": "SMARTS",
+              "value": "*C=O |$R;;;$|"
             },
             {
               "type": "NAME",
@@ -66,9 +70,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "aldehyde",
+            "id": "generic_aldehydes",
+            "type": "generic",
             "name": "Aldehyde",
-            "smiles": "CCC=O"
+            "smarts": "*C=O |$R;;;$|",
+            "smiles": "*C=O |$R;;;$|",
+            "functionalGroupId": "aldehydes",
+            "description": "Containing a formyl group (C=O with H)"
           }
         }
       ],
@@ -82,7 +90,18 @@
         "aldehyde",
         "PCC"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_1031",
+          "role": "REACTANT",
+          "note": "Specific example: Primary Alcohol (SMILES: CCCO)"
+        },
+        {
+          "moleculeId": "pubchem_527",
+          "role": "PRODUCT",
+          "note": "Specific example: Aldehyde (SMILES: CCC=O)"
+        }
+      ]
     },
     {
       "id": "alcohol_dichromate_acid",
@@ -102,8 +121,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CCCO"
+              "type": "SMARTS",
+              "value": "*O |$R;;$|"
             },
             {
               "type": "NAME",
@@ -112,9 +131,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "primary_alcohol",
+            "id": "generic_alcohols",
+            "type": "generic",
             "name": "Primary Alcohol",
-            "smiles": "CCCO"
+            "smarts": "*O |$R;;$|",
+            "smiles": "*O |$R;;$|",
+            "functionalGroupId": "alcohols",
+            "description": "Containing a hydroxyl group (-OH) bonded to a carbon atom"
           }
         },
         {
@@ -140,8 +163,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CCC(=O)O"
+              "type": "SMARTS",
+              "value": "*C(=O)O |$R;;;;$|"
             },
             {
               "type": "NAME",
@@ -150,9 +173,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "carboxylic_acid",
+            "id": "generic_carboxylic_acids",
+            "type": "generic",
             "name": "Carboxylic Acid",
-            "smiles": "CCC(=O)O"
+            "smarts": "*C(=O)O |$R;;;;$|",
+            "smiles": "*C(=O)O |$R;;;;$|",
+            "functionalGroupId": "carboxylic_acids",
+            "description": "Containing a carboxyl group (-COOH)"
           }
         }
       ],
@@ -167,7 +194,18 @@
         "acid",
         "dichromate"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_1031",
+          "role": "REACTANT",
+          "note": "Specific example: Primary Alcohol (SMILES: CCCO)"
+        },
+        {
+          "moleculeId": "pubchem_1032",
+          "role": "PRODUCT",
+          "note": "Specific example: Carboxylic Acid (SMILES: CCC(=O)O)"
+        }
+      ]
     },
     {
       "id": "secondary_alcohol_ketone",
@@ -187,8 +225,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(O)C"
+              "type": "SMARTS",
+              "value": "*O |$R;;$|"
             },
             {
               "type": "NAME",
@@ -197,9 +235,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "secondary_alcohol",
+            "id": "generic_alcohols",
+            "type": "generic",
             "name": "Secondary Alcohol",
-            "smiles": "CC(O)C"
+            "smarts": "*O |$R;;$|",
+            "smiles": "*O |$R;;$|",
+            "functionalGroupId": "alcohols",
+            "description": "Containing a hydroxyl group (-OH) bonded to a carbon atom"
           }
         },
         {
@@ -225,8 +267,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)C"
+              "type": "SMARTS",
+              "value": "*C(*)=O |$R;;R'$|"
             },
             {
               "type": "NAME",
@@ -235,9 +277,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "ketone",
+            "id": "generic_ketones",
+            "type": "generic",
             "name": "Ketone",
-            "smiles": "CC(=O)C"
+            "smarts": "*C(*)=O |$R;;R'$|",
+            "smiles": "*C(*)=O |$R;;R'$|",
+            "functionalGroupId": "ketones",
+            "description": "With a carbonyl group bonded to two carbon atoms"
           }
         }
       ],
@@ -251,7 +297,18 @@
         "ketone",
         "dichromate"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_3776",
+          "role": "REACTANT",
+          "note": "Specific example: Secondary Alcohol (SMILES: CC(O)C)"
+        },
+        {
+          "moleculeId": "pubchem_180",
+          "role": "PRODUCT",
+          "note": "Specific example: Ketone (SMILES: CC(=O)C)"
+        }
+      ]
     },
     {
       "id": "alkene_ozonolysis_aldehyde",
@@ -271,8 +328,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "C=C"
+              "type": "SMARTS",
+              "value": "*C=C* |$R;;;R'$|"
             },
             {
               "type": "NAME",
@@ -281,9 +338,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "alkene",
+            "id": "generic_alkenes",
+            "type": "generic",
             "name": "Alkene",
-            "smiles": "C=C"
+            "smarts": "*C=C* |$R;;;R'$|",
+            "smiles": "*C=C* |$R;;;R'$|",
+            "functionalGroupId": "alkenes",
+            "description": "Containing carbon-carbon double bonds"
           }
         },
         {
@@ -309,8 +370,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "C=O"
+              "type": "SMARTS",
+              "value": "*C=O |$R;;;$|"
             },
             {
               "type": "NAME",
@@ -319,9 +380,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "aldehyde/ketone",
+            "id": "generic_aldehydes",
+            "type": "generic",
             "name": "Aldehyde/Ketone",
-            "smiles": "C=O"
+            "smarts": "*C=O |$R;;;$|",
+            "smiles": "*C=O |$R;;;$|",
+            "functionalGroupId": "aldehydes",
+            "description": "Containing a formyl group (C=O with H)"
           }
         }
       ],
@@ -336,7 +401,18 @@
         "aldehyde",
         "ketone"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_6325",
+          "role": "REACTANT",
+          "note": "Specific example: Alkene (SMILES: C=C)"
+        },
+        {
+          "moleculeId": "pubchem_712",
+          "role": "PRODUCT",
+          "note": "Specific example: Aldehyde/Ketone (SMILES: C=O)"
+        }
+      ]
     },
     {
       "id": "alkene_ozonolysis_acid",
@@ -356,8 +432,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "C=C"
+              "type": "SMARTS",
+              "value": "*C=C* |$R;;;R'$|"
             },
             {
               "type": "NAME",
@@ -366,9 +442,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "alkene",
+            "id": "generic_alkenes",
+            "type": "generic",
             "name": "Alkene",
-            "smiles": "C=C"
+            "smarts": "*C=C* |$R;;;R'$|",
+            "smiles": "*C=C* |$R;;;R'$|",
+            "functionalGroupId": "alkenes",
+            "description": "Containing carbon-carbon double bonds"
           }
         },
         {
@@ -394,8 +474,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "C(=O)O"
+              "type": "SMARTS",
+              "value": "*C(*)=O |$R;;R'$|"
             },
             {
               "type": "NAME",
@@ -404,9 +484,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "acid/ketone",
+            "id": "generic_ketones",
+            "type": "generic",
             "name": "Acid/Ketone",
-            "smiles": "C(=O)O"
+            "smarts": "*C(*)=O |$R;;R'$|",
+            "smiles": "*C(*)=O |$R;;R'$|",
+            "functionalGroupId": "ketones",
+            "description": "With a carbonyl group bonded to two carbon atoms"
           }
         }
       ],
@@ -421,7 +505,18 @@
         "acid",
         "ketone"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_6325",
+          "role": "REACTANT",
+          "note": "Specific example: Alkene (SMILES: C=C)"
+        },
+        {
+          "moleculeId": "pubchem_284",
+          "role": "PRODUCT",
+          "note": "Specific example: Acid/Ketone (SMILES: C(=O)O)"
+        }
+      ]
     },
     {
       "id": "aldehyde_hemiacetal",
@@ -441,8 +536,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC=O"
+              "type": "SMARTS",
+              "value": "*C=O |$R;;;$|"
             },
             {
               "type": "NAME",
@@ -451,16 +546,20 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "aldehyde",
+            "id": "generic_aldehydes",
+            "type": "generic",
             "name": "Aldehyde",
-            "smiles": "CC=O"
+            "smarts": "*C=O |$R;;;$|",
+            "smiles": "*C=O |$R;;;$|",
+            "functionalGroupId": "aldehydes",
+            "description": "Containing a formyl group (C=O with H)"
           }
         },
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CO"
+              "type": "SMARTS",
+              "value": "*O |$R;;$|"
             },
             {
               "type": "NAME",
@@ -469,9 +568,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "alcohol",
+            "id": "generic_alcohols",
+            "type": "generic",
             "name": "Alcohol",
-            "smiles": "CO"
+            "smarts": "*O |$R;;$|",
+            "smiles": "*O |$R;;$|",
+            "functionalGroupId": "alcohols",
+            "description": "Containing a hydroxyl group (-OH) bonded to a carbon atom"
           }
         }
       ],
@@ -504,7 +607,18 @@
         "alcohol",
         "hemiacetal"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_177",
+          "role": "REACTANT",
+          "note": "Specific example: Aldehyde (SMILES: CC=O)"
+        },
+        {
+          "moleculeId": "pubchem_887",
+          "role": "REACTANT",
+          "note": "Specific example: Alcohol (SMILES: CO)"
+        }
+      ]
     },
     {
       "id": "aldehyde_acetal",
@@ -524,8 +638,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC=O"
+              "type": "SMARTS",
+              "value": "*C=O |$R;;;$|"
             },
             {
               "type": "NAME",
@@ -534,16 +648,20 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "aldehyde",
+            "id": "generic_aldehydes",
+            "type": "generic",
             "name": "Aldehyde",
-            "smiles": "CC=O"
+            "smarts": "*C=O |$R;;;$|",
+            "smiles": "*C=O |$R;;;$|",
+            "functionalGroupId": "aldehydes",
+            "description": "Containing a formyl group (C=O with H)"
           }
         },
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CO"
+              "type": "SMARTS",
+              "value": "*O |$R;;$|"
             },
             {
               "type": "NAME",
@@ -552,9 +670,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "alcohol",
+            "id": "generic_alcohols",
+            "type": "generic",
             "name": "Alcohol",
-            "smiles": "CO"
+            "smarts": "*O |$R;;$|",
+            "smiles": "*O |$R;;$|",
+            "functionalGroupId": "alcohols",
+            "description": "Containing a hydroxyl group (-OH) bonded to a carbon atom"
           }
         }
       ],
@@ -588,7 +710,18 @@
         "alcohol",
         "acetal"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_177",
+          "role": "REACTANT",
+          "note": "Specific example: Aldehyde (SMILES: CC=O)"
+        },
+        {
+          "moleculeId": "pubchem_887",
+          "role": "REACTANT",
+          "note": "Specific example: Alcohol (SMILES: CO)"
+        }
+      ]
     },
     {
       "id": "aldehyde_lialh4_alcohol",
@@ -608,8 +741,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC=O"
+              "type": "SMARTS",
+              "value": "*C=O |$R;;;$|"
             },
             {
               "type": "NAME",
@@ -618,9 +751,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "aldehyde",
+            "id": "generic_aldehydes",
+            "type": "generic",
             "name": "Aldehyde",
-            "smiles": "CC=O"
+            "smarts": "*C=O |$R;;;$|",
+            "smiles": "*C=O |$R;;;$|",
+            "functionalGroupId": "aldehydes",
+            "description": "Containing a formyl group (C=O with H)"
           }
         },
         {
@@ -646,8 +783,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CCO"
+              "type": "SMARTS",
+              "value": "*O |$R;;$|"
             },
             {
               "type": "NAME",
@@ -656,9 +793,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "primary_alcohol",
+            "id": "generic_alcohols",
+            "type": "generic",
             "name": "Primary Alcohol",
-            "smiles": "CCO"
+            "smarts": "*O |$R;;$|",
+            "smiles": "*O |$R;;$|",
+            "functionalGroupId": "alcohols",
+            "description": "Containing a hydroxyl group (-OH) bonded to a carbon atom"
           }
         }
       ],
@@ -673,7 +814,18 @@
         "alcohol",
         "LiAlH4"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_177",
+          "role": "REACTANT",
+          "note": "Specific example: Aldehyde (SMILES: CC=O)"
+        },
+        {
+          "moleculeId": "pubchem_702",
+          "role": "PRODUCT",
+          "note": "Specific example: Primary Alcohol (SMILES: CCO)"
+        }
+      ]
     },
     {
       "id": "aldehyde_nabh4_alcohol",
@@ -693,8 +845,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC=O"
+              "type": "SMARTS",
+              "value": "*C=O |$R;;;$|"
             },
             {
               "type": "NAME",
@@ -703,9 +855,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "aldehyde",
+            "id": "generic_aldehydes",
+            "type": "generic",
             "name": "Aldehyde",
-            "smiles": "CC=O"
+            "smarts": "*C=O |$R;;;$|",
+            "smiles": "*C=O |$R;;;$|",
+            "functionalGroupId": "aldehydes",
+            "description": "Containing a formyl group (C=O with H)"
           }
         },
         {
@@ -731,8 +887,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CCO"
+              "type": "SMARTS",
+              "value": "*O |$R;;$|"
             },
             {
               "type": "NAME",
@@ -741,9 +897,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "primary_alcohol",
+            "id": "generic_alcohols",
+            "type": "generic",
             "name": "Primary Alcohol",
-            "smiles": "CCO"
+            "smarts": "*O |$R;;$|",
+            "smiles": "*O |$R;;$|",
+            "functionalGroupId": "alcohols",
+            "description": "Containing a hydroxyl group (-OH) bonded to a carbon atom"
           }
         }
       ],
@@ -757,7 +917,18 @@
         "alcohol",
         "NaBH4"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_177",
+          "role": "REACTANT",
+          "note": "Specific example: Aldehyde (SMILES: CC=O)"
+        },
+        {
+          "moleculeId": "pubchem_702",
+          "role": "PRODUCT",
+          "note": "Specific example: Primary Alcohol (SMILES: CCO)"
+        }
+      ]
     },
     {
       "id": "ketone_lialh4_alcohol",
@@ -777,8 +948,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)C"
+              "type": "SMARTS",
+              "value": "*C(*)=O |$R;;R'$|"
             },
             {
               "type": "NAME",
@@ -787,9 +958,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "ketone",
+            "id": "generic_ketones",
+            "type": "generic",
             "name": "Ketone",
-            "smiles": "CC(=O)C"
+            "smarts": "*C(*)=O |$R;;R'$|",
+            "smiles": "*C(*)=O |$R;;R'$|",
+            "functionalGroupId": "ketones",
+            "description": "With a carbonyl group bonded to two carbon atoms"
           }
         },
         {
@@ -815,8 +990,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(O)C"
+              "type": "SMARTS",
+              "value": "*O |$R;;$|"
             },
             {
               "type": "NAME",
@@ -825,9 +1000,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "secondary_alcohol",
+            "id": "generic_alcohols",
+            "type": "generic",
             "name": "Secondary Alcohol",
-            "smiles": "CC(O)C"
+            "smarts": "*O |$R;;$|",
+            "smiles": "*O |$R;;$|",
+            "functionalGroupId": "alcohols",
+            "description": "Containing a hydroxyl group (-OH) bonded to a carbon atom"
           }
         }
       ],
@@ -841,7 +1020,18 @@
         "alcohol",
         "LiAlH4"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_180",
+          "role": "REACTANT",
+          "note": "Specific example: Ketone (SMILES: CC(=O)C)"
+        },
+        {
+          "moleculeId": "pubchem_3776",
+          "role": "PRODUCT",
+          "note": "Specific example: Secondary Alcohol (SMILES: CC(O)C)"
+        }
+      ]
     },
     {
       "id": "ketone_nabh4_alcohol",
@@ -861,8 +1051,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)C"
+              "type": "SMARTS",
+              "value": "*C(*)=O |$R;;R'$|"
             },
             {
               "type": "NAME",
@@ -871,9 +1061,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "ketone",
+            "id": "generic_ketones",
+            "type": "generic",
             "name": "Ketone",
-            "smiles": "CC(=O)C"
+            "smarts": "*C(*)=O |$R;;R'$|",
+            "smiles": "*C(*)=O |$R;;R'$|",
+            "functionalGroupId": "ketones",
+            "description": "With a carbonyl group bonded to two carbon atoms"
           }
         },
         {
@@ -899,8 +1093,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(O)C"
+              "type": "SMARTS",
+              "value": "*O |$R;;$|"
             },
             {
               "type": "NAME",
@@ -909,9 +1103,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "secondary_alcohol",
+            "id": "generic_alcohols",
+            "type": "generic",
             "name": "Secondary Alcohol",
-            "smiles": "CC(O)C"
+            "smarts": "*O |$R;;$|",
+            "smiles": "*O |$R;;$|",
+            "functionalGroupId": "alcohols",
+            "description": "Containing a hydroxyl group (-OH) bonded to a carbon atom"
           }
         }
       ],
@@ -925,7 +1123,18 @@
         "alcohol",
         "NaBH4"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_180",
+          "role": "REACTANT",
+          "note": "Specific example: Ketone (SMILES: CC(=O)C)"
+        },
+        {
+          "moleculeId": "pubchem_3776",
+          "role": "PRODUCT",
+          "note": "Specific example: Secondary Alcohol (SMILES: CC(O)C)"
+        }
+      ]
     },
     {
       "id": "aldehyde_grignard_secondary_alcohol",
@@ -945,8 +1154,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC=O"
+              "type": "SMARTS",
+              "value": "*C=O |$R;;;$|"
             },
             {
               "type": "NAME",
@@ -955,9 +1164,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "aldehyde",
+            "id": "generic_aldehydes",
+            "type": "generic",
             "name": "Aldehyde",
-            "smiles": "CC=O"
+            "smarts": "*C=O |$R;;;$|",
+            "smiles": "*C=O |$R;;;$|",
+            "functionalGroupId": "aldehydes",
+            "description": "Containing a formyl group (C=O with H)"
           }
         },
         {
@@ -983,8 +1196,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(O)C"
+              "type": "SMARTS",
+              "value": "*O |$R;;$|"
             },
             {
               "type": "NAME",
@@ -993,9 +1206,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "secondary_alcohol",
+            "id": "generic_alcohols",
+            "type": "generic",
             "name": "Secondary Alcohol",
-            "smiles": "CC(O)C"
+            "smarts": "*O |$R;;$|",
+            "smiles": "*O |$R;;$|",
+            "functionalGroupId": "alcohols",
+            "description": "Containing a hydroxyl group (-OH) bonded to a carbon atom"
           }
         }
       ],
@@ -1009,7 +1226,18 @@
         "aldehyde",
         "alcohol"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_177",
+          "role": "REACTANT",
+          "note": "Specific example: Aldehyde (SMILES: CC=O)"
+        },
+        {
+          "moleculeId": "pubchem_3776",
+          "role": "PRODUCT",
+          "note": "Specific example: Secondary Alcohol (SMILES: CC(O)C)"
+        }
+      ]
     },
     {
       "id": "ketone_grignard_tertiary_alcohol",
@@ -1029,8 +1257,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)C"
+              "type": "SMARTS",
+              "value": "*C(*)=O |$R;;R'$|"
             },
             {
               "type": "NAME",
@@ -1039,9 +1267,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "ketone",
+            "id": "generic_ketones",
+            "type": "generic",
             "name": "Ketone",
-            "smiles": "CC(=O)C"
+            "smarts": "*C(*)=O |$R;;R'$|",
+            "smiles": "*C(*)=O |$R;;R'$|",
+            "functionalGroupId": "ketones",
+            "description": "With a carbonyl group bonded to two carbon atoms"
           }
         },
         {
@@ -1067,8 +1299,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(O)(C)C"
+              "type": "SMARTS",
+              "value": "*O |$R;;$|"
             },
             {
               "type": "NAME",
@@ -1077,9 +1309,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "tertiary_alcohol",
+            "id": "generic_alcohols",
+            "type": "generic",
             "name": "Tertiary Alcohol",
-            "smiles": "CC(O)(C)C"
+            "smarts": "*O |$R;;$|",
+            "smiles": "*O |$R;;$|",
+            "functionalGroupId": "alcohols",
+            "description": "Containing a hydroxyl group (-OH) bonded to a carbon atom"
           }
         }
       ],
@@ -1093,7 +1329,18 @@
         "ketone",
         "alcohol"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_180",
+          "role": "REACTANT",
+          "note": "Specific example: Ketone (SMILES: CC(=O)C)"
+        },
+        {
+          "moleculeId": "pubchem_6386",
+          "role": "PRODUCT",
+          "note": "Specific example: Tertiary Alcohol (SMILES: CC(O)(C)C)"
+        }
+      ]
     },
     {
       "id": "grignard_co2_acid",
@@ -1151,8 +1398,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)O"
+              "type": "SMARTS",
+              "value": "*C(=O)O |$R;;;;$|"
             },
             {
               "type": "NAME",
@@ -1161,9 +1408,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "carboxylic_acid",
+            "id": "generic_carboxylic_acids",
+            "type": "generic",
             "name": "Carboxylic Acid",
-            "smiles": "CC(=O)O"
+            "smarts": "*C(=O)O |$R;;;;$|",
+            "smiles": "*C(=O)O |$R;;;;$|",
+            "functionalGroupId": "carboxylic_acids",
+            "description": "Containing a carboxyl group (-COOH)"
           }
         }
       ],
@@ -1176,7 +1427,13 @@
         "carboxylation",
         "acid"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_176",
+          "role": "PRODUCT",
+          "note": "Specific example: Carboxylic Acid (SMILES: CC(=O)O)"
+        }
+      ]
     },
     {
       "id": "aldol_condensation",
@@ -1196,8 +1453,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)C"
+              "type": "SMARTS",
+              "value": "*C(*)=O |$R;;R'$|"
             },
             {
               "type": "NAME",
@@ -1206,16 +1463,20 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "ketone_(with_α-h)",
+            "id": "generic_ketones",
+            "type": "generic",
             "name": "Ketone (with α-H)",
-            "smiles": "CC(=O)C"
+            "smarts": "*C(*)=O |$R;;R'$|",
+            "smiles": "*C(*)=O |$R;;R'$|",
+            "functionalGroupId": "ketones",
+            "description": "With a carbonyl group bonded to two carbon atoms"
           }
         },
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC=O"
+              "type": "SMARTS",
+              "value": "*C=O |$R;;;$|"
             },
             {
               "type": "NAME",
@@ -1224,9 +1485,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "aldehyde/ketone",
+            "id": "generic_aldehydes",
+            "type": "generic",
             "name": "Aldehyde/Ketone",
-            "smiles": "CC=O"
+            "smarts": "*C=O |$R;;;$|",
+            "smiles": "*C=O |$R;;;$|",
+            "functionalGroupId": "aldehydes",
+            "description": "Containing a formyl group (C=O with H)"
           }
         }
       ],
@@ -1259,7 +1524,18 @@
         "ketone",
         "aldehyde"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_180",
+          "role": "REACTANT",
+          "note": "Specific example: Ketone (with α-H) (SMILES: CC(=O)C)"
+        },
+        {
+          "moleculeId": "pubchem_177",
+          "role": "REACTANT",
+          "note": "Specific example: Aldehyde/Ketone (SMILES: CC=O)"
+        }
+      ]
     },
     {
       "id": "aldol_condensation_dehydration",
@@ -1279,8 +1555,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)C"
+              "type": "SMARTS",
+              "value": "*C(*)=O |$R;;R'$|"
             },
             {
               "type": "NAME",
@@ -1289,16 +1565,20 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "ketone_(with_α-h)",
+            "id": "generic_ketones",
+            "type": "generic",
             "name": "Ketone (with α-H)",
-            "smiles": "CC(=O)C"
+            "smarts": "*C(*)=O |$R;;R'$|",
+            "smiles": "*C(*)=O |$R;;R'$|",
+            "functionalGroupId": "ketones",
+            "description": "With a carbonyl group bonded to two carbon atoms"
           }
         },
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC=O"
+              "type": "SMARTS",
+              "value": "*C=O |$R;;;$|"
             },
             {
               "type": "NAME",
@@ -1307,9 +1587,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "aldehyde/ketone",
+            "id": "generic_aldehydes",
+            "type": "generic",
             "name": "Aldehyde/Ketone",
-            "smiles": "CC=O"
+            "smarts": "*C=O |$R;;;$|",
+            "smiles": "*C=O |$R;;;$|",
+            "functionalGroupId": "aldehydes",
+            "description": "Containing a formyl group (C=O with H)"
           }
         }
       ],
@@ -1343,7 +1627,18 @@
         "dehydration",
         "unsaturated"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_180",
+          "role": "REACTANT",
+          "note": "Specific example: Ketone (with α-H) (SMILES: CC(=O)C)"
+        },
+        {
+          "moleculeId": "pubchem_177",
+          "role": "REACTANT",
+          "note": "Specific example: Aldehyde/Ketone (SMILES: CC=O)"
+        }
+      ]
     },
     {
       "id": "carbonyl_hydrazine_hydrazone",
@@ -1445,8 +1740,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)O"
+              "type": "SMARTS",
+              "value": "*C(=O)O |$R;;;;$|"
             },
             {
               "type": "NAME",
@@ -1455,9 +1750,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "carboxylic_acid",
+            "id": "generic_carboxylic_acids",
+            "type": "generic",
             "name": "Carboxylic Acid",
-            "smiles": "CC(=O)O"
+            "smarts": "*C(=O)O |$R;;;;$|",
+            "smiles": "*C(=O)O |$R;;;;$|",
+            "functionalGroupId": "carboxylic_acids",
+            "description": "Containing a carboxyl group (-COOH)"
           }
         },
         {
@@ -1483,8 +1782,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CCO"
+              "type": "SMARTS",
+              "value": "*O |$R;;$|"
             },
             {
               "type": "NAME",
@@ -1493,9 +1792,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "primary_alcohol",
+            "id": "generic_alcohols",
+            "type": "generic",
             "name": "Primary Alcohol",
-            "smiles": "CCO"
+            "smarts": "*O |$R;;$|",
+            "smiles": "*O |$R;;$|",
+            "functionalGroupId": "alcohols",
+            "description": "Containing a hydroxyl group (-OH) bonded to a carbon atom"
           }
         }
       ],
@@ -1509,7 +1812,18 @@
         "alcohol",
         "LiAlH4"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_176",
+          "role": "REACTANT",
+          "note": "Specific example: Carboxylic Acid (SMILES: CC(=O)O)"
+        },
+        {
+          "moleculeId": "pubchem_702",
+          "role": "PRODUCT",
+          "note": "Specific example: Primary Alcohol (SMILES: CCO)"
+        }
+      ]
     },
     {
       "id": "acid_dibah_aldehyde",
@@ -1529,8 +1843,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)O"
+              "type": "SMARTS",
+              "value": "*C(=O)O |$R;;;;$|"
             },
             {
               "type": "NAME",
@@ -1539,9 +1853,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "carboxylic_acid",
+            "id": "generic_carboxylic_acids",
+            "type": "generic",
             "name": "Carboxylic Acid",
-            "smiles": "CC(=O)O"
+            "smarts": "*C(=O)O |$R;;;;$|",
+            "smiles": "*C(=O)O |$R;;;;$|",
+            "functionalGroupId": "carboxylic_acids",
+            "description": "Containing a carboxyl group (-COOH)"
           }
         },
         {
@@ -1567,8 +1885,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC=O"
+              "type": "SMARTS",
+              "value": "*C=O |$R;;;$|"
             },
             {
               "type": "NAME",
@@ -1577,9 +1895,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "aldehyde",
+            "id": "generic_aldehydes",
+            "type": "generic",
             "name": "Aldehyde",
-            "smiles": "CC=O"
+            "smarts": "*C=O |$R;;;$|",
+            "smiles": "*C=O |$R;;;$|",
+            "functionalGroupId": "aldehydes",
+            "description": "Containing a formyl group (C=O with H)"
           }
         }
       ],
@@ -1593,7 +1915,18 @@
         "aldehyde",
         "DIBAH"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_176",
+          "role": "REACTANT",
+          "note": "Specific example: Carboxylic Acid (SMILES: CC(=O)O)"
+        },
+        {
+          "moleculeId": "pubchem_177",
+          "role": "PRODUCT",
+          "note": "Specific example: Aldehyde (SMILES: CC=O)"
+        }
+      ]
     },
     {
       "id": "acid_socl2_chloride",
@@ -1613,8 +1946,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)O"
+              "type": "SMARTS",
+              "value": "*C(=O)O |$R;;;;$|"
             },
             {
               "type": "NAME",
@@ -1623,9 +1956,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "carboxylic_acid",
+            "id": "generic_carboxylic_acids",
+            "type": "generic",
             "name": "Carboxylic Acid",
-            "smiles": "CC(=O)O"
+            "smarts": "*C(=O)O |$R;;;;$|",
+            "smiles": "*C(=O)O |$R;;;;$|",
+            "functionalGroupId": "carboxylic_acids",
+            "description": "Containing a carboxyl group (-COOH)"
           }
         },
         {
@@ -1651,8 +1988,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)Cl"
+              "type": "SMARTS",
+              "value": "*C(=O)O |$R;;;;$|"
             },
             {
               "type": "NAME",
@@ -1661,9 +1998,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "acid_chloride",
+            "id": "generic_carboxylic_acids",
+            "type": "generic",
             "name": "Acid Chloride",
-            "smiles": "CC(=O)Cl"
+            "smarts": "*C(=O)O |$R;;;;$|",
+            "smiles": "*C(=O)O |$R;;;;$|",
+            "functionalGroupId": "carboxylic_acids",
+            "description": "Containing a carboxyl group (-COOH)"
           }
         }
       ],
@@ -1676,7 +2017,18 @@
         "acid",
         "acid chloride"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_176",
+          "role": "REACTANT",
+          "note": "Specific example: Carboxylic Acid (SMILES: CC(=O)O)"
+        },
+        {
+          "moleculeId": "pubchem_6367",
+          "role": "PRODUCT",
+          "note": "Specific example: Acid Chloride (SMILES: CC(=O)Cl)"
+        }
+      ]
     },
     {
       "id": "acid_oxalyl_chloride",
@@ -1696,8 +2048,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)O"
+              "type": "SMARTS",
+              "value": "*C(=O)O |$R;;;;$|"
             },
             {
               "type": "NAME",
@@ -1706,9 +2058,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "carboxylic_acid",
+            "id": "generic_carboxylic_acids",
+            "type": "generic",
             "name": "Carboxylic Acid",
-            "smiles": "CC(=O)O"
+            "smarts": "*C(=O)O |$R;;;;$|",
+            "smiles": "*C(=O)O |$R;;;;$|",
+            "functionalGroupId": "carboxylic_acids",
+            "description": "Containing a carboxyl group (-COOH)"
           }
         },
         {
@@ -1734,8 +2090,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)Cl"
+              "type": "SMARTS",
+              "value": "*C(=O)O |$R;;;;$|"
             },
             {
               "type": "NAME",
@@ -1744,9 +2100,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "acid_chloride",
+            "id": "generic_carboxylic_acids",
+            "type": "generic",
             "name": "Acid Chloride",
-            "smiles": "CC(=O)Cl"
+            "smarts": "*C(=O)O |$R;;;;$|",
+            "smiles": "*C(=O)O |$R;;;;$|",
+            "functionalGroupId": "carboxylic_acids",
+            "description": "Containing a carboxyl group (-COOH)"
           }
         }
       ],
@@ -1760,7 +2120,18 @@
         "acid chloride",
         "oxalyl"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_176",
+          "role": "REACTANT",
+          "note": "Specific example: Carboxylic Acid (SMILES: CC(=O)O)"
+        },
+        {
+          "moleculeId": "pubchem_6367",
+          "role": "PRODUCT",
+          "note": "Specific example: Acid Chloride (SMILES: CC(=O)Cl)"
+        }
+      ]
     },
     {
       "id": "acid_alcohol_ester",
@@ -1780,8 +2151,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)O"
+              "type": "SMARTS",
+              "value": "*C(=O)O |$R;;;;$|"
             },
             {
               "type": "NAME",
@@ -1790,16 +2161,20 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "carboxylic_acid",
+            "id": "generic_carboxylic_acids",
+            "type": "generic",
             "name": "Carboxylic Acid",
-            "smiles": "CC(=O)O"
+            "smarts": "*C(=O)O |$R;;;;$|",
+            "smiles": "*C(=O)O |$R;;;;$|",
+            "functionalGroupId": "carboxylic_acids",
+            "description": "Containing a carboxyl group (-COOH)"
           }
         },
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CO"
+              "type": "SMARTS",
+              "value": "*O |$R;;$|"
             },
             {
               "type": "NAME",
@@ -1808,9 +2183,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "alcohol",
+            "id": "generic_alcohols",
+            "type": "generic",
             "name": "Alcohol",
-            "smiles": "CO"
+            "smarts": "*O |$R;;$|",
+            "smiles": "*O |$R;;$|",
+            "functionalGroupId": "alcohols",
+            "description": "Containing a hydroxyl group (-OH) bonded to a carbon atom"
           }
         }
       ],
@@ -1818,8 +2197,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)OC"
+              "type": "SMARTS",
+              "value": "*C(=O)O* |$R;;;;R'$|"
             },
             {
               "type": "NAME",
@@ -1828,9 +2207,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "ester",
+            "id": "generic_esters",
+            "type": "generic",
             "name": "Ester",
-            "smiles": "CC(=O)OC"
+            "smarts": "*C(=O)O* |$R;;;;R'$|",
+            "smiles": "*C(=O)O* |$R;;;;R'$|",
+            "functionalGroupId": "esters",
+            "description": "Derived from carboxylic acids and alcohols"
           }
         }
       ],
@@ -1845,7 +2228,23 @@
         "ester",
         "Fischer"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_176",
+          "role": "REACTANT",
+          "note": "Specific example: Carboxylic Acid (SMILES: CC(=O)O)"
+        },
+        {
+          "moleculeId": "pubchem_887",
+          "role": "REACTANT",
+          "note": "Specific example: Alcohol (SMILES: CO)"
+        },
+        {
+          "moleculeId": "pubchem_6584",
+          "role": "PRODUCT",
+          "note": "Specific example: Ester (SMILES: CC(=O)OC)"
+        }
+      ]
     },
     {
       "id": "acid_chloride_alcohol_ester",
@@ -1865,8 +2264,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)Cl"
+              "type": "SMARTS",
+              "value": "*C(=O)O |$R;;;;$|"
             },
             {
               "type": "NAME",
@@ -1875,16 +2274,20 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "acid_chloride",
+            "id": "generic_carboxylic_acids",
+            "type": "generic",
             "name": "Acid Chloride",
-            "smiles": "CC(=O)Cl"
+            "smarts": "*C(=O)O |$R;;;;$|",
+            "smiles": "*C(=O)O |$R;;;;$|",
+            "functionalGroupId": "carboxylic_acids",
+            "description": "Containing a carboxyl group (-COOH)"
           }
         },
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CO"
+              "type": "SMARTS",
+              "value": "*O |$R;;$|"
             },
             {
               "type": "NAME",
@@ -1893,9 +2296,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "alcohol",
+            "id": "generic_alcohols",
+            "type": "generic",
             "name": "Alcohol",
-            "smiles": "CO"
+            "smarts": "*O |$R;;$|",
+            "smiles": "*O |$R;;$|",
+            "functionalGroupId": "alcohols",
+            "description": "Containing a hydroxyl group (-OH) bonded to a carbon atom"
           }
         }
       ],
@@ -1903,8 +2310,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)OC"
+              "type": "SMARTS",
+              "value": "*C(=O)O* |$R;;;;R'$|"
             },
             {
               "type": "NAME",
@@ -1913,9 +2320,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "ester",
+            "id": "generic_esters",
+            "type": "generic",
             "name": "Ester",
-            "smiles": "CC(=O)OC"
+            "smarts": "*C(=O)O* |$R;;;;R'$|",
+            "smiles": "*C(=O)O* |$R;;;;R'$|",
+            "functionalGroupId": "esters",
+            "description": "Derived from carboxylic acids and alcohols"
           }
         }
       ],
@@ -1927,7 +2338,23 @@
         "acid chloride",
         "ester"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_6367",
+          "role": "REACTANT",
+          "note": "Specific example: Acid Chloride (SMILES: CC(=O)Cl)"
+        },
+        {
+          "moleculeId": "pubchem_887",
+          "role": "REACTANT",
+          "note": "Specific example: Alcohol (SMILES: CO)"
+        },
+        {
+          "moleculeId": "pubchem_6584",
+          "role": "PRODUCT",
+          "note": "Specific example: Ester (SMILES: CC(=O)OC)"
+        }
+      ]
     },
     {
       "id": "acid_chloride_amine_amide",
@@ -1947,8 +2374,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)Cl"
+              "type": "SMARTS",
+              "value": "*C(=O)O |$R;;;;$|"
             },
             {
               "type": "NAME",
@@ -1957,16 +2384,20 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "acid_chloride",
+            "id": "generic_carboxylic_acids",
+            "type": "generic",
             "name": "Acid Chloride",
-            "smiles": "CC(=O)Cl"
+            "smarts": "*C(=O)O |$R;;;;$|",
+            "smiles": "*C(=O)O |$R;;;;$|",
+            "functionalGroupId": "carboxylic_acids",
+            "description": "Containing a carboxyl group (-COOH)"
           }
         },
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CN"
+              "type": "SMARTS",
+              "value": "*N |$R;;$|"
             },
             {
               "type": "NAME",
@@ -1975,9 +2406,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "amine",
+            "id": "generic_amines",
+            "type": "generic",
             "name": "Amine",
-            "smiles": "CN"
+            "smarts": "*N |$R;;$|",
+            "smiles": "*N |$R;;$|",
+            "functionalGroupId": "amines",
+            "description": "Derived from ammonia by replacement of hydrogen atoms"
           }
         }
       ],
@@ -1985,8 +2420,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)NC"
+              "type": "SMARTS",
+              "value": "*C(=O)N |$R;;;;$|"
             },
             {
               "type": "NAME",
@@ -1995,9 +2430,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "amide",
+            "id": "generic_amides",
+            "type": "generic",
             "name": "Amide",
-            "smiles": "CC(=O)NC"
+            "smarts": "*C(=O)N |$R;;;;$|",
+            "smiles": "*C(=O)N |$R;;;;$|",
+            "functionalGroupId": "amides",
+            "description": "Containing a carbonyl group linked to a nitrogen atom"
           }
         }
       ],
@@ -2009,7 +2448,23 @@
         "acid chloride",
         "amide"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_6367",
+          "role": "REACTANT",
+          "note": "Specific example: Acid Chloride (SMILES: CC(=O)Cl)"
+        },
+        {
+          "moleculeId": "pubchem_6329",
+          "role": "REACTANT",
+          "note": "Specific example: Amine (SMILES: CN)"
+        },
+        {
+          "moleculeId": "pubchem_6582",
+          "role": "PRODUCT",
+          "note": "Specific example: Amide (SMILES: CC(=O)NC)"
+        }
+      ]
     },
     {
       "id": "acid_chloride_lialh4_alcohol",
@@ -2029,8 +2484,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)Cl"
+              "type": "SMARTS",
+              "value": "*C(=O)O |$R;;;;$|"
             },
             {
               "type": "NAME",
@@ -2039,9 +2494,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "acid_chloride",
+            "id": "generic_carboxylic_acids",
+            "type": "generic",
             "name": "Acid Chloride",
-            "smiles": "CC(=O)Cl"
+            "smarts": "*C(=O)O |$R;;;;$|",
+            "smiles": "*C(=O)O |$R;;;;$|",
+            "functionalGroupId": "carboxylic_acids",
+            "description": "Containing a carboxyl group (-COOH)"
           }
         },
         {
@@ -2067,8 +2526,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CCO"
+              "type": "SMARTS",
+              "value": "*O |$R;;$|"
             },
             {
               "type": "NAME",
@@ -2077,9 +2536,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "primary_alcohol",
+            "id": "generic_alcohols",
+            "type": "generic",
             "name": "Primary Alcohol",
-            "smiles": "CCO"
+            "smarts": "*O |$R;;$|",
+            "smiles": "*O |$R;;$|",
+            "functionalGroupId": "alcohols",
+            "description": "Containing a hydroxyl group (-OH) bonded to a carbon atom"
           }
         }
       ],
@@ -2092,7 +2555,18 @@
         "acid chloride",
         "alcohol"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_6367",
+          "role": "REACTANT",
+          "note": "Specific example: Acid Chloride (SMILES: CC(=O)Cl)"
+        },
+        {
+          "moleculeId": "pubchem_702",
+          "role": "PRODUCT",
+          "note": "Specific example: Primary Alcohol (SMILES: CCO)"
+        }
+      ]
     },
     {
       "id": "ester_grignard_tertiary_alcohol",
@@ -2112,8 +2586,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)OC"
+              "type": "SMARTS",
+              "value": "*C(=O)O* |$R;;;;R'$|"
             },
             {
               "type": "NAME",
@@ -2122,9 +2596,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "ester",
+            "id": "generic_esters",
+            "type": "generic",
             "name": "Ester",
-            "smiles": "CC(=O)OC"
+            "smarts": "*C(=O)O* |$R;;;;R'$|",
+            "smiles": "*C(=O)O* |$R;;;;R'$|",
+            "functionalGroupId": "esters",
+            "description": "Derived from carboxylic acids and alcohols"
           }
         },
         {
@@ -2150,8 +2628,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(O)(C)C"
+              "type": "SMARTS",
+              "value": "*O |$R;;$|"
             },
             {
               "type": "NAME",
@@ -2160,9 +2638,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "tertiary_alcohol",
+            "id": "generic_alcohols",
+            "type": "generic",
             "name": "Tertiary Alcohol",
-            "smiles": "CC(O)(C)C"
+            "smarts": "*O |$R;;$|",
+            "smiles": "*O |$R;;$|",
+            "functionalGroupId": "alcohols",
+            "description": "Containing a hydroxyl group (-OH) bonded to a carbon atom"
           }
         }
       ],
@@ -2175,7 +2657,18 @@
         "ester",
         "alcohol"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_6584",
+          "role": "REACTANT",
+          "note": "Specific example: Ester (SMILES: CC(=O)OC)"
+        },
+        {
+          "moleculeId": "pubchem_6386",
+          "role": "PRODUCT",
+          "note": "Specific example: Tertiary Alcohol (SMILES: CC(O)(C)C)"
+        }
+      ]
     },
     {
       "id": "ester_lialh4_alcohol",
@@ -2195,8 +2688,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)OC"
+              "type": "SMARTS",
+              "value": "*C(=O)O* |$R;;;;R'$|"
             },
             {
               "type": "NAME",
@@ -2205,9 +2698,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "ester",
+            "id": "generic_esters",
+            "type": "generic",
             "name": "Ester",
-            "smiles": "CC(=O)OC"
+            "smarts": "*C(=O)O* |$R;;;;R'$|",
+            "smiles": "*C(=O)O* |$R;;;;R'$|",
+            "functionalGroupId": "esters",
+            "description": "Derived from carboxylic acids and alcohols"
           }
         },
         {
@@ -2233,8 +2730,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CCO"
+              "type": "SMARTS",
+              "value": "*O |$R;;$|"
             },
             {
               "type": "NAME",
@@ -2243,9 +2740,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "primary_alcohol",
+            "id": "generic_alcohols",
+            "type": "generic",
             "name": "Primary Alcohol",
-            "smiles": "CCO"
+            "smarts": "*O |$R;;$|",
+            "smiles": "*O |$R;;$|",
+            "functionalGroupId": "alcohols",
+            "description": "Containing a hydroxyl group (-OH) bonded to a carbon atom"
           }
         }
       ],
@@ -2258,7 +2759,18 @@
         "ester",
         "alcohol"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_6584",
+          "role": "REACTANT",
+          "note": "Specific example: Ester (SMILES: CC(=O)OC)"
+        },
+        {
+          "moleculeId": "pubchem_702",
+          "role": "PRODUCT",
+          "note": "Specific example: Primary Alcohol (SMILES: CCO)"
+        }
+      ]
     },
     {
       "id": "ester_saponification",
@@ -2278,8 +2790,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)OC"
+              "type": "SMARTS",
+              "value": "*C(=O)O* |$R;;;;R'$|"
             },
             {
               "type": "NAME",
@@ -2288,9 +2800,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "ester",
+            "id": "generic_esters",
+            "type": "generic",
             "name": "Ester",
-            "smiles": "CC(=O)OC"
+            "smarts": "*C(=O)O* |$R;;;;R'$|",
+            "smiles": "*C(=O)O* |$R;;;;R'$|",
+            "functionalGroupId": "esters",
+            "description": "Derived from carboxylic acids and alcohols"
           }
         },
         {
@@ -2334,8 +2850,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CO"
+              "type": "SMARTS",
+              "value": "*O |$R;;$|"
             },
             {
               "type": "NAME",
@@ -2344,9 +2860,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "alcohol",
+            "id": "generic_alcohols",
+            "type": "generic",
             "name": "Alcohol",
-            "smiles": "CO"
+            "smarts": "*O |$R;;$|",
+            "smiles": "*O |$R;;$|",
+            "functionalGroupId": "alcohols",
+            "description": "Containing a hydroxyl group (-OH) bonded to a carbon atom"
           }
         }
       ],
@@ -2360,7 +2880,18 @@
         "ester",
         "saponification"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_6584",
+          "role": "REACTANT",
+          "note": "Specific example: Ester (SMILES: CC(=O)OC)"
+        },
+        {
+          "moleculeId": "pubchem_887",
+          "role": "PRODUCT",
+          "note": "Specific example: Alcohol (SMILES: CO)"
+        }
+      ]
     },
     {
       "id": "amide_lialh4_amine",
@@ -2380,8 +2911,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)N"
+              "type": "SMARTS",
+              "value": "*C(=O)N |$R;;;;$|"
             },
             {
               "type": "NAME",
@@ -2390,9 +2921,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "amide",
+            "id": "generic_amides",
+            "type": "generic",
             "name": "Amide",
-            "smiles": "CC(=O)N"
+            "smarts": "*C(=O)N |$R;;;;$|",
+            "smiles": "*C(=O)N |$R;;;;$|",
+            "functionalGroupId": "amides",
+            "description": "Containing a carbonyl group linked to a nitrogen atom"
           }
         },
         {
@@ -2418,8 +2953,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CCN"
+              "type": "SMARTS",
+              "value": "*N |$R;;$|"
             },
             {
               "type": "NAME",
@@ -2428,9 +2963,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "amine",
+            "id": "generic_amines",
+            "type": "generic",
             "name": "Amine",
-            "smiles": "CCN"
+            "smarts": "*N |$R;;$|",
+            "smiles": "*N |$R;;$|",
+            "functionalGroupId": "amines",
+            "description": "Derived from ammonia by replacement of hydrogen atoms"
           }
         }
       ],
@@ -2443,7 +2982,18 @@
         "amide",
         "amine"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_178",
+          "role": "REACTANT",
+          "note": "Specific example: Amide (SMILES: CC(=O)N)"
+        },
+        {
+          "moleculeId": "pubchem_6341",
+          "role": "PRODUCT",
+          "note": "Specific example: Amine (SMILES: CCN)"
+        }
+      ]
     },
     {
       "id": "amide_dehydration_nitrile",
@@ -2463,8 +3013,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)N"
+              "type": "SMARTS",
+              "value": "*C(=O)N |$R;;;;$|"
             },
             {
               "type": "NAME",
@@ -2473,9 +3023,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "amide",
+            "id": "generic_amides",
+            "type": "generic",
             "name": "Amide",
-            "smiles": "CC(=O)N"
+            "smarts": "*C(=O)N |$R;;;;$|",
+            "smiles": "*C(=O)N |$R;;;;$|",
+            "functionalGroupId": "amides",
+            "description": "Containing a carbonyl group linked to a nitrogen atom"
           }
         },
         {
@@ -2501,8 +3055,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC#N"
+              "type": "SMARTS",
+              "value": "*C#N |$R;;$|"
             },
             {
               "type": "NAME",
@@ -2511,9 +3065,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "nitrile",
+            "id": "generic_nitriles",
+            "type": "generic",
             "name": "Nitrile",
-            "smiles": "CC#N"
+            "smarts": "*C#N |$R;;$|",
+            "smiles": "*C#N |$R;;$|",
+            "functionalGroupId": "nitriles",
+            "description": "Containing a carbon-nitrogen triple bond"
           }
         }
       ],
@@ -2525,7 +3083,18 @@
         "amide",
         "nitrile"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_178",
+          "role": "REACTANT",
+          "note": "Specific example: Amide (SMILES: CC(=O)N)"
+        },
+        {
+          "moleculeId": "pubchem_6342",
+          "role": "PRODUCT",
+          "note": "Specific example: Nitrile (SMILES: CC#N)"
+        }
+      ]
     },
     {
       "id": "nitrile_grignard_ketone",
@@ -2545,8 +3114,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC#N"
+              "type": "SMARTS",
+              "value": "*C#N |$R;;$|"
             },
             {
               "type": "NAME",
@@ -2555,9 +3124,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "nitrile",
+            "id": "generic_nitriles",
+            "type": "generic",
             "name": "Nitrile",
-            "smiles": "CC#N"
+            "smarts": "*C#N |$R;;$|",
+            "smiles": "*C#N |$R;;$|",
+            "functionalGroupId": "nitriles",
+            "description": "Containing a carbon-nitrogen triple bond"
           }
         },
         {
@@ -2583,8 +3156,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)C"
+              "type": "SMARTS",
+              "value": "*C(*)=O |$R;;R'$|"
             },
             {
               "type": "NAME",
@@ -2593,9 +3166,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "ketone",
+            "id": "generic_ketones",
+            "type": "generic",
             "name": "Ketone",
-            "smiles": "CC(=O)C"
+            "smarts": "*C(*)=O |$R;;R'$|",
+            "smiles": "*C(*)=O |$R;;R'$|",
+            "functionalGroupId": "ketones",
+            "description": "With a carbonyl group bonded to two carbon atoms"
           }
         }
       ],
@@ -2608,7 +3185,18 @@
         "nitrile",
         "ketone"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_6342",
+          "role": "REACTANT",
+          "note": "Specific example: Nitrile (SMILES: CC#N)"
+        },
+        {
+          "moleculeId": "pubchem_180",
+          "role": "PRODUCT",
+          "note": "Specific example: Ketone (SMILES: CC(=O)C)"
+        }
+      ]
     },
     {
       "id": "nitrile_lialh4_amine",
@@ -2628,8 +3216,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC#N"
+              "type": "SMARTS",
+              "value": "*C#N |$R;;$|"
             },
             {
               "type": "NAME",
@@ -2638,9 +3226,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "nitrile",
+            "id": "generic_nitriles",
+            "type": "generic",
             "name": "Nitrile",
-            "smiles": "CC#N"
+            "smarts": "*C#N |$R;;$|",
+            "smiles": "*C#N |$R;;$|",
+            "functionalGroupId": "nitriles",
+            "description": "Containing a carbon-nitrogen triple bond"
           }
         },
         {
@@ -2666,8 +3258,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CCN"
+              "type": "SMARTS",
+              "value": "*N |$R;;$|"
             },
             {
               "type": "NAME",
@@ -2676,9 +3268,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "primary_amine",
+            "id": "generic_amines",
+            "type": "generic",
             "name": "Primary Amine",
-            "smiles": "CCN"
+            "smarts": "*N |$R;;$|",
+            "smiles": "*N |$R;;$|",
+            "functionalGroupId": "amines",
+            "description": "Derived from ammonia by replacement of hydrogen atoms"
           }
         }
       ],
@@ -2691,7 +3287,18 @@
         "nitrile",
         "amine"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_6342",
+          "role": "REACTANT",
+          "note": "Specific example: Nitrile (SMILES: CC#N)"
+        },
+        {
+          "moleculeId": "pubchem_6341",
+          "role": "PRODUCT",
+          "note": "Specific example: Primary Amine (SMILES: CCN)"
+        }
+      ]
     },
     {
       "id": "nitrile_hydrolysis_acid",
@@ -2711,8 +3318,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC#N"
+              "type": "SMARTS",
+              "value": "*C#N |$R;;$|"
             },
             {
               "type": "NAME",
@@ -2721,9 +3328,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "nitrile",
+            "id": "generic_nitriles",
+            "type": "generic",
             "name": "Nitrile",
-            "smiles": "CC#N"
+            "smarts": "*C#N |$R;;$|",
+            "smiles": "*C#N |$R;;$|",
+            "functionalGroupId": "nitriles",
+            "description": "Containing a carbon-nitrogen triple bond"
           }
         },
         {
@@ -2749,8 +3360,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)O"
+              "type": "SMARTS",
+              "value": "*C(=O)O |$R;;;;$|"
             },
             {
               "type": "NAME",
@@ -2759,9 +3370,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "carboxylic_acid",
+            "id": "generic_carboxylic_acids",
+            "type": "generic",
             "name": "Carboxylic Acid",
-            "smiles": "CC(=O)O"
+            "smarts": "*C(=O)O |$R;;;;$|",
+            "smiles": "*C(=O)O |$R;;;;$|",
+            "functionalGroupId": "carboxylic_acids",
+            "description": "Containing a carboxyl group (-COOH)"
           }
         }
       ],
@@ -2774,7 +3389,18 @@
         "nitrile",
         "acid"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_6342",
+          "role": "REACTANT",
+          "note": "Specific example: Nitrile (SMILES: CC#N)"
+        },
+        {
+          "moleculeId": "pubchem_176",
+          "role": "PRODUCT",
+          "note": "Specific example: Carboxylic Acid (SMILES: CC(=O)O)"
+        }
+      ]
     },
     {
       "id": "wittig_reaction",
@@ -2832,8 +3458,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC=C"
+              "type": "SMARTS",
+              "value": "*C=C* |$R;;;R'$|"
             },
             {
               "type": "NAME",
@@ -2842,9 +3468,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "alkene",
+            "id": "generic_alkenes",
+            "type": "generic",
             "name": "Alkene",
-            "smiles": "CC=C"
+            "smarts": "*C=C* |$R;;;R'$|",
+            "smiles": "*C=C* |$R;;;R'$|",
+            "functionalGroupId": "alkenes",
+            "description": "Containing carbon-carbon double bonds"
           }
         }
       ],
@@ -2857,7 +3487,13 @@
         "alkene",
         "ylide"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_8252",
+          "role": "PRODUCT",
+          "note": "Specific example: Alkene (SMILES: CC=C)"
+        }
+      ]
     },
     {
       "id": "clemmensen_reduction",
@@ -3029,8 +3665,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)C"
+              "type": "SMARTS",
+              "value": "*C(*)=O |$R;;R'$|"
             },
             {
               "type": "NAME",
@@ -3039,16 +3675,20 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "ketone",
+            "id": "generic_ketones",
+            "type": "generic",
             "name": "Ketone",
-            "smiles": "CC(=O)C"
+            "smarts": "*C(*)=O |$R;;R'$|",
+            "smiles": "*C(*)=O |$R;;R'$|",
+            "functionalGroupId": "ketones",
+            "description": "With a carbonyl group bonded to two carbon atoms"
           }
         },
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)OO"
+              "type": "SMARTS",
+              "value": "*C(=O)O |$R;;;;$|"
             },
             {
               "type": "NAME",
@@ -3057,9 +3697,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "peroxyacid",
+            "id": "generic_carboxylic_acids",
+            "type": "generic",
             "name": "Peroxyacid",
-            "smiles": "CC(=O)OO"
+            "smarts": "*C(=O)O |$R;;;;$|",
+            "smiles": "*C(=O)O |$R;;;;$|",
+            "functionalGroupId": "carboxylic_acids",
+            "description": "Containing a carboxyl group (-COOH)"
           }
         }
       ],
@@ -3067,8 +3711,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)OC"
+              "type": "SMARTS",
+              "value": "*C(=O)O* |$R;;;;R'$|"
             },
             {
               "type": "NAME",
@@ -3077,9 +3721,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "ester",
+            "id": "generic_esters",
+            "type": "generic",
             "name": "Ester",
-            "smiles": "CC(=O)OC"
+            "smarts": "*C(=O)O* |$R;;;;R'$|",
+            "smiles": "*C(=O)O* |$R;;;;R'$|",
+            "functionalGroupId": "esters",
+            "description": "Derived from carboxylic acids and alcohols"
           }
         }
       ],
@@ -3092,7 +3740,23 @@
         "ketone",
         "ester"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_180",
+          "role": "REACTANT",
+          "note": "Specific example: Ketone (SMILES: CC(=O)C)"
+        },
+        {
+          "moleculeId": "pubchem_6585",
+          "role": "REACTANT",
+          "note": "Specific example: Peroxyacid (SMILES: CC(=O)OO)"
+        },
+        {
+          "moleculeId": "pubchem_6584",
+          "role": "PRODUCT",
+          "note": "Specific example: Ester (SMILES: CC(=O)OC)"
+        }
+      ]
     },
     {
       "id": "haloform_reaction",
@@ -3112,8 +3776,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)C"
+              "type": "SMARTS",
+              "value": "*C(*)=O |$R;;R'$|"
             },
             {
               "type": "NAME",
@@ -3122,9 +3786,13 @@
           ],
           "reaction_role": "REACTANT",
           "compound": {
-            "id": "methyl_ketone",
+            "id": "generic_ketones",
+            "type": "generic",
             "name": "Methyl Ketone",
-            "smiles": "CC(=O)C"
+            "smarts": "*C(*)=O |$R;;R'$|",
+            "smiles": "*C(*)=O |$R;;R'$|",
+            "functionalGroupId": "ketones",
+            "description": "With a carbonyl group bonded to two carbon atoms"
           }
         },
         {
@@ -3150,8 +3818,8 @@
         {
           "identifiers": [
             {
-              "type": "SMILES",
-              "value": "CC(=O)O"
+              "type": "SMARTS",
+              "value": "*C(=O)O |$R;;;;$|"
             },
             {
               "type": "NAME",
@@ -3160,9 +3828,13 @@
           ],
           "reaction_role": "PRODUCT",
           "compound": {
-            "id": "carboxylic_acid",
+            "id": "generic_carboxylic_acids",
+            "type": "generic",
             "name": "Carboxylic Acid",
-            "smiles": "CC(=O)O"
+            "smarts": "*C(=O)O |$R;;;;$|",
+            "smiles": "*C(=O)O |$R;;;;$|",
+            "functionalGroupId": "carboxylic_acids",
+            "description": "Containing a carboxyl group (-COOH)"
           }
         },
         {
@@ -3194,7 +3866,18 @@
         "ketone",
         "acid"
       ],
-      "experimentalReactions": []
+      "experimentalReactions": [
+        {
+          "moleculeId": "pubchem_180",
+          "role": "REACTANT",
+          "note": "Specific example: Methyl Ketone (SMILES: CC(=O)C)"
+        },
+        {
+          "moleculeId": "pubchem_176",
+          "role": "PRODUCT",
+          "note": "Specific example: Carboxylic Acid (SMILES: CC(=O)O)"
+        }
+      ]
     }
   ],
   "categories": [
