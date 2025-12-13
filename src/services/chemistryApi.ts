@@ -26,10 +26,11 @@ export async function searchPubChemByName(name: string): Promise<Molecule | null
       id: `pubchem_${cid}`,
       cid: cid,
       type: 'small-molecule',
-      names: {
-        iupac: name,
-        common: [name],
-      },
+      names: [
+        { languageCode: 'en', type: 'common', value: name },
+        { languageCode: 'en', type: 'iupac', value: name }
+      ],
+      functionalGroups: [] as any,
       structure: {
         smiles: props.CanonicalSMILES,
         inchi: props.InChI,
@@ -41,7 +42,11 @@ export async function searchPubChemByName(name: string): Promise<Molecule | null
         exactMass: 0,
         monoisotopicMass: 0,
       },
-      sources: ['pubchem'],
+      sources: [{
+        sourceId: 'pubchem',
+        recordId: `${cid}`,
+        dateAccessed: new Date().toISOString()
+      }],
       lastUpdated: new Date().toISOString(),
     }
   } catch (error) {
@@ -65,10 +70,10 @@ export async function getPubChemByCID(cid: number): Promise<Molecule | null> {
       id: `pubchem_${cid}`,
       cid: cid,
       type: 'small-molecule',
-      names: {
-        iupac: `CID ${cid}`,
-        common: [`CID ${cid}`],
-      },
+      names: [
+        { languageCode: 'en', type: 'common', value: `CID ${cid}` }
+      ],
+      functionalGroups: [] as any,
       structure: {
         smiles: props.CanonicalSMILES,
         inchi: props.InChI,
@@ -80,7 +85,11 @@ export async function getPubChemByCID(cid: number): Promise<Molecule | null> {
         exactMass: 0,
         monoisotopicMass: 0,
       },
-      sources: ['pubchem'],
+      sources: [{
+        sourceId: 'pubchem',
+        recordId: `${cid}`,
+        dateAccessed: new Date().toISOString()
+      }],
       lastUpdated: new Date().toISOString(),
     }
   } catch (error) {

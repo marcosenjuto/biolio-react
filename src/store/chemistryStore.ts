@@ -55,27 +55,84 @@ export const useChemistryStore = create<ChemistryState>((set, get) => ({
 
     // Filter by category
     if (selectedCategory && selectedCategory !== 'all') {
-      filtered = filtered.filter(r => 
-        r.category.toLowerCase() === selectedCategory.toLowerCase()
-      )
+      filtered = filtered.filter(r => {
+        // Handle category as array (BioblioReaction) or string (legacy)
+        const category: string | string[] = r.category as any
+        if (Array.isArray(category)) {
+          return category.some((cat: string) => cat.toLowerCase() === selectedCategory.toLowerCase())
+        }
+        // Handle legacy string category (should not happen with BioblioReaction)
+        if (typeof category === 'string') {
+          return category.toLowerCase() === selectedCategory.toLowerCase()
+        }
+        return false
+      })
     }
 
     // Filter by search term
     if (searchTerm) {
       const term = searchTerm.toLowerCase()
-      filtered = filtered.filter(r =>
-        r.name.toLowerCase().includes(term) ||
-        r.description.toLowerCase().includes(term) ||
-        r.tags?.some(tag => tag.toLowerCase().includes(term)) ||
-        r.reactants.some(reagent => 
-          reagent.compound.names.common.some(n => n.toLowerCase().includes(term)) || 
-          reagent.compound.names.iupac.toLowerCase().includes(term)
-        ) ||
-        r.products.some(reagent => 
-          reagent.compound.names.common.some(n => n.toLowerCase().includes(term)) || 
-          reagent.compound.names.iupac.toLowerCase().includes(term)
-        )
-      )
+      filtered = filtered.filter(r => {
+        // Search in name and description
+        if (r.name.toLowerCase().includes(term) || r.description.toLowerCase().includes(term)) {
+          return true
+        }
+        
+        // Search in tags
+        if (r.tags?.some(tag => tag.toLowerCase().includes(term))) {
+          return true
+        }
+        
+        // Search in reactants
+        if (r.reactants.some(reagent => {
+          if (!reagent.compound) return false
+          const compound = reagent.compound
+          if ('names' in compound) {
+            if (Array.isArray(compound.names)) {
+              // BioblioReaction format: Names is an array
+              return compound.names.some((n: any) => n.value.toLowerCase().includes(term))
+            } else if (typeof compound.names === 'object' && !Array.isArray(compound.names)) {
+              // Old format (shouldn't happen with BioblioReaction)
+              const names = compound.names as any
+              return (
+                names.common?.some((n: string) => n.toLowerCase().includes(term)) ||
+                names.iupac?.toLowerCase().includes(term)
+              )
+            }
+          }
+          if ('name' in compound && typeof compound.name === 'string') {
+            return compound.name.toLowerCase().includes(term)
+          }
+          return false
+        })) {
+          return true
+        }
+        
+        // Search in products
+        if (r.products.some(reagent => {
+          if (!reagent.compound) return false
+          const compound = reagent.compound
+          if ('names' in compound) {
+            if (Array.isArray(compound.names)) {
+              return compound.names.some((n: any) => n.value.toLowerCase().includes(term))
+            } else if (typeof compound.names === 'object' && !Array.isArray(compound.names)) {
+              const names = compound.names as any
+              return (
+                names.common?.some((n: string) => n.toLowerCase().includes(term)) ||
+                names.iupac?.toLowerCase().includes(term)
+              )
+            }
+          }
+          if ('name' in compound && typeof compound.name === 'string') {
+            return compound.name.toLowerCase().includes(term)
+          }
+          return false
+        })) {
+          return true
+        }
+        
+        return false
+      })
     }
 
     // Filter by tags
@@ -93,7 +150,16 @@ export const useChemistryStore = create<ChemistryState>((set, get) => ({
   },
 
   getReactionsByCategory: (category) => {
-    return get().reactions.filter(r => r.category.toLowerCase() === category.toLowerCase())
+    return get().reactions.filter(r => {
+      const cat: string | string[] = r.category as any
+      if (Array.isArray(cat)) {
+        return cat.some((c: string) => c.toLowerCase() === category.toLowerCase())
+      }
+      if (typeof cat === 'string') {
+        return cat.toLowerCase() === category.toLowerCase()
+      }
+      return false
+    })
   },
 
   getReactionsByTag: (tag) => {

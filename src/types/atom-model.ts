@@ -1,13 +1,3 @@
-export interface Atom {
-  index: number;
-  symbol: string;
-  atomicNumber: number;
-  coordinates?: {
-    x: number;
-    y: number;
-    z: number;
-  };
-  charge?: number;
-  isotope?: number;
-  properties?: Record<string, any>;
-}
+// Re-export all types from data/models/atom-model
+// This is the single source of truth for atom models
+export * from '../data/models/atom-model'

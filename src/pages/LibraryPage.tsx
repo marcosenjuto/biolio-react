@@ -59,7 +59,7 @@ function LibraryPage() {
 
   return (
     <div className="library-page page bg-gray-50">
-      <div className="library-container  absolute mx-auto">
+      <div className="library-container max-w-full absolute mx-auto">
         {/* Header */}
           {/* Unified Filters - Preview + Collapsible Panel */}
           <UnifiedFilters

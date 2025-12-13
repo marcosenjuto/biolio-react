@@ -165,7 +165,7 @@ function UnifiedFilters({
       <div 
         className="filter-container bg-white rounded-lg shadow-sm mb-4 p-0 sticky top-0 left-0 z-50"
         style={{
-          width: '100vw'
+          width: '100%'
         }}
       >
         {/* Search Bar Section */}

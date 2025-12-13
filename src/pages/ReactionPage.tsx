@@ -8,11 +8,49 @@ import type { Reaction } from '@/types/chemistry'
 
 const listNames = (items: Reaction['reactants']) =>
   items
-    .map((reagent) => reagent.compound.names.common[0] || reagent.compound.names.iupac)
+    .map((reagent) => {
+      if (!reagent.compound) return null
+      const compound = reagent.compound
+      
+      // Handle BioblioReaction format (Names is array)
+      if ('names' in compound && Array.isArray(compound.names)) {
+        const commonName = compound.names.find((n: any) => n.type === 'common')
+        const iupacName = compound.names.find((n: any) => n.type === 'iupac')
+        return commonName?.value || iupacName?.value || null
+      }
+      
+      if ('names' in compound && typeof compound.names === 'object' && !Array.isArray(compound.names)) {
+        // Old format (shouldn't happen with BioblioReaction)
+        const names = compound.names as any
+        return names.common?.[0] || names.iupac || ''
+      }
+      
+      // Handle simple name property
+      if ('name' in compound && typeof compound.name === 'string') {
+        return compound.name
+      }
+      
+      return null
+    })
     .filter(Boolean)
     .join(', ')
 
 const buildReactionMarkdown = (reaction: Reaction) => {
+  // Helper to extract name from compound
+  const getName = (compound: any): string => {
+    if (!compound) return ''
+    if (compound.name) return compound.name
+    if ('names' in compound && Array.isArray(compound.names)) {
+      const commonName = compound.names.find((n: any) => n.type === 'common')
+      const iupacName = compound.names.find((n: any) => n.type === 'iupac')
+      return commonName?.value || iupacName?.value || ''
+    }
+    if ('names' in compound && typeof compound.names === 'object' && !Array.isArray(compound.names)) {
+      return compound.names.common?.[0] || compound.names.iupac || ''
+    }
+    return ''
+  }
+
   const sections: string[] = []
 
   if (reaction.description) {
@@ -35,8 +73,14 @@ const buildReactionMarkdown = (reaction: Reaction) => {
     sections.push(`**Temperature:** ${reaction.temperature}`)
   }
 
-  if (reaction.solvent) {
-    sections.push(`**Solvent:** ${reaction.solvent}`)
+  if (reaction.solvents && reaction.solvents.length > 0) {
+    const solventNames = reaction.solvents
+      .map(s => getName(s.compound))
+      .filter(Boolean)
+      .join(', ')
+    if (solventNames) {
+      sections.push(`**Solvent:** ${solventNames}`)
+    }
   }
 
   if (typeof reaction.yield === 'number') {
@@ -95,12 +139,21 @@ function ReactionPage() {
             <div className="reaction-viewer-canvas w-full overflow-hidden">
               <ReactionViewer reaction={reaction} viewerType="rdkit" />
             </div>
-            <div className="reaction-details">
+              <div className="reaction-details">
               <p className="reaction-description text-gray-600">{reaction.description}</p>
               <div className="reaction-tags flex flex-wrap gap-2 mt-4">
-                <span className="reaction-category-chip px-2 py-1 bg-primary-50 text-primary-700 text-xs font-medium rounded-full">
-                  {reaction.category}
-                </span>
+                {/* Handle category as array or string */}
+                {Array.isArray(reaction.category) ? (
+                  reaction.category.map(cat => (
+                    <span key={cat} className="reaction-category-chip px-2 py-1 bg-primary-50 text-primary-700 text-xs font-medium rounded-full">
+                      {cat}
+                    </span>
+                  ))
+                ) : (
+                  <span className="reaction-category-chip px-2 py-1 bg-primary-50 text-primary-700 text-xs font-medium rounded-full">
+                    {reaction.category}
+                  </span>
+                )}
                 {reaction.tags?.map(tag => (
                   <span key={tag} className="reaction-tag-chip px-2 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full">
                     {tag}

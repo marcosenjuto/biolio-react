@@ -28,9 +28,18 @@ function ExpandableReactionCard({ reaction, isExpanded, onToggle, viewerType = '
           {reaction.name}
         </h3>
         <div className="flex items-center gap-2">
-          <span className="reaction-card-category inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-primary-100 text-primary-800 whitespace-nowrap">
-            {reaction.category}
-          </span>
+          {/* Handle category as array or string */}
+          {Array.isArray(reaction.category) ? (
+            reaction.category.slice(0, 1).map(cat => (
+              <span key={cat} className="reaction-card-category inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-primary-100 text-primary-800 whitespace-nowrap">
+                {cat}
+              </span>
+            ))
+          ) : (
+            <span className="reaction-card-category inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-primary-100 text-primary-800 whitespace-nowrap">
+              {reaction.category}
+            </span>
+          )}
           
           {/* Navigation Chevron */}
           <button

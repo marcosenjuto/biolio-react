@@ -1,0 +1,3252 @@
+{
+  "reactions": [
+    {
+      "id": "alcohol_pcc_aldehyde",
+      "name": "Primary Alcohol to Aldehyde (PCC)",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Primary Alcohol to Aldehyde (PCC)"
+        }
+      ],
+      "description": "Oxidation of primary alcohol to aldehyde using PCC",
+      "category": [
+        "Oxidation"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CCCO"
+            },
+            {
+              "type": "NAME",
+              "value": "Primary Alcohol"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "primary_alcohol",
+            "name": "Primary Alcohol",
+            "smiles": "CCCO"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "[Cl-].[O-][Cr](=O)(=O)O[C@H]1[CH]=[CH][CH]=[CH][N+]1=C"
+            },
+            {
+              "type": "NAME",
+              "value": "PCC"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "pcc",
+            "name": "PCC",
+            "smiles": "[Cl-].[O-][Cr](=O)(=O)O[C@H]1[CH]=[CH][CH]=[CH][N+]1=C"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CCC=O"
+            },
+            {
+              "type": "NAME",
+              "value": "Aldehyde"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "aldehyde",
+            "name": "Aldehyde",
+            "smiles": "CCC=O"
+          }
+        }
+      ],
+      "conditions": [
+        "PCC",
+        "CH2Cl2"
+      ],
+      "tags": [
+        "oxidation",
+        "alcohol",
+        "aldehyde",
+        "PCC"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "alcohol_dichromate_acid",
+      "name": "Primary Alcohol to Carboxylic Acid",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Primary Alcohol to Carboxylic Acid"
+        }
+      ],
+      "description": "Oxidation of primary alcohol to carboxylic acid using dichromate",
+      "category": [
+        "Oxidation"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CCCO"
+            },
+            {
+              "type": "NAME",
+              "value": "Primary Alcohol"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "primary_alcohol",
+            "name": "Primary Alcohol",
+            "smiles": "CCCO"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "[O-][Cr](=O)(=O)[O-].[O-][Cr](=O)(=O)[O-]"
+            },
+            {
+              "type": "NAME",
+              "value": "Dichromate"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "dichromate",
+            "name": "Dichromate",
+            "smiles": "[O-][Cr](=O)(=O)[O-].[O-][Cr](=O)(=O)[O-]"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CCC(=O)O"
+            },
+            {
+              "type": "NAME",
+              "value": "Carboxylic Acid"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "carboxylic_acid",
+            "name": "Carboxylic Acid",
+            "smiles": "CCC(=O)O"
+          }
+        }
+      ],
+      "conditions": [
+        "Cr2O7²⁻",
+        "H⁺",
+        "heat"
+      ],
+      "tags": [
+        "oxidation",
+        "alcohol",
+        "acid",
+        "dichromate"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "secondary_alcohol_ketone",
+      "name": "Secondary Alcohol to Ketone",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Secondary Alcohol to Ketone"
+        }
+      ],
+      "description": "Oxidation of secondary alcohol to ketone",
+      "category": [
+        "Oxidation"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(O)C"
+            },
+            {
+              "type": "NAME",
+              "value": "Secondary Alcohol"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "secondary_alcohol",
+            "name": "Secondary Alcohol",
+            "smiles": "CC(O)C"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "[O-][Cr](=O)(=O)[O-].[O-][Cr](=O)(=O)[O-]"
+            },
+            {
+              "type": "NAME",
+              "value": "Dichromate"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "dichromate",
+            "name": "Dichromate",
+            "smiles": "[O-][Cr](=O)(=O)[O-].[O-][Cr](=O)(=O)[O-]"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)C"
+            },
+            {
+              "type": "NAME",
+              "value": "Ketone"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "ketone",
+            "name": "Ketone",
+            "smiles": "CC(=O)C"
+          }
+        }
+      ],
+      "conditions": [
+        "Cr2O7²⁻",
+        "H⁺"
+      ],
+      "tags": [
+        "oxidation",
+        "alcohol",
+        "ketone",
+        "dichromate"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "alkene_ozonolysis_aldehyde",
+      "name": "Alkene Ozonolysis to Aldehydes/Ketones",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Alkene Ozonolysis to Aldehydes/Ketones"
+        }
+      ],
+      "description": "Ozonolysis of alkenes with reductive workup",
+      "category": [
+        "Oxidation"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "C=C"
+            },
+            {
+              "type": "NAME",
+              "value": "Alkene"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "alkene",
+            "name": "Alkene",
+            "smiles": "C=C"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "[O-][O+]=O"
+            },
+            {
+              "type": "NAME",
+              "value": "Ozone"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "ozone",
+            "name": "Ozone",
+            "smiles": "[O-][O+]=O"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "C=O"
+            },
+            {
+              "type": "NAME",
+              "value": "Aldehyde/Ketone"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "aldehyde/ketone",
+            "name": "Aldehyde/Ketone",
+            "smiles": "C=O"
+          }
+        }
+      ],
+      "conditions": [
+        "O₃",
+        "DCM",
+        "reductive workup"
+      ],
+      "tags": [
+        "ozonolysis",
+        "alkene",
+        "aldehyde",
+        "ketone"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "alkene_ozonolysis_acid",
+      "name": "Alkene Ozonolysis to Acids/Ketones",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Alkene Ozonolysis to Acids/Ketones"
+        }
+      ],
+      "description": "Ozonolysis of alkenes with oxidative workup",
+      "category": [
+        "Oxidation"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "C=C"
+            },
+            {
+              "type": "NAME",
+              "value": "Alkene"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "alkene",
+            "name": "Alkene",
+            "smiles": "C=C"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "[O-][O+]=O"
+            },
+            {
+              "type": "NAME",
+              "value": "Ozone"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "ozone",
+            "name": "Ozone",
+            "smiles": "[O-][O+]=O"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "C(=O)O"
+            },
+            {
+              "type": "NAME",
+              "value": "Acid/Ketone"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "acid/ketone",
+            "name": "Acid/Ketone",
+            "smiles": "C(=O)O"
+          }
+        }
+      ],
+      "conditions": [
+        "O₃",
+        "H₂O₂",
+        "oxidative workup"
+      ],
+      "tags": [
+        "ozonolysis",
+        "alkene",
+        "acid",
+        "ketone"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "aldehyde_hemiacetal",
+      "name": "Aldehyde to Hemiacetal",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Aldehyde to Hemiacetal"
+        }
+      ],
+      "description": "Reaction of aldehyde with one equivalent of alcohol",
+      "category": [
+        "Addition"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC=O"
+            },
+            {
+              "type": "NAME",
+              "value": "Aldehyde"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "aldehyde",
+            "name": "Aldehyde",
+            "smiles": "CC=O"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CO"
+            },
+            {
+              "type": "NAME",
+              "value": "Alcohol"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "alcohol",
+            "name": "Alcohol",
+            "smiles": "CO"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(O)OC"
+            },
+            {
+              "type": "NAME",
+              "value": "Hemiacetal"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "hemiacetal",
+            "name": "Hemiacetal",
+            "smiles": "CC(O)OC"
+          }
+        }
+      ],
+      "conditions": [
+        "acid catalyst"
+      ],
+      "tags": [
+        "addition",
+        "aldehyde",
+        "alcohol",
+        "hemiacetal"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "aldehyde_acetal",
+      "name": "Aldehyde to Acetal",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Aldehyde to Acetal"
+        }
+      ],
+      "description": "Reaction of aldehyde with excess alcohol",
+      "category": [
+        "Addition"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC=O"
+            },
+            {
+              "type": "NAME",
+              "value": "Aldehyde"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "aldehyde",
+            "name": "Aldehyde",
+            "smiles": "CC=O"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CO"
+            },
+            {
+              "type": "NAME",
+              "value": "Alcohol"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "alcohol",
+            "name": "Alcohol",
+            "smiles": "CO"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(OC)OC"
+            },
+            {
+              "type": "NAME",
+              "value": "Acetal"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "acetal",
+            "name": "Acetal",
+            "smiles": "CC(OC)OC"
+          }
+        }
+      ],
+      "conditions": [
+        "acid catalyst",
+        "excess alcohol"
+      ],
+      "tags": [
+        "addition",
+        "aldehyde",
+        "alcohol",
+        "acetal"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "aldehyde_lialh4_alcohol",
+      "name": "Aldehyde to Primary Alcohol (LiAlH₄)",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Aldehyde to Primary Alcohol (LiAlH₄)"
+        }
+      ],
+      "description": "Reduction of aldehyde to primary alcohol",
+      "category": [
+        "Reduction"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC=O"
+            },
+            {
+              "type": "NAME",
+              "value": "Aldehyde"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "aldehyde",
+            "name": "Aldehyde",
+            "smiles": "CC=O"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "[Li+].[AlH4-]"
+            },
+            {
+              "type": "NAME",
+              "value": "LiAlH₄"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "lialh₄",
+            "name": "LiAlH₄",
+            "smiles": "[Li+].[AlH4-]"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CCO"
+            },
+            {
+              "type": "NAME",
+              "value": "Primary Alcohol"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "primary_alcohol",
+            "name": "Primary Alcohol",
+            "smiles": "CCO"
+          }
+        }
+      ],
+      "conditions": [
+        "LiAlH₄",
+        "ether",
+        "then H₂O"
+      ],
+      "tags": [
+        "reduction",
+        "aldehyde",
+        "alcohol",
+        "LiAlH4"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "aldehyde_nabh4_alcohol",
+      "name": "Aldehyde to Primary Alcohol (NaBH₄)",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Aldehyde to Primary Alcohol (NaBH₄)"
+        }
+      ],
+      "description": "Reduction of aldehyde to primary alcohol with sodium borohydride",
+      "category": [
+        "Reduction"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC=O"
+            },
+            {
+              "type": "NAME",
+              "value": "Aldehyde"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "aldehyde",
+            "name": "Aldehyde",
+            "smiles": "CC=O"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "[Na+].[BH4-]"
+            },
+            {
+              "type": "NAME",
+              "value": "NaBH₄"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "nabh₄",
+            "name": "NaBH₄",
+            "smiles": "[Na+].[BH4-]"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CCO"
+            },
+            {
+              "type": "NAME",
+              "value": "Primary Alcohol"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "primary_alcohol",
+            "name": "Primary Alcohol",
+            "smiles": "CCO"
+          }
+        }
+      ],
+      "conditions": [
+        "NaBH₄",
+        "MeOH"
+      ],
+      "tags": [
+        "reduction",
+        "aldehyde",
+        "alcohol",
+        "NaBH4"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "ketone_lialh4_alcohol",
+      "name": "Ketone to Secondary Alcohol (LiAlH₄)",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Ketone to Secondary Alcohol (LiAlH₄)"
+        }
+      ],
+      "description": "Reduction of ketone to secondary alcohol",
+      "category": [
+        "Reduction"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)C"
+            },
+            {
+              "type": "NAME",
+              "value": "Ketone"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "ketone",
+            "name": "Ketone",
+            "smiles": "CC(=O)C"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "[Li+].[AlH4-]"
+            },
+            {
+              "type": "NAME",
+              "value": "LiAlH₄"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "lialh₄",
+            "name": "LiAlH₄",
+            "smiles": "[Li+].[AlH4-]"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(O)C"
+            },
+            {
+              "type": "NAME",
+              "value": "Secondary Alcohol"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "secondary_alcohol",
+            "name": "Secondary Alcohol",
+            "smiles": "CC(O)C"
+          }
+        }
+      ],
+      "conditions": [
+        "LiAlH₄",
+        "ether"
+      ],
+      "tags": [
+        "reduction",
+        "ketone",
+        "alcohol",
+        "LiAlH4"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "ketone_nabh4_alcohol",
+      "name": "Ketone to Secondary Alcohol (NaBH₄)",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Ketone to Secondary Alcohol (NaBH₄)"
+        }
+      ],
+      "description": "Reduction of ketone to secondary alcohol",
+      "category": [
+        "Reduction"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)C"
+            },
+            {
+              "type": "NAME",
+              "value": "Ketone"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "ketone",
+            "name": "Ketone",
+            "smiles": "CC(=O)C"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "[Na+].[BH4-]"
+            },
+            {
+              "type": "NAME",
+              "value": "NaBH₄"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "nabh₄",
+            "name": "NaBH₄",
+            "smiles": "[Na+].[BH4-]"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(O)C"
+            },
+            {
+              "type": "NAME",
+              "value": "Secondary Alcohol"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "secondary_alcohol",
+            "name": "Secondary Alcohol",
+            "smiles": "CC(O)C"
+          }
+        }
+      ],
+      "conditions": [
+        "NaBH₄",
+        "MeOH or EtOH"
+      ],
+      "tags": [
+        "reduction",
+        "ketone",
+        "alcohol",
+        "NaBH4"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "aldehyde_grignard_secondary_alcohol",
+      "name": "Aldehyde + Grignard → Secondary Alcohol",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Aldehyde + Grignard → Secondary Alcohol"
+        }
+      ],
+      "description": "Reaction of aldehyde with Grignard reagent",
+      "category": [
+        "Grignard"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC=O"
+            },
+            {
+              "type": "NAME",
+              "value": "Aldehyde"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "aldehyde",
+            "name": "Aldehyde",
+            "smiles": "CC=O"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "C[Mg+]Br"
+            },
+            {
+              "type": "NAME",
+              "value": "Grignard"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "grignard",
+            "name": "Grignard",
+            "smiles": "C[Mg+]Br"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(O)C"
+            },
+            {
+              "type": "NAME",
+              "value": "Secondary Alcohol"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "secondary_alcohol",
+            "name": "Secondary Alcohol",
+            "smiles": "CC(O)C"
+          }
+        }
+      ],
+      "conditions": [
+        "RMgX",
+        "ether",
+        "then H₃O⁺"
+      ],
+      "tags": [
+        "grignard",
+        "aldehyde",
+        "alcohol"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "ketone_grignard_tertiary_alcohol",
+      "name": "Ketone + Grignard → Tertiary Alcohol",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Ketone + Grignard → Tertiary Alcohol"
+        }
+      ],
+      "description": "Reaction of ketone with Grignard reagent",
+      "category": [
+        "Grignard"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)C"
+            },
+            {
+              "type": "NAME",
+              "value": "Ketone"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "ketone",
+            "name": "Ketone",
+            "smiles": "CC(=O)C"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "C[Mg+]Br"
+            },
+            {
+              "type": "NAME",
+              "value": "Grignard"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "grignard",
+            "name": "Grignard",
+            "smiles": "C[Mg+]Br"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(O)(C)C"
+            },
+            {
+              "type": "NAME",
+              "value": "Tertiary Alcohol"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "tertiary_alcohol",
+            "name": "Tertiary Alcohol",
+            "smiles": "CC(O)(C)C"
+          }
+        }
+      ],
+      "conditions": [
+        "RMgX",
+        "ether",
+        "then H₃O⁺"
+      ],
+      "tags": [
+        "grignard",
+        "ketone",
+        "alcohol"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "grignard_co2_acid",
+      "name": "Grignard + CO₂ → Carboxylic Acid",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Grignard + CO₂ → Carboxylic Acid"
+        }
+      ],
+      "description": "Carboxylation of Grignard reagent",
+      "category": [
+        "Grignard"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "C[Mg+]Br"
+            },
+            {
+              "type": "NAME",
+              "value": "Grignard"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "grignard",
+            "name": "Grignard",
+            "smiles": "C[Mg+]Br"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "O=C=O"
+            },
+            {
+              "type": "NAME",
+              "value": "Carbon Dioxide"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "carbon_dioxide",
+            "name": "Carbon Dioxide",
+            "smiles": "O=C=O"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)O"
+            },
+            {
+              "type": "NAME",
+              "value": "Carboxylic Acid"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "carboxylic_acid",
+            "name": "Carboxylic Acid",
+            "smiles": "CC(=O)O"
+          }
+        }
+      ],
+      "conditions": [
+        "CO₂",
+        "then H₃O⁺"
+      ],
+      "tags": [
+        "grignard",
+        "carboxylation",
+        "acid"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "aldol_condensation",
+      "name": "Aldol Condensation",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Aldol Condensation"
+        }
+      ],
+      "description": "Aldol reaction between ketone with alpha hydrogen and aldehyde/ketone",
+      "category": [
+        "Condensation"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)C"
+            },
+            {
+              "type": "NAME",
+              "value": "Ketone (with α-H)"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "ketone_(with_α-h)",
+            "name": "Ketone (with α-H)",
+            "smiles": "CC(=O)C"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC=O"
+            },
+            {
+              "type": "NAME",
+              "value": "Aldehyde/Ketone"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "aldehyde/ketone",
+            "name": "Aldehyde/Ketone",
+            "smiles": "CC=O"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(O)CC(=O)C"
+            },
+            {
+              "type": "NAME",
+              "value": "β-Hydroxy Carbonyl"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "β-hydroxy_carbonyl",
+            "name": "β-Hydroxy Carbonyl",
+            "smiles": "CC(O)CC(=O)C"
+          }
+        }
+      ],
+      "conditions": [
+        "base (NaOH, KOH)"
+      ],
+      "tags": [
+        "aldol",
+        "condensation",
+        "ketone",
+        "aldehyde"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "aldol_condensation_dehydration",
+      "name": "Aldol Condensation with Dehydration",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Aldol Condensation with Dehydration"
+        }
+      ],
+      "description": "Aldol reaction followed by dehydration to form α,β-unsaturated carbonyl",
+      "category": [
+        "Condensation"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)C"
+            },
+            {
+              "type": "NAME",
+              "value": "Ketone (with α-H)"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "ketone_(with_α-h)",
+            "name": "Ketone (with α-H)",
+            "smiles": "CC(=O)C"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC=O"
+            },
+            {
+              "type": "NAME",
+              "value": "Aldehyde/Ketone"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "aldehyde/ketone",
+            "name": "Aldehyde/Ketone",
+            "smiles": "CC=O"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC=CC(=O)C"
+            },
+            {
+              "type": "NAME",
+              "value": "α,β-Unsaturated Carbonyl"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "α,β-unsaturated_carbonyl",
+            "name": "α,β-Unsaturated Carbonyl",
+            "smiles": "CC=CC(=O)C"
+          }
+        }
+      ],
+      "conditions": [
+        "base",
+        "heat (Δ)"
+      ],
+      "tags": [
+        "aldol",
+        "condensation",
+        "dehydration",
+        "unsaturated"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "carbonyl_hydrazine_hydrazone",
+      "name": "Carbonyl + Hydrazine → Hydrazone",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Carbonyl + Hydrazine → Hydrazone"
+        }
+      ],
+      "description": "Formation of hydrazone from carbonyl and hydrazine",
+      "category": [
+        "Condensation"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC=O"
+            },
+            {
+              "type": "NAME",
+              "value": "Carbonyl"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "carbonyl",
+            "name": "Carbonyl",
+            "smiles": "CC=O"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "NN"
+            },
+            {
+              "type": "NAME",
+              "value": "Hydrazine"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "hydrazine",
+            "name": "Hydrazine",
+            "smiles": "NN"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC=NN"
+            },
+            {
+              "type": "NAME",
+              "value": "Hydrazone"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "hydrazone",
+            "name": "Hydrazone",
+            "smiles": "CC=NN"
+          }
+        }
+      ],
+      "conditions": [
+        "acid catalyst"
+      ],
+      "tags": [
+        "imine",
+        "hydrazone",
+        "carbonyl"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "acid_lialh4_alcohol",
+      "name": "Carboxylic Acid to Primary Alcohol",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Carboxylic Acid to Primary Alcohol"
+        }
+      ],
+      "description": "Reduction of carboxylic acid to primary alcohol with LiAlH₄",
+      "category": [
+        "Reduction"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)O"
+            },
+            {
+              "type": "NAME",
+              "value": "Carboxylic Acid"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "carboxylic_acid",
+            "name": "Carboxylic Acid",
+            "smiles": "CC(=O)O"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "[Li+].[AlH4-]"
+            },
+            {
+              "type": "NAME",
+              "value": "LiAlH₄"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "lialh₄",
+            "name": "LiAlH₄",
+            "smiles": "[Li+].[AlH4-]"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CCO"
+            },
+            {
+              "type": "NAME",
+              "value": "Primary Alcohol"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "primary_alcohol",
+            "name": "Primary Alcohol",
+            "smiles": "CCO"
+          }
+        }
+      ],
+      "conditions": [
+        "LiAlH₄",
+        "ether"
+      ],
+      "tags": [
+        "reduction",
+        "acid",
+        "alcohol",
+        "LiAlH4"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "acid_dibah_aldehyde",
+      "name": "Carboxylic Acid to Aldehyde (DIBAH)",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Carboxylic Acid to Aldehyde (DIBAH)"
+        }
+      ],
+      "description": "Partial reduction of carboxylic acid to aldehyde",
+      "category": [
+        "Reduction"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)O"
+            },
+            {
+              "type": "NAME",
+              "value": "Carboxylic Acid"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "carboxylic_acid",
+            "name": "Carboxylic Acid",
+            "smiles": "CC(=O)O"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "[AlH2-]"
+            },
+            {
+              "type": "NAME",
+              "value": "DIBAH"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "dibah",
+            "name": "DIBAH",
+            "smiles": "[AlH2-]"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC=O"
+            },
+            {
+              "type": "NAME",
+              "value": "Aldehyde"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "aldehyde",
+            "name": "Aldehyde",
+            "smiles": "CC=O"
+          }
+        }
+      ],
+      "conditions": [
+        "DIBAH",
+        "-78°C"
+      ],
+      "tags": [
+        "reduction",
+        "acid",
+        "aldehyde",
+        "DIBAH"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "acid_socl2_chloride",
+      "name": "Carboxylic Acid to Acid Chloride (SOCl₂)",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Carboxylic Acid to Acid Chloride (SOCl₂)"
+        }
+      ],
+      "description": "Formation of acid chloride using thionyl chloride",
+      "category": [
+        "Substitution"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)O"
+            },
+            {
+              "type": "NAME",
+              "value": "Carboxylic Acid"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "carboxylic_acid",
+            "name": "Carboxylic Acid",
+            "smiles": "CC(=O)O"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "S(=O)(Cl)Cl"
+            },
+            {
+              "type": "NAME",
+              "value": "SOCl₂"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "socl₂",
+            "name": "SOCl₂",
+            "smiles": "S(=O)(Cl)Cl"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)Cl"
+            },
+            {
+              "type": "NAME",
+              "value": "Acid Chloride"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "acid_chloride",
+            "name": "Acid Chloride",
+            "smiles": "CC(=O)Cl"
+          }
+        }
+      ],
+      "conditions": [
+        "SOCl₂",
+        "pyridine"
+      ],
+      "tags": [
+        "substitution",
+        "acid",
+        "acid chloride"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "acid_oxalyl_chloride",
+      "name": "Carboxylic Acid to Acid Chloride (Oxalyl Chloride)",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Carboxylic Acid to Acid Chloride (Oxalyl Chloride)"
+        }
+      ],
+      "description": "Formation of acid chloride using oxalyl chloride",
+      "category": [
+        "Substitution"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)O"
+            },
+            {
+              "type": "NAME",
+              "value": "Carboxylic Acid"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "carboxylic_acid",
+            "name": "Carboxylic Acid",
+            "smiles": "CC(=O)O"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "ClC(=O)C(=O)Cl"
+            },
+            {
+              "type": "NAME",
+              "value": "(COCl)₂"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "(cocl)₂",
+            "name": "(COCl)₂",
+            "smiles": "ClC(=O)C(=O)Cl"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)Cl"
+            },
+            {
+              "type": "NAME",
+              "value": "Acid Chloride"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "acid_chloride",
+            "name": "Acid Chloride",
+            "smiles": "CC(=O)Cl"
+          }
+        }
+      ],
+      "conditions": [
+        "(COCl)₂",
+        "cat. DMF"
+      ],
+      "tags": [
+        "substitution",
+        "acid",
+        "acid chloride",
+        "oxalyl"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "acid_alcohol_ester",
+      "name": "Fischer Esterification",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Fischer Esterification"
+        }
+      ],
+      "description": "Formation of ester from carboxylic acid and alcohol",
+      "category": [
+        "Condensation"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)O"
+            },
+            {
+              "type": "NAME",
+              "value": "Carboxylic Acid"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "carboxylic_acid",
+            "name": "Carboxylic Acid",
+            "smiles": "CC(=O)O"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CO"
+            },
+            {
+              "type": "NAME",
+              "value": "Alcohol"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "alcohol",
+            "name": "Alcohol",
+            "smiles": "CO"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)OC"
+            },
+            {
+              "type": "NAME",
+              "value": "Ester"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "ester",
+            "name": "Ester",
+            "smiles": "CC(=O)OC"
+          }
+        }
+      ],
+      "conditions": [
+        "H₂SO₄",
+        "heat"
+      ],
+      "tags": [
+        "esterification",
+        "acid",
+        "alcohol",
+        "ester",
+        "Fischer"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "acid_chloride_alcohol_ester",
+      "name": "Acid Chloride + Alcohol → Ester",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Acid Chloride + Alcohol → Ester"
+        }
+      ],
+      "description": "Formation of ester from acid chloride and alcohol",
+      "category": [
+        "Substitution"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)Cl"
+            },
+            {
+              "type": "NAME",
+              "value": "Acid Chloride"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "acid_chloride",
+            "name": "Acid Chloride",
+            "smiles": "CC(=O)Cl"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CO"
+            },
+            {
+              "type": "NAME",
+              "value": "Alcohol"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "alcohol",
+            "name": "Alcohol",
+            "smiles": "CO"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)OC"
+            },
+            {
+              "type": "NAME",
+              "value": "Ester"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "ester",
+            "name": "Ester",
+            "smiles": "CC(=O)OC"
+          }
+        }
+      ],
+      "conditions": [
+        "pyridine or Et₃N"
+      ],
+      "tags": [
+        "substitution",
+        "acid chloride",
+        "ester"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "acid_chloride_amine_amide",
+      "name": "Acid Chloride + Amine → Amide",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Acid Chloride + Amine → Amide"
+        }
+      ],
+      "description": "Formation of amide from acid chloride and amine",
+      "category": [
+        "Substitution"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)Cl"
+            },
+            {
+              "type": "NAME",
+              "value": "Acid Chloride"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "acid_chloride",
+            "name": "Acid Chloride",
+            "smiles": "CC(=O)Cl"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CN"
+            },
+            {
+              "type": "NAME",
+              "value": "Amine"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "amine",
+            "name": "Amine",
+            "smiles": "CN"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)NC"
+            },
+            {
+              "type": "NAME",
+              "value": "Amide"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "amide",
+            "name": "Amide",
+            "smiles": "CC(=O)NC"
+          }
+        }
+      ],
+      "conditions": [
+        "base (Et₃N)"
+      ],
+      "tags": [
+        "substitution",
+        "acid chloride",
+        "amide"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "acid_chloride_lialh4_alcohol",
+      "name": "Acid Chloride to Primary Alcohol",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Acid Chloride to Primary Alcohol"
+        }
+      ],
+      "description": "Reduction of acid chloride to primary alcohol",
+      "category": [
+        "Reduction"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)Cl"
+            },
+            {
+              "type": "NAME",
+              "value": "Acid Chloride"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "acid_chloride",
+            "name": "Acid Chloride",
+            "smiles": "CC(=O)Cl"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "[Li+].[AlH4-]"
+            },
+            {
+              "type": "NAME",
+              "value": "LiAlH₄"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "lialh₄",
+            "name": "LiAlH₄",
+            "smiles": "[Li+].[AlH4-]"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CCO"
+            },
+            {
+              "type": "NAME",
+              "value": "Primary Alcohol"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "primary_alcohol",
+            "name": "Primary Alcohol",
+            "smiles": "CCO"
+          }
+        }
+      ],
+      "conditions": [
+        "LiAlH₄",
+        "ether"
+      ],
+      "tags": [
+        "reduction",
+        "acid chloride",
+        "alcohol"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "ester_grignard_tertiary_alcohol",
+      "name": "Ester + Grignard → Tertiary Alcohol",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Ester + Grignard → Tertiary Alcohol"
+        }
+      ],
+      "description": "Reaction of ester with excess Grignard reagent",
+      "category": [
+        "Grignard"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)OC"
+            },
+            {
+              "type": "NAME",
+              "value": "Ester"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "ester",
+            "name": "Ester",
+            "smiles": "CC(=O)OC"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "C[Mg+]Br"
+            },
+            {
+              "type": "NAME",
+              "value": "Grignard"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "grignard",
+            "name": "Grignard",
+            "smiles": "C[Mg+]Br"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(O)(C)C"
+            },
+            {
+              "type": "NAME",
+              "value": "Tertiary Alcohol"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "tertiary_alcohol",
+            "name": "Tertiary Alcohol",
+            "smiles": "CC(O)(C)C"
+          }
+        }
+      ],
+      "conditions": [
+        "RMgX (xs)",
+        "then H₃O⁺"
+      ],
+      "tags": [
+        "grignard",
+        "ester",
+        "alcohol"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "ester_lialh4_alcohol",
+      "name": "Ester to Primary Alcohol",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Ester to Primary Alcohol"
+        }
+      ],
+      "description": "Reduction of ester to primary alcohol",
+      "category": [
+        "Reduction"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)OC"
+            },
+            {
+              "type": "NAME",
+              "value": "Ester"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "ester",
+            "name": "Ester",
+            "smiles": "CC(=O)OC"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "[Li+].[AlH4-]"
+            },
+            {
+              "type": "NAME",
+              "value": "LiAlH₄"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "lialh₄",
+            "name": "LiAlH₄",
+            "smiles": "[Li+].[AlH4-]"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CCO"
+            },
+            {
+              "type": "NAME",
+              "value": "Primary Alcohol"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "primary_alcohol",
+            "name": "Primary Alcohol",
+            "smiles": "CCO"
+          }
+        }
+      ],
+      "conditions": [
+        "LiAlH₄",
+        "ether"
+      ],
+      "tags": [
+        "reduction",
+        "ester",
+        "alcohol"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "ester_saponification",
+      "name": "Saponification",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Saponification"
+        }
+      ],
+      "description": "Basic hydrolysis of ester to carboxylate salt",
+      "category": [
+        "Hydrolysis"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)OC"
+            },
+            {
+              "type": "NAME",
+              "value": "Ester"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "ester",
+            "name": "Ester",
+            "smiles": "CC(=O)OC"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "[Na+].[OH-]"
+            },
+            {
+              "type": "NAME",
+              "value": "NaOH"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "naoh",
+            "name": "NaOH",
+            "smiles": "[Na+].[OH-]"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)[O-]"
+            },
+            {
+              "type": "NAME",
+              "value": "Carboxylate"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "carboxylate",
+            "name": "Carboxylate",
+            "smiles": "CC(=O)[O-]"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CO"
+            },
+            {
+              "type": "NAME",
+              "value": "Alcohol"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "alcohol",
+            "name": "Alcohol",
+            "smiles": "CO"
+          }
+        }
+      ],
+      "conditions": [
+        "NaOH",
+        "H₂O",
+        "heat"
+      ],
+      "tags": [
+        "hydrolysis",
+        "ester",
+        "saponification"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "amide_lialh4_amine",
+      "name": "Amide to Amine",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Amide to Amine"
+        }
+      ],
+      "description": "Reduction of amide to amine",
+      "category": [
+        "Reduction"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)N"
+            },
+            {
+              "type": "NAME",
+              "value": "Amide"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "amide",
+            "name": "Amide",
+            "smiles": "CC(=O)N"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "[Li+].[AlH4-]"
+            },
+            {
+              "type": "NAME",
+              "value": "LiAlH₄"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "lialh₄",
+            "name": "LiAlH₄",
+            "smiles": "[Li+].[AlH4-]"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CCN"
+            },
+            {
+              "type": "NAME",
+              "value": "Amine"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "amine",
+            "name": "Amine",
+            "smiles": "CCN"
+          }
+        }
+      ],
+      "conditions": [
+        "LiAlH₄",
+        "ether"
+      ],
+      "tags": [
+        "reduction",
+        "amide",
+        "amine"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "amide_dehydration_nitrile",
+      "name": "Amide Dehydration to Nitrile",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Amide Dehydration to Nitrile"
+        }
+      ],
+      "description": "Dehydration of amide to nitrile",
+      "category": [
+        "Dehydration"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)N"
+            },
+            {
+              "type": "NAME",
+              "value": "Amide"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "amide",
+            "name": "Amide",
+            "smiles": "CC(=O)N"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "S(=O)(Cl)Cl"
+            },
+            {
+              "type": "NAME",
+              "value": "SOCl₂"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "socl₂",
+            "name": "SOCl₂",
+            "smiles": "S(=O)(Cl)Cl"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC#N"
+            },
+            {
+              "type": "NAME",
+              "value": "Nitrile"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "nitrile",
+            "name": "Nitrile",
+            "smiles": "CC#N"
+          }
+        }
+      ],
+      "conditions": [
+        "SOCl₂ or P₂O₅"
+      ],
+      "tags": [
+        "dehydration",
+        "amide",
+        "nitrile"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "nitrile_grignard_ketone",
+      "name": "Nitrile + Grignard → Ketone",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Nitrile + Grignard → Ketone"
+        }
+      ],
+      "description": "Reaction of nitrile with Grignard reagent to form ketone",
+      "category": [
+        "Grignard"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC#N"
+            },
+            {
+              "type": "NAME",
+              "value": "Nitrile"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "nitrile",
+            "name": "Nitrile",
+            "smiles": "CC#N"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "C[Mg+]Br"
+            },
+            {
+              "type": "NAME",
+              "value": "Grignard"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "grignard",
+            "name": "Grignard",
+            "smiles": "C[Mg+]Br"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)C"
+            },
+            {
+              "type": "NAME",
+              "value": "Ketone"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "ketone",
+            "name": "Ketone",
+            "smiles": "CC(=O)C"
+          }
+        }
+      ],
+      "conditions": [
+        "RMgX",
+        "then H₃O⁺"
+      ],
+      "tags": [
+        "grignard",
+        "nitrile",
+        "ketone"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "nitrile_lialh4_amine",
+      "name": "Nitrile to Primary Amine",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Nitrile to Primary Amine"
+        }
+      ],
+      "description": "Reduction of nitrile to primary amine",
+      "category": [
+        "Reduction"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC#N"
+            },
+            {
+              "type": "NAME",
+              "value": "Nitrile"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "nitrile",
+            "name": "Nitrile",
+            "smiles": "CC#N"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "[Li+].[AlH4-]"
+            },
+            {
+              "type": "NAME",
+              "value": "LiAlH₄"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "lialh₄",
+            "name": "LiAlH₄",
+            "smiles": "[Li+].[AlH4-]"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CCN"
+            },
+            {
+              "type": "NAME",
+              "value": "Primary Amine"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "primary_amine",
+            "name": "Primary Amine",
+            "smiles": "CCN"
+          }
+        }
+      ],
+      "conditions": [
+        "LiAlH₄",
+        "ether"
+      ],
+      "tags": [
+        "reduction",
+        "nitrile",
+        "amine"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "nitrile_hydrolysis_acid",
+      "name": "Nitrile Hydrolysis to Acid",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Nitrile Hydrolysis to Acid"
+        }
+      ],
+      "description": "Hydrolysis of nitrile to carboxylic acid",
+      "category": [
+        "Hydrolysis"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC#N"
+            },
+            {
+              "type": "NAME",
+              "value": "Nitrile"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "nitrile",
+            "name": "Nitrile",
+            "smiles": "CC#N"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "O"
+            },
+            {
+              "type": "NAME",
+              "value": "Water"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "water",
+            "name": "Water",
+            "smiles": "O"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)O"
+            },
+            {
+              "type": "NAME",
+              "value": "Carboxylic Acid"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "carboxylic_acid",
+            "name": "Carboxylic Acid",
+            "smiles": "CC(=O)O"
+          }
+        }
+      ],
+      "conditions": [
+        "H₃O⁺ or OH⁻",
+        "heat"
+      ],
+      "tags": [
+        "hydrolysis",
+        "nitrile",
+        "acid"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "wittig_reaction",
+      "name": "Wittig Reaction",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Wittig Reaction"
+        }
+      ],
+      "description": "Formation of alkene from carbonyl and phosphorus ylide",
+      "category": [
+        "Olefination"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC=O"
+            },
+            {
+              "type": "NAME",
+              "value": "Carbonyl"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "carbonyl",
+            "name": "Carbonyl",
+            "smiles": "CC=O"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "[CH2-][P+](C)(C)C"
+            },
+            {
+              "type": "NAME",
+              "value": "Phosphorus Ylide"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "phosphorus_ylide",
+            "name": "Phosphorus Ylide",
+            "smiles": "[CH2-][P+](C)(C)C"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC=C"
+            },
+            {
+              "type": "NAME",
+              "value": "Alkene"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "alkene",
+            "name": "Alkene",
+            "smiles": "CC=C"
+          }
+        }
+      ],
+      "conditions": [
+        "Ph₃P=CHR"
+      ],
+      "tags": [
+        "wittig",
+        "carbonyl",
+        "alkene",
+        "ylide"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "clemmensen_reduction",
+      "name": "Clemmensen Reduction",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Clemmensen Reduction"
+        }
+      ],
+      "description": "Reduction of carbonyl to alkane",
+      "category": [
+        "Reduction"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)C"
+            },
+            {
+              "type": "NAME",
+              "value": "Carbonyl"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "carbonyl",
+            "name": "Carbonyl",
+            "smiles": "CC(=O)C"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CCC"
+            },
+            {
+              "type": "NAME",
+              "value": "Alkane"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "alkane",
+            "name": "Alkane",
+            "smiles": "CCC"
+          }
+        }
+      ],
+      "conditions": [
+        "Zn(Hg)",
+        "HCl",
+        "heat"
+      ],
+      "tags": [
+        "clemmensen",
+        "reduction",
+        "carbonyl",
+        "alkane"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "wolff_kishner_reduction",
+      "name": "Wolff-Kishner Reduction",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Wolff-Kishner Reduction"
+        }
+      ],
+      "description": "Reduction of carbonyl to alkane via hydrazone",
+      "category": [
+        "Reduction"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)C"
+            },
+            {
+              "type": "NAME",
+              "value": "Carbonyl"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "carbonyl",
+            "name": "Carbonyl",
+            "smiles": "CC(=O)C"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "NN"
+            },
+            {
+              "type": "NAME",
+              "value": "Hydrazine"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "hydrazine",
+            "name": "Hydrazine",
+            "smiles": "NN"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CCC"
+            },
+            {
+              "type": "NAME",
+              "value": "Alkane"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "alkane",
+            "name": "Alkane",
+            "smiles": "CCC"
+          }
+        }
+      ],
+      "conditions": [
+        "H₂NNH₂",
+        "KOH",
+        "heat"
+      ],
+      "tags": [
+        "wolff-kishner",
+        "reduction",
+        "carbonyl",
+        "alkane"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "baeyer_villiger_oxidation",
+      "name": "Baeyer-Villiger Oxidation",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Baeyer-Villiger Oxidation"
+        }
+      ],
+      "description": "Oxidation of ketone to ester",
+      "category": [
+        "Oxidation"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)C"
+            },
+            {
+              "type": "NAME",
+              "value": "Ketone"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "ketone",
+            "name": "Ketone",
+            "smiles": "CC(=O)C"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)OO"
+            },
+            {
+              "type": "NAME",
+              "value": "Peroxyacid"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "peroxyacid",
+            "name": "Peroxyacid",
+            "smiles": "CC(=O)OO"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)OC"
+            },
+            {
+              "type": "NAME",
+              "value": "Ester"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "ester",
+            "name": "Ester",
+            "smiles": "CC(=O)OC"
+          }
+        }
+      ],
+      "conditions": [
+        "mCPBA or other peroxyacid"
+      ],
+      "tags": [
+        "baeyer-villiger",
+        "oxidation",
+        "ketone",
+        "ester"
+      ],
+      "experimentalReactions": []
+    },
+    {
+      "id": "haloform_reaction",
+      "name": "Haloform Reaction",
+      "names": [
+        {
+          "languageCode": "en",
+          "type": "common",
+          "value": "Haloform Reaction"
+        }
+      ],
+      "description": "Oxidative cleavage of methyl ketone",
+      "category": [
+        "Oxidation"
+      ],
+      "reactants": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)C"
+            },
+            {
+              "type": "NAME",
+              "value": "Methyl Ketone"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "methyl_ketone",
+            "name": "Methyl Ketone",
+            "smiles": "CC(=O)C"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "BrBr"
+            },
+            {
+              "type": "NAME",
+              "value": "Br₂/OH⁻"
+            }
+          ],
+          "reaction_role": "REACTANT",
+          "compound": {
+            "id": "br₂/oh⁻",
+            "name": "Br₂/OH⁻",
+            "smiles": "BrBr"
+          }
+        }
+      ],
+      "products": [
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "CC(=O)O"
+            },
+            {
+              "type": "NAME",
+              "value": "Carboxylic Acid"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "carboxylic_acid",
+            "name": "Carboxylic Acid",
+            "smiles": "CC(=O)O"
+          }
+        },
+        {
+          "identifiers": [
+            {
+              "type": "SMILES",
+              "value": "BrC(Br)Br"
+            },
+            {
+              "type": "NAME",
+              "value": "Haloform"
+            }
+          ],
+          "reaction_role": "PRODUCT",
+          "compound": {
+            "id": "haloform",
+            "name": "Haloform",
+            "smiles": "BrC(Br)Br"
+          }
+        }
+      ],
+      "conditions": [
+        "Br₂",
+        "NaOH"
+      ],
+      "tags": [
+        "haloform",
+        "oxidation",
+        "ketone",
+        "acid"
+      ],
+      "experimentalReactions": []
+    }
+  ],
+  "categories": [
+    {
+      "id": "all",
+      "name": "All Reactions",
+      "description": "View all reactions"
+    },
+    {
+      "id": "oxidation",
+      "name": "Oxidation",
+      "description": "Oxidation reactions"
+    },
+    {
+      "id": "reduction",
+      "name": "Reduction",
+      "description": "Reduction reactions"
+    },
+    {
+      "id": "addition",
+      "name": "Addition",
+      "description": "Addition reactions"
+    },
+    {
+      "id": "substitution",
+      "name": "Substitution",
+      "description": "Substitution reactions"
+    },
+    {
+      "id": "condensation",
+      "name": "Condensation",
+      "description": "Condensation reactions"
+    },
+    {
+      "id": "grignard",
+      "name": "Grignard",
+      "description": "Grignard reactions"
+    },
+    {
+      "id": "hydrolysis",
+      "name": "Hydrolysis",
+      "description": "Hydrolysis reactions"
+    },
+    {
+      "id": "dehydration",
+      "name": "Dehydration",
+      "description": "Dehydration reactions"
+    },
+    {
+      "id": "olefination",
+      "name": "Olefination",
+      "description": "Alkene formation"
+    }
+  ]
+}

@@ -1,11 +1,10 @@
-import { BioblioReaction } from './reaction-model'
-
 export * from './atom-model'
 export * from './molecule-model'
 export * from './protein-model'
 export * from './reaction-model'
 
-export type Reaction = BioblioReaction
+// Use BioblioReaction as the main Reaction type
+export type { BioblioReaction as Reaction } from './reaction-model'
 
 export interface ReactionCategory {
   id: string
