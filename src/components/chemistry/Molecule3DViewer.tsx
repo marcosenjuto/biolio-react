@@ -13,6 +13,7 @@ declare global {
 interface Molecule3DViewerProps {
   smiles?: string
   molString?: string
+  sdfData?: string // Pre-loaded SDF data from molecule.structure.structure3D.data
   compoundName?: string // Compound name for fetching from PubChem
   width?: number | string
   height?: number | string
@@ -32,6 +33,7 @@ let mol3dLoadPromise: Promise<void> | null = null
 function Molecule3DViewer({
   smiles,
   molString,
+  sdfData,
   compoundName,
   width = 400,
   height = 400,
@@ -462,32 +464,30 @@ function Molecule3DViewer({
         }
 
         // Get or convert molecule data
-        let moleculeData = molString
+        let moleculeData = molString || sdfData
 
         console.log('[3DMol] Debugging fetch decision:', { 
-          molString: !!molString, 
+          molString: !!molString,
+          sdfData: !!sdfData,
           compoundName, 
           smiles, 
           use3DGeneration 
         })
         
-        // Priority: 1. molString, 2. compoundName (fetch from PubChem), 3. smiles (with RDKit 3D gen or PubChem convert)
-        /* if (!moleculeData && compoundName) {
-          console.log('[3DMol] Fetching by compound name:', compoundName)
-          moleculeData = await fetchSDFFromPubChem(compoundName)
-        } else */ if (!moleculeData && smiles) {
+        // Priority: 1. molString, 2. sdfData (from molecule.structure.structure3D.data), 3. smiles (fetch from PubChem)
+        if (!moleculeData && smiles) {
           if (use3DGeneration) {
-            console.log('[3DMol] Generating real 3D structure with RDKit...')
+            console.log('[3DMol] No pre-loaded SDF, generating 3D structure from SMILES via PubChem...')
             moleculeData = await generateReal3DFromSMILES(smiles)
-          } /* else {
-            console.log('[3DMol] Converting SMILES to MOL format...')
-            moleculeData = await convertSMILEStoMOL(smiles)
-          } */
+          }
+        } else if (sdfData) {
+          console.log('[3DMol] Using pre-loaded SDF data from molecule object')
         }
 
         if (!moleculeData) {
           throw new Error('No molecule data provided')
         }
+
 
         // Clear previous viewer
         if (viewerRef.current) {
@@ -586,7 +586,7 @@ function Molecule3DViewer({
     }
   }, [smiles, molString, compoundName, spin, spinSpeed, use3DGeneration, onSdfDataFetched, localShowLabels, zoom, isFullscreen])
 
-  // Gesture handlers
+  // Gesture handlerssdfData, 
   const handleContextMenu = (e: React.MouseEvent) => {
     e.preventDefault()
     e.stopPropagation()
@@ -616,7 +616,7 @@ function Molecule3DViewer({
   }
 
   const handleTouchMove = () => {
-    console.log('[ContextMenu] Touch move, canceling long press')
+    // console.log('[ContextMenu] Touch move, canceling long press')
     if (longPressTimerRef.current) {
       clearTimeout(longPressTimerRef.current)
       longPressTimerRef.current = null

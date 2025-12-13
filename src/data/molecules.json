@@ -1,582 +1,5 @@
 [
   {
-    "id": "pubchem_177",
-    "cid": 177,
-    "type": "small-molecule",
-    "names": [
-      {
-        "languageCode": "en",
-        "type": "iupac",
-        "value": "acetaldehyde"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "ethanal"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "acetic aldehyde"
-      }
-    ],
-    "functionalGroups": [],
-    "structure": {
-      "smiles": "CC=O",
-      "inchi": "InChI=1S/C2H4O/c1-2-3/h2H,1H3",
-      "inchikey": "IKHGUXGNUITLKF-UHFFFAOYSA-N",
-      "molecularFormula": "C2H4O"
-    },
-    "molecular": {
-      "weight": 44.05,
-      "exactMass": 44.05,
-      "monoisotopicMass": 44.05
-    },
-    "lastUpdated": "2025-12-13T17:47:39.485479",
-    "cas": "75-07-0"
-  },
-  {
-    "id": "pubchem_1032",
-    "cid": 1032,
-    "type": "small-molecule",
-    "names": [
-      {
-        "languageCode": "en",
-        "type": "iupac",
-        "value": "propanoic acid"
-      },
-      {
-        "languageCode": "en",
-        "type": "iupac",
-        "value": "propionic acid"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "Propanoic acid"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "methylacetic acid"
-      }
-    ],
-    "functionalGroups": [],
-    "structure": {
-      "smiles": "CCC(=O)O",
-      "inchi": "InChI=1S/C3H6O2/c1-2-3(4)5/h2H2,1H3,(H,4,5)",
-      "inchikey": "XBDQKXXYIPTUBI-UHFFFAOYSA-N",
-      "molecularFormula": "C3H6O2"
-    },
-    "molecular": {
-      "weight": 74.08,
-      "exactMass": 74.08,
-      "monoisotopicMass": 74.08
-    },
-    "lastUpdated": "2025-12-13T17:47:43.029018",
-    "cas": "79-09-4"
-  },
-  {
-    "id": "pubchem_6367",
-    "cid": 6367,
-    "type": "small-molecule",
-    "names": [
-      {
-        "languageCode": "en",
-        "type": "iupac",
-        "value": "acetyl chloride"
-      },
-      {
-        "languageCode": "en",
-        "type": "iupac",
-        "value": "ACETYL CHLORIDE"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "Ethanoyl chloride"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "Acetic chloride"
-      }
-    ],
-    "functionalGroups": [],
-    "structure": {
-      "smiles": "CC(=O)Cl",
-      "inchi": "InChI=1S/C2H3ClO/c1-2(3)4/h1H3",
-      "inchikey": "WETWJCDKMRHUPV-UHFFFAOYSA-N",
-      "molecularFormula": "C2H3ClO"
-    },
-    "molecular": {
-      "weight": 78.5,
-      "exactMass": 78.5,
-      "monoisotopicMass": 78.5
-    },
-    "lastUpdated": "2025-12-13T17:47:46.681336",
-    "cas": "75-36-5"
-  },
-  {
-    "id": "pubchem_8252",
-    "cid": 8252,
-    "type": "small-molecule",
-    "names": [
-      {
-        "languageCode": "en",
-        "type": "iupac",
-        "value": "PROPYLENE"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "Propene"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "prop-1-ene"
-      }
-    ],
-    "functionalGroups": [],
-    "structure": {
-      "smiles": "CC=C",
-      "inchi": "InChI=1S/C3H6/c1-3-2/h3H,1H2,2H3",
-      "inchikey": "QQONPFPTGQHPMA-UHFFFAOYSA-N",
-      "molecularFormula": "C3H6"
-    },
-    "molecular": {
-      "weight": 42.08,
-      "exactMass": 42.08,
-      "monoisotopicMass": 42.08
-    },
-    "lastUpdated": "2025-12-13T17:47:50.166919"
-  },
-  {
-    "id": "pubchem_6584",
-    "cid": 6584,
-    "type": "small-molecule",
-    "names": [
-      {
-        "languageCode": "en",
-        "type": "iupac",
-        "value": "methyl acetate"
-      },
-      {
-        "languageCode": "en",
-        "type": "iupac",
-        "value": "METHYL ACETATE"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "Devoton"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "Tereton"
-      }
-    ],
-    "functionalGroups": [],
-    "structure": {
-      "smiles": "CC(=O)OC",
-      "inchi": "InChI=1S/C3H6O2/c1-3(4)5-2/h1-2H3",
-      "inchikey": "KXKVLQRXCPHEJC-UHFFFAOYSA-N",
-      "molecularFormula": "C3H6O2"
-    },
-    "molecular": {
-      "weight": 74.08,
-      "exactMass": 74.08,
-      "monoisotopicMass": 74.08
-    },
-    "lastUpdated": "2025-12-13T17:47:53.868408",
-    "cas": "79-20-9"
-  },
-  {
-    "id": "pubchem_887",
-    "cid": 887,
-    "type": "small-molecule",
-    "names": [
-      {
-        "languageCode": "en",
-        "type": "iupac",
-        "value": "methanol"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "methyl alcohol"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "wood alcohol"
-      }
-    ],
-    "functionalGroups": [],
-    "structure": {
-      "smiles": "CO",
-      "inchi": "InChI=1S/CH4O/c1-2/h2H,1H3",
-      "inchikey": "OKKJLVBELUTLKV-UHFFFAOYSA-N",
-      "molecularFormula": "CH4O"
-    },
-    "molecular": {
-      "weight": 32.042,
-      "exactMass": 32.042,
-      "monoisotopicMass": 32.042
-    },
-    "lastUpdated": "2025-12-13T17:47:57.565370",
-    "cas": "67-56-1"
-  },
-  {
-    "id": "pubchem_1031",
-    "cid": 1031,
-    "type": "small-molecule",
-    "names": [
-      {
-        "languageCode": "en",
-        "type": "iupac",
-        "value": "propan-1-ol"
-      },
-      {
-        "languageCode": "en",
-        "type": "iupac",
-        "value": "1-propanol"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "propanol"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "Propan-1-ol"
-      }
-    ],
-    "functionalGroups": [],
-    "structure": {
-      "smiles": "CCCO",
-      "inchi": "InChI=1S/C3H8O/c1-2-3-4/h4H,2-3H2,1H3",
-      "inchikey": "BDERNNFJNOPAEC-UHFFFAOYSA-N",
-      "molecularFormula": "C3H8O"
-    },
-    "molecular": {
-      "weight": 60.1,
-      "exactMass": 60.1,
-      "monoisotopicMass": 60.1
-    },
-    "lastUpdated": "2025-12-13T17:48:02.057211"
-  },
-  {
-    "id": "pubchem_6325",
-    "cid": 6325,
-    "type": "small-molecule",
-    "names": [
-      {
-        "languageCode": "en",
-        "type": "iupac",
-        "value": "ethene"
-      },
-      {
-        "languageCode": "en",
-        "type": "iupac",
-        "value": "ETHYLENE"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "Ethene"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "Acetene"
-      }
-    ],
-    "functionalGroups": [],
-    "structure": {
-      "smiles": "C=C",
-      "inchi": "InChI=1S/C2H4/c1-2/h1-2H2",
-      "inchikey": "VGGSQFUCUMXWEO-UHFFFAOYSA-N",
-      "molecularFormula": "C2H4"
-    },
-    "molecular": {
-      "weight": 28.05,
-      "exactMass": 28.05,
-      "monoisotopicMass": 28.05
-    },
-    "lastUpdated": "2025-12-13T17:48:05.638776"
-  },
-  {
-    "id": "pubchem_712",
-    "cid": 712,
-    "type": "small-molecule",
-    "names": [
-      {
-        "languageCode": "en",
-        "type": "iupac",
-        "value": "formaldehyde"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "formalin"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "methanal"
-      }
-    ],
-    "functionalGroups": [],
-    "structure": {
-      "smiles": "C=O",
-      "inchi": "InChI=1S/CH2O/c1-2/h1H2",
-      "inchikey": "WSFSSNUMVMOOMR-UHFFFAOYSA-N",
-      "molecularFormula": "CH2O"
-    },
-    "molecular": {
-      "weight": 30.026,
-      "exactMass": 30.026,
-      "monoisotopicMass": 30.026
-    },
-    "lastUpdated": "2025-12-13T17:48:09.194603",
-    "cas": "50-00-0"
-  },
-  {
-    "id": "pubchem_6341",
-    "cid": 6341,
-    "type": "small-molecule",
-    "names": [
-      {
-        "languageCode": "en",
-        "type": "iupac",
-        "value": "ethanamine"
-      },
-      {
-        "languageCode": "en",
-        "type": "iupac",
-        "value": "ETHYLAMINE"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "Ethanamine"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "Monoethylamine"
-      }
-    ],
-    "functionalGroups": [],
-    "structure": {
-      "smiles": "CCN",
-      "inchi": "InChI=1S/C2H7N/c1-2-3/h2-3H2,1H3",
-      "inchikey": "QUSNBJAOOMFDIB-UHFFFAOYSA-N",
-      "molecularFormula": "C2H7N"
-    },
-    "molecular": {
-      "weight": 45.08,
-      "exactMass": 45.08,
-      "monoisotopicMass": 45.08
-    },
-    "lastUpdated": "2025-12-13T17:48:12.686911",
-    "cas": "75-04-7"
-  },
-  {
-    "id": "pubchem_176",
-    "cid": 176,
-    "type": "small-molecule",
-    "names": [
-      {
-        "languageCode": "en",
-        "type": "iupac",
-        "value": "acetic acid"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "ethanoic acid"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "Acetic acid glacial"
-      }
-    ],
-    "functionalGroups": [],
-    "structure": {
-      "smiles": "CC(=O)O",
-      "inchi": "InChI=1S/C2H4O2/c1-2(3)4/h1H3,(H,3,4)",
-      "inchikey": "QTBSBXVTEAMEQO-UHFFFAOYSA-N",
-      "molecularFormula": "C2H4O2"
-    },
-    "molecular": {
-      "weight": 60.05,
-      "exactMass": 60.05,
-      "monoisotopicMass": 60.05
-    },
-    "lastUpdated": "2025-12-13T17:48:16.189078",
-    "cas": "64-19-7"
-  },
-  {
-    "id": "pubchem_6582",
-    "cid": 6582,
-    "type": "small-molecule",
-    "names": [
-      {
-        "languageCode": "en",
-        "type": "iupac",
-        "value": "N-methylacetamide"
-      },
-      {
-        "languageCode": "en",
-        "type": "iupac",
-        "value": "N-METHYLACETAMIDE"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "Methylacetamide"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "Acetamide, N-methyl-"
-      }
-    ],
-    "functionalGroups": [],
-    "structure": {
-      "smiles": "CC(=O)NC",
-      "inchi": "InChI=1S/C3H7NO/c1-3(5)4-2/h1-2H3,(H,4,5)",
-      "inchikey": "OHLUUHNLEMFGTQ-UHFFFAOYSA-N",
-      "molecularFormula": "C3H7NO"
-    },
-    "molecular": {
-      "weight": 73.09,
-      "exactMass": 73.09,
-      "monoisotopicMass": 73.09
-    },
-    "lastUpdated": "2025-12-13T17:48:19.792823",
-    "cas": "79-16-3"
-  },
-  {
-    "id": "pubchem_284",
-    "cid": 284,
-    "type": "small-molecule",
-    "names": [
-      {
-        "languageCode": "en",
-        "type": "iupac",
-        "value": "formic acid"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "Methanoic acid"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "Formylic acid"
-      }
-    ],
-    "functionalGroups": [],
-    "structure": {
-      "smiles": "C(=O)O",
-      "inchi": "InChI=1S/CH2O2/c2-1-3/h1H,(H,2,3)",
-      "inchikey": "BDAGIHXWWSANSR-UHFFFAOYSA-N",
-      "molecularFormula": "CH2O2"
-    },
-    "molecular": {
-      "weight": 46.025,
-      "exactMass": 46.025,
-      "monoisotopicMass": 46.025
-    },
-    "lastUpdated": "2025-12-13T17:48:23.470954",
-    "cas": "64-18-6"
-  },
-  {
-    "id": "pubchem_702",
-    "cid": 702,
-    "type": "small-molecule",
-    "names": [
-      {
-        "languageCode": "en",
-        "type": "iupac",
-        "value": "ethanol"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "ethyl alcohol"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "alcohol"
-      }
-    ],
-    "functionalGroups": [],
-    "structure": {
-      "smiles": "CCO",
-      "inchi": "InChI=1S/C2H6O/c1-2-3/h3H,2H2,1H3",
-      "inchikey": "LFQSCWFLJHTTHZ-UHFFFAOYSA-N",
-      "molecularFormula": "C2H6O"
-    },
-    "molecular": {
-      "weight": 46.07,
-      "exactMass": 46.07,
-      "monoisotopicMass": 46.07
-    },
-    "lastUpdated": "2025-12-13T17:48:27.460287",
-    "cas": "64-17-5"
-  },
-  {
-    "id": "pubchem_3776",
-    "cid": 3776,
-    "type": "small-molecule",
-    "names": [
-      {
-        "languageCode": "en",
-        "type": "iupac",
-        "value": "propan-2-ol"
-      },
-      {
-        "languageCode": "en",
-        "type": "iupac",
-        "value": "Isopropyl alcohol"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "isopropanol"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "2-Propanol"
-      }
-    ],
-    "functionalGroups": [],
-    "structure": {
-      "smiles": "CC(O)C",
-      "inchi": "InChI=1S/C3H8O/c1-3(2)4/h3-4H,1-2H3",
-      "inchikey": "KFZMGEQAYNKOFK-UHFFFAOYSA-N",
-      "molecularFormula": "C3H8O"
-    },
-    "molecular": {
-      "weight": 60.1,
-      "exactMass": 60.1,
-      "monoisotopicMass": 60.1
-    },
-    "lastUpdated": "2025-12-13T17:48:31.276935",
-    "cas": "67-63-0"
-  },
-  {
     "id": "pubchem_180",
     "cid": 180,
     "type": "small-molecule",
@@ -607,133 +30,20 @@
       "smiles": "CC(=O)C",
       "inchi": "InChI=1S/C3H6O/c1-3(2)4/h1-2H3",
       "inchikey": "CSCPPACGZOOCGX-UHFFFAOYSA-N",
-      "molecularFormula": "C3H6O"
+      "molecularFormula": "C3H6O",
+      "structure3D": {
+        "format": "sdf",
+        "data": "180\n  -OEChem-12132516023D\n\n 10  9  0     0  0  0  0  0  0999 V2000\n    0.0003   -1.3171   -0.0002 O   0  0  0  0  0  0  0  0  0  0  0  0\n    0.0000   -0.0872    0.0006 C   0  0  0  0  0  0  0  0  0  0  0  0\n    1.2810    0.7024   -0.0002 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.2813    0.7019   -0.0002 C   0  0  0  0  0  0  0  0  0  0  0  0\n    1.3279    1.3235   -0.8980 H   0  0  0  0  0  0  0  0  0  0  0  0\n    1.3260    1.3282    0.8945 H   0  0  0  0  0  0  0  0  0  0  0  0\n    2.1351    0.0196    0.0027 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.1352    0.0187    0.0027 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.3284    1.3230   -0.8980 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.3266    1.3278    0.8945 H   0  0  0  0  0  0  0  0  0  0  0  0\n  1  2  2  0  0  0  0\n  2  3  1  0  0  0  0\n  2  4  1  0  0  0  0\n  3  5  1  0  0  0  0\n  3  6  1  0  0  0  0\n  3  7  1  0  0  0  0\n  4  8  1  0  0  0  0\n  4  9  1  0  0  0  0\n  4 10  1  0  0  0  0\nM  END\n> <PUBCHEM_COMPOUND_CID>\n180\n\n> <PUBCHEM_CONFORMER_RMSD>\n0.4\n\n> <PUBCHEM_CONFORMER_DIVERSEORDER>\n1\n\n> <PUBCHEM_MMFF94_PARTIAL_CHARGES>\n4\n1 -0.57\n2 0.45\n3 0.06\n4 0.06\n\n> <PUBCHEM_EFFECTIVE_ROTOR_COUNT>\n0\n\n> <PUBCHEM_PHARMACOPHORE_FEATURES>\n1\n1 1 acceptor\n\n> <PUBCHEM_HEAVY_ATOM_COUNT>\n4\n\n> <PUBCHEM_ATOM_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ISOTOPIC_ATOM_COUNT>\n0\n\n> <PUBCHEM_COMPONENT_COUNT>\n1\n\n> <PUBCHEM_CACTVS_TAUTO_COUNT>\n2\n\n> <PUBCHEM_CONFORMER_ID>\n000000B400000001\n\n> <PUBCHEM_MMFF94_ENERGY>\n1.6523\n\n> <PUBCHEM_FEATURE_SELFOVERLAP>\n5.074\n\n> <PUBCHEM_SHAPE_FINGERPRINT>\n139733 1 9290717673991302211\n20096714 4 18411138026090193976\n21015797 1 9007056889502236007\n5943 1 13610069792663804549\n\n> <PUBCHEM_SHAPE_MULTIPOLES>\n76.45\n1.48\n1.18\n0.59\n0\n0.33\n0\n-0.56\n0\n0\n0\n0\n-0.03\n0\n\n> <PUBCHEM_SHAPE_SELFOVERLAP>\n128.735\n\n> <PUBCHEM_SHAPE_VOLUME>\n52.8\n\n> <PUBCHEM_COORDINATE_TYPE>\n2\n5\n10\n\n$$$$\n",
+        "source": "pubchem"
+      }
     },
     "molecular": {
       "weight": 58.08,
       "exactMass": 58.08,
       "monoisotopicMass": 58.08
     },
-    "lastUpdated": "2025-12-13T17:48:34.932966",
+    "lastUpdated": "2025-12-13T18:02:06.918038",
     "cas": "67-64-1"
-  },
-  {
-    "id": "pubchem_6386",
-    "cid": 6386,
-    "type": "small-molecule",
-    "names": [
-      {
-        "languageCode": "en",
-        "type": "iupac",
-        "value": "2-methylpropan-2-ol"
-      },
-      {
-        "languageCode": "en",
-        "type": "iupac",
-        "value": "tert-Butanol"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "tert-Butyl alcohol"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "2-Methylpropan-2-ol"
-      }
-    ],
-    "functionalGroups": [],
-    "structure": {
-      "smiles": "CC(O)(C)C",
-      "inchi": "InChI=1S/C4H10O/c1-4(2,3)5/h5H,1-3H3",
-      "inchikey": "DKGAVHZHDRPRBM-UHFFFAOYSA-N",
-      "molecularFormula": "C4H10O"
-    },
-    "molecular": {
-      "weight": 74.12,
-      "exactMass": 74.12,
-      "monoisotopicMass": 74.12
-    },
-    "lastUpdated": "2025-12-13T17:48:38.637857",
-    "cas": "75-65-0"
-  },
-  {
-    "id": "pubchem_6342",
-    "cid": 6342,
-    "type": "small-molecule",
-    "names": [
-      {
-        "languageCode": "en",
-        "type": "iupac",
-        "value": "acetonitrile"
-      },
-      {
-        "languageCode": "en",
-        "type": "iupac",
-        "value": "ACETONITRILE"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "Methyl cyanide"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "Cyanomethane"
-      }
-    ],
-    "functionalGroups": [],
-    "structure": {
-      "smiles": "CC#N",
-      "inchi": "InChI=1S/C2H3N/c1-2-3/h1H3",
-      "inchikey": "WEVYAHXRMPXWCK-UHFFFAOYSA-N",
-      "molecularFormula": "C2H3N"
-    },
-    "molecular": {
-      "weight": 41.05,
-      "exactMass": 41.05,
-      "monoisotopicMass": 41.05
-    },
-    "lastUpdated": "2025-12-13T17:48:42.259209",
-    "cas": "75-05-8"
-  },
-  {
-    "id": "pubchem_178",
-    "cid": 178,
-    "type": "small-molecule",
-    "names": [
-      {
-        "languageCode": "en",
-        "type": "iupac",
-        "value": "acetamide"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "Ethanamide"
-      },
-      {
-        "languageCode": "en",
-        "type": "common",
-        "value": "Acetic acid amide"
-      }
-    ],
-    "functionalGroups": [],
-    "structure": {
-      "smiles": "CC(=O)N",
-      "inchi": "InChI=1S/C2H5NO/c1-2(3)4/h1H3,(H2,3,4)",
-      "inchikey": "DLFVBJFMPXGRIB-UHFFFAOYSA-N",
-      "molecularFormula": "C2H5NO"
-    },
-    "molecular": {
-      "weight": 59.07,
-      "exactMass": 59.07,
-      "monoisotopicMass": 59.07
-    },
-    "lastUpdated": "2025-12-13T17:48:45.840668",
-    "cas": "60-35-5"
   },
   {
     "id": "pubchem_6585",
@@ -766,15 +76,284 @@
       "smiles": "CC(=O)OO",
       "inchi": "InChI=1S/C2H4O3/c1-2(3)5-4/h4H,1H3",
       "inchikey": "KFSLWBXXFJQRDL-UHFFFAOYSA-N",
-      "molecularFormula": "C2H4O3"
+      "molecularFormula": "C2H4O3",
+      "structure3D": {
+        "format": "sdf",
+        "data": "6585\n  -OEChem-12132516023D\n\n  9  8  0     0  0  0  0  0  0999 V2000\n    0.5920    0.8061    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.2837   -1.3344    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    1.8401    0.0607    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.7362    0.5851    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.4122   -0.1175   -0.0001 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.8301    1.1995    0.8990 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.8303    1.1997   -0.8988 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.5402   -0.1566    0.0001 H   0  0  0  0  0  0  0  0  0  0  0  0\n    2.0083    0.1472    0.9540 H   0  0  0  0  0  0  0  0  0  0  0  0\n  1  3  1  0  0  0  0\n  1  5  1  0  0  0  0\n  2  5  2  0  0  0  0\n  3  9  1  0  0  0  0\n  4  5  1  0  0  0  0\n  4  6  1  0  0  0  0\n  4  7  1  0  0  0  0\n  4  8  1  0  0  0  0\nM  END\n> <PUBCHEM_COMPOUND_CID>\n6585\n\n> <PUBCHEM_CONFORMER_RMSD>\n0.4\n\n> <PUBCHEM_CONFORMER_DIVERSEORDER>\n1\n2\n3\n\n> <PUBCHEM_MMFF94_PARTIAL_CHARGES>\n6\n1 -0.15\n2 -0.57\n3 -0.4\n4 0.06\n5 0.66\n9 0.4\n\n> <PUBCHEM_EFFECTIVE_ROTOR_COUNT>\n1\n\n> <PUBCHEM_PHARMACOPHORE_FEATURES>\n1\n1 2 acceptor\n\n> <PUBCHEM_HEAVY_ATOM_COUNT>\n5\n\n> <PUBCHEM_ATOM_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ISOTOPIC_ATOM_COUNT>\n0\n\n> <PUBCHEM_COMPONENT_COUNT>\n1\n\n> <PUBCHEM_CACTVS_TAUTO_COUNT>\n1\n\n> <PUBCHEM_CONFORMER_ID>\n000019B900000001\n\n> <PUBCHEM_MMFF94_ENERGY>\n0.6473\n\n> <PUBCHEM_FEATURE_SELFOVERLAP>\n5.074\n\n> <PUBCHEM_SHAPE_FINGERPRINT>\n139733 1 9292807841126800195\n16714656 1 18334583429615825780\n20096714 4 18410011035261534745\n21015797 1 8932984960181866889\n5460574 1 9223231849132959264\n5943 1 9571622811668538631\n\n> <PUBCHEM_SHAPE_MULTIPOLES>\n85.29\n1.96\n1.05\n0.55\n0.19\n0.3\n0\n-0.46\n0\n-0.06\n0\n-0.06\n-0.01\n0\n\n> <PUBCHEM_SHAPE_SELFOVERLAP>\n149.31\n\n> <PUBCHEM_SHAPE_VOLUME>\n56.8\n\n> <PUBCHEM_COORDINATE_TYPE>\n2\n5\n10\n\n$$$$\n",
+        "source": "pubchem"
+      }
     },
     "molecular": {
       "weight": 76.05,
       "exactMass": 76.05,
       "monoisotopicMass": 76.05
     },
-    "lastUpdated": "2025-12-13T17:48:49.452790",
+    "lastUpdated": "2025-12-13T18:02:11.590629",
     "cas": "79-21-0"
+  },
+  {
+    "id": "pubchem_178",
+    "cid": 178,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "acetamide"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Ethanamide"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Acetic acid amide"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CC(=O)N",
+      "inchi": "InChI=1S/C2H5NO/c1-2(3)4/h1H3,(H2,3,4)",
+      "inchikey": "DLFVBJFMPXGRIB-UHFFFAOYSA-N",
+      "molecularFormula": "C2H5NO",
+      "structure3D": {
+        "format": "sdf",
+        "data": "178\n  -OEChem-12132516023D\n\n  9  8  0     0  0  0  0  0  0999 V2000\n    0.6073   -1.1657    0.0018 O   0  0  0  0  0  0  0  0  0  0  0  0\n    0.7522    1.1306    0.0015 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.4275    0.0969    0.0013 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.0680   -0.0618   -0.0046 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.8768   -0.6906   -0.6101 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.7917    0.0140    1.0288 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.7274    1.0655   -0.4084 H   0  0  0  0  0  0  0  0  0  0  0  0\n    1.7667    1.1492    0.0031 H   0  0  0  0  0  0  0  0  0  0  0  0\n    0.2815    2.0298    0.0081 H   0  0  0  0  0  0  0  0  0  0  0  0\n  1  4  2  0  0  0  0\n  2  4  1  0  0  0  0\n  2  8  1  0  0  0  0\n  2  9  1  0  0  0  0\n  3  4  1  0  0  0  0\n  3  5  1  0  0  0  0\n  3  6  1  0  0  0  0\n  3  7  1  0  0  0  0\nM  END\n> <PUBCHEM_COMPOUND_CID>\n178\n\n> <PUBCHEM_CONFORMER_RMSD>\n0.4\n\n> <PUBCHEM_CONFORMER_DIVERSEORDER>\n1\n\n> <PUBCHEM_MMFF94_PARTIAL_CHARGES>\n6\n1 -0.57\n2 -0.8\n3 0.06\n4 0.57\n8 0.37\n9 0.37\n\n> <PUBCHEM_EFFECTIVE_ROTOR_COUNT>\n0\n\n> <PUBCHEM_PHARMACOPHORE_FEATURES>\n2\n1 1 acceptor\n1 2 donor\n\n> <PUBCHEM_HEAVY_ATOM_COUNT>\n4\n\n> <PUBCHEM_ATOM_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ISOTOPIC_ATOM_COUNT>\n0\n\n> <PUBCHEM_COMPONENT_COUNT>\n1\n\n> <PUBCHEM_CACTVS_TAUTO_COUNT>\n2\n\n> <PUBCHEM_CONFORMER_ID>\n000000B200000001\n\n> <PUBCHEM_MMFF94_ENERGY>\n4.2976\n\n> <PUBCHEM_FEATURE_SELFOVERLAP>\n10.148\n\n> <PUBCHEM_SHAPE_FINGERPRINT>\n139733 1 9293842481710923235\n20096714 4 18268432510784477049\n21015797 1 8790889574902944993\n5943 1 8603650939448069255\n\n> <PUBCHEM_SHAPE_MULTIPOLES>\n71.47\n1.35\n1.13\n0.57\n0.57\n0.03\n0\n-0.1\n0\n-0.4\n0\n0.04\n0\n0\n\n> <PUBCHEM_SHAPE_SELFOVERLAP>\n122.421\n\n> <PUBCHEM_SHAPE_VOLUME>\n48.5\n\n> <PUBCHEM_COORDINATE_TYPE>\n2\n5\n10\n\n$$$$\n",
+        "source": "pubchem"
+      }
+    },
+    "molecular": {
+      "weight": 59.07,
+      "exactMass": 59.07,
+      "monoisotopicMass": 59.07
+    },
+    "lastUpdated": "2025-12-13T18:02:16.245388",
+    "cas": "60-35-5"
+  },
+  {
+    "id": "pubchem_6367",
+    "cid": 6367,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "acetyl chloride"
+      },
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "ACETYL CHLORIDE"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Ethanoyl chloride"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Acetic chloride"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CC(=O)Cl",
+      "inchi": "InChI=1S/C2H3ClO/c1-2(3)4/h1H3",
+      "inchikey": "WETWJCDKMRHUPV-UHFFFAOYSA-N",
+      "molecularFormula": "C2H3ClO",
+      "structure3D": {
+        "format": "sdf",
+        "data": "6367\n  -OEChem-12132516023D\n\n  7  6  0     0  0  0  0  0  0999 V2000\n   -1.6260    0.0993    0.0002 Cl  0  0  0  0  0  0  0  0  0  0  0  0\n    0.6961   -1.1860    0.0003 O   0  0  0  0  0  0  0  0  0  0  0  0\n    0.8315    1.2005    0.0002 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.0985   -0.1137   -0.0007 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.5725    1.7736   -0.8941 H   0  0  0  0  0  0  0  0  0  0  0  0\n    1.9099    1.0169   -0.0044 H   0  0  0  0  0  0  0  0  0  0  0  0\n    0.5789    1.7685    0.8995 H   0  0  0  0  0  0  0  0  0  0  0  0\n  1  4  1  0  0  0  0\n  2  4  2  0  0  0  0\n  3  4  1  0  0  0  0\n  3  5  1  0  0  0  0\n  3  6  1  0  0  0  0\n  3  7  1  0  0  0  0\nM  END\n> <PUBCHEM_COMPOUND_CID>\n6367\n\n> <PUBCHEM_CONFORMER_RMSD>\n0.4\n\n> <PUBCHEM_CONFORMER_DIVERSEORDER>\n1\n\n> <PUBCHEM_MMFF94_PARTIAL_CHARGES>\n4\n1 -0.21\n2 -0.57\n3 0.06\n4 0.72\n\n> <PUBCHEM_EFFECTIVE_ROTOR_COUNT>\n0\n\n> <PUBCHEM_PHARMACOPHORE_FEATURES>\n0\n\n> <PUBCHEM_HEAVY_ATOM_COUNT>\n4\n\n> <PUBCHEM_ATOM_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ISOTOPIC_ATOM_COUNT>\n0\n\n> <PUBCHEM_COMPONENT_COUNT>\n1\n\n> <PUBCHEM_CACTVS_TAUTO_COUNT>\n1\n\n> <PUBCHEM_CONFORMER_ID>\n000018DF00000001\n\n> <PUBCHEM_MMFF94_ENERGY>\n2.2348\n\n> <PUBCHEM_FEATURE_SELFOVERLAP>\n0\n\n> <PUBCHEM_SHAPE_FINGERPRINT>\n139733 1 9294126155700294467\n20096714 4 18268149944870248945\n21015797 1 8790885172503483304\n5943 1 13207901489033629232\n\n> <PUBCHEM_SHAPE_MULTIPOLES>\n78.32\n1.64\n1.23\n0.6\n0.7\n0.18\n0\n-0.42\n0\n-0.4\n0\n0.03\n-0.04\n0\n\n> <PUBCHEM_SHAPE_SELFOVERLAP>\n126.042\n\n> <PUBCHEM_SHAPE_VOLUME>\n55.1\n\n> <PUBCHEM_COORDINATE_TYPE>\n2\n5\n10\n\n$$$$\n",
+        "source": "pubchem"
+      }
+    },
+    "molecular": {
+      "weight": 78.5,
+      "exactMass": 78.5,
+      "monoisotopicMass": 78.5
+    },
+    "lastUpdated": "2025-12-13T18:02:20.851408",
+    "cas": "75-36-5"
+  },
+  {
+    "id": "pubchem_284",
+    "cid": 284,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "formic acid"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Methanoic acid"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Formylic acid"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "C(=O)O",
+      "inchi": "InChI=1S/CH2O2/c2-1-3/h1H,(H,2,3)",
+      "inchikey": "BDAGIHXWWSANSR-UHFFFAOYSA-N",
+      "molecularFormula": "CH2O2",
+      "structure3D": {
+        "format": "sdf",
+        "data": "284\n  -OEChem-12132516023D\n\n  5  4  0     0  0  0  0  0  0999 V2000\n   -1.1685    0.1825    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    1.1146    0.2103    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    0.0538   -0.3927    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.0511   -1.4875    0.0002 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.1142    1.1620    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0\n  1  3  1  0  0  0  0\n  1  5  1  0  0  0  0\n  2  3  2  0  0  0  0\n  3  4  1  0  0  0  0\nM  END\n> <PUBCHEM_COMPOUND_CID>\n284\n\n> <PUBCHEM_CONFORMER_RMSD>\n0.4\n\n> <PUBCHEM_CONFORMER_DIVERSEORDER>\n1\n\n> <PUBCHEM_MMFF94_PARTIAL_CHARGES>\n5\n1 -0.65\n2 -0.57\n3 0.66\n4 0.06\n5 0.5\n\n> <PUBCHEM_EFFECTIVE_ROTOR_COUNT>\n0\n\n> <PUBCHEM_PHARMACOPHORE_FEATURES>\n3\n1 1 acceptor\n1 2 acceptor\n3 1 2 3 anion\n\n> <PUBCHEM_HEAVY_ATOM_COUNT>\n3\n\n> <PUBCHEM_ATOM_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ISOTOPIC_ATOM_COUNT>\n0\n\n> <PUBCHEM_COMPONENT_COUNT>\n1\n\n> <PUBCHEM_CACTVS_TAUTO_COUNT>\n1\n\n> <PUBCHEM_CONFORMER_ID>\n0000011C00000001\n\n> <PUBCHEM_MMFF94_ENERGY>\n1.6435\n\n> <PUBCHEM_FEATURE_SELFOVERLAP>\n15.278\n\n> <PUBCHEM_SHAPE_FINGERPRINT>\n139733 1 18410856568229821604\n21015797 1 18047756180461364166\n\n> <PUBCHEM_SHAPE_MULTIPOLES>\n50\n1.31\n0.63\n0.54\n0.07\n0.06\n0\n-0.17\n0\n-0.01\n0\n0\n0.02\n0\n\n> <PUBCHEM_SHAPE_SELFOVERLAP>\n80.997\n\n> <PUBCHEM_SHAPE_VOLUME>\n34.6\n\n> <PUBCHEM_COORDINATE_TYPE>\n2\n5\n10\n\n$$$$\n",
+        "source": "pubchem"
+      }
+    },
+    "molecular": {
+      "weight": 46.025,
+      "exactMass": 46.025,
+      "monoisotopicMass": 46.025
+    },
+    "lastUpdated": "2025-12-13T18:02:25.460566",
+    "cas": "64-18-6"
+  },
+  {
+    "id": "pubchem_1031",
+    "cid": 1031,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "propan-1-ol"
+      },
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "1-propanol"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "propanol"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Propan-1-ol"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CCCO",
+      "inchi": "InChI=1S/C3H8O/c1-2-3-4/h4H,2-3H2,1H3",
+      "inchikey": "BDERNNFJNOPAEC-UHFFFAOYSA-N",
+      "molecularFormula": "C3H8O",
+      "structure3D": {
+        "format": "sdf",
+        "data": "1031\n  -OEChem-12132516023D\n\n 12 11  0     0  0  0  0  0  0999 V2000\n    1.8381   -0.1603   -0.0038 O   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.5300   -0.5081    0.0038 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.5908    0.5200    0.0036 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.8989    0.1484   -0.0036 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.4276   -1.1648   -0.8685 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.4365   -1.1579    0.8822 H   0  0  0  0  0  0  0  0  0  0  0  0\n    0.5433    1.1530   -0.8878 H   0  0  0  0  0  0  0  0  0  0  0  0\n    0.5477    1.1632    0.8882 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.0300    0.7717   -0.8939 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.6851   -0.6130   -0.0032 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.0360    0.7789    0.8808 H   0  0  0  0  0  0  0  0  0  0  0  0\n    1.8848   -0.6971    0.8057 H   0  0  0  0  0  0  0  0  0  0  0  0\n  1  3  1  0  0  0  0\n  1 12  1  0  0  0  0\n  2  3  1  0  0  0  0\n  2  4  1  0  0  0  0\n  2  5  1  0  0  0  0\n  2  6  1  0  0  0  0\n  3  7  1  0  0  0  0\n  3  8  1  0  0  0  0\n  4  9  1  0  0  0  0\n  4 10  1  0  0  0  0\n  4 11  1  0  0  0  0\nM  END\n> <PUBCHEM_COMPOUND_CID>\n1031\n\n> <PUBCHEM_CONFORMER_RMSD>\n0.4\n\n> <PUBCHEM_CONFORMER_DIVERSEORDER>\n1\n2\n3\n\n> <PUBCHEM_MMFF94_PARTIAL_CHARGES>\n3\n1 -0.68\n12 0.4\n3 0.28\n\n> <PUBCHEM_EFFECTIVE_ROTOR_COUNT>\n1\n\n> <PUBCHEM_PHARMACOPHORE_FEATURES>\n3\n1 1 acceptor\n1 1 donor\n1 4 hydrophobe\n\n> <PUBCHEM_HEAVY_ATOM_COUNT>\n4\n\n> <PUBCHEM_ATOM_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ISOTOPIC_ATOM_COUNT>\n0\n\n> <PUBCHEM_COMPONENT_COUNT>\n1\n\n> <PUBCHEM_CACTVS_TAUTO_COUNT>\n1\n\n> <PUBCHEM_CONFORMER_ID>\n0000040700000001\n\n> <PUBCHEM_MMFF94_ENERGY>\n-1.6138\n\n> <PUBCHEM_FEATURE_SELFOVERLAP>\n15.223\n\n> <PUBCHEM_SHAPE_FINGERPRINT>\n139733 1 9223231849211957120\n20096714 4 18408886273584290093\n21015797 1 9221500114103197185\n5460574 1 9223235147741520225\n\n> <PUBCHEM_SHAPE_MULTIPOLES>\n76.45\n2.36\n0.75\n0.59\n0.02\n0.01\n0\n0.04\n0.01\n0.02\n0\n0.05\n0\n0\n\n> <PUBCHEM_SHAPE_SELFOVERLAP>\n122.597\n\n> <PUBCHEM_SHAPE_VOLUME>\n54.4\n\n> <PUBCHEM_COORDINATE_TYPE>\n2\n5\n10\n\n$$$$\n",
+        "source": "pubchem"
+      }
+    },
+    "molecular": {
+      "weight": 60.1,
+      "exactMass": 60.1,
+      "monoisotopicMass": 60.1
+    },
+    "lastUpdated": "2025-12-13T18:02:30.278459"
+  },
+  {
+    "id": "pubchem_6325",
+    "cid": 6325,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "ethene"
+      },
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "ETHYLENE"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Ethene"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Acetene"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "C=C",
+      "inchi": "InChI=1S/C2H4/c1-2/h1-2H2",
+      "inchikey": "VGGSQFUCUMXWEO-UHFFFAOYSA-N",
+      "molecularFormula": "C2H4",
+      "structure3D": {
+        "format": "sdf",
+        "data": "6325\n  -OEChem-12132516023D\n\n  6  5  0     0  0  0  0  0  0999 V2000\n   -0.6672    0.0000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.6672    0.0000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.2213   -0.9290    0.0708 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.2212    0.9290   -0.0708 H   0  0  0  0  0  0  0  0  0  0  0  0\n    1.2213    0.9290   -0.0708 H   0  0  0  0  0  0  0  0  0  0  0  0\n    1.2213   -0.9290    0.0708 H   0  0  0  0  0  0  0  0  0  0  0  0\n  1  2  2  0  0  0  0\n  1  3  1  0  0  0  0\n  1  4  1  0  0  0  0\n  2  5  1  0  0  0  0\n  2  6  1  0  0  0  0\nM  END\n> <PUBCHEM_COMPOUND_CID>\n6325\n\n> <PUBCHEM_CONFORMER_RMSD>\n0.4\n\n> <PUBCHEM_CONFORMER_DIVERSEORDER>\n1\n\n> <PUBCHEM_MMFF94_PARTIAL_CHARGES>\n6\n1 -0.3\n2 -0.3\n3 0.15\n4 0.15\n5 0.15\n6 0.15\n\n> <PUBCHEM_EFFECTIVE_ROTOR_COUNT>\n0\n\n> <PUBCHEM_PHARMACOPHORE_FEATURES>\n2\n1 1 hydrophobe\n1 2 hydrophobe\n\n> <PUBCHEM_HEAVY_ATOM_COUNT>\n2\n\n> <PUBCHEM_ATOM_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ISOTOPIC_ATOM_COUNT>\n0\n\n> <PUBCHEM_COMPONENT_COUNT>\n1\n\n> <PUBCHEM_CACTVS_TAUTO_COUNT>\n1\n\n> <PUBCHEM_CONFORMER_ID>\n000018B500000001\n\n> <PUBCHEM_MMFF94_ENERGY>\n0.1306\n\n> <PUBCHEM_FEATURE_SELFOVERLAP>\n11.86\n\n> <PUBCHEM_SHAPE_FINGERPRINT>\n21015797 1 8574413327516572042\n260 1 8574713502780882945\n\n> <PUBCHEM_SHAPE_MULTIPOLES>\n41.16\n1.06\n0.62\n0.62\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n\n> <PUBCHEM_SHAPE_SELFOVERLAP>\n58.377\n\n> <PUBCHEM_SHAPE_VOLUME>\n31.7\n\n> <PUBCHEM_COORDINATE_TYPE>\n2\n5\n10\n\n$$$$\n",
+        "source": "pubchem"
+      }
+    },
+    "molecular": {
+      "weight": 28.05,
+      "exactMass": 28.05,
+      "monoisotopicMass": 28.05
+    },
+    "lastUpdated": "2025-12-13T18:02:35.072654"
+  },
+  {
+    "id": "pubchem_3776",
+    "cid": 3776,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "propan-2-ol"
+      },
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "Isopropyl alcohol"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "isopropanol"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "2-Propanol"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CC(O)C",
+      "inchi": "InChI=1S/C3H8O/c1-3(2)4/h3-4H,1-2H3",
+      "inchikey": "KFZMGEQAYNKOFK-UHFFFAOYSA-N",
+      "molecularFormula": "C3H8O",
+      "structure3D": {
+        "format": "sdf",
+        "data": "3776\n  -OEChem-12132516023D\n\n 12 11  0     0  0  0  0  0  0999 V2000\n   -0.0004    1.3572   -0.1242 O   0  0  0  0  0  0  0  0  0  0  0  0\n    0.0000    0.0177    0.3601 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.2599   -0.6878   -0.1179 C   0  0  0  0  0  0  0  0  0  0  0  0\n    1.2603   -0.6871   -0.1179 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.0001    0.0646    1.4540 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.3079   -1.7139    0.2590 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.1507   -0.1484    0.2213 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.3061   -0.7138   -1.2122 H   0  0  0  0  0  0  0  0  0  0  0  0\n    1.3089   -1.7132    0.2590 H   0  0  0  0  0  0  0  0  0  0  0  0\n    2.1508   -0.1471    0.2213 H   0  0  0  0  0  0  0  0  0  0  0  0\n    1.3066   -0.7131   -1.2122 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.0006    1.3242   -1.0961 H   0  0  0  0  0  0  0  0  0  0  0  0\n  1  2  1  0  0  0  0\n  1 12  1  0  0  0  0\n  2  3  1  0  0  0  0\n  2  4  1  0  0  0  0\n  2  5  1  0  0  0  0\n  3  6  1  0  0  0  0\n  3  7  1  0  0  0  0\n  3  8  1  0  0  0  0\n  4  9  1  0  0  0  0\n  4 10  1  0  0  0  0\n  4 11  1  0  0  0  0\nM  END\n> <PUBCHEM_COMPOUND_CID>\n3776\n\n> <PUBCHEM_CONFORMER_RMSD>\n0.4\n\n> <PUBCHEM_CONFORMER_DIVERSEORDER>\n1\n\n> <PUBCHEM_MMFF94_PARTIAL_CHARGES>\n3\n1 -0.68\n12 0.4\n2 0.28\n\n> <PUBCHEM_EFFECTIVE_ROTOR_COUNT>\n0\n\n> <PUBCHEM_PHARMACOPHORE_FEATURES>\n3\n1 1 acceptor\n1 1 donor\n3 2 3 4 hydrophobe\n\n> <PUBCHEM_HEAVY_ATOM_COUNT>\n4\n\n> <PUBCHEM_ATOM_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ISOTOPIC_ATOM_COUNT>\n0\n\n> <PUBCHEM_COMPONENT_COUNT>\n1\n\n> <PUBCHEM_CACTVS_TAUTO_COUNT>\n1\n\n> <PUBCHEM_CONFORMER_ID>\n00000EC000000001\n\n> <PUBCHEM_MMFF94_ENERGY>\n1.1698\n\n> <PUBCHEM_FEATURE_SELFOVERLAP>\n15.223\n\n> <PUBCHEM_SHAPE_FINGERPRINT>\n139733 1 8790885181088344531\n20096714 4 17400358344043462849\n21015797 1 9870305445774720250\n5943 1 13812955797099969682\n\n> <PUBCHEM_SHAPE_MULTIPOLES>\n76.45\n1.45\n1.19\n0.64\n0\n0.38\n0.02\n-0.54\n-0.09\n0\n-0.08\n0\n-0.03\n0\n\n> <PUBCHEM_SHAPE_SELFOVERLAP>\n124.806\n\n> <PUBCHEM_SHAPE_VOLUME>\n54.3\n\n> <PUBCHEM_COORDINATE_TYPE>\n2\n5\n10\n\n$$$$\n",
+        "source": "pubchem"
+      }
+    },
+    "molecular": {
+      "weight": 60.1,
+      "exactMass": 60.1,
+      "monoisotopicMass": 60.1
+    },
+    "lastUpdated": "2025-12-13T18:02:39.862570",
+    "cas": "67-63-0"
   },
   {
     "id": "pubchem_527",
@@ -802,15 +381,541 @@
       "smiles": "CCC=O",
       "inchi": "InChI=1S/C3H6O/c1-2-3-4/h3H,2H2,1H3",
       "inchikey": "NBBJYMSMWIIQGU-UHFFFAOYSA-N",
-      "molecularFormula": "C3H6O"
+      "molecularFormula": "C3H6O",
+      "structure3D": {
+        "format": "sdf",
+        "data": "527\n  -OEChem-12132516023D\n\n 10  9  0     0  0  0  0  0  0999 V2000\n   -1.3587   -0.5910    0.0044 O   0  0  0  0  0  0  0  0  0  0  0  0\n    0.6962    0.6998    0.0064 C   0  0  0  0  0  0  0  0  0  0  0  0\n    1.4620   -0.6090   -0.0032 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.7995    0.5002   -0.0076 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.9484    1.2779    0.9011 H   0  0  0  0  0  0  0  0  0  0  0  0\n    0.9614    1.2953   -0.8731 H   0  0  0  0  0  0  0  0  0  0  0  0\n    1.2228   -1.1981   -0.8947 H   0  0  0  0  0  0  0  0  0  0  0  0\n    1.2151   -1.2155    0.8745 H   0  0  0  0  0  0  0  0  0  0  0  0\n    2.5399   -0.4205    0.0036 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.3924    1.4310   -0.0240 H   0  0  0  0  0  0  0  0  0  0  0  0\n  1  4  2  0  0  0  0\n  2  3  1  0  0  0  0\n  2  4  1  0  0  0  0\n  2  5  1  0  0  0  0\n  2  6  1  0  0  0  0\n  3  7  1  0  0  0  0\n  3  8  1  0  0  0  0\n  3  9  1  0  0  0  0\n  4 10  1  0  0  0  0\nM  END\n> <PUBCHEM_COMPOUND_CID>\n527\n\n> <PUBCHEM_CONFORMER_RMSD>\n0.4\n\n> <PUBCHEM_CONFORMER_DIVERSEORDER>\n1\n2\n3\n\n> <PUBCHEM_MMFF94_PARTIAL_CHARGES>\n4\n1 -0.57\n10 0.06\n2 0.06\n4 0.45\n\n> <PUBCHEM_EFFECTIVE_ROTOR_COUNT>\n1\n\n> <PUBCHEM_PHARMACOPHORE_FEATURES>\n2\n1 1 acceptor\n1 3 hydrophobe\n\n> <PUBCHEM_HEAVY_ATOM_COUNT>\n4\n\n> <PUBCHEM_ATOM_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ISOTOPIC_ATOM_COUNT>\n0\n\n> <PUBCHEM_COMPONENT_COUNT>\n1\n\n> <PUBCHEM_CACTVS_TAUTO_COUNT>\n2\n\n> <PUBCHEM_CONFORMER_ID>\n0000020F00000001\n\n> <PUBCHEM_MMFF94_ENERGY>\n-1.465\n\n> <PUBCHEM_FEATURE_SELFOVERLAP>\n10.148\n\n> <PUBCHEM_SHAPE_FINGERPRINT>\n139733 1 9223225247873570946\n20096714 4 18410860962028981104\n21015797 1 9150911458941633988\n5943 1 17904808484856203432\n\n> <PUBCHEM_SHAPE_MULTIPOLES>\n76.45\n1.82\n0.95\n0.59\n0.13\n0.04\n0\n-0.41\n0\n0.03\n0\n0.03\n0.02\n0\n\n> <PUBCHEM_SHAPE_SELFOVERLAP>\n126.972\n\n> <PUBCHEM_SHAPE_VOLUME>\n52.4\n\n> <PUBCHEM_COORDINATE_TYPE>\n2\n5\n10\n\n$$$$\n",
+        "source": "pubchem"
+      }
     },
     "molecular": {
       "weight": 58.08,
       "exactMass": 58.08,
       "monoisotopicMass": 58.08
     },
-    "lastUpdated": "2025-12-13T17:48:52.918754",
+    "lastUpdated": "2025-12-13T18:02:44.589162",
     "cas": "123-38-6"
+  },
+  {
+    "id": "pubchem_176",
+    "cid": 176,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "acetic acid"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "ethanoic acid"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Acetic acid glacial"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CC(=O)O",
+      "inchi": "InChI=1S/C2H4O2/c1-2(3)4/h1H3,(H,3,4)",
+      "inchikey": "QTBSBXVTEAMEQO-UHFFFAOYSA-N",
+      "molecularFormula": "C2H4O2",
+      "structure3D": {
+        "format": "sdf",
+        "data": "176\n  -OEChem-12132516023D\n\n  8  7  0     0  0  0  0  0  0999 V2000\n   -0.3035    1.2890   -0.0002 O   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.9800   -0.8878   -0.0002 O   0  0  0  0  0  0  0  0  0  0  0  0\n    1.3743   -0.3516   -0.0002 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.0907   -0.0496    0.0006 C   0  0  0  0  0  0  0  0  0  0  0  0\n    1.8368    0.0570   -0.9021 H   0  0  0  0  0  0  0  0  0  0  0  0\n    1.8400    0.0676    0.8952 H   0  0  0  0  0  0  0  0  0  0  0  0\n    1.5207   -1.4356    0.0064 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.2598    1.5081   -0.0008 H   0  0  0  0  0  0  0  0  0  0  0  0\n  1  4  1  0  0  0  0\n  1  8  1  0  0  0  0\n  2  4  2  0  0  0  0\n  3  4  1  0  0  0  0\n  3  5  1  0  0  0  0\n  3  6  1  0  0  0  0\n  3  7  1  0  0  0  0\nM  END\n> <PUBCHEM_COMPOUND_CID>\n176\n\n> <PUBCHEM_CONFORMER_RMSD>\n0.4\n\n> <PUBCHEM_CONFORMER_DIVERSEORDER>\n1\n\n> <PUBCHEM_MMFF94_PARTIAL_CHARGES>\n5\n1 -0.65\n2 -0.57\n3 0.06\n4 0.66\n8 0.5\n\n> <PUBCHEM_EFFECTIVE_ROTOR_COUNT>\n0\n\n> <PUBCHEM_PHARMACOPHORE_FEATURES>\n3\n1 1 acceptor\n1 2 acceptor\n3 1 2 4 anion\n\n> <PUBCHEM_HEAVY_ATOM_COUNT>\n4\n\n> <PUBCHEM_ATOM_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ISOTOPIC_ATOM_COUNT>\n0\n\n> <PUBCHEM_COMPONENT_COUNT>\n1\n\n> <PUBCHEM_CACTVS_TAUTO_COUNT>\n1\n\n> <PUBCHEM_CONFORMER_ID>\n000000B000000001\n\n> <PUBCHEM_MMFF94_ENERGY>\n1.2463\n\n> <PUBCHEM_FEATURE_SELFOVERLAP>\n15.279\n\n> <PUBCHEM_SHAPE_FINGERPRINT>\n139733 1 9222965763108524674\n20096714 4 17761776156988475192\n21015797 1 9727630600825169738\n5943 1 8496689065323825414\n\n> <PUBCHEM_SHAPE_MULTIPOLES>\n70.58\n1.33\n1.11\n0.56\n0.54\n0.16\n0\n-0.15\n0\n-0.36\n0\n0.04\n-0.01\n0\n\n> <PUBCHEM_SHAPE_SELFOVERLAP>\n121.512\n\n> <PUBCHEM_SHAPE_VOLUME>\n47.7\n\n> <PUBCHEM_COORDINATE_TYPE>\n2\n5\n10\n\n$$$$\n",
+        "source": "pubchem"
+      }
+    },
+    "molecular": {
+      "weight": 60.05,
+      "exactMass": 60.05,
+      "monoisotopicMass": 60.05
+    },
+    "lastUpdated": "2025-12-13T18:02:49.114647",
+    "cas": "64-19-7"
+  },
+  {
+    "id": "pubchem_712",
+    "cid": 712,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "formaldehyde"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "formalin"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "methanal"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "C=O",
+      "inchi": "InChI=1S/CH2O/c1-2/h1H2",
+      "inchikey": "WSFSSNUMVMOOMR-UHFFFAOYSA-N",
+      "molecularFormula": "CH2O",
+      "structure3D": {
+        "format": "sdf",
+        "data": "712\n  -OEChem-12132516023D\n\n  4  3  0     0  0  0  0  0  0999 V2000\n    0.6123    0.0000    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.6123    0.0000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.2000    0.2426   -0.8998 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.2000   -0.2424    0.8998 H   0  0  0  0  0  0  0  0  0  0  0  0\n  1  2  2  0  0  0  0\n  2  3  1  0  0  0  0\n  2  4  1  0  0  0  0\nM  END\n> <PUBCHEM_COMPOUND_CID>\n712\n\n> <PUBCHEM_CONFORMER_RMSD>\n0.4\n\n> <PUBCHEM_CONFORMER_DIVERSEORDER>\n1\n\n> <PUBCHEM_MMFF94_PARTIAL_CHARGES>\n4\n1 -0.57\n2 0.45\n3 0.06\n4 0.06\n\n> <PUBCHEM_EFFECTIVE_ROTOR_COUNT>\n0\n\n> <PUBCHEM_PHARMACOPHORE_FEATURES>\n1\n1 1 acceptor\n\n> <PUBCHEM_HEAVY_ATOM_COUNT>\n2\n\n> <PUBCHEM_ATOM_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ISOTOPIC_ATOM_COUNT>\n0\n\n> <PUBCHEM_COMPONENT_COUNT>\n1\n\n> <PUBCHEM_CACTVS_TAUTO_COUNT>\n1\n\n> <PUBCHEM_CONFORMER_ID>\n000002C800000001\n\n> <PUBCHEM_MMFF94_ENERGY>\n0.0542\n\n> <PUBCHEM_FEATURE_SELFOVERLAP>\n5.074\n\n> <PUBCHEM_SHAPE_FINGERPRINT>\n21015797 1 18338519741256598869\n260 1 18410856563976954887\n\n> <PUBCHEM_SHAPE_MULTIPOLES>\n35.29\n0.93\n0.56\n0.56\n0.04\n0\n0\n0\n0\n0.04\n0\n0.04\n0\n0\n\n> <PUBCHEM_SHAPE_SELFOVERLAP>\n50.426\n\n> <PUBCHEM_SHAPE_VOLUME>\n26.8\n\n> <PUBCHEM_COORDINATE_TYPE>\n2\n5\n10\n\n$$$$\n",
+        "source": "pubchem"
+      }
+    },
+    "molecular": {
+      "weight": 30.026,
+      "exactMass": 30.026,
+      "monoisotopicMass": 30.026
+    },
+    "lastUpdated": "2025-12-13T18:02:53.775980",
+    "cas": "50-00-0"
+  },
+  {
+    "id": "pubchem_6584",
+    "cid": 6584,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "methyl acetate"
+      },
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "METHYL ACETATE"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Devoton"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Tereton"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CC(=O)OC",
+      "inchi": "InChI=1S/C3H6O2/c1-3(4)5-2/h1-2H3",
+      "inchikey": "KXKVLQRXCPHEJC-UHFFFAOYSA-N",
+      "molecularFormula": "C3H6O2",
+      "structure3D": {
+        "format": "sdf",
+        "data": "6584\n  -OEChem-12132516023D\n\n 11 10  0     0  0  0  0  0  0999 V2000\n   -0.6412    0.7096    0.0001 O   0  0  0  0  0  0  0  0  0  0  0  0\n    0.4179   -1.3435    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    1.6979    0.6957   -0.0001 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.4408   -0.1201    0.0002 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.9155    0.0584   -0.0001 C   0  0  0  0  0  0  0  0  0  0  0  0\n    1.7371    1.3171    0.8979 H   0  0  0  0  0  0  0  0  0  0  0  0\n    1.7379    1.3151   -0.8997 H   0  0  0  0  0  0  0  0  0  0  0  0\n    2.5638    0.0274    0.0011 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.0281   -0.5533   -0.9004 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.6911    0.8288   -0.0001 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.0283   -0.5536    0.8999 H   0  0  0  0  0  0  0  0  0  0  0  0\n  1  4  1  0  0  0  0\n  1  5  1  0  0  0  0\n  2  4  2  0  0  0  0\n  3  4  1  0  0  0  0\n  3  6  1  0  0  0  0\n  3  7  1  0  0  0  0\n  3  8  1  0  0  0  0\n  5  9  1  0  0  0  0\n  5 10  1  0  0  0  0\n  5 11  1  0  0  0  0\nM  END\n> <PUBCHEM_COMPOUND_CID>\n6584\n\n> <PUBCHEM_CONFORMER_RMSD>\n0.4\n\n> <PUBCHEM_CONFORMER_DIVERSEORDER>\n1\n\n> <PUBCHEM_MMFF94_PARTIAL_CHARGES>\n5\n1 -0.43\n2 -0.57\n3 0.06\n4 0.66\n5 0.28\n\n> <PUBCHEM_EFFECTIVE_ROTOR_COUNT>\n1\n\n> <PUBCHEM_PHARMACOPHORE_FEATURES>\n1\n1 2 acceptor\n\n> <PUBCHEM_HEAVY_ATOM_COUNT>\n5\n\n> <PUBCHEM_ATOM_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ISOTOPIC_ATOM_COUNT>\n0\n\n> <PUBCHEM_COMPONENT_COUNT>\n1\n\n> <PUBCHEM_CACTVS_TAUTO_COUNT>\n1\n\n> <PUBCHEM_CONFORMER_ID>\n000019B800000001\n\n> <PUBCHEM_MMFF94_ENERGY>\n4.4821\n\n> <PUBCHEM_FEATURE_SELFOVERLAP>\n5.074\n\n> <PUBCHEM_SHAPE_FINGERPRINT>\n139733 1 9221216440087595075\n16714656 1 18264496250646115372\n20096714 4 18411699919587064560\n21015797 1 8862357830729484008\n21040471 1 18338516451364488576\n5460574 1 9295298239290302657\n5943 1 11388330592722771550\n\n> <PUBCHEM_SHAPE_MULTIPOLES>\n91.16\n2.2\n1.06\n0.58\n0.47\n0.31\n0\n-0.5\n0\n-0.18\n0\n-0.01\n-0.01\n0\n\n> <PUBCHEM_SHAPE_SELFOVERLAP>\n159.399\n\n> <PUBCHEM_SHAPE_VOLUME>\n61.3\n\n> <PUBCHEM_COORDINATE_TYPE>\n2\n5\n10\n\n$$$$\n",
+        "source": "pubchem"
+      }
+    },
+    "molecular": {
+      "weight": 74.08,
+      "exactMass": 74.08,
+      "monoisotopicMass": 74.08
+    },
+    "lastUpdated": "2025-12-13T18:02:58.403998",
+    "cas": "79-20-9"
+  },
+  {
+    "id": "pubchem_6341",
+    "cid": 6341,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "ethanamine"
+      },
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "ETHYLAMINE"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Ethanamine"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Monoethylamine"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CCN",
+      "inchi": "InChI=1S/C2H7N/c1-2-3/h2-3H2,1H3",
+      "inchikey": "QUSNBJAOOMFDIB-UHFFFAOYSA-N",
+      "molecularFormula": "C2H7N",
+      "structure3D": {
+        "format": "sdf",
+        "data": "6341\n  -OEChem-12132516033D\n\n 10  9  0     0  0  0  0  0  0999 V2000\n    1.2133   -0.2902    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    0.0295    0.5602    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.2428   -0.2700    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.0512    1.2078    0.8824 H   0  0  0  0  0  0  0  0  0  0  0  0\n    0.0511    1.2078   -0.8825 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.2991   -0.9094   -0.8874 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.2991   -0.9093    0.8875 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.1202    0.3846    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0\n    1.1926   -0.9044   -0.8134 H   0  0  0  0  0  0  0  0  0  0  0  0\n    1.1926   -0.9044    0.8134 H   0  0  0  0  0  0  0  0  0  0  0  0\n  1  2  1  0  0  0  0\n  1  9  1  0  0  0  0\n  1 10  1  0  0  0  0\n  2  3  1  0  0  0  0\n  2  4  1  0  0  0  0\n  2  5  1  0  0  0  0\n  3  6  1  0  0  0  0\n  3  7  1  0  0  0  0\n  3  8  1  0  0  0  0\nM  END\n> <PUBCHEM_COMPOUND_CID>\n6341\n\n> <PUBCHEM_CONFORMER_RMSD>\n0.4\n\n> <PUBCHEM_CONFORMER_DIVERSEORDER>\n1\n\n> <PUBCHEM_MMFF94_PARTIAL_CHARGES>\n4\n1 -0.99\n10 0.36\n2 0.27\n9 0.36\n\n> <PUBCHEM_EFFECTIVE_ROTOR_COUNT>\n0\n\n> <PUBCHEM_PHARMACOPHORE_FEATURES>\n2\n1 1 cation\n1 1 donor\n\n> <PUBCHEM_HEAVY_ATOM_COUNT>\n3\n\n> <PUBCHEM_ATOM_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ISOTOPIC_ATOM_COUNT>\n0\n\n> <PUBCHEM_COMPONENT_COUNT>\n1\n\n> <PUBCHEM_CACTVS_TAUTO_COUNT>\n1\n\n> <PUBCHEM_CONFORMER_ID>\n000018C500000001\n\n> <PUBCHEM_MMFF94_ENERGY>\n-5.7146\n\n> <PUBCHEM_FEATURE_SELFOVERLAP>\n10.148\n\n> <PUBCHEM_SHAPE_FINGERPRINT>\n139733 1 17906453581858242756\n20096714 4 9007057971797318214\n21015797 1 18197214973626128933\n\n> <PUBCHEM_SHAPE_MULTIPOLES>\n56.76\n1.54\n0.75\n0.59\n0.05\n0.07\n0\n-0.28\n0\n0\n0\n0.04\n0.01\n0\n\n> <PUBCHEM_SHAPE_SELFOVERLAP>\n85.189\n\n> <PUBCHEM_SHAPE_VOLUME>\n42.4\n\n> <PUBCHEM_COORDINATE_TYPE>\n2\n5\n10\n\n$$$$\n",
+        "source": "pubchem"
+      }
+    },
+    "molecular": {
+      "weight": 45.08,
+      "exactMass": 45.08,
+      "monoisotopicMass": 45.08
+    },
+    "lastUpdated": "2025-12-13T18:03:03.429978",
+    "cas": "75-04-7"
+  },
+  {
+    "id": "pubchem_702",
+    "cid": 702,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "ethanol"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "ethyl alcohol"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "alcohol"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CCO",
+      "inchi": "InChI=1S/C2H6O/c1-2-3/h3H,2H2,1H3",
+      "inchikey": "LFQSCWFLJHTTHZ-UHFFFAOYSA-N",
+      "molecularFormula": "C2H6O",
+      "structure3D": {
+        "format": "sdf",
+        "data": "702\n  -OEChem-12132516033D\n\n  9  8  0     0  0  0  0  0  0999 V2000\n   -1.1712    0.2997    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.0463   -0.5665    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    1.2175    0.2668    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.0958   -1.2120    0.8819 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.0952   -1.1938   -0.8946 H   0  0  0  0  0  0  0  0  0  0  0  0\n    2.1050   -0.3720   -0.0177 H   0  0  0  0  0  0  0  0  0  0  0  0\n    1.2426    0.9307   -0.8704 H   0  0  0  0  0  0  0  0  0  0  0  0\n    1.2616    0.9052    0.8886 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.1291    0.8364    0.8099 H   0  0  0  0  0  0  0  0  0  0  0  0\n  1  2  1  0  0  0  0\n  1  9  1  0  0  0  0\n  2  3  1  0  0  0  0\n  2  4  1  0  0  0  0\n  2  5  1  0  0  0  0\n  3  6  1  0  0  0  0\n  3  7  1  0  0  0  0\n  3  8  1  0  0  0  0\nM  END\n> <PUBCHEM_COMPOUND_CID>\n702\n\n> <PUBCHEM_CONFORMER_RMSD>\n0.4\n\n> <PUBCHEM_CONFORMER_DIVERSEORDER>\n1\n\n> <PUBCHEM_MMFF94_PARTIAL_CHARGES>\n3\n1 -0.68\n2 0.28\n9 0.4\n\n> <PUBCHEM_EFFECTIVE_ROTOR_COUNT>\n0\n\n> <PUBCHEM_PHARMACOPHORE_FEATURES>\n2\n1 1 acceptor\n1 1 donor\n\n> <PUBCHEM_HEAVY_ATOM_COUNT>\n3\n\n> <PUBCHEM_ATOM_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ISOTOPIC_ATOM_COUNT>\n0\n\n> <PUBCHEM_COMPONENT_COUNT>\n1\n\n> <PUBCHEM_CACTVS_TAUTO_COUNT>\n1\n\n> <PUBCHEM_CONFORMER_ID>\n000002BE00000001\n\n> <PUBCHEM_MMFF94_ENERGY>\n-1.3096\n\n> <PUBCHEM_FEATURE_SELFOVERLAP>\n10.148\n\n> <PUBCHEM_SHAPE_FINGERPRINT>\n139733 1 18410856563987595332\n21015797 1 18192151726869919494\n\n> <PUBCHEM_SHAPE_MULTIPOLES>\n55.87\n1.48\n0.75\n0.58\n0.08\n0.07\n0\n-0.26\n0\n-0.01\n0\n0.04\n0.01\n0\n\n> <PUBCHEM_SHAPE_SELFOVERLAP>\n84.621\n\n> <PUBCHEM_SHAPE_VOLUME>\n41.5\n\n> <PUBCHEM_COORDINATE_TYPE>\n2\n5\n10\n\n$$$$\n",
+        "source": "pubchem"
+      }
+    },
+    "molecular": {
+      "weight": 46.07,
+      "exactMass": 46.07,
+      "monoisotopicMass": 46.07
+    },
+    "lastUpdated": "2025-12-13T18:03:08.519970",
+    "cas": "64-17-5"
+  },
+  {
+    "id": "pubchem_1032",
+    "cid": 1032,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "propanoic acid"
+      },
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "propionic acid"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Propanoic acid"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "methylacetic acid"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CCC(=O)O",
+      "inchi": "InChI=1S/C3H6O2/c1-2-3(4)5/h2H2,1H3,(H,4,5)",
+      "inchikey": "XBDQKXXYIPTUBI-UHFFFAOYSA-N",
+      "molecularFormula": "C3H6O2",
+      "structure3D": {
+        "format": "sdf",
+        "data": "1032\n  -OEChem-12132516033D\n\n 11 10  0     0  0  0  0  0  0999 V2000\n   -1.6213   -0.7156    0.0046 O   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.5700    1.3033   -0.0019 O   0  0  0  0  0  0  0  0  0  0  0  0\n    0.7276   -0.7599   -0.0070 C   0  0  0  0  0  0  0  0  0  0  0  0\n    1.9862    0.0899    0.0054 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.5226    0.0823   -0.0012 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.7203   -1.3855   -0.9056 H   0  0  0  0  0  0  0  0  0  0  0  0\n    0.7165   -1.4038    0.8788 H   0  0  0  0  0  0  0  0  0  0  0  0\n    2.8762   -0.5468    0.0023 H   0  0  0  0  0  0  0  0  0  0  0  0\n    2.0288    0.7425   -0.8730 H   0  0  0  0  0  0  0  0  0  0  0  0\n    2.0227    0.7256    0.8964 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.4520   -0.1939    0.0083 H   0  0  0  0  0  0  0  0  0  0  0  0\n  1  5  1  0  0  0  0\n  1 11  1  0  0  0  0\n  2  5  2  0  0  0  0\n  3  4  1  0  0  0  0\n  3  5  1  0  0  0  0\n  3  6  1  0  0  0  0\n  3  7  1  0  0  0  0\n  4  8  1  0  0  0  0\n  4  9  1  0  0  0  0\n  4 10  1  0  0  0  0\nM  END\n> <PUBCHEM_COMPOUND_CID>\n1032\n\n> <PUBCHEM_CONFORMER_RMSD>\n0.4\n\n> <PUBCHEM_CONFORMER_DIVERSEORDER>\n1\n2\n\n> <PUBCHEM_MMFF94_PARTIAL_CHARGES>\n5\n1 -0.65\n11 0.5\n2 -0.57\n3 0.06\n5 0.66\n\n> <PUBCHEM_EFFECTIVE_ROTOR_COUNT>\n1\n\n> <PUBCHEM_PHARMACOPHORE_FEATURES>\n4\n1 1 acceptor\n1 2 acceptor\n1 4 hydrophobe\n3 1 2 5 anion\n\n> <PUBCHEM_HEAVY_ATOM_COUNT>\n5\n\n> <PUBCHEM_ATOM_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ISOTOPIC_ATOM_COUNT>\n0\n\n> <PUBCHEM_COMPONENT_COUNT>\n1\n\n> <PUBCHEM_CACTVS_TAUTO_COUNT>\n1\n\n> <PUBCHEM_CONFORMER_ID>\n0000040800000001\n\n> <PUBCHEM_MMFF94_ENERGY>\n-0.0806\n\n> <PUBCHEM_FEATURE_SELFOVERLAP>\n20.354\n\n> <PUBCHEM_SHAPE_FINGERPRINT>\n139733 1 9295300434071260483\n16714656 1 18342745160358307902\n20096714 4 18049726213446375384\n21015797 1 9655278346218760395\n21040471 1 17978509728523723532\n29004967 10 18335709402484410451\n5460574 1 9223238446587737346\n5943 1 10829148021388883773\n\n> <PUBCHEM_SHAPE_MULTIPOLES>\n91.16\n2.11\n1.07\n0.58\n0.62\n0.2\n0\n-0.17\n0.01\n-0.23\n0\n0.05\n-0.01\n0\n\n> <PUBCHEM_SHAPE_SELFOVERLAP>\n160.194\n\n> <PUBCHEM_SHAPE_VOLUME>\n60.3\n\n> <PUBCHEM_COORDINATE_TYPE>\n2\n5\n10\n\n$$$$\n",
+        "source": "pubchem"
+      }
+    },
+    "molecular": {
+      "weight": 74.08,
+      "exactMass": 74.08,
+      "monoisotopicMass": 74.08
+    },
+    "lastUpdated": "2025-12-13T18:03:13.079434",
+    "cas": "79-09-4"
+  },
+  {
+    "id": "pubchem_6386",
+    "cid": 6386,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "2-methylpropan-2-ol"
+      },
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "tert-Butanol"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "tert-Butyl alcohol"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "2-Methylpropan-2-ol"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CC(O)(C)C",
+      "inchi": "InChI=1S/C4H10O/c1-4(2,3)5/h5H,1-3H3",
+      "inchikey": "DKGAVHZHDRPRBM-UHFFFAOYSA-N",
+      "molecularFormula": "C4H10O",
+      "structure3D": {
+        "format": "sdf",
+        "data": "6386\n  -OEChem-12132516033D\n\n 15 14  0     0  0  0  0  0  0999 V2000\n    0.0001    0.0886    1.4263 O   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.0001   -0.0042    0.0012 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.2740   -0.7243   -0.4388 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.0316    1.4186   -0.5526 C   0  0  0  0  0  0  0  0  0  0  0  0\n    1.2423   -0.7788   -0.4361 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.1666   -0.1866   -0.0991 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.3246   -0.8252   -1.5278 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.3276   -1.7245    0.0059 H   0  0  0  0  0  0  0  0  0  0  0  0\n    0.9155    1.9576   -0.1927 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.8390    1.9921   -0.2141 H   0  0  0  0  0  0  0  0  0  0  0  0\n    0.0439    1.4248   -1.6474 H   0  0  0  0  0  0  0  0  0  0  0  0\n    1.2468   -1.7838    0.0007 H   0  0  0  0  0  0  0  0  0  0  0  0\n    1.2975   -0.8731   -1.5255 H   0  0  0  0  0  0  0  0  0  0  0  0\n    2.1543   -0.2842   -0.0826 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.7978    0.5741    1.6975 H   0  0  0  0  0  0  0  0  0  0  0  0\n  1  2  1  0  0  0  0\n  1 15  1  0  0  0  0\n  2  3  1  0  0  0  0\n  2  4  1  0  0  0  0\n  2  5  1  0  0  0  0\n  3  6  1  0  0  0  0\n  3  7  1  0  0  0  0\n  3  8  1  0  0  0  0\n  4  9  1  0  0  0  0\n  4 10  1  0  0  0  0\n  4 11  1  0  0  0  0\n  5 12  1  0  0  0  0\n  5 13  1  0  0  0  0\n  5 14  1  0  0  0  0\nM  END\n> <PUBCHEM_COMPOUND_CID>\n6386\n\n> <PUBCHEM_CONFORMER_RMSD>\n0.4\n\n> <PUBCHEM_CONFORMER_DIVERSEORDER>\n1\n\n> <PUBCHEM_MMFF94_PARTIAL_CHARGES>\n3\n1 -0.68\n15 0.4\n2 0.28\n\n> <PUBCHEM_EFFECTIVE_ROTOR_COUNT>\n0\n\n> <PUBCHEM_PHARMACOPHORE_FEATURES>\n3\n1 1 acceptor\n1 1 donor\n4 2 3 4 5 hydrophobe\n\n> <PUBCHEM_HEAVY_ATOM_COUNT>\n5\n\n> <PUBCHEM_ATOM_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ISOTOPIC_ATOM_COUNT>\n0\n\n> <PUBCHEM_COMPONENT_COUNT>\n1\n\n> <PUBCHEM_CACTVS_TAUTO_COUNT>\n1\n\n> <PUBCHEM_CONFORMER_ID>\n000018F200000001\n\n> <PUBCHEM_MMFF94_ENERGY>\n8.0669\n\n> <PUBCHEM_FEATURE_SELFOVERLAP>\n15.223\n\n> <PUBCHEM_SHAPE_FINGERPRINT>\n20096714 4 9405031127561521575\n21015797 1 16608521968230149127\n5943 1 11462338020108140573\n\n> <PUBCHEM_SHAPE_MULTIPOLES>\n97.03\n1.27\n1.27\n1.04\n0.04\n0.46\n-0.4\n-0.49\n0.28\n-0.04\n0.3\n0\n0.02\n0\n\n> <PUBCHEM_SHAPE_SELFOVERLAP>\n167.995\n\n> <PUBCHEM_SHAPE_VOLUME>\n66.7\n\n> <PUBCHEM_COORDINATE_TYPE>\n2\n5\n10\n\n$$$$\n",
+        "source": "pubchem"
+      }
+    },
+    "molecular": {
+      "weight": 74.12,
+      "exactMass": 74.12,
+      "monoisotopicMass": 74.12
+    },
+    "lastUpdated": "2025-12-13T18:03:17.594645",
+    "cas": "75-65-0"
+  },
+  {
+    "id": "pubchem_887",
+    "cid": 887,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "methanol"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "methyl alcohol"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "wood alcohol"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CO",
+      "inchi": "InChI=1S/CH4O/c1-2/h2H,1H3",
+      "inchikey": "OKKJLVBELUTLKV-UHFFFAOYSA-N",
+      "molecularFormula": "CH4O",
+      "structure3D": {
+        "format": "sdf",
+        "data": "887\n  -OEChem-12132516033D\n\n  6  5  0     0  0  0  0  0  0999 V2000\n    0.7079    0.0000    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.7079    0.0000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.0732   -0.7690    0.6852 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.0731   -0.1947   -1.0113 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.0632    0.9786    0.3312 H   0  0  0  0  0  0  0  0  0  0  0  0\n    0.9936   -0.8804   -0.2980 H   0  0  0  0  0  0  0  0  0  0  0  0\n  1  2  1  0  0  0  0\n  1  6  1  0  0  0  0\n  2  3  1  0  0  0  0\n  2  4  1  0  0  0  0\n  2  5  1  0  0  0  0\nM  END\n> <PUBCHEM_COMPOUND_CID>\n887\n\n> <PUBCHEM_CONFORMER_RMSD>\n0.4\n\n> <PUBCHEM_CONFORMER_DIVERSEORDER>\n1\n\n> <PUBCHEM_MMFF94_PARTIAL_CHARGES>\n3\n1 -0.68\n2 0.28\n6 0.4\n\n> <PUBCHEM_EFFECTIVE_ROTOR_COUNT>\n0\n\n> <PUBCHEM_PHARMACOPHORE_FEATURES>\n2\n1 1 acceptor\n1 1 donor\n\n> <PUBCHEM_HEAVY_ATOM_COUNT>\n2\n\n> <PUBCHEM_ATOM_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ISOTOPIC_ATOM_COUNT>\n0\n\n> <PUBCHEM_COMPONENT_COUNT>\n1\n\n> <PUBCHEM_CACTVS_TAUTO_COUNT>\n1\n\n> <PUBCHEM_CONFORMER_ID>\n0000037700000001\n\n> <PUBCHEM_MMFF94_ENERGY>\n0.6658\n\n> <PUBCHEM_FEATURE_SELFOVERLAP>\n10.148\n\n> <PUBCHEM_SHAPE_FINGERPRINT>\n21015797 1 18050288360093082877\n260 1 18410856563992779143\n\n> <PUBCHEM_SHAPE_MULTIPOLES>\n35.29\n1.05\n0.56\n0.56\n0.01\n0\n0\n0\n0\n0.04\n0\n0.04\n0\n0\n\n> <PUBCHEM_SHAPE_SELFOVERLAP>\n47.013\n\n> <PUBCHEM_SHAPE_VOLUME>\n28.6\n\n> <PUBCHEM_COORDINATE_TYPE>\n2\n5\n10\n\n$$$$\n",
+        "source": "pubchem"
+      }
+    },
+    "molecular": {
+      "weight": 32.042,
+      "exactMass": 32.042,
+      "monoisotopicMass": 32.042
+    },
+    "lastUpdated": "2025-12-13T18:03:22.099953",
+    "cas": "67-56-1"
+  },
+  {
+    "id": "pubchem_177",
+    "cid": 177,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "acetaldehyde"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "ethanal"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "acetic aldehyde"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CC=O",
+      "inchi": "InChI=1S/C2H4O/c1-2-3/h2H,1H3",
+      "inchikey": "IKHGUXGNUITLKF-UHFFFAOYSA-N",
+      "molecularFormula": "C2H4O",
+      "structure3D": {
+        "format": "sdf",
+        "data": "177\n  -OEChem-12132516033D\n\n  7  6  0     0  0  0  0  0  0999 V2000\n    1.1443    0.2412    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.2574    0.1815    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.1130   -0.4226    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.7938   -0.1493    0.8924 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.1865    1.2719    0.0016 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.7928   -0.1468   -0.8938 H   0  0  0  0  0  0  0  0  0  0  0  0\n    0.1478   -1.5252   -0.0007 H   0  0  0  0  0  0  0  0  0  0  0  0\n  1  3  2  0  0  0  0\n  2  3  1  0  0  0  0\n  2  4  1  0  0  0  0\n  2  5  1  0  0  0  0\n  2  6  1  0  0  0  0\n  3  7  1  0  0  0  0\nM  END\n> <PUBCHEM_COMPOUND_CID>\n177\n\n> <PUBCHEM_CONFORMER_RMSD>\n0.4\n\n> <PUBCHEM_CONFORMER_DIVERSEORDER>\n1\n\n> <PUBCHEM_MMFF94_PARTIAL_CHARGES>\n4\n1 -0.57\n2 0.06\n3 0.45\n7 0.06\n\n> <PUBCHEM_EFFECTIVE_ROTOR_COUNT>\n0\n\n> <PUBCHEM_PHARMACOPHORE_FEATURES>\n1\n1 1 acceptor\n\n> <PUBCHEM_HEAVY_ATOM_COUNT>\n3\n\n> <PUBCHEM_ATOM_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ISOTOPIC_ATOM_COUNT>\n0\n\n> <PUBCHEM_COMPONENT_COUNT>\n1\n\n> <PUBCHEM_CACTVS_TAUTO_COUNT>\n2\n\n> <PUBCHEM_CONFORMER_ID>\n000000B100000001\n\n> <PUBCHEM_MMFF94_ENERGY>\n-0.1379\n\n> <PUBCHEM_FEATURE_SELFOVERLAP>\n5.074\n\n> <PUBCHEM_SHAPE_FINGERPRINT>\n139733 1 18410856564008687845\n20096714 4 18411421734391837296\n21015797 1 17975980078606383335\n\n> <PUBCHEM_SHAPE_MULTIPOLES>\n55.87\n1.5\n0.68\n0.58\n0.15\n0.04\n0\n-0.19\n0\n0.01\n0\n0.04\n0.01\n0\n\n> <PUBCHEM_SHAPE_SELFOVERLAP>\n88.292\n\n> <PUBCHEM_SHAPE_VOLUME>\n39.9\n\n> <PUBCHEM_COORDINATE_TYPE>\n2\n5\n10\n\n$$$$\n",
+        "source": "pubchem"
+      }
+    },
+    "molecular": {
+      "weight": 44.05,
+      "exactMass": 44.05,
+      "monoisotopicMass": 44.05
+    },
+    "lastUpdated": "2025-12-13T18:03:26.745714",
+    "cas": "75-07-0"
+  },
+  {
+    "id": "pubchem_6582",
+    "cid": 6582,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "N-methylacetamide"
+      },
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "N-METHYLACETAMIDE"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Methylacetamide"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Acetamide, N-methyl-"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CC(=O)NC",
+      "inchi": "InChI=1S/C3H7NO/c1-3(5)4-2/h1-2H3,(H,4,5)",
+      "inchikey": "OHLUUHNLEMFGTQ-UHFFFAOYSA-N",
+      "molecularFormula": "C3H7NO",
+      "structure3D": {
+        "format": "sdf",
+        "data": "6582\n  -OEChem-12132516033D\n\n 12 11  0     0  0  0  0  0  0999 V2000\n   -0.5447    1.3323   -0.0013 O   0  0  0  0  0  0  0  0  0  0  0  0\n    0.6985   -0.6359    0.0058 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.4701    0.1063    0.0070 C   0  0  0  0  0  0  0  0  0  0  0  0\n    2.0143   -0.0386   -0.0057 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.6980   -0.7641   -0.0059 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.6423   -1.6500   -0.0141 H   0  0  0  0  0  0  0  0  0  0  0  0\n    2.6279   -0.5471    0.7418 H   0  0  0  0  0  0  0  0  0  0  0  0\n    1.9657    1.0301    0.2163 H   0  0  0  0  0  0  0  0  0  0  0  0\n    2.4489   -0.1908   -0.9966 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.5800   -0.1596    0.2234 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.8162   -1.2127   -0.9959 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.6122   -1.5549    0.7449 H   0  0  0  0  0  0  0  0  0  0  0  0\n  1  3  2  0  0  0  0\n  2  3  1  0  0  0  0\n  2  4  1  0  0  0  0\n  2  6  1  0  0  0  0\n  3  5  1  0  0  0  0\n  4  7  1  0  0  0  0\n  4  8  1  0  0  0  0\n  4  9  1  0  0  0  0\n  5 10  1  0  0  0  0\n  5 11  1  0  0  0  0\n  5 12  1  0  0  0  0\nM  END\n> <PUBCHEM_COMPOUND_CID>\n6582\n\n> <PUBCHEM_CONFORMER_RMSD>\n0.4\n\n> <PUBCHEM_CONFORMER_DIVERSEORDER>\n1\n\n> <PUBCHEM_MMFF94_PARTIAL_CHARGES>\n6\n1 -0.57\n2 -0.73\n3 0.57\n4 0.3\n5 0.06\n6 0.37\n\n> <PUBCHEM_EFFECTIVE_ROTOR_COUNT>\n1\n\n> <PUBCHEM_PHARMACOPHORE_FEATURES>\n2\n1 1 acceptor\n1 2 donor\n\n> <PUBCHEM_HEAVY_ATOM_COUNT>\n5\n\n> <PUBCHEM_ATOM_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ISOTOPIC_ATOM_COUNT>\n0\n\n> <PUBCHEM_COMPONENT_COUNT>\n1\n\n> <PUBCHEM_CACTVS_TAUTO_COUNT>\n2\n\n> <PUBCHEM_CONFORMER_ID>\n000019B600000001\n\n> <PUBCHEM_MMFF94_ENERGY>\n2.2279\n\n> <PUBCHEM_FEATURE_SELFOVERLAP>\n10.148\n\n> <PUBCHEM_SHAPE_FINGERPRINT>\n139733 1 9223242844375805091\n16714656 1 18343026618023319558\n20096714 4 17977387135836559928\n21015797 1 9654992477585425491\n21040471 1 17906452130132819008\n29004967 10 18336551632691535379\n5460574 1 9223239541640925986\n5943 1 12349623253752826201\n\n> <PUBCHEM_SHAPE_MULTIPOLES>\n92.05\n2.31\n1.06\n0.58\n0.67\n0.31\n0\n-0.51\n-0.01\n-0.25\n0\n0\n-0.02\n0\n\n> <PUBCHEM_SHAPE_SELFOVERLAP>\n159.411\n\n> <PUBCHEM_SHAPE_VOLUME>\n62\n\n> <PUBCHEM_COORDINATE_TYPE>\n2\n5\n10\n\n$$$$\n",
+        "source": "pubchem"
+      }
+    },
+    "molecular": {
+      "weight": 73.09,
+      "exactMass": 73.09,
+      "monoisotopicMass": 73.09
+    },
+    "lastUpdated": "2025-12-13T18:03:31.521768",
+    "cas": "79-16-3"
+  },
+  {
+    "id": "pubchem_6342",
+    "cid": 6342,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "acetonitrile"
+      },
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "ACETONITRILE"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Methyl cyanide"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Cyanomethane"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CC#N",
+      "inchi": "InChI=1S/C2H3N/c1-2-3/h1H3",
+      "inchikey": "WEVYAHXRMPXWCK-UHFFFAOYSA-N",
+      "molecularFormula": "C2H3N",
+      "structure3D": {
+        "format": "sdf",
+        "data": "6342\n  -OEChem-12132516033D\n\n  6  5  0     0  0  0  0  0  0999 V2000\n    1.2608    0.0000    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.3613    0.0000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.1006    0.0000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.7500   -0.8301    0.5974 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.7501   -0.1022   -1.0175 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.7500    0.9324    0.4202 H   0  0  0  0  0  0  0  0  0  0  0  0\n  1  3  3  0  0  0  0\n  2  3  1  0  0  0  0\n  2  4  1  0  0  0  0\n  2  5  1  0  0  0  0\n  2  6  1  0  0  0  0\nM  END\n> <PUBCHEM_COMPOUND_CID>\n6342\n\n> <PUBCHEM_CONFORMER_RMSD>\n0.4\n\n> <PUBCHEM_CONFORMER_DIVERSEORDER>\n1\n\n> <PUBCHEM_MMFF94_PARTIAL_CHARGES>\n3\n1 -0.56\n2 0.2\n3 0.36\n\n> <PUBCHEM_EFFECTIVE_ROTOR_COUNT>\n0\n\n> <PUBCHEM_PHARMACOPHORE_FEATURES>\n1\n1 1 acceptor\n\n> <PUBCHEM_HEAVY_ATOM_COUNT>\n3\n\n> <PUBCHEM_ATOM_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ISOTOPIC_ATOM_COUNT>\n0\n\n> <PUBCHEM_COMPONENT_COUNT>\n1\n\n> <PUBCHEM_CACTVS_TAUTO_COUNT>\n1\n\n> <PUBCHEM_CONFORMER_ID>\n000018C600000001\n\n> <PUBCHEM_MMFF94_ENERGY>\n0.0246\n\n> <PUBCHEM_FEATURE_SELFOVERLAP>\n5.074\n\n> <PUBCHEM_SHAPE_FINGERPRINT>\n139733 1 18410856551176507493\n21015797 1 18122625230036986663\n\n> <PUBCHEM_SHAPE_MULTIPOLES>\n56.76\n1.69\n0.59\n0.59\n0.11\n0\n0\n0\n0\n0.04\n0\n0.04\n0\n0\n\n> <PUBCHEM_SHAPE_SELFOVERLAP>\n91.051\n\n> <PUBCHEM_SHAPE_VOLUME>\n38.3\n\n> <PUBCHEM_COORDINATE_TYPE>\n2\n5\n10\n\n$$$$\n",
+        "source": "pubchem"
+      }
+    },
+    "molecular": {
+      "weight": 41.05,
+      "exactMass": 41.05,
+      "monoisotopicMass": 41.05
+    },
+    "lastUpdated": "2025-12-13T18:03:36.145147",
+    "cas": "75-05-8"
+  },
+  {
+    "id": "pubchem_8252",
+    "cid": 8252,
+    "type": "small-molecule",
+    "names": [
+      {
+        "languageCode": "en",
+        "type": "iupac",
+        "value": "PROPYLENE"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "Propene"
+      },
+      {
+        "languageCode": "en",
+        "type": "common",
+        "value": "prop-1-ene"
+      }
+    ],
+    "functionalGroups": [],
+    "structure": {
+      "smiles": "CC=C",
+      "inchi": "InChI=1S/C3H6/c1-3-2/h3H,1H2,2H3",
+      "inchikey": "QQONPFPTGQHPMA-UHFFFAOYSA-N",
+      "molecularFormula": "C3H6",
+      "structure3D": {
+        "format": "sdf",
+        "data": "8252\n  -OEChem-12132516033D\n\n  9  8  0     0  0  0  0  0  0999 V2000\n    1.2818   -0.2031    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.0643    0.4402    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.2175   -0.2371    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    1.8429    0.1063   -0.8871 H   0  0  0  0  0  0  0  0  0  0  0  0\n    1.2188   -1.2959    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0\n    1.8429    0.1063    0.8871 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.0950    1.5262    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.1647    0.2911    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.2390   -1.3212    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0\n  1  2  1  0  0  0  0\n  1  4  1  0  0  0  0\n  1  5  1  0  0  0  0\n  1  6  1  0  0  0  0\n  2  3  2  0  0  0  0\n  2  7  1  0  0  0  0\n  3  8  1  0  0  0  0\n  3  9  1  0  0  0  0\nM  END\n> <PUBCHEM_COMPOUND_CID>\n8252\n\n> <PUBCHEM_CONFORMER_RMSD>\n0.4\n\n> <PUBCHEM_CONFORMER_DIVERSEORDER>\n1\n\n> <PUBCHEM_MMFF94_PARTIAL_CHARGES>\n6\n1 0.14\n2 -0.29\n3 -0.3\n7 0.15\n8 0.15\n9 0.15\n\n> <PUBCHEM_EFFECTIVE_ROTOR_COUNT>\n0\n\n> <PUBCHEM_PHARMACOPHORE_FEATURES>\n0\n\n> <PUBCHEM_HEAVY_ATOM_COUNT>\n3\n\n> <PUBCHEM_ATOM_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ISOTOPIC_ATOM_COUNT>\n0\n\n> <PUBCHEM_COMPONENT_COUNT>\n1\n\n> <PUBCHEM_CACTVS_TAUTO_COUNT>\n1\n\n> <PUBCHEM_CONFORMER_ID>\n0000203C00000001\n\n> <PUBCHEM_MMFF94_ENERGY>\n-0.8796\n\n> <PUBCHEM_FEATURE_SELFOVERLAP>\n0\n\n> <PUBCHEM_SHAPE_FINGERPRINT>\n139733 1 18194683666062831237\n20096714 4 9367341548351465110\n21015797 1 18053099806977617285\n\n> <PUBCHEM_SHAPE_MULTIPOLES>\n61.74\n1.66\n0.71\n0.62\n0.1\n0.02\n0\n-0.23\n0\n-0.01\n0\n0\n0\n0\n\n> <PUBCHEM_SHAPE_SELFOVERLAP>\n97.005\n\n> <PUBCHEM_SHAPE_VOLUME>\n44.5\n\n> <PUBCHEM_COORDINATE_TYPE>\n2\n5\n10\n\n$$$$\n",
+        "source": "pubchem"
+      }
+    },
+    "molecular": {
+      "weight": 42.08,
+      "exactMass": 42.08,
+      "monoisotopicMass": 42.08
+    },
+    "lastUpdated": "2025-12-13T18:03:40.773108"
   },
   {
     "id": "pubchem_6329",
@@ -843,14 +948,19 @@
       "smiles": "CN",
       "inchi": "InChI=1S/CH5N/c1-2/h2H2,1H3",
       "inchikey": "BAVYZALUXZFZLV-UHFFFAOYSA-N",
-      "molecularFormula": "CH5N"
+      "molecularFormula": "CH5N",
+      "structure3D": {
+        "format": "sdf",
+        "data": "6329\n  -OEChem-12132516033D\n\n  7  6  0     0  0  0  0  0  0999 V2000\n   -0.7154    0.0000    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    0.7154    0.0000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    1.1069    0.0916    1.0174 H   0  0  0  0  0  0  0  0  0  0  0  0\n    1.0996    0.8349   -0.5930 H   0  0  0  0  0  0  0  0  0  0  0  0\n    1.0996   -0.9274   -0.4345 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.0625    0.8564    0.4294 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.0625   -0.7661    0.5753 H   0  0  0  0  0  0  0  0  0  0  0  0\n  1  2  1  0  0  0  0\n  1  6  1  0  0  0  0\n  1  7  1  0  0  0  0\n  2  3  1  0  0  0  0\n  2  4  1  0  0  0  0\n  2  5  1  0  0  0  0\nM  END\n> <PUBCHEM_COMPOUND_CID>\n6329\n\n> <PUBCHEM_CONFORMER_RMSD>\n0.4\n\n> <PUBCHEM_CONFORMER_DIVERSEORDER>\n1\n\n> <PUBCHEM_MMFF94_PARTIAL_CHARGES>\n4\n1 -0.99\n2 0.27\n6 0.36\n7 0.36\n\n> <PUBCHEM_EFFECTIVE_ROTOR_COUNT>\n0\n\n> <PUBCHEM_PHARMACOPHORE_FEATURES>\n2\n1 1 cation\n1 1 donor\n\n> <PUBCHEM_HEAVY_ATOM_COUNT>\n2\n\n> <PUBCHEM_ATOM_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_DEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_BOND_UDEF_STEREO_COUNT>\n0\n\n> <PUBCHEM_ISOTOPIC_ATOM_COUNT>\n0\n\n> <PUBCHEM_COMPONENT_COUNT>\n1\n\n> <PUBCHEM_CACTVS_TAUTO_COUNT>\n1\n\n> <PUBCHEM_CONFORMER_ID>\n000018B900000001\n\n> <PUBCHEM_MMFF94_ENERGY>\n-1.5426\n\n> <PUBCHEM_FEATURE_SELFOVERLAP>\n10.148\n\n> <PUBCHEM_SHAPE_FINGERPRINT>\n21015797 1 18050566540819327998\n260 1 18410856563982229638\n\n> <PUBCHEM_SHAPE_MULTIPOLES>\n36.18\n1.07\n0.57\n0.57\n0.01\n0\n0\n0\n0\n0.04\n0\n0.04\n0\n0\n\n> <PUBCHEM_SHAPE_SELFOVERLAP>\n48.271\n\n> <PUBCHEM_SHAPE_VOLUME>\n29.3\n\n> <PUBCHEM_COORDINATE_TYPE>\n2\n5\n10\n\n$$$$\n",
+        "source": "pubchem"
+      }
     },
     "molecular": {
       "weight": 31.057,
       "exactMass": 31.057,
       "monoisotopicMass": 31.057
     },
-    "lastUpdated": "2025-12-13T17:48:56.500599",
+    "lastUpdated": "2025-12-13T18:03:45.531157",
     "cas": "74-89-5"
   }
 ]

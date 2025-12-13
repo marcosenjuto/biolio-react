@@ -1,11 +1,7 @@
 import type { Reaction } from '@/types/chemistry'
 import type { Molecule } from '@/types/molecule-model'
-import { useState, useEffect, useRef } from 'react'
-import RDKitMoleculeViewer from './RDKitMoleculeViewer'
-import MoleculeViewer from './MoleculeViewer'
-import SimpleMoleculeViewer from './SimpleMoleculeViewer'
-import KetcherMoleculeViewer from './KetcherMoleculeViewer'
-import Molecule3DViewer from './Molecule3DViewer'
+import { useRef } from 'react'
+import UnifiedMoleculeViewer from './UnifiedMoleculeViewer'
 import Card from '@/components/ui/Card'
 import Combobox from '@/components/ui/Combobox'
 import ReactionDoubleArrow from '@/assets/icon/reaction-double-arow.svg'
@@ -26,7 +22,6 @@ function ReactionViewer({
   onReactionChange
 }: ReactionViewerProps) {
   const reactantsRef = useRef<HTMLDivElement>(null)
-  const [containerWidth, setContainerWidth] = useState<number>(160)
 
   // Helper function to extract SMILES from compound (supports both old and new formats)
   const getSmiles = (compound: any): string => {
@@ -78,146 +73,17 @@ function ReactionViewer({
     onReactionChange(newReaction)
   }
 
-  const MolViewer =
-    viewerType === 'rdkit' ? RDKitMoleculeViewer :
-      viewerType === 'kekule' ? MoleculeViewer :
-        viewerType === 'ketcher' ? KetcherMoleculeViewer :
-          viewerType === '3dmol' ? Molecule3DViewer :
-            SimpleMoleculeViewer
-
-  // Measure the actual width of the reactants container
-  useEffect(() => {
-    let timeoutId: ReturnType<typeof setTimeout>
-
-    const measureWidth = () => {
-      if (reactantsRef.current) {
-        const width = reactantsRef.current.offsetWidth
-        setContainerWidth(width > 0 ? width : 160)
-      }
-    }
-
-    const debouncedMeasureWidth = () => {
-      clearTimeout(timeoutId)
-      timeoutId = setTimeout(measureWidth, 300)
-    }
-
-    // Initial measurement
-    measureWidth()
-
-    // Create ResizeObserver to track container size changes
-    const resizeObserver = new ResizeObserver(debouncedMeasureWidth)
-    if (reactantsRef.current) {
-      resizeObserver.observe(reactantsRef.current)
-    }
-
-    // Also listen to window resize
-    window.addEventListener('resize', debouncedMeasureWidth)
-
-    return () => {
-      clearTimeout(timeoutId)
-      resizeObserver.disconnect()
-      window.removeEventListener('resize', debouncedMeasureWidth)
-    }
-  }, [])
-
-  // Calculate molecule dimensions based on container width and viewer type
-  /* const getMoleculeDimensions = () => {
-    const baseWidth = Math.round(containerWidth) // Ensure integer
-    let height: number
-
-    // Calculate height based on aspect ratio
-    // For most viewers, use 3:4 aspect ratio (height is 75% of width)
-    height = Math.round(baseWidth * 0.75) // Ensure integer
-
-    // Adjust dimensions based on viewer type
-    switch (viewerType) {
-      case '3dmol':
-        // 3D viewer needs square aspect ratio for better interaction
-        return {
-          width: baseWidth,
-          height: baseWidth // Square for 3D rotation
-        }
-      case 'ketcher':
-        // Ketcher needs more height for better molecule display
-        return {
-          width: baseWidth,
-          height: Math.round(baseWidth * 0.85) // Ensure integer
-        }
-      case 'rdkit':
-        // RDKit works well with standard dimensions
-        return {
-          width: Math.round(baseWidth * 0.60),
-          height: Math.round(baseWidth * 0.40),
-        }
-      case 'kekule':
-      case 'simple':
-      default:
-        // Other viewers use standard aspect ratio
-        return {
-          width: baseWidth,
-          height: height
-        }
-    }
-  }
-
-  const { width: moleculeWidth, height: moleculeHeight } = getMoleculeDimensions() */
-
   const renderMolecule = (smiles: string, className: string) => {
-    // Add bondLength prop for RDKitMoleculeViewer to ensure consistent molecule sizes
-    const bondLength = 40 // Consistent bond size for all molecules in reactions
-
-    // Wrapper to make viewer fill parent container
-    const wrapperStyle = {
-      width: '100%',
-      height: 'auto',
-      // aspectRatio: viewerType === '3dmol' ? '1 / 1' : '4 / 3', // Square for 3D, 4:3 for others
-      // maxWidth: `${moleculeWidth}px`,
-      margin: 'auto'
-    }
-
-    if (viewerType === 'rdkit') {
-      return (
-        <div style={wrapperStyle}>
-          <RDKitMoleculeViewer
-            smiles={smiles}
-            width="100%"
-            height="auto"
-            className={className}
-            bondLength={bondLength}
-          />
-        </div>
-      )
-    }
-
-    if (viewerType === '3dmol') {
-      return (
-        <div style={wrapperStyle}>
-          <Molecule3DViewer
-            smiles={smiles}
-            width="100%"
-            height="auto"
-            className={className}
-            spin={false} // Disable auto-spin in reaction view for better UX
-          />
-        </div>
-      )
-    }
-
-    // Fallback for other viewers that might need explicit dimensions
-    // We use the containerWidth tracked by ResizeObserver in this component
-    // This is a legacy path for viewers not yet updated to handle dynamic sizing
-    const fallbackWidth = Math.round(containerWidth) || 200
-    const fallbackHeight = Math.round(fallbackWidth * 0.75)
-
     return (
-      <div style={wrapperStyle}>
-        <MolViewer 
-          smiles={smiles} 
-          width={fallbackWidth} 
-          height={fallbackHeight} 
-          className={className} 
-        />
-      </div>
+      <UnifiedMoleculeViewer
+        smiles={smiles}
+        width="100%"
+        height="auto"
+        className={className}
+        viewerType={viewerType}
+        bondLength={40}
+        spin={viewerType === '3dmol' ? false : undefined}
+      />
     )
   }
 

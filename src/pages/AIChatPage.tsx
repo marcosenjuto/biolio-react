@@ -564,7 +564,7 @@ function AIChatPage() {
       </div>
 
       {/* Input Area */}
-      <div className="biopilot-input-area z-10 sticky bottom-[48px] bg-white border-t border-gray-200 p-2 md:p-3 flex-shrink-0">
+      <div className="biopilot-input-area z-10 sticky bottom-[0px] bg-white border-t border-gray-200 p-2 md:p-3 flex-shrink-0">
         <div className="input-container max-w-4xl mx-auto">
           <div className="input-controls flex gap-2">
             <Input

@@ -107,24 +107,52 @@ function PageManager() {
   const isKnownPath = validPaths.includes(location.pathname)
   const prevLocationRef = useRef(location.pathname)
   const savedScrollRef = useRef<number>(0)
+  const isRestoringRef = useRef(false)
 
-  // Save scroll position before hiding PageManager
+  // Helper functions for clarity
+  const isDetailPage = (path: string) => path.startsWith('/reaction/') || path.startsWith('/molecule/')
+  const isLibraryPage = (path: string) => path === '/library'
+
   useEffect(() => {
-    const wasVisible = !prevLocationRef.current.startsWith('/reaction/') && !prevLocationRef.current.startsWith('/molecule/')
-    const willBeHidden = isReactionPath || isMoleculePath
+    const currentPath = location.pathname
+    const previousPath = prevLocationRef.current
 
-    if (wasVisible && willBeHidden) {
-      // About to hide PageManager, save current scroll
+    // Case 1: Navigating FROM library TO detail page - save scroll position
+    if (isLibraryPage(previousPath) && isDetailPage(currentPath)) {
       savedScrollRef.current = window.scrollY
-    } else if (!wasVisible && !willBeHidden) {
-      // PageManager becoming visible again, restore scroll
-      requestAnimationFrame(() => {
-        window.scrollTo(0, savedScrollRef.current)
-      })
+      console.log('[ScrollManager] Saved library scroll:', savedScrollRef.current)
     }
 
-    prevLocationRef.current = location.pathname
-  }, [isReactionPath, isMoleculePath, location.pathname])
+    // Case 2: Navigating TO library FROM detail page - restore scroll position
+    if (isLibraryPage(currentPath) && isDetailPage(previousPath)) {
+      if (savedScrollRef.current > 0) {
+        console.log('[ScrollManager] Restoring library scroll:', savedScrollRef.current)
+        isRestoringRef.current = true
+        
+        requestAnimationFrame(() => {
+          window.scrollTo(0, savedScrollRef.current)
+          setTimeout(() => {
+            isRestoringRef.current = false
+          }, 100)
+        })
+      }
+    }
+
+    // Case 3: Navigating TO detail page - scroll to top
+    if (isDetailPage(currentPath) && !isDetailPage(previousPath)) {
+      console.log('[ScrollManager] Detail page - scroll to top')
+      window.scrollTo(0, 0)
+    }
+
+    // Case 4: Navigating TO library from non-detail page - scroll to top and reset
+    if (isLibraryPage(currentPath) && !isDetailPage(previousPath) && previousPath !== currentPath) {
+      console.log('[ScrollManager] Library from non-detail - scroll to top')
+      window.scrollTo(0, 0)
+      savedScrollRef.current = 0
+    }
+
+    prevLocationRef.current = currentPath
+  }, [location.pathname])
 
   return (
     <div 

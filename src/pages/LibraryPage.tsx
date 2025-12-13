@@ -8,7 +8,7 @@ import UnifiedFilters from '@/components/chemistry/UnifiedFilters'
 import Button from '@/components/ui/Button'
 import Card from '@/components/ui/Card'
 import FunctionalGroupsList from '@/components/chemistry/FunctionalGroupsList'
-import RDKitMoleculeViewer from '@/components/chemistry/RDKitMoleculeViewer'
+import UnifiedMoleculeViewer from '@/components/chemistry/UnifiedMoleculeViewer'
 
 import { useLanguageStore } from '@/store/languageStore'
 
@@ -30,7 +30,7 @@ function LibraryPage() {
   const [showReactions, setShowReactions] = useState(true)
   const [showFunctionalGroups, setShowFunctionalGroups] = useState(false)
   const [showMolecules, setShowMolecules] = useState(false)
-  
+
   const allMolecules = moleculesData as Molecule[]
 
   // Filter molecules based on search term and functional group
@@ -38,44 +38,44 @@ function LibraryPage() {
     // Search term filter
     if (searchTerm) {
       const searchLower = searchTerm.toLowerCase()
-      
+
       // Search in names
-      const nameMatch = molecule.names?.some(name => 
+      const nameMatch = molecule.names?.some(name =>
         name.value.toLowerCase().includes(searchLower)
       )
-      
+
       // Search in molecular formula
       const formulaMatch = molecule.structure?.molecularFormula?.toLowerCase().includes(searchLower)
-      
+
       // Search in SMILES
       const smilesMatch = molecule.structure?.smiles?.toLowerCase().includes(searchLower)
-      
+
       // Search in CID
       const cidMatch = molecule.cid?.toString().includes(searchTerm)
-      
+
       if (!nameMatch && !formulaMatch && !smilesMatch && !cidMatch) {
         return false
       }
     }
-    
+
     // Functional group filter
     if (selectedFunctionalGroup !== 'all') {
       if (!molecule.functionalGroups || molecule.functionalGroups.length === 0) {
         return false
       }
-      
+
       const hasFunctionalGroup = molecule.functionalGroups.some(fg => {
         if (typeof fg === 'string') {
           return fg === selectedFunctionalGroup
         }
         return fg.id === selectedFunctionalGroup
       })
-      
+
       if (!hasFunctionalGroup) {
         return false
       }
     }
-    
+
     return true
   })
 
@@ -116,23 +116,23 @@ function LibraryPage() {
     <div className="library-page page bg-gray-50">
       <div className="library-container max-w-full absolute mx-auto">
         {/* Header */}
-          {/* Unified Filters - Preview + Collapsible Panel */}
-          <UnifiedFilters
-            searchTerm={searchTerm}
-            onSearchChange={setSearchTerm}
-            selectedCategory={selectedCategory}
-            selectedFunctionalGroup={selectedFunctionalGroup}
-            viewerType={viewerType}
-            onCategoryChange={setSelectedCategory}
-            onFunctionalGroupChange={setSelectedFunctionalGroup}
-            onViewerTypeChange={setViewerType}
-            onClearFilters={() => {
-              setSelectedCategory('all')
-              setSelectedFunctionalGroup('all')
-            }}
-            expandAll={expandAll}
-            onExpandAllChange={setExpandAll}
-          />
+        {/* Unified Filters - Preview + Collapsible Panel */}
+        <UnifiedFilters
+          searchTerm={searchTerm}
+          onSearchChange={setSearchTerm}
+          selectedCategory={selectedCategory}
+          selectedFunctionalGroup={selectedFunctionalGroup}
+          viewerType={viewerType}
+          onCategoryChange={setSelectedCategory}
+          onFunctionalGroupChange={setSelectedFunctionalGroup}
+          onViewerTypeChange={setViewerType}
+          onClearFilters={() => {
+            setSelectedCategory('all')
+            setSelectedFunctionalGroup('all')
+          }}
+          expandAll={expandAll}
+          onExpandAllChange={setExpandAll}
+        />
 
         {/* <div className="spacer-100 h-28"></div> */}
 
@@ -196,45 +196,45 @@ function LibraryPage() {
 
           <div className={showMolecules ? 'block' : 'hidden'}>
             {filteredMolecules.length > 0 ? (
-              <div className="molecules-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mt-4">
+              <div className="molecules-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1">
                 {filteredMolecules.map((molecule) => {
-                const primaryName = molecule.names?.find(n => n.type === 'iupac')?.value || 
-                                   molecule.names?.find(n => n.type === 'common')?.value || 
-                                   molecule.id
-                
-                return (
-                  <Card 
-                    key={molecule.id} 
-                    className="molecule-card cursor-pointer hover:shadow-lg transition-shadow"
-                    onClick={() => navigate(`/molecule/${molecule.id}`)}
-                  >
-                    <div className="p-3">
-                      <div className="molecule-viewer-container  rounded mb-2 flex items-center justify-center" style={{ minHeight: '120px' }}>
-                        <RDKitMoleculeViewer
-                          smiles={molecule.structure?.smiles || ''}
+                  const primaryName = molecule.names?.find(n => n.type === 'iupac')?.value ||
+                    molecule.names?.find(n => n.type === 'common')?.value ||
+                    molecule.id
 
-                                      width="100%"
-            height="auto"
-                          bondLength={40}
-                        />
+                  return (
+                    <Card
+                      key={molecule.id}
+                      className="molecule-card cursor-pointer text-center hover:shadow-lg transition-shadow"
+                      onClick={() => navigate(`/molecule/${molecule.id}`)}
+                    >
+                      <div className="pt-2">
+                        <div className="molecule-viewer-container text-center rounded flex items-center justify-center" >
+                          <UnifiedMoleculeViewer
+                            smiles={molecule.structure?.smiles || ''}
+                            width="100%"
+                            height="auto"
+                            viewerType={viewerType}
+                            bondLength={40}
+                          />
+                        </div>
+                        <h3 className="text-sm font-semibold text-gray-800 truncate" title={primaryName}>
+                          {primaryName}
+                        </h3>
+                        {molecule.structure?.molecularFormula && (
+                          <p className="text-xs text-gray-500 font-mono mt-1">
+                            {molecule.structure.molecularFormula}
+                          </p>
+                        )}
+                        {molecule.molecular?.weight && (
+                          <p className="text-xs text-gray-500 mt-1">
+                            {molecule.molecular.weight.toFixed(2)} g/mol
+                          </p>
+                        )}
                       </div>
-                      <h3 className="text-sm font-semibold text-gray-800 truncate" title={primaryName}>
-                        {primaryName}
-                      </h3>
-                      {molecule.structure?.molecularFormula && (
-                        <p className="text-xs text-gray-500 font-mono mt-1">
-                          {molecule.structure.molecularFormula}
-                        </p>
-                      )}
-                      {molecule.molecular?.weight && (
-                        <p className="text-xs text-gray-500 mt-1">
-                          {molecule.molecular.weight.toFixed(2)} g/mol
-                        </p>
-                      )}
-                    </div>
-                  </Card>
-                )
-              })}
+                    </Card>
+                  )
+                })}
               </div>
             ) : (
               <div className="no-results text-center py-12">
