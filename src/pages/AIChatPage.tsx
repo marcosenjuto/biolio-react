@@ -424,7 +424,7 @@ function AIChatPage() {
 
   return (
     <div 
-      className="biopilot-chat-container flex flex-col h-full max-w-[100vw] bg-gradient-to-br from-blue-50 via-white to-purple-50"
+      className="biopilot-chat-container flex flex-col h-full max-w-[100vw] height-[100vh] bg-gradient-to-br from-blue-50 via-white to-purple-50"
     >
       {/* Messages Container */}
       <div
@@ -564,7 +564,7 @@ function AIChatPage() {
       </div>
 
       {/* Input Area */}
-      <div className="biopilot-input-area z-10 sticky bottom-[0px] bg-white border-t border-gray-200 p-2 md:p-3 flex-shrink-0">
+      <div className="biopilot-input-area z-10 sticky bottom-[48px] bg-white border-t border-gray-200 p-2 md:p-3 flex-shrink-0">
         <div className="input-container max-w-4xl mx-auto">
           <div className="input-controls flex gap-2">
             <Input

@@ -14,8 +14,8 @@ interface ReactionViewerProps {
   onReactionChange?: (reaction: Reaction) => void
 }
 
-function ReactionViewer({ 
-  reaction, 
+function ReactionViewer({
+  reaction,
   viewerType = 'rdkit',
   isBuilderMode = false,
   availableMolecules = [],
@@ -61,22 +61,26 @@ function ReactionViewer({
     const newReaction = { ...reaction }
     // Deep copy arrays to avoid mutation
     if (type === 'reactant') {
-      newReaction.reactants = reaction.reactants.map((r, i) => 
+      newReaction.reactants = reaction.reactants.map((r, i) =>
         i === index ? { ...r, compound: selectedMolecule } : r
       )
     } else {
-      newReaction.products = reaction.products.map((p, i) => 
+      newReaction.products = reaction.products.map((p, i) =>
         i === index ? { ...p, compound: selectedMolecule } : p
       )
     }
-    
+
     onReactionChange(newReaction)
   }
 
-  const renderMolecule = (smiles: string, className: string) => {
+  const renderMolecule = (compound: any, className: string) => {
+    const smiles = getSmiles(compound)
+    const sdfData = compound?.structure?.structure3D?.data
+    
     return (
       <UnifiedMoleculeViewer
         smiles={smiles}
+        sdfData={sdfData}
         width="100%"
         height="auto"
         className={className}
@@ -98,14 +102,14 @@ function ReactionViewer({
             {reaction.reactants.map((reagent, idx) => (
               <div key={idx} className="reactant-item mb-4 text-center">
                 {renderMolecule(
-                  getSmiles(reagent.compound),
+                  reagent.compound,
                   "reactant-molecule"
                 )}
                 {isBuilderMode ? (
                   <div className="mt-1 px-1 min-w-[120px]">
                     <Combobox
-                      options={availableMolecules.map(m => ({ 
-                        value: m.id, 
+                      options={availableMolecules.map(m => ({
+                        value: m.id,
                         label: getName(m),
                         description: m.structure?.molecularFormula || ''
                       }))}
@@ -117,8 +121,8 @@ function ReactionViewer({
                   </div>
                 ) : (
                   <p className="reactant-name relative text-xs mb-0.5 sm:mb-1 font-medium truncate px-1"
-                  style={{
-                  }}>{getName(reagent.compound)}</p>
+                    style={{
+                    }}>{getName(reagent.compound)}</p>
                 )}
                 {reagent.conditions && (
                   <p className="reactant-conditions text-xs text-gray-500 truncate px-1">{reagent.conditions}</p>
@@ -137,7 +141,7 @@ function ReactionViewer({
             pointerEvents: 'none',
             backgroundColor: 'transparent', // Transparent background
           }}>
-          <img 
+          <img
             src={ReactionDoubleArrow}
             alt="reaction arrow"
             className="reaction-arrow xs:w-6 w-8 h-6 sm:w-12 sm:h-8 md:w-16 md:h-10"
@@ -158,14 +162,14 @@ function ReactionViewer({
             {reaction.products.map((reagent, idx) => (
               <div key={idx} className="product-item mb-4 text-center">
                 {renderMolecule(
-                  getSmiles(reagent.compound),
+                  reagent.compound,
                   "product-molecule"
                 )}
                 {isBuilderMode ? (
                   <div className="mt-1 px-1 min-w-[120px]">
                     <Combobox
-                      options={availableMolecules.map(m => ({ 
-                        value: m.id, 
+                      options={availableMolecules.map(m => ({
+                        value: m.id,
                         label: getName(m),
                         description: m.structure?.molecularFormula || ''
                       }))}
@@ -177,8 +181,8 @@ function ReactionViewer({
                   </div>
                 ) : (
                   <p className="product-name relative text-xs font-medium truncate px-1"
-                  style={{
-                  }}>{getName(reagent.compound)}</p>
+                    style={{
+                    }}>{getName(reagent.compound)}</p>
                 )}
               </div>
             ))}

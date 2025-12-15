@@ -114,7 +114,7 @@ function LibraryPage() {
 
   return (
     <div className="library-page page bg-gray-50">
-      <div className="library-container max-w-full absolute mx-auto">
+      <div className="library-container max-w-full w-full absolute mx-auto">
         {/* Header */}
         {/* Unified Filters - Preview + Collapsible Panel */}
         <UnifiedFilters
@@ -196,7 +196,7 @@ function LibraryPage() {
 
           <div className={showMolecules ? 'block' : 'hidden'}>
             {filteredMolecules.length > 0 ? (
-              <div className="molecules-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1">
+              <div className="molecules-grid grid xxs:grid-cols-1 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1">
                 {filteredMolecules.map((molecule) => {
                   const primaryName = molecule.names?.find(n => n.type === 'iupac')?.value ||
                     molecule.names?.find(n => n.type === 'common')?.value ||
@@ -206,28 +206,30 @@ function LibraryPage() {
                     <Card
                       key={molecule.id}
                       className="molecule-card cursor-pointer text-center hover:shadow-lg transition-shadow"
-                      onClick={() => navigate(`/molecule/${molecule.id}`)}
+
                     >
                       <div className="pt-2">
                         <div className="molecule-viewer-container text-center rounded flex items-center justify-center" >
                           <UnifiedMoleculeViewer
                             smiles={molecule.structure?.smiles || ''}
+                            sdfData={molecule.structure?.structure3D?.data}
                             width="100%"
                             height="auto"
                             viewerType={viewerType}
                             bondLength={40}
                           />
                         </div>
-                        <h3 className="text-sm font-semibold text-gray-800 truncate" title={primaryName}>
+                        <h3 className="text-sm font-semibold text-gray-800 truncate" title={primaryName}
+                          onClick={() => navigate(`/molecule/${molecule.id}`)}>
                           {primaryName}
                         </h3>
                         {molecule.structure?.molecularFormula && (
-                          <p className="text-xs text-gray-500 font-mono mt-1">
+                          <p className="text-xs text-gray-500 font-mono">
                             {molecule.structure.molecularFormula}
                           </p>
                         )}
                         {molecule.molecular?.weight && (
-                          <p className="text-xs text-gray-500 mt-1">
+                          <p className="text-xs text-gray-500">
                             {molecule.molecular.weight.toFixed(2)} g/mol
                           </p>
                         )}
@@ -293,7 +295,7 @@ function LibraryPage() {
               </div> */}
 
             {/* Reactions Grid */}
-            <div className="reactions-grid grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="reactions-grid grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
               {filteredReactions.map((reaction) => (
                 <ExpandableReactionCard
                   key={reaction.id}

@@ -217,43 +217,8 @@ function UnifiedFilters({
         {/* Filter Pills Section */}
         <div className="filters-pill-scroll overflow-x-auto py-1.5 px-2 scrollbar-hide" style={{ width: '100%' }}>
           <div className="filters-pill-row flex items-center gap-2" style={{ width: 'max-content' }}>
-            {/* Category Combobox */}
-            <Combobox
-              options={reactionCategories.map(cat => ({ value: cat.id, label: cat.name }))}
-              value={selectedCategory}
-              onValueChange={onCategoryChange}
-              placeholder={t.filters.category}
-              searchPlaceholder={t.filters.searchCategories}
-              isActive={selectedCategory !== 'all'}
-              className="filters-category-combobox flex-shrink-0 min-w-[130px]"
-            />
 
-            {/* Functional Group Combobox */}
-            <Combobox
-              options={functionalGroups.map(group => ({ 
-                value: group.id, 
-                label: group.name,
-                description: group.formula 
-              }))}
-              value={selectedFunctionalGroup}
-              onValueChange={onFunctionalGroupChange}
-              placeholder={t.filters.functionalGroup}
-              searchPlaceholder={t.filters.searchGroups}
-              isActive={selectedFunctionalGroup !== 'all'}
-              className="filters-functional-group-combobox flex-shrink-0 min-w-[130px]"
-            />
-
-            {/* Viewer Type Combobox */}
-            <Combobox
-              options={viewerTypes.map(v => ({ value: v.value, label: v.label }))}
-              value={viewerType}
-              onValueChange={(value) => onViewerTypeChange(value as typeof viewerType)}
-              placeholder={t.filters.viewer}
-              searchPlaceholder={t.filters.searchViewers}
-              className="filters-viewer-type-combobox flex-shrink-0 min-w-[100px]"
-            />
-
-            {/* Expand/Collapse All Toggle */}
+                        {/* Expand/Collapse All Toggle */}
             <button
               onClick={() => onExpandAllChange(!expandAll)}
               className={`filters-expand-toggle flex-shrink-0 px-4 py-2 border rounded-full text-sm font-medium transition-colors flex items-center gap-2 ${
@@ -274,6 +239,44 @@ function UnifiedFilters({
                 {expandAll ? t.filters.collapseAll : t.filters.expandAll}
               </span>
             </button>
+
+
+            {/* Category Combobox */}
+            <Combobox
+              options={reactionCategories.map(cat => ({ value: cat.id, label: cat.name }))}
+              value={selectedCategory}
+              onValueChange={onCategoryChange}
+              placeholder={t.filters.category}
+              searchPlaceholder={t.filters.searchCategories}
+              isActive={selectedCategory !== 'all'}
+              className="filters-category-combobox flex-shrink-0 "
+            />
+
+            {/* Functional Group Combobox */}
+            <Combobox
+              options={functionalGroups.map(group => ({ 
+                value: group.id, 
+                label: group.name,
+                description: group.formula 
+              }))}
+              value={selectedFunctionalGroup}
+              onValueChange={onFunctionalGroupChange}
+              placeholder={t.filters.functionalGroup}
+              searchPlaceholder={t.filters.searchGroups}
+              isActive={selectedFunctionalGroup !== 'all'}
+              className="filters-functional-group-combobox flex-shrink-0 "
+            />
+
+            {/* Viewer Type Combobox */}
+            <Combobox
+              options={viewerTypes.map(v => ({ value: v.value, label: v.label }))}
+              value={viewerType}
+              onValueChange={(value) => onViewerTypeChange(value as typeof viewerType)}
+              placeholder={t.filters.viewer}
+              searchPlaceholder={t.filters.searchViewers}
+              className="filters-viewer-type-combobox flex-shrink-0 min-w-[100px]"
+            />
+
 
             {/* Named Reactions Button */}
             <button className="filters-named-reactions-button flex-shrink-0 px-4 py-2 border border-gray-300 rounded-full text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors flex items-center gap-1">

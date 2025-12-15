@@ -43,7 +43,7 @@ function Molecule3DViewer({
   zoom = 1.2,
   use3DGeneration = true, // Use RDKit's real 3D generation
   onSdfDataFetched,
-  showAtomLabels = true, // Show element symbols on atoms
+  showAtomLabels = false, // Show element symbols on atoms
   onNavigateToDetails
 }: Molecule3DViewerProps) {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -57,6 +57,7 @@ function Molecule3DViewer({
   const [localShowLabels, setLocalShowLabels] = useState(showAtomLabels)
   const longPressTimerRef = useRef<NodeJS.Timeout | null>(null)
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' ? window.innerWidth < 768 : false)
+  const [isTouchEnabled, setIsTouchEnabled] = useState(false)
 
   useEffect(() => {
     const checkMobile = () => {
@@ -78,7 +79,7 @@ function Molecule3DViewer({
       if (containerRef.current) {
         const w = containerRef.current.offsetWidth
         // If height is not fixed, calculate it based on aspect ratio (e.g., 1:1 for 3D)
-        const h = typeof height === 'number' ? height : w // Square for 3D
+        const h = typeof height === 'number' ? height : w * 0.6 > 160? w * 0.6  : 160 // Square for 3D
         setMeasuredDimensions({ width: w, height: h })
       }
     }
@@ -305,147 +306,6 @@ function Molecule3DViewer({
       }
     }
 
-    /* const convertSMILEStoMOL = async (smilesString: string): Promise<string> => {
-      try {
-        // Clean SMILES string - remove any whitespace
-        const cleanSMILES = smilesString.trim()
-        
-        if (!cleanSMILES || cleanSMILES.length === 0) {
-          throw new Error('Invalid SMILES string')
-        }
-
-        console.log('[3DMol] Converting SMILES:', cleanSMILES)
-
-        // For complex molecules like PCC: separate and render only organic component
-        const fragments = cleanSMILES.split('.')
-        
-        console.log('[3DMol] All fragments:', fragments)
-        
-        // Filter out small inorganic fragments and ions
-        const organicFragments = fragments.filter(frag => {
-          // Remove brackets for length check
-          const cleanFrag = frag.replace(/\[|\]/g, '')
-          const isOrganic = (
-            cleanFrag.length > 3 && // At least 4 atoms
-            !frag.includes('[Cl-]') && // Exclude chloride
-            !frag.includes('[Cl+]') && // Exclude chloride
-            !frag.includes('[Cr') && // Exclude chromium compounds
-            !frag.match(/^\[[A-Z][a-z]?[\+\-]\d*\]$/) // Exclude simple ions like [Na+], [Cl-], [O-]
-          )
-          console.log(`[3DMol] Fragment "${frag}" (${cleanFrag.length} atoms) - organic: ${isOrganic}`)
-          return isOrganic
-        })
-        
-        // Get the longest organic fragment (most complex molecule)
-        const targetSmiles = organicFragments.length > 0 
-          ? organicFragments.sort((a, b) => b.length - a.length)[0]
-          : fragments.sort((a, b) => b.length - a.length)[0]
-        
-        console.log('[3DMol] Using SMILES fragment:', targetSmiles)
-
-        // Use PubChem to convert SMILES to 3D structure
-        const url = `https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/smiles/${encodeURIComponent(targetSmiles)}/SDF`
-        console.log('[3DMol] Fetching from:', url)
-        
-        const response = await fetch(url, {
-          method: 'GET',
-          headers: {
-            'Accept': 'chemical/x-mdl-sdfile'
-          }
-        })
-
-        if (!response.ok) {
-          const errorText = await response.text()
-          console.error('[3DMol] PubChem error response:', errorText)
-          throw new Error(`PubChem API error: ${response.status}`)
-        }
-
-        const sdfData = await response.text()
-        
-        if (!sdfData || sdfData.length < 10) {
-          throw new Error('Invalid SDF data received')
-        }
-
-        console.log('[3DMol] Successfully converted SMILES to SDF')
-        
-        // Cache in localStorage
-        if (compoundName) {
-          try {
-            localStorage.setItem(`sdf_${compoundName}`, sdfData)
-            console.log('[3DMol] Cached SDF for', compoundName)
-          } catch (e) {
-            console.warn('[3DMol] Failed to cache SDF:', e)
-          }
-        }
-        
-        // Notify parent component
-        if (onSdfDataFetched) {
-          onSdfDataFetched(sdfData)
-        }
-        
-        return sdfData
-      } catch (err) {
-        console.error('[3DMol] SMILES conversion error:', err)
-        throw err
-      }
-    }
-
-    const fetchSDFFromPubChem = async (name: string): Promise<string> => {
-      try {
-        console.log('[3DMol] Fetching SDF by name:', name)
-        
-        // Check localStorage cache first
-        const cached = localStorage.getItem(`sdf_${name}`)
-        if (cached) {
-          console.log('[3DMol] Using cached SDF for', name)
-          return cached
-        }
-
-        // Option 1: Search by name
-        const searchUrl = `https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/${encodeURIComponent(name)}/SDF`
-        console.log('[3DMol] Fetching from:', searchUrl)
-        
-        const response = await fetch(searchUrl, {
-          method: 'GET',
-          headers: {
-            'Accept': 'chemical/x-mdl-sdfile'
-          }
-        })
-
-        if (!response.ok) {
-          const errorText = await response.text()
-          console.error('[3DMol] PubChem error response:', errorText)
-          throw new Error(`PubChem API error: ${response.status}`)
-        }
-
-        const sdfData = await response.text()
-        
-        if (!sdfData || sdfData.length < 10) {
-          throw new Error('Invalid SDF data received')
-        }
-
-        console.log('[3DMol] Successfully fetched SDF from PubChem')
-        
-        // Cache in localStorage
-        try {
-          localStorage.setItem(`sdf_${name}`, sdfData)
-          console.log('[3DMol] Cached SDF for', name)
-        } catch (e) {
-          console.warn('[3DMol] Failed to cache SDF:', e)
-        }
-        
-        // Notify parent component
-        if (onSdfDataFetched) {
-          onSdfDataFetched(sdfData)
-        }
-        
-        return sdfData
-      } catch (err) {
-        console.error('[3DMol] PubChem fetch error:', err)
-        throw err
-      }
-    } */
-
     const renderMolecule = async () => {
       try {
         console.log('[3DMol] Starting render')
@@ -586,7 +446,7 @@ function Molecule3DViewer({
     }
   }, [smiles, molString, compoundName, spin, spinSpeed, use3DGeneration, onSdfDataFetched, localShowLabels, zoom, isFullscreen])
 
-  // Gesture handlerssdfData, 
+  // Gesture handlers
   const handleContextMenu = (e: React.MouseEvent) => {
     e.preventDefault()
     e.stopPropagation()
@@ -596,7 +456,20 @@ function Molecule3DViewer({
     console.log('[ContextMenu] Menu state set to true')
   }
 
+  const handleEnableTouch = () => {
+    if (isMobile && !isTouchEnabled) {
+      console.log('[Touch] Enabling touch interaction')
+      setIsTouchEnabled(true)
+    }
+  }
+
   const handleTouchStart = (e: React.TouchEvent) => {
+    // If touch is not enabled, prevent interaction and show enable prompt
+    if (isMobile && !isTouchEnabled) {
+      e.stopPropagation()
+      return
+    }
+
     const touch = e.touches[0]
     console.log('[ContextMenu] Touch start at:', touch.clientX, touch.clientY)
     longPressTimerRef.current = setTimeout(() => {
@@ -615,7 +488,12 @@ function Molecule3DViewer({
     }
   }
 
-  const handleTouchMove = () => {
+  const handleTouchMove = (_e: React.TouchEvent) => {
+    // If touch is not enabled, prevent scrolling interference
+    if (isMobile && !isTouchEnabled) {
+      return // Allow event to bubble for page scrolling
+    }
+
     // console.log('[ContextMenu] Touch move, canceling long press')
     if (longPressTimerRef.current) {
       clearTimeout(longPressTimerRef.current)
@@ -683,7 +561,8 @@ function Molecule3DViewer({
           alignItems: 'center',
           justifyContent: 'center',
           position: 'relative',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          touchAction: isMobile && !isTouchEnabled ? 'pan-y' : 'none' // Allow vertical scrolling when disabled
         }}
         onContextMenu={handleContextMenu}
         onTouchStart={handleTouchStart}
@@ -711,12 +590,44 @@ function Molecule3DViewer({
             </div>
           </div>
         )}
+
+        {/* Touch interaction overlay for mobile */}
+        {isMobile && !isTouchEnabled && !isLoading && !error && (
+          <div
+            className="absolute inset-0 flex items-center justify-center bg-gray-400/10 z-20 cursor-pointer"
+            onClick={handleEnableTouch}
+            style={{ touchAction: 'auto' }}
+          >
+{/*             <div className="bg-white/95 rounded-lg px-4 py-3 shadow-lg text-center max-w-[200px]">
+              <svg className="w-8 h-8 mx-auto mb-2 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+              </svg>
+              <div className="text-sm font-medium text-gray-800">Tap to interact</div>
+              <div className="text-xs text-gray-600 mt-1">Rotate the molecule</div>
+            </div> */}
+          </div>
+        )}
+
+        {/* Lock button to disable touch interaction */}
+        {isMobile && isTouchEnabled && !isLoading && !error && (
+          <button
+            onClick={() => setIsTouchEnabled(false)}
+            className="absolute top-2 left-2 z-30 bg-white/90 hover:bg-white rounded-full p-2 shadow-md transition-colors"
+            aria-label="Lock interaction"
+          >
+            <svg className="w-5 h-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+          </button>
+        )}
+
         <div
           ref={containerRef}
           style={{
             width: isFullscreen ? '100%' : (typeof width === 'number' ? `${width}px` : width),
             height: isFullscreen ? '100%' : (typeof height === 'number' ? `${height}px` : (measuredDimensions ? `${measuredDimensions.height}px` : height)),
-            display: error ? 'none' : 'block'
+            display: error ? 'none' : 'block',
+            pointerEvents: isMobile && !isTouchEnabled ? 'none' : 'auto'
           }}
         />
       </div>
