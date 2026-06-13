@@ -179,9 +179,9 @@ function LibraryPage() {
             onClick={() => setShowMolecules(!showMolecules)}
           >
             <div className="flex items-center gap-4">
-              <h2 className="text-xl font-bold text-gray-800">Molecules</h2>
+              <h2 className="text-xl font-bold text-gray-800">{t.library.molecules}</h2>
               <span className="text-sm text-gray-500 font-normal">
-                ({filteredMolecules.length} {filteredMolecules.length !== 1 ? 'molecules' : 'molecule'})
+                ({filteredMolecules.length} {filteredMolecules.length !== 1 ? t.library.molecules_plural : t.library.molecule})
               </span>
             </div>
             <svg
@@ -253,9 +253,9 @@ function LibraryPage() {
                     d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                <h3 className="no-results-title mt-2 text-sm font-medium text-gray-900">No molecules found</h3>
+                <h3 className="no-results-title mt-2 text-sm font-medium text-gray-900">{t.library.noMoleculesFound}</h3>
                 <p className="no-results-message mt-1 text-sm text-gray-500">
-                  Try adjusting your search or filters
+                  {t.library.tryAdjustingMolecules}
                 </p>
               </div>
             )}
@@ -335,7 +335,7 @@ function LibraryPage() {
                     }}
                     className="clear-filters-button"
                   >
-                    Clear Filters
+                    {t.common.clearFilters}
                   </Button>
                 </div>
               </div>

@@ -2,8 +2,10 @@ import { useState, ChangeEvent } from 'react'
 import type { ContactForm } from '@/types'
 import { validateContactForm } from '@/features/contact/services/contactValidation'
 import { submitContactForm } from '@/features/contact/services/contactService'
+import { useLanguageStore } from '@/store/languageStore'
 
 export function useContactForm() {
+  const { t } = useLanguageStore()
   const [formData, setFormData] = useState<ContactForm>({
     name: '',
     email: '',
@@ -27,7 +29,7 @@ export function useContactForm() {
 
   const handleSubmit = async (): Promise<boolean> => {
     // Validate form
-    const validationErrors = validateContactForm(formData)
+    const validationErrors = validateContactForm(formData, t)
     
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors)

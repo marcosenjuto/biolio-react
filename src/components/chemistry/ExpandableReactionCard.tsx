@@ -2,6 +2,7 @@ import type { Reaction } from '@/types/chemistry'
 import Card from '@/components/ui/Card'
 import ReactionViewer from './ReactionViewer'
 import { useNavigate } from 'react-router-dom'
+import { useLanguageStore } from '@/store/languageStore'
 
 interface ExpandableReactionCardProps {
   reaction: Reaction
@@ -12,6 +13,7 @@ interface ExpandableReactionCardProps {
 
 function ExpandableReactionCard({ reaction, isExpanded, onToggle, viewerType = 'rdkit' }: ExpandableReactionCardProps) {
   const navigate = useNavigate()
+  const { t } = useLanguageStore()
 
   const handleNavigate = (e: React.MouseEvent) => {
     e.stopPropagation()
@@ -45,7 +47,7 @@ function ExpandableReactionCard({ reaction, isExpanded, onToggle, viewerType = '
           <button
             onClick={handleNavigate}
             className="text-gray-400 hover:text-primary-600 transition-colors p-1"
-            aria-label="View details"
+            aria-label={t.chemistry.viewDetails}
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -59,7 +61,7 @@ function ExpandableReactionCard({ reaction, isExpanded, onToggle, viewerType = '
                 onToggle()
               }}
               className="close-button text-gray-400 hover:text-gray-600 transition-colors"
-              aria-label="Close"
+              aria-label={t.chemistry.close}
             >
               <svg className="close-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
@@ -83,14 +85,14 @@ function ExpandableReactionCard({ reaction, isExpanded, onToggle, viewerType = '
         <div className="reaction-card-summary flex items-center gap-2 text-sm text-gray-700 mb-2 mx-2">
           <div className="summary-reactants">
             <span className="reactants-count font-medium">{reaction.reactants.length}</span>
-            <span className="reactants-label text-gray-500 ml-1">reactant{reaction.reactants.length !== 1 ? 's' : ''}</span>
+            <span className="reactants-label text-gray-500 ml-1">{reaction.reactants.length !== 1 ? t.chemistry.reactants : t.chemistry.reactant}</span>
           </div>
           <svg className="summary-arrow w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
           <div className="summary-products text-right">
             <span className="products-count font-medium">{reaction.products.length}</span>
-            <span className="products-label text-gray-500 ml-1">product{reaction.products.length !== 1 ? 's' : ''}</span>
+            <span className="products-label text-gray-500 ml-1">{reaction.products.length !== 1 ? t.chemistry.products : t.chemistry.product}</span>
           </div>
         </div>
       ) : (
@@ -112,7 +114,7 @@ function ExpandableReactionCard({ reaction, isExpanded, onToggle, viewerType = '
           ))}
           {reaction.tags.length > 4 && (
             <span className="reaction-tag-more inline-flex items-center px-2 py-0.5 rounded text-xs font-medium text-gray-500">
-              +{reaction.tags.length - 4} more
+              +{reaction.tags.length - 4} {t.chemistry.more}
             </span>
           )}
         </div>
@@ -122,7 +124,7 @@ function ExpandableReactionCard({ reaction, isExpanded, onToggle, viewerType = '
       {reaction.conditions && reaction.conditions.length > 0 && (
         <div className="reaction-card-conditions p-1 border-t border-gray-200">
           <p className="conditions-text text-xs text-gray-500">
-            <span className="conditions-label font-medium">Conditions:</span> {reaction.conditions.slice(0, 2).join(', ')}
+            <span className="conditions-label font-medium">{t.reaction.conditions}:</span> {reaction.conditions.slice(0, 2).join(', ')}
             {reaction.conditions.length > 2 && '...'}
           </p>
         </div>

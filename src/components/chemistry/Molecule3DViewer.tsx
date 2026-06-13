@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { FullscreenMoleculeViewer } from './FullscreenMoleculeViewer'
+import { useLanguageStore } from '@/store/languageStore'
 
 // 3Dmol.js and RDKit types
 declare global {
@@ -58,6 +59,7 @@ function Molecule3DViewer({
   const longPressTimerRef = useRef<NodeJS.Timeout | null>(null)
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' ? window.innerWidth < 768 : false)
   const [isTouchEnabled, setIsTouchEnabled] = useState(false)
+  const { t } = useLanguageStore()
 
   useEffect(() => {
     const checkMobile = () => {
@@ -423,7 +425,7 @@ function Molecule3DViewer({
       } catch (err) {
         console.error('[3DMol] Render error:', err)
         if (mounted) {
-          setError(err instanceof Error ? err.message : 'Failed to render 3D molecule')
+          setError(err instanceof Error ? err.message : t.chemistry.failedToRender)
           setIsLoading(false)
         }
       }
@@ -574,7 +576,7 @@ function Molecule3DViewer({
             <div className="text-gray-400 text-sm">
               <div className="flex flex-col items-center gap-2">
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-400"></div>
-                <div>Loading 3D structure...</div>
+                <div>{t.chemistry.loading}</div>
               </div>
             </div>
           </div>
@@ -582,7 +584,7 @@ function Molecule3DViewer({
         {error && (
           <div className="flex items-center justify-center bg-white z-10 w-full">
             <div className="text-red-500 text-xs p-2 text-center max-w-xs">
-              <div className="font-semibold mb-1">Unable to render 3D structure</div>
+              <div className="font-semibold mb-1">{t.chemistry.unableToRender}</div>
               <div className="text-xs">{error}</div>
               {smiles && (
                 <div className="text-xs opacity-75 font-mono break-all">{smiles}</div>
@@ -664,7 +666,7 @@ function Molecule3DViewer({
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
             </svg>
-            Fullscreen
+            {t.chemistry.fullscreen}
           </button>
           
           <button
@@ -674,7 +676,7 @@ function Molecule3DViewer({
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
             </svg>
-            {localShowLabels ? 'Hide' : 'Show'} Atom Labels
+            {localShowLabels ? t.chemistry.hide : t.chemistry.show} {t.chemistry.atomLabels}
           </button>
 
           {onNavigateToDetails && (
@@ -688,14 +690,14 @@ function Molecule3DViewer({
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              Molecule Details
+              {t.chemistry.moleculeDetails}
             </button>
           )}
 
           <div className="border-t border-gray-200 my-1"></div>
           
           <div className="px-4 py-2 text-xs text-gray-500">
-            Visualization Options
+            {t.chemistry.visualizationOptions}
           </div>
         </div>
         </>,

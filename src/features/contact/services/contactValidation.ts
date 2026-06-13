@@ -1,27 +1,25 @@
 import type { ContactForm } from '@/types'
+import type { Translations } from '@/types/language'
 
-export function validateContactForm(data: ContactForm): Partial<ContactForm> {
+export function validateContactForm(data: ContactForm, t: Translations): Partial<ContactForm> {
   const errors: Partial<ContactForm> = {}
 
-  // Validate name
   if (!data.name.trim()) {
-    errors.name = 'Name is required'
+    errors.name = t.validation.nameRequired
   } else if (data.name.trim().length < 2) {
-    errors.name = 'Name must be at least 2 characters'
+    errors.name = t.validation.nameMinLength
   }
 
-  // Validate email
   if (!data.email.trim()) {
-    errors.email = 'Email is required'
+    errors.email = t.validation.emailRequired
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-    errors.email = 'Please enter a valid email address'
+    errors.email = t.validation.emailInvalid
   }
 
-  // Validate message
   if (!data.message.trim()) {
-    errors.message = 'Message is required'
+    errors.message = t.validation.messageRequired
   } else if (data.message.trim().length < 10) {
-    errors.message = 'Message must be at least 10 characters'
+    errors.message = t.validation.messageMinLength
   }
 
   return errors

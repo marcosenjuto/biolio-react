@@ -1,4 +1,10 @@
 import { cn } from '@/utils/helpers'
+import { useLanguageStore } from '@/store/languageStore'
+
+const localeMap: Record<string, string> = {
+  en: 'en-US', es: 'es-ES', it: 'it-IT', de: 'de-DE',
+  pt: 'pt-BR', fr: 'fr-FR', zh: 'zh-CN', ar: 'ar-SA'
+}
 
 interface ChatTimestampProps {
   timestamp: Date
@@ -6,6 +12,9 @@ interface ChatTimestampProps {
 }
 
 export function ChatTimestamp({ timestamp, className }: ChatTimestampProps) {
+  const { t, language } = useLanguageStore()
+  const locale = localeMap[language] || 'en-US'
+
   const formatTime = (date: Date) => {
     const now = new Date()
     const yesterday = new Date(now)
@@ -19,17 +28,17 @@ export function ChatTimestamp({ timestamp, className }: ChatTimestampProps) {
                         date.getMonth() === yesterday.getMonth() && 
                         date.getFullYear() === yesterday.getFullYear()
 
-    const time = date.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit', hour12: false })
+    const time = date.toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit', hour12: false })
 
     if (isToday) {
-      return `Hoy ${time}`
+      return `${t.timestamps.today} ${time}`
     }
     
     if (isYesterday) {
-      return `Ayer ${time}`
+      return `${t.timestamps.yesterday} ${time}`
     }
 
-    return date.toLocaleString('es-ES', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).replace(',', '')
+    return date.toLocaleString(locale, { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).replace(',', '')
   }
 
   return (

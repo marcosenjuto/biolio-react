@@ -4,7 +4,9 @@ import ReactionViewer from '@/components/chemistry/ReactionViewer'
 import Article from '@/components/article/Article'
 import Button from '@/components/ui/Button'
 import PageHeader from '@/components/ui/PageHeader'
+import { useLanguageStore } from '@/store/languageStore'
 import type { Reaction } from '@/types/chemistry'
+import type { Translations } from '@/types/language'
 
 const listNames = (items: Reaction['reactants']) =>
   items
@@ -35,7 +37,7 @@ const listNames = (items: Reaction['reactants']) =>
     .filter(Boolean)
     .join(', ')
 
-const buildReactionMarkdown = (reaction: Reaction) => {
+const buildReactionMarkdown = (reaction: Reaction, t: Translations) => {
   // Helper to extract name from compound
   const getName = (compound: any): string => {
     if (!compound) return ''
@@ -58,19 +60,19 @@ const buildReactionMarkdown = (reaction: Reaction) => {
   }
 
   if (reaction.reactants.length) {
-    sections.push(`**Reactants:** ${listNames(reaction.reactants)}`)
+    sections.push(`**${t.reaction.reactants}** ${listNames(reaction.reactants)}`)
   }
 
   if (reaction.products.length) {
-    sections.push(`**Products:** ${listNames(reaction.products)}`)
+    sections.push(`**${t.reaction.products}** ${listNames(reaction.products)}`)
   }
 
   if (reaction.conditions?.length) {
-    sections.push(`**Conditions:** ${reaction.conditions.join(', ')}`)
+    sections.push(`**${t.reaction.conditions}** ${reaction.conditions.join(', ')}`)
   }
 
   if (reaction.temperature) {
-    sections.push(`**Temperature:** ${reaction.temperature}`)
+    sections.push(`**${t.reaction.temperature}** ${reaction.temperature}`)
   }
 
   if (reaction.solvents && reaction.solvents.length > 0) {
@@ -79,30 +81,30 @@ const buildReactionMarkdown = (reaction: Reaction) => {
       .filter(Boolean)
       .join(', ')
     if (solventNames) {
-      sections.push(`**Solvent:** ${solventNames}`)
+      sections.push(`**${t.reaction.solvent}** ${solventNames}`)
     }
   }
 
   if (typeof reaction.yield === 'number') {
-    sections.push(`**Yield:** ${reaction.yield}%`)
+    sections.push(`**${t.reaction.yield}** ${reaction.yield}%`)
   }
 
   if (reaction.smarts) {
-    sections.push(`**SMARTS:** 
+    sections.push(`**${t.reaction.smarts}** 
 ${reaction.smarts}`)
   }
 
   if (reaction.links_ref?.length || reaction.video_experiment) {
-    const refLines = reaction.links_ref?.map((link, index) => `- [Reference ${index + 1}](${link})`) || []
+    const refLines = reaction.links_ref?.map((link, index) => `- [${t.reaction.reference} ${index + 1}](${link})`) || []
     if (reaction.video_experiment) {
-      refLines.push(`- [Video Experiment](${reaction.video_experiment})`)
+      refLines.push(`- [${t.reaction.videoExperiment}](${reaction.video_experiment})`)
     }
-    sections.push(`**References:**
+    sections.push(`**${t.reaction.references}**
 ${refLines.join('\n')}`)
   }
 
   if (reaction.label) {
-    sections.push(`_Mechanistic label: ${reaction.label}_`)
+    sections.push(`_${t.reaction.mechanisticLabel} ${reaction.label}_`)
   }
 
   return sections.join('\n\n')
@@ -111,14 +113,15 @@ ${refLines.join('\n')}`)
 function ReactionPage() {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
+  const { t } = useLanguageStore()
   
   const reaction = reactionsDatabase.find(r => r.id === id)
 
   if (!reaction) {
     return (
       <div className="reaction-page-missing flex flex-col items-center justify-center min-h-screen bg-gray-50">
-        <h1 className="reaction-missing-title text-2xl font-bold text-gray-800 mb-4">Reaction not found</h1>
-        <Button onClick={() => navigate('/library')} className="reaction-missing-button">Back to Library</Button>
+        <h1 className="reaction-missing-title text-2xl font-bold text-gray-800 mb-4">{t.reaction.notFound}</h1>
+        <Button onClick={() => navigate('/library')} className="reaction-missing-button">{t.common.backToLibrary}</Button>
       </div>
     )
   }
@@ -168,7 +171,7 @@ function ReactionPage() {
         <div className="reaction-article-panel p-2 md:p-4">
           <Article
             role="static"
-            content={buildReactionMarkdown(reaction)}
+            content={buildReactionMarkdown(reaction, t)}
           />
         </div>
       </div>

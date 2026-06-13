@@ -275,7 +275,7 @@ function AIChatPage() {
         })
 
         if (!response.ok) {
-            throw new Error('Failed to respond to query')
+            throw new Error(t.chat.errorResponse)
         }
 
         const responseData = await response.json()
@@ -286,7 +286,7 @@ function AIChatPage() {
           const errorMessage: ChatMessage = {
             id: (Date.now() + 1).toString(),
             role: 'assistant',
-            content: 'Sorry, I encountered an error processing your selection.',
+            content: t.chat.errorSelection,
             timestamp: new Date(),
             actions: []
           }
@@ -327,7 +327,7 @@ function AIChatPage() {
       })
 
       if (!response.ok) {
-        throw new Error('Failed to get response from AI model')
+        throw new Error(t.chat.errorApi)
       }
 
       const data = await response.json()
@@ -485,7 +485,7 @@ function AIChatPage() {
                   disabled={isLoadingMore}
                   className="text-xs text-gray-400 hover:text-gray-600 transition-colors disabled:opacity-50"
                 >
-                  {isLoadingMore ? 'Loading earlier messages…' : 'Load earlier messages'}
+                  {isLoadingMore ? t.chat.loadingEarlier : t.chat.loadEarlier}
                 </button>
               </div>
             )}

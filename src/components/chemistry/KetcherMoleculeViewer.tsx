@@ -1,6 +1,7 @@
 import { useEffect, useState, lazy, Suspense, useMemo } from 'react'
 import type { Ketcher, StructServiceProvider } from 'ketcher-core'
 import RDKitMoleculeViewer from './RDKitMoleculeViewer'
+import { useLanguageStore } from '@/store/languageStore'
 
 /**
  * KetcherMoleculeViewer - Full Ketcher chemical editor component
@@ -50,6 +51,7 @@ function KetcherMoleculeViewer({
   const [structServiceProvider, setStructServiceProvider] = useState<StructServiceProvider | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(true)
+  const { t } = useLanguageStore()
 
   // Generate a unique ID for this Ketcher instance
   const instanceId = useMemo(() => {
@@ -138,7 +140,7 @@ function KetcherMoleculeViewer({
         className="flex items-center justify-center border border-gray-300 rounded-lg bg-gray-50"
         style={{ width: `${width}px`, height: `${height}px` }}
       >
-        <div className="text-gray-500 text-sm">Cargando editor Ketcher...</div>
+        <div className="text-gray-500 text-sm">{t.chemistry.loadingKetcher}</div>
       </div>
     )
   }
@@ -175,7 +177,7 @@ function KetcherMoleculeViewer({
       `}</style>
       <Suspense fallback={
         <div className="flex items-center justify-center h-full">
-          <div className="text-gray-500 text-sm">Cargando editor...</div>
+          <div className="text-gray-500 text-sm">{t.chemistry.loadingKetcher}</div>
         </div>
       }>
         <KetcherEditor

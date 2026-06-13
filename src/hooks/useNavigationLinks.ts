@@ -1,8 +1,12 @@
+import { useLanguageStore } from '@/store/languageStore'
+
 export function useNavigationLinks() {
+  const { t } = useLanguageStore()
+
   return [
-    { path: '/', label: 'Home' },
-    { path: '/profile', label: 'Profile' },
-    { path: '/library', label: 'Chemistry Library' },
-    { path: '/ai-chat', label: 'Biopilot' },
+    { path: '/', label: t.navigation.home },
+    { path: '/profile', label: t.navigation.profile },
+    { path: '/library', label: t.navigation.chemistry },
+    { path: '/ai-chat', label: t.navigation.biopilot },
   ]
 }

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { colors } from '@/utils/colors'
+import { useLanguageStore } from '@/store/languageStore'
 
 interface SimpleMoleculeViewerProps {
   smiles: string
@@ -15,6 +16,7 @@ interface SimpleMoleculeViewerProps {
 function SimpleMoleculeViewer({ smiles, width = 300, height = 200, className = '' }: SimpleMoleculeViewerProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [error, setError] = useState<string | null>(null)
+  const { t } = useLanguageStore()
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -60,11 +62,11 @@ function SimpleMoleculeViewer({ smiles, width = 300, height = 200, className = '
       // Draw label
       ctx.font = '10px sans-serif'
       ctx.fillStyle = colors.gray[400]
-      ctx.fillText('SMILES notation', width / 2, height - 10)
+      ctx.fillText(t.chemistry.smilesNotation, width / 2, height - 10)
       
       setError(null)
     } catch (err) {
-      setError('Failed to render')
+      setError(t.chemistry.failedToRender)
       console.error('Canvas error:', err)
     }
   }, [smiles, width, height])

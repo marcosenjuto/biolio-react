@@ -9,6 +9,7 @@ export interface Translations {
     search: string;
     viewProfile: string;
     learnMore: string;
+    backToLibrary: string;
   };
   navigation: {
     home: string;
@@ -38,6 +39,11 @@ export interface Translations {
     reactions_plural: string;
     noReactionsFound: string;
     tryAdjusting: string;
+    molecules: string;
+    molecule: string;
+    molecules_plural: string;
+    noMoleculesFound: string;
+    tryAdjustingMolecules: string;
   };
   profile: {
     emptyMessage: string;
@@ -53,6 +59,11 @@ export interface Translations {
     send: string;
     noResponse: string;
     mockResponse: string;
+    loadingEarlier: string;
+    loadEarlier: string;
+    errorResponse: string;
+    errorSelection: string;
+    errorApi: string;
   };
   filters: {
     searchPlaceholder: string;
@@ -119,5 +130,112 @@ export interface Translations {
     title: string;
     message: string;
     goHome: string;
+  };
+  molecule: {
+    notFound: string;
+    alsoKnownAs: string;
+    structure: string;
+    view2D: string;
+    view3D: string;
+    identifiers: string;
+    pubchemCid: string;
+    smiles: string;
+    inchi: string;
+    inchiKey: string;
+    molecularFormula: string;
+    physicalProperties: string;
+    molecularWeight: string;
+    exactMass: string;
+    monoisotopicMass: string;
+    type: string;
+    allNames: string;
+    functionalGroups: string;
+    additionalInfo: string;
+    lastUpdated: string;
+    externalResources: string;
+    viewOnPubChem: string;
+    searchOnChemSpider: string;
+  };
+  moleculeDemo: {
+    title: string;
+    selectMolecule: string;
+    customSmiles: string;
+    enterSmiles: string;
+    ketcher2DTitle: string;
+    ketcher2DDesc: string;
+    threeDmolTitle: string;
+    threeDmolDesc: string;
+    aboutViewers: string;
+    ketcherViewer: string;
+    ketcherFeatures: string[];
+    threeDmolViewer: string;
+    threeDmolFeatures: string[];
+  };
+  protein: {
+    title: string;
+    subtitle: string;
+    loadByPdbId: string;
+    enterPdbId: string;
+    load: string;
+    pdbHelper: string;
+    rcsbPdb: string;
+    uploadPdbFile: string;
+    uploadHelper: string;
+    popularProteins: string;
+  };
+  reaction: {
+    notFound: string;
+    reactants: string;
+    products: string;
+    conditions: string;
+    temperature: string;
+    solvent: string;
+    yield: string;
+    smarts: string;
+    references: string;
+    reference: string;
+    videoExperiment: string;
+    mechanisticLabel: string;
+  };
+  chemistry: {
+    viewDetails: string;
+    close: string;
+    reactant: string;
+    reactants: string;
+    product: string;
+    products: string;
+    more: string;
+    selected: string;
+    noFunctionalGroupsMatch: string;
+    like: string;
+    share: string;
+    exitFullscreen: string;
+    moleculeViewer: string;
+    loading: string;
+    failedToRender: string;
+    limitedSmiles: string;
+    unableToRender: string;
+    loadingKetcher: string;
+    select: string;
+    fullscreen: string;
+    hide: string;
+    show: string;
+    atomLabels: string;
+    moleculeDetails: string;
+    visualizationOptions: string;
+    smilesNotation: string;
+    limitedSmilesDesc: string;
+  };
+  validation: {
+    nameRequired: string;
+    nameMinLength: string;
+    emailRequired: string;
+    emailInvalid: string;
+    messageRequired: string;
+    messageMinLength: string;
+  };
+  timestamps: {
+    today: string;
+    yesterday: string;
   };
 }

@@ -1,6 +1,7 @@
 import RDKitMoleculeViewer from './RDKitMoleculeViewer'
 import Card from '@/components/ui/Card'
 import functionalGroupsData from '@/data/functional_groups_reference.json'
+import { useLanguageStore } from '@/store/languageStore'
 
 // Sintaxis CXSMILES para R-groups
 /*
@@ -58,6 +59,7 @@ export default function FunctionalGroupsList({
   selectedGroupId,
   searchTerm = ''
 }: FunctionalGroupsListProps) {
+  const { t } = useLanguageStore()
   const filteredGroups = rGroupStructures.filter(group => {
     if (!searchTerm) return true
     const term = searchTerm.toLowerCase()
@@ -71,7 +73,7 @@ export default function FunctionalGroupsList({
   if (filteredGroups.length === 0) {
     return (
       <div className={`text-center py-8 text-gray-500 ${className}`}>
-        No functional groups match your search.
+        {t.chemistry.noFunctionalGroupsMatch}
       </div>
     )
   }
@@ -92,7 +94,7 @@ export default function FunctionalGroupsList({
               <h3 className="text-lg font-semibold text-gray-900">{group.name}</h3>
               {selectedGroupId === group.id && (
                 <span className="bg-primary-100 text-primary-700 text-xs px-2 py-1 rounded-full font-medium">
-                  Selected
+                  {t.chemistry.selected}
                 </span>
               )}
             </div>

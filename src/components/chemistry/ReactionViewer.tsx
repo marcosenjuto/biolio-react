@@ -5,6 +5,7 @@ import UnifiedMoleculeViewer from './UnifiedMoleculeViewer'
 import Card from '@/components/ui/Card'
 import Combobox from '@/components/ui/Combobox'
 import ReactionDoubleArrow from '@/assets/icon/reaction-double-arow.svg'
+import { useLanguageStore } from '@/store/languageStore'
 
 interface ReactionViewerProps {
   reaction: Reaction
@@ -22,6 +23,7 @@ function ReactionViewer({
   onReactionChange
 }: ReactionViewerProps) {
   const reactantsRef = useRef<HTMLDivElement>(null)
+  const { t } = useLanguageStore()
 
   // Helper function to extract SMILES from compound (supports both old and new formats)
   const getSmiles = (compound: any): string => {
@@ -194,17 +196,17 @@ function ReactionViewer({
       {
         (reaction.temperature || (reaction.solvents && reaction.solvents.length > 0) || reaction.yield) && (
           <div className="reaction-conditions-section mt-2 sm:mt-3 pt-2 sm:pt-3 border-t border-gray-200">
-            <h4 className="conditions-section-title text-xs font-semibold text-gray-700 mb-1 sm:mb-2">Conditions</h4>
+            <h4 className="conditions-section-title text-xs font-semibold text-gray-700 mb-1 sm:mb-2">{t.reaction.conditions}</h4>
             <div className="conditions-grid grid grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-2 text-xs">
               {reaction.temperature && (
                 <div className="temperature-item truncate">
-                  <span className="temperature-label text-gray-600">Temp:</span>
+                  <span className="temperature-label text-gray-600">{t.reaction.temperature}:</span>
                   <span className="temperature-value ml-1 font-medium">{reaction.temperature}</span>
                 </div>
               )}
               {reaction.solvents && reaction.solvents.length > 0 && (
                 <div className="solvent-item truncate">
-                  <span className="solvent-label text-gray-600">Solvent:</span>
+                  <span className="solvent-label text-gray-600">{t.reaction.solvent}:</span>
                   <span className="solvent-value ml-1 font-medium">
                     {reaction.solvents.map(s => getName(s.compound)).filter(Boolean).join(', ')}
                   </span>
@@ -212,7 +214,7 @@ function ReactionViewer({
               )}
               {reaction.yield && (
                 <div className="yield-item truncate">
-                  <span className="yield-label text-gray-600">Yield:</span>
+                  <span className="yield-label text-gray-600">{t.reaction.yield}:</span>
                   <span className="yield-value ml-1 font-medium">{reaction.yield}%</span>
                 </div>
               )}
@@ -225,7 +227,7 @@ function ReactionViewer({
       {
         reaction.smarts && (
           <div className="smarts-section mt-2 sm:mt-3 pt-2 sm:pt-3 border-t border-gray-200">
-            <h4 className="smarts-title text-xs font-semibold text-gray-700 mb-1">SMARTS</h4>
+            <h4 className="smarts-title text-xs font-semibold text-gray-700 mb-1">{t.reaction.smarts}</h4>
             <code className="smarts-code block p-1 sm:p-2 bg-gray-100 rounded text-xs font-mono overflow-x-auto whitespace-nowrap">
               {reaction.smarts}
             </code>

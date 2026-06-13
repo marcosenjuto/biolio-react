@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useLanguageStore } from '@/store/languageStore'
 
 // Kekule.js types declaration
 declare global {
@@ -22,6 +23,7 @@ function MoleculeViewer({ smiles, width = 300, height = 200, className = '' }: M
   const viewerRef = useRef<any>(null)
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(true)
+  const { t } = useLanguageStore()
 
   useEffect(() => {
     let mounted = true
@@ -194,14 +196,14 @@ function MoleculeViewer({ smiles, width = 300, height = 200, className = '' }: M
       }}
     >
       {isLoading && (
-        <div className="kekule-loading text-gray-400 text-sm">Loading...</div>
+        <div className="kekule-loading text-gray-400 text-sm">{t.chemistry.loading}</div>
       )}
       {error && (
         <div className="kekule-error text-red-500 text-xs p-2 text-center">
           <div className="error-title font-semibold mb-1">
-            {error.includes('RDKit') ? 'Limited SMILES Support' : 'Unable to render'}
+            {error.includes('RDKit') ? t.chemistry.limitedSmiles : t.chemistry.unableToRender}
           </div>
-          <div className="error-message text-xs mb-1">{error}</div>
+          <div className="error-message text-xs mb-1">{error.includes('RDKit') ? t.chemistry.limitedSmilesDesc : error}</div>
           <div className="error-smiles text-xs opacity-75 font-mono break-all">{smiles}</div>
         </div>
       )}

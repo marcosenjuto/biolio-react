@@ -6,10 +6,12 @@ import UnifiedMoleculeViewer from '@/components/chemistry/UnifiedMoleculeViewer'
 import Card from '@/components/ui/Card'
 import Button from '@/components/ui/Button'
 import PageHeader from '@/components/ui/PageHeader'
+import { useLanguageStore } from '@/store/languageStore'
 
 function MoleculePage() {
     const { id } = useParams<{ id: string }>()
     const navigate = useNavigate()
+    const { t } = useLanguageStore()
     const [molecule, setMolecule] = useState<Molecule | null>(null)
     const [viewerMode, setViewerMode] = useState<'2d' | '3d'>('2d')
 
@@ -27,8 +29,8 @@ function MoleculePage() {
             <div className="molecule-page min-h-screen bg-gray-50 p-4">
                 <div className="max-w-4xl mx-auto">
                     <Card className="p-8 text-center">
-                        <h2 className="text-2xl font-bold text-gray-800 mb-4">Molecule not found</h2>
-                        <Button onClick={() => navigate('/library')}>Back to Library</Button>
+                        <h2 className="text-2xl font-bold text-gray-800 mb-4">{t.molecule.notFound}</h2>
+                        <Button onClick={() => navigate('/library')}>{t.common.backToLibrary}</Button>
                     </Card>
                 </div>
             </div>
@@ -59,7 +61,7 @@ function MoleculePage() {
             <div className="max-w-6xl mx-auto px-4">
                 {getAlternativeNames().length > 0 && (
                     <p className="text-center text-lg text-gray-600 mb-6">
-                        Also known as: {getAlternativeNames().slice(0, 3).join(', ')}
+                        {t.molecule.alsoKnownAs}: {getAlternativeNames().slice(0, 3).join(', ')}
                         {getAlternativeNames().length > 3 && '...'}
                     </p>
                 )}
@@ -68,19 +70,19 @@ function MoleculePage() {
                 <Card className="mb-6">
                     <div className="  ">
                         <div className="flex justify-between items-center mb-4">
-                            <h2 className="text-2xl font-semibold text-gray-800">Structure</h2>
+                            <h2 className="text-2xl font-semibold text-gray-800">{t.molecule.structure}</h2>
                             <div className="flex gap-2">
                                 <Button
                                     onClick={() => setViewerMode('2d')}
                                     className={`text-sm ${viewerMode === '2d' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}
                                 >
-                                    2D View
+                                    {t.molecule.view2D}
                                 </Button>
                                 <Button
                                     onClick={() => setViewerMode('3d')}
                                     className={`text-sm ${viewerMode === '3d' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}
                                 >
-                                    3D View
+                                    {t.molecule.view3D}
                                 </Button>
                             </div>
                         </div>
@@ -117,35 +119,35 @@ function MoleculePage() {
                     {/* Identifiers */}
                     <Card>
                         <div className="">
-                            <h3 className="text-xl font-semibold text-gray-800 mb-4">Identifiers</h3>
+                            <h3 className="text-xl font-semibold text-gray-800 mb-4">{t.molecule.identifiers}</h3>
                             <div className="space-y-3">
                                 {molecule.cid && (
                                     <div>
-                                        <span className="text-sm font-medium text-gray-600">PubChem CID:</span>
+                                        <span className="text-sm font-medium text-gray-600">{t.molecule.pubchemCid}:</span>
                                         <p className="text-gray-900 font-mono">{molecule.cid}</p>
                                     </div>
                                 )}
                                 {molecule.structure?.smiles && (
                                     <div>
-                                        <span className="text-sm font-medium text-gray-600">SMILES:</span>
+                                        <span className="text-sm font-medium text-gray-600">{t.molecule.smiles}:</span>
                                         <p className="text-gray-900 font-mono text-sm break-all">{molecule.structure.smiles}</p>
                                     </div>
                                 )}
                                 {molecule.structure?.inchi && (
                                     <div>
-                                        <span className="text-sm font-medium text-gray-600">InChI:</span>
+                                        <span className="text-sm font-medium text-gray-600">{t.molecule.inchi}:</span>
                                         <p className="text-gray-900 font-mono text-xs break-all">{molecule.structure.inchi}</p>
                                     </div>
                                 )}
                                 {molecule.structure?.inchikey && (
                                     <div>
-                                        <span className="text-sm font-medium text-gray-600">InChI Key:</span>
+                                        <span className="text-sm font-medium text-gray-600">{t.molecule.inchiKey}:</span>
                                         <p className="text-gray-900 font-mono text-sm">{molecule.structure.inchikey}</p>
                                     </div>
                                 )}
                                 {molecule.structure?.molecularFormula && (
                                     <div>
-                                        <span className="text-sm font-medium text-gray-600">Molecular Formula:</span>
+                                        <span className="text-sm font-medium text-gray-600">{t.molecule.molecularFormula}:</span>
                                         <p className="text-gray-900 font-mono">{molecule.structure.molecularFormula}</p>
                                     </div>
                                 )}
@@ -156,29 +158,29 @@ function MoleculePage() {
                     {/* Physical Properties */}
                     <Card>
                         <div className="">
-                            <h3 className="text-xl font-semibold text-gray-800 mb-4">Physical Properties</h3>
+                            <h3 className="text-xl font-semibold text-gray-800 mb-4">{t.molecule.physicalProperties}</h3>
                             <div className="space-y-3">
                                 {molecule.molecular?.weight && (
                                     <div>
-                                        <span className="text-sm font-medium text-gray-600">Molecular Weight:</span>
+                                        <span className="text-sm font-medium text-gray-600">{t.molecule.molecularWeight}:</span>
                                         <p className="text-gray-900">{molecule.molecular.weight.toFixed(3)} g/mol</p>
                                     </div>
                                 )}
                                 {molecule.molecular?.exactMass && (
                                     <div>
-                                        <span className="text-sm font-medium text-gray-600">Exact Mass:</span>
+                                        <span className="text-sm font-medium text-gray-600">{t.molecule.exactMass}:</span>
                                         <p className="text-gray-900">{molecule.molecular.exactMass.toFixed(3)} g/mol</p>
                                     </div>
                                 )}
                                 {molecule.molecular?.monoisotopicMass && (
                                     <div>
-                                        <span className="text-sm font-medium text-gray-600">Monoisotopic Mass:</span>
+                                        <span className="text-sm font-medium text-gray-600">{t.molecule.monoisotopicMass}:</span>
                                         <p className="text-gray-900">{molecule.molecular.monoisotopicMass.toFixed(3)} g/mol</p>
                                     </div>
                                 )}
                                 {molecule.type && (
                                     <div>
-                                        <span className="text-sm font-medium text-gray-600">Type:</span>
+                                        <span className="text-sm font-medium text-gray-600">{t.molecule.type}:</span>
                                         <p className="text-gray-900 capitalize">{molecule.type.replace('-', ' ')}</p>
                                     </div>
                                 )}
@@ -190,7 +192,7 @@ function MoleculePage() {
                     {molecule.names && molecule.names.length > 0 && (
                         <Card className="md:col-span-2">
                             <div className="">
-                                <h3 className="text-xl font-semibold text-gray-800 mb-4">All Names</h3>
+                                <h3 className="text-xl font-semibold text-gray-800 mb-4">{t.molecule.allNames}</h3>
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                                     {molecule.names.map((name, idx) => (
                                         <div key={idx} className="bg-gray-50 rounded">
@@ -207,7 +209,7 @@ function MoleculePage() {
                     {molecule.functionalGroups && molecule.functionalGroups.length > 0 && (
                         <Card className="md:col-span-2">
                             <div className="">
-                                <h3 className="text-xl font-semibold text-gray-800 mb-4">Functional Groups</h3>
+                                <h3 className="text-xl font-semibold text-gray-800 mb-4">{t.molecule.functionalGroups}</h3>
                                 <div className="flex flex-wrap gap-2">
                                     {molecule.functionalGroups.map((fg, idx) => (
                                         <span
@@ -226,9 +228,9 @@ function MoleculePage() {
                     {molecule.lastUpdated && (
                         <Card className="md:col-span-2">
                             <div className="">
-                                <h3 className="text-xl font-semibold text-gray-800 mb-4">Additional Information</h3>
+                                <h3 className="text-xl font-semibold text-gray-800 mb-4">{t.molecule.additionalInfo}</h3>
                                 <div>
-                                    <span className="text-sm font-medium text-gray-600">Last Updated:</span>
+                                    <span className="text-sm font-medium text-gray-600">{t.molecule.lastUpdated}:</span>
                                     <p className="text-gray-900">{new Date(molecule.lastUpdated).toLocaleDateString('en-US', {
                                         year: 'numeric',
                                         month: 'long',
@@ -246,7 +248,7 @@ function MoleculePage() {
                 {molecule.cid && (
                     <Card className="mt-6">
                         <div className="">
-                            <h3 className="text-xl font-semibold text-gray-800 mb-4">External Resources</h3>
+                            <h3 className="text-xl font-semibold text-gray-800 mb-4">{t.molecule.externalResources}</h3>
                             <div className="flex flex-wrap gap-3">
                                 <a
                                     href={`https://pubchem.ncbi.nlm.nih.gov/compound/${molecule.cid}`}
@@ -254,7 +256,7 @@ function MoleculePage() {
                                     rel="noopener noreferrer"
                                     className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
                                 >
-                                    View on PubChem
+                                    {t.molecule.viewOnPubChem}
                                 </a>
                                 <a
                                     href={`https://www.chemspider.com/Search.aspx?q=${encodeURIComponent(molecule.structure?.inchikey || '')}`}
@@ -262,7 +264,7 @@ function MoleculePage() {
                                     rel="noopener noreferrer"
                                     className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors"
                                 >
-                                    Search on ChemSpider
+                                    {t.molecule.searchOnChemSpider}
                                 </a>
                             </div>
                         </div>

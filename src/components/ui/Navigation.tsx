@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguageStore } from '@/store/languageStore'
+import { LanguageSelector } from '@/components/ui/LanguageSelector'
 
 function Navigation() {
   const location = useLocation()
@@ -109,6 +110,11 @@ function Navigation() {
               </Link>
             )
           })}
+        </div>
+
+        {/* Language Selector */}
+        <div className="mt-auto pb-4">
+          <LanguageSelector compact />
         </div>
       </nav>
 

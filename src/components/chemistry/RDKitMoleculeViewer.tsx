@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
+import { useLanguageStore } from '@/store/languageStore'
 
 // RDKit types declaration
 declare global {
@@ -35,6 +36,7 @@ function RDKitMoleculeViewer({
   const [measuredDimensions, setMeasuredDimensions] = useState<{ width: number; height: number } | null>(null)
   const hasPresetSize = typeof width === 'number' || typeof height === 'number'
   const [hasStableMeasurements, setHasStableMeasurements] = useState<boolean>(hasPresetSize)
+  const { t } = useLanguageStore()
 
   // Default dimensions if nothing else is available
   const DEFAULT_WIDTH = 300
@@ -335,11 +337,11 @@ function RDKitMoleculeViewer({
       }}
     >
       {isLoading && (
-        <div className="rdkit-loading text-gray-400 text-sm absolute">Loading...</div>
+        <div className="rdkit-loading text-gray-400 text-sm absolute">{t.chemistry.loading}</div>
       )}
       {error && (
         <div className="rdkit-error text-red-500 text-xs p-2 text-center absolute">
-          <div className="error-title font-semibold mb-1">Unable to render</div>
+          <div className="error-title font-semibold mb-1">{t.chemistry.unableToRender}</div>
           <div className="error-smiles text-xs opacity-75 font-mono">{smiles}</div>
         </div>
       )}
